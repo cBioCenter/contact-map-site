@@ -18,8 +18,8 @@
     "coverageDirectory": "dist/test-results/jest/coverage",
     "coverageThreshold": {
       "global": {
-        "functions": 75,
-        "lines": 75
+        "functions": 50,
+        "lines": 35
       }
     },
     "globals": {
@@ -44,6 +44,7 @@
       "~contact-map-site~/test": "<rootDir>/test",
       "~contact-map-site~/(.*)": "<rootDir>/src/$1",
       "\\.(css|less)$": "<rootDir>/test/__mocks__/styleMock.ts",
+      "plotly.js/lib/index-gl2d": "<rootDir>/test/__mocks__/plotly.ts",
       "@tensorflow/tfjs-core": "<rootDir>/test/__mocks__/@tensorflow/tfjs-core-mock.ts",
       "@tensorflow/tfjs-tsne": "<rootDir>/test/__mocks__/@tensorflow/tfjs-tsne-mock.ts"
     },
@@ -140,6 +141,7 @@
     "d3": "^5.9.2",
     "history": "^4.7.2",
     "immutable": "^4.0.0-rc.12",
+    "ngl": "^0.10.4",
     "plotly.js": "^1.45.3",
     "prop-types": "^15.7.2",
     "react": "^16.5.2",
@@ -151,7 +153,8 @@
     "redux": "^4.0.1",
     "redux-logger": "^3.0.6",
     "redux-thunk": "^2.3.0",
-    "semantic-ui-react": "^0.85.0"
+    "semantic-ui-react": "^0.85.0",
+    "three": "^0.103.0"
   },
   "devDependencies": {
     "@types/copy-webpack-plugin": "^4.4.1",

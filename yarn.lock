@@ -9050,6 +9050,11 @@ nextafter@^1.0.0:
   dependencies:
     double-bits "^1.1.0"
 
+ngl@^0.10.4:
+  version "0.10.4"
+  resolved "https://registry.yarnpkg.com/ngl/-/ngl-0.10.4.tgz#118562f3344b8dbbd730411e82d4b5cc2229a8e8"
+  integrity sha1-EYVi8zRLjbvXMEEegtS1zCIpqOg=
+
 ngl@^2.0.0-dev.33:
   version "2.0.0-dev0.0"
   resolved "https://registry.yarnpkg.com/ngl/-/ngl-2.0.0-dev0.0.tgz#c2bc22570cf416504cfda3e008e37d32f75e0f58"
@@ -12735,6 +12740,11 @@ text-cache@^4.2.1:
   integrity sha512-G52NFRYXEW9BL4E3kBPquefXql9OT3sNT4J16gcpl3/a8y/YioDOR2Iwga5rNs9tY7rH2xv6rF8fAYrbINn6Kg==
   dependencies:
     vectorize-text "^3.2.1"
+
+three@^0.103.0:
+  version "0.103.0"
+  resolved "https://registry.yarnpkg.com/three/-/three-0.103.0.tgz#63b3dbccc861caad93269618061a73dadebae71b"
+  integrity sha512-4WKRHTMt96sp+lX+Hx/eHtN9CWFyejDqr1ikgxZUJIkKEHVglSE7FY8n81NC6yWXqVSjUIQQppaxsoUe26Zi9g==
 
 throat@^4.0.0:
   version "4.1.0"
