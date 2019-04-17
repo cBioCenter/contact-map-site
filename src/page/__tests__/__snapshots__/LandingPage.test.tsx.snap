@@ -1,0 +1,227 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LandingPage Should match existing snapshot when no props are provided. 1`] = `
+<div
+  id="BioblocksVizApp"
+  style={
+    Object {
+      "backgroundColor": "#ffffff",
+      "height": "1000px",
+    }
+  }
+>
+  <div>
+    <Header
+      as="h1"
+      attached="top"
+    >
+      ContactMap.org: 2D and 3D Visualization
+    </Header>
+    <Message>
+      To get started, please upload either a PDB (.pdb) or EVCouplings score (.csv) file!
+       
+      <br />
+       Check out the
+      <a
+        href="http://evfold.org"
+      >
+         EVFold
+      </a>
+      , 
+      <a
+        href="http://sanderlab.org/contact-maps/"
+      >
+        Sander Lab
+      </a>
+      , or
+      <a
+        href="https://evcouplings.org/"
+      >
+         EVCouplings 
+      </a>
+       website to get these files.
+    </Message>
+    <Segment
+      attached={true}
+      raised={true}
+    >
+      <Grid
+        centered={true}
+        padded={true}
+        relaxed={true}
+      >
+        <GridRow
+          columns={4}
+          textAlign="center"
+          verticalAlign="bottom"
+        >
+          <GridColumn>
+            <GridRow>
+              <GridColumn>
+                <Label
+                  as="label"
+                  basic={true}
+                  htmlFor="coupling-score"
+                >
+                  <Button
+                    as="button"
+                    disabled={false}
+                    icon="upload"
+                    label={
+                      Object {
+                        "basic": true,
+                        "content": "Coupling Scores",
+                      }
+                    }
+                    labelPosition="right"
+                  />
+                  <input
+                    accept=".csv"
+                    disabled={false}
+                    hidden={true}
+                    id="coupling-score"
+                    multiple={false}
+                    onChange={[Function]}
+                    required={true}
+                    type="file"
+                  />
+                </Label>
+              </GridColumn>
+            </GridRow>
+          </GridColumn>
+          <GridColumn>
+            <GridRow>
+              <GridColumn>
+                <Label
+                  as="label"
+                  basic={true}
+                  htmlFor="pdb"
+                >
+                  <Button
+                    as="button"
+                    disabled={false}
+                    icon="upload"
+                    label={
+                      Object {
+                        "basic": true,
+                        "content": "PDB",
+                      }
+                    }
+                    labelPosition="right"
+                  />
+                  <input
+                    accept=".pdb"
+                    disabled={false}
+                    hidden={true}
+                    id="pdb"
+                    multiple={false}
+                    onChange={[Function]}
+                    required={true}
+                    type="file"
+                  />
+                </Label>
+              </GridColumn>
+            </GridRow>
+          </GridColumn>
+          <GridColumn>
+            <GridRow
+              centered={true}
+              columns={1}
+              verticalAlign="middle"
+            >
+              <GridColumn>
+                <Label
+                  as="label"
+                  basic={true}
+                  htmlFor="clear-data"
+                >
+                  <Button
+                    as="button"
+                    icon="trash"
+                    label={
+                      Object {
+                        "basic": true,
+                        "content": "Clean View",
+                      }
+                    }
+                    labelPosition="right"
+                    onClick={[Function]}
+                  />
+                </Label>
+              </GridColumn>
+            </GridRow>
+          </GridColumn>
+        </GridRow>
+        <GridRow>
+          <br />
+        </GridRow>
+        <GridRow
+          columns={2}
+        >
+          <GridColumn
+            width={7}
+          >
+            <Connect(ContactMapClass)
+              data={
+                Object {
+                  "couplingScores": CouplingContainer {
+                    "colCounter": 0,
+                    "contacts": Array [],
+                    "getCouplingScore": [Function],
+                    "includes": [Function],
+                    "indexRange": Object {
+                      "max": 50,
+                      "min": 1,
+                    },
+                    "rowCounter": 0,
+                    "totalStoredContacts": 0,
+                  },
+                  "pdbData": Object {
+                    "known": undefined,
+                  },
+                  "secondaryStructures": Array [],
+                }
+              }
+              height="550px"
+              isDataLoading={false}
+              style={
+                Object {
+                  "backgroundColor": "#ffffff",
+                }
+              }
+              width="550px"
+            />
+          </GridColumn>
+          <GridColumn
+            width={7}
+          >
+            <Connect(NGLContainerClass)
+              isDataLoading={false}
+              measuredProximity="CLOSEST"
+              onMeasuredProximityChange={[Function]}
+            />
+          </GridColumn>
+        </GridRow>
+      </Grid>
+    </Segment>
+    <footer
+      style={
+        Object {
+          "padding": "25vh 0 25px 25px",
+        }
+      }
+    >
+      Powered by 
+      <a
+        href="https://github.com/cBioCenter/bioblocks-viz"
+      >
+        Bioblocks
+      </a>
+      !
+    </footer>
+  </div>
+  <ProteinFeatureViewer
+    initialProteinId="Q9NYJ7"
+  />
+</div>
+`;

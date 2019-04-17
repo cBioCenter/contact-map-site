@@ -1,0 +1,13 @@
+{
+  "extends": "../tsconfig.json",
+  "compilerOptions": {
+    "declaration": true,
+    "outDir": "../lib",
+    "pretty": true,
+    "sourceMap": false,
+    "target": "es5"
+  },
+  "files": ["../index.tsx"],
+  "include": ["../src/**/*", "../types"],
+  "exclude": ["../node_modules", "../**/__tests__/**", "../**/__mocks__/**", "../configs"]
+}
