@@ -12,7 +12,7 @@
     "noUnusedParameters": false,
     "outDir": "./dist/",
     "paths": {
-      "*": ["types/*"],
+      "plotly.js/*": ["node_modules/@types/plotly.js"],
       "~contact-map-site~": ["./src"],
       "~contact-map-site~/test": ["./test"],
       "~contact-map-site~/*": ["./src/*"],

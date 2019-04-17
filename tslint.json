@@ -1,5 +1,8 @@
 {
   "defaultSeverity": "error",
+  "linterOptions": {
+    "exclude": ["types/ngl"]
+  },
   "extends": [
     "tslint-config-prettier",
     "tslint-eslint-rules",

@@ -18,7 +18,7 @@ export interface IMockPlotlyCanvas {
       | Partial<plotly.PlotScatterDataPoint>
       | Partial<plotly.PlotSelectionEvent>
       | Partial<plotly.SelectionRange>
-      | RecursivePartial<plotly.PlotMouseEvent>,
+      | Partial<plotly.PlotMouseEvent>,
   ): boolean;
 }
 
