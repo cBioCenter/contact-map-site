@@ -124,7 +124,7 @@
     "fix-alias": "tscpaths -p tsconfig.json -s ./ -o ./lib",
     "lint": "yarn npm-run-all lint:*",
     "lint:src": "tslint --project tsconfig.json",
-    "lint:markdown": "markdownlint ./ -c ./markdownlint.json -i dist -i node_modules -i SPRING_dev",
+    "lint:markdown": "markdownlint ./ -c ./markdownlint.json -i dist -i node_modules",
     "prepublish": "rm -rf lib && tsc -p configs/tsconfig.publish.json && yarn fix-alias >/dev/null 2>&1",
     "start": "webpack-dev-server --open --mode development --config ./configs/webpack.dev.ts",
     "start:hot": "webpack-dev-server --hot-only --open --mode development --config ./configs/webpack.dev.ts",

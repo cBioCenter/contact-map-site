@@ -135,13 +135,6 @@ module.exports = {
         toType: 'dir',
       },
     ]),
-    new CopyWebpackPlugin([
-      {
-        from: './SPRING_dev',
-        to: './',
-        toType: 'dir',
-      },
-    ]),
     new MiniCssExtractPlugin(),
     new webpack.NamedModulesPlugin(),
   ],

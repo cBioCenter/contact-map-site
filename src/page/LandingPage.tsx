@@ -19,7 +19,6 @@ import {
   NGL_DATA_TYPE,
   NGLContainer,
   PredictedContactMap,
-  ProteinFeatureViewer,
   readFileAsText,
   VIZ_TYPE,
 } from 'bioblocks-viz';
@@ -136,7 +135,6 @@ export class LandingPageClass extends React.Component<ILandingPageProps, ILandin
     return (
       <div id="BioblocksVizApp" style={{ ...style, height: '1000px' }}>
         {this.renderCouplingComponents()}
-        <ProteinFeatureViewer />
       </div>
     );
   }
