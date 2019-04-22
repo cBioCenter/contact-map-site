@@ -23,6 +23,8 @@ import {
   VIZ_TYPE,
 } from 'bioblocks-viz';
 
+import { FolderUploadComponent } from '~contact-map-site~/component';
+
 export interface ILandingPageProps {
   style: Exclude<React.CSSProperties, 'height' | 'width'>;
   clearAllResidues(): void;
@@ -153,6 +155,9 @@ export class LandingPageClass extends React.Component<ILandingPageProps, ILandin
 
       <Segment attached={true} raised={true}>
         <Grid centered={true} padded={true} relaxed={true}>
+          <Grid.Row>
+            <FolderUploadComponent />
+          </Grid.Row>
           {this.renderUploadButtonsRow(isResidueMappingNeeded)}
           <Grid.Row>
             <br />

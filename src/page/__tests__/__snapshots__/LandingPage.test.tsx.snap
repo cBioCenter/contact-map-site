@@ -84,6 +84,59 @@ exports[`LandingPage Should match existing snapshot when hooked up to a Redux st
               <div
                 className="ui centered padded relaxed grid"
               >
+                <GridRow>
+                  <div
+                    className="row"
+                  >
+                    <FolderUploadComponent
+                      style={
+                        Object {
+                          "border": "3px dashed black",
+                        }
+                      }
+                    >
+                      <Dropzone
+                        onDrop={[Function]}
+                      >
+                        <section>
+                          <div
+                            onBlur={[Function]}
+                            onClick={[Function]}
+                            onDragEnter={[Function]}
+                            onDragLeave={[Function]}
+                            onDragOver={[Function]}
+                            onDrop={[Function]}
+                            onFocus={[Function]}
+                            onKeyDown={[Function]}
+                            style={
+                              Object {
+                                "border": "3px dashed black",
+                              }
+                            }
+                            tabIndex={0}
+                          >
+                            <input
+                              autoComplete="off"
+                              multiple={true}
+                              onChange={[Function]}
+                              onClick={[Function]}
+                              style={
+                                Object {
+                                  "display": "none",
+                                }
+                              }
+                              tabIndex={-1}
+                              type="file"
+                            />
+                            <p>
+                              Drag 'n' drop some files here, or click to select files
+                            </p>
+                          </div>
+                        </section>
+                      </Dropzone>
+                    </FolderUploadComponent>
+                  </div>
+                </GridRow>
                 <GridRow
                   columns={4}
                   textAlign="center"
@@ -1297,6 +1350,15 @@ exports[`LandingPage Should match existing snapshot when no props are provided. 
         padded={true}
         relaxed={true}
       >
+        <GridRow>
+          <FolderUploadComponent
+            style={
+              Object {
+                "border": "3px dashed black",
+              }
+            }
+          />
+        </GridRow>
         <GridRow
           columns={4}
           textAlign="center"
