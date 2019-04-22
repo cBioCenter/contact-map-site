@@ -137,7 +137,7 @@
   "dependencies": {
     "bioblocks-viz": "^0.0.103",
     "canvas": "^2.4.1",
-    "connected-react-router": "^6.3.1",
+    "connected-react-router": "^6.4.0",
     "d3": "^5.9.2",
     "history": "^4.7.2",
     "immutable": "^4.0.0-rc.12",

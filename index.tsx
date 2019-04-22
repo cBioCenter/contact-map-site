@@ -1,13 +1,14 @@
-import { Store } from 'bioblocks-viz';
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 
-import { LandingPage } from '~contact-map-site~';
+import { configureStore, ContactMapSitePage } from '~contact-map-site~';
+
+const Store = configureStore();
 
 ReactDOM.render(
   <Provider store={Store}>
-    <LandingPage />
+    <ContactMapSitePage />
   </Provider>,
   document.getElementById('contact-map-root'),
 );
