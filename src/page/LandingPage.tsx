@@ -19,6 +19,7 @@ import {
 } from 'bioblocks-viz';
 import * as React from 'react';
 import { connect } from 'react-redux';
+import { bindActionCreators, Dispatch } from 'redux';
 import { Accordion, Button, Grid, GridColumn, GridRow, Label, Message, Segment } from 'semantic-ui-react';
 
 import { FolderUploadComponent } from '~contact-map-site~/component';
@@ -341,23 +342,14 @@ export class LandingPageClass extends React.Component<ILandingPageProps, ILandin
       />
     );
 
-  protected renderNGLCard = (measuredProximity: CONTACT_DISTANCE_PROXIMITY, pdbData?: BioblocksPDB) => {
-    console.log(pdbData);
-    if (pdbData) {
-      console.log(pdbData.contactInformation);
-    } else {
-      console.log('boo');
-    }
-
-    return (
-      <NGLContainer
-        data={pdbData}
-        isDataLoading={this.state.isLoading}
-        measuredProximity={measuredProximity}
-        onMeasuredProximityChange={this.onMeasuredProximityChange()}
-      />
-    );
-  };
+  protected renderNGLCard = (measuredProximity: CONTACT_DISTANCE_PROXIMITY, pdbData?: BioblocksPDB) => (
+    <NGLContainer
+      data={pdbData}
+      isDataLoading={this.state.isLoading}
+      measuredProximity={measuredProximity}
+      onMeasuredProximityChange={this.onMeasuredProximityChange()}
+    />
+  );
 
   protected renderUploadButtonsRow = (isResidueMappingNeeded: boolean) => (
     <GridRow columns={4} textAlign={'center'} verticalAlign={'bottom'}>
@@ -393,6 +385,7 @@ export class LandingPageClass extends React.Component<ILandingPageProps, ILandin
   };
 
   protected onFolderUpload = async (files: File[]) => {
+    await this.onClearAll()();
     const { measuredProximity } = this.state;
     this.setState({
       isLoading: true,
@@ -420,11 +413,9 @@ export class LandingPageClass extends React.Component<ILandingPageProps, ILandin
         ) {
           residueMapping = generateResidueMapping(parsedFile);
           filenames.residue_mapper = file.name;
-          console.log('Loading residue map');
         } else if (file.name.endsWith('.csv')) {
           couplingScoresCSV = parsedFile;
           filenames.couplings = file.name;
-          console.log('Loading coupling scores');
         }
       }
     }
@@ -434,7 +425,6 @@ export class LandingPageClass extends React.Component<ILandingPageProps, ILandin
     const mismatches = pdbData.getResidueNumberingMismatches(couplingScores);
     const isResidueMappingNeeded = mismatches.length > 0;
 
-    console.log(pdbData);
     this.setState({
       [VIZ_TYPE.CONTACT_MAP]: {
         couplingScores,
@@ -457,16 +447,23 @@ export class LandingPageClass extends React.Component<ILandingPageProps, ILandin
   };
 }
 
-const mapStateToProps = (state: { [key: string]: any }) => ({
-  clearAllResidues: () => {
-    createResiduePairActions().candidates.clear();
-    createResiduePairActions().hovered.clear();
-    createResiduePairActions().locked.clear();
-  },
-  clearAllSecondaryStructures: () => {
-    createContainerActions('secondaryStructure/hovered').clear();
-    createContainerActions('secondaryStructure/selected').clear();
-  },
-});
+const mapDispatchToProps = (dispatch: Dispatch) =>
+  bindActionCreators(
+    {
+      clearAllResidues: () => ({
+        ...createResiduePairActions().candidates.clear(),
+        ...createResiduePairActions().hovered.clear(),
+        ...createResiduePairActions().locked.clear(),
+      }),
+      clearAllSecondaryStructures: () => ({
+        ...createContainerActions('secondaryStructure/hovered').clear(),
+        ...createContainerActions('secondaryStructure/selected').clear(),
+      }),
+    },
+    dispatch,
+  );
 
-export const LandingPage = connect(mapStateToProps)(LandingPageClass);
+export const LandingPage = connect(
+  null,
+  mapDispatchToProps,
+)(LandingPageClass);
