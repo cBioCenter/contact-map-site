@@ -1,9 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`FolderUploadComponent Should match existing snapshot when no props are provided. 1`] = `
-<Dropzone
-  onDrop={[Function]}
->
+<Dropzone>
   <Component />
 </Dropzone>
 `;

@@ -74,59 +74,6 @@ exports[`LandingPage Should match existing snapshot when hooked up to a Redux st
               <div
                 className="ui centered padded relaxed grid"
               >
-                <GridRow>
-                  <div
-                    className="row"
-                  >
-                    <FolderUploadComponent
-                      style={
-                        Object {
-                          "border": "3px dashed black",
-                        }
-                      }
-                    >
-                      <Dropzone
-                        onDrop={[Function]}
-                      >
-                        <section>
-                          <div
-                            onBlur={[Function]}
-                            onClick={[Function]}
-                            onDragEnter={[Function]}
-                            onDragLeave={[Function]}
-                            onDragOver={[Function]}
-                            onDrop={[Function]}
-                            onFocus={[Function]}
-                            onKeyDown={[Function]}
-                            style={
-                              Object {
-                                "border": "3px dashed black",
-                              }
-                            }
-                            tabIndex={0}
-                          >
-                            <input
-                              autoComplete="off"
-                              multiple={true}
-                              onChange={[Function]}
-                              onClick={[Function]}
-                              style={
-                                Object {
-                                  "display": "none",
-                                }
-                              }
-                              tabIndex={-1}
-                              type="file"
-                            />
-                            <p>
-                              Drag 'n' drop some files here, or click to select files
-                            </p>
-                          </div>
-                        </section>
-                      </Dropzone>
-                    </FolderUploadComponent>
-                  </div>
-                </GridRow>
                 <GridRow
                   columns={4}
                   textAlign="center"
@@ -143,168 +90,54 @@ exports[`LandingPage Should match existing snapshot when hooked up to a Redux st
                           <div
                             className="row"
                           >
-                            <GridColumn>
-                              <div
-                                className="column"
+                            <FolderUploadComponent
+                              onDrop={[Function]}
+                              style={
+                                Object {
+                                  "border": "3px dashed black",
+                                }
+                              }
+                            >
+                              <Dropzone
+                                onDrop={[Function]}
                               >
-                                <Label
-                                  as="label"
-                                  basic={true}
-                                  htmlFor="coupling-score"
-                                >
-                                  <label
-                                    className="ui basic label"
-                                    htmlFor="coupling-score"
+                                <section>
+                                  <div
+                                    onBlur={[Function]}
                                     onClick={[Function]}
+                                    onDragEnter={[Function]}
+                                    onDragLeave={[Function]}
+                                    onDragOver={[Function]}
+                                    onDrop={[Function]}
+                                    onFocus={[Function]}
+                                    onKeyDown={[Function]}
+                                    style={
+                                      Object {
+                                        "border": "3px dashed black",
+                                      }
+                                    }
+                                    tabIndex={0}
                                   >
-                                    <Button
-                                      as="button"
-                                      disabled={false}
-                                      icon="upload"
-                                      label={
+                                    <input
+                                      autoComplete="off"
+                                      multiple={true}
+                                      onChange={[Function]}
+                                      onClick={[Function]}
+                                      style={
                                         Object {
-                                          "basic": true,
-                                          "content": "Coupling Scores",
+                                          "display": "none",
                                         }
                                       }
-                                      labelPosition="right"
-                                    >
-                                      <div
-                                        className="ui right labeled button"
-                                        onClick={[Function]}
-                                      >
-                                        <button
-                                          className="ui icon button"
-                                          disabled={false}
-                                          tabIndex={0}
-                                        >
-                                          <Icon
-                                            as="i"
-                                            name="upload"
-                                          >
-                                            <i
-                                              aria-hidden="true"
-                                              className="upload icon"
-                                              onClick={[Function]}
-                                            />
-                                          </Icon>
-                                           
-                                        </button>
-                                        <Label
-                                          basic={true}
-                                          content="Coupling Scores"
-                                          pointing="left"
-                                        >
-                                          <div
-                                            className="ui left pointing basic label"
-                                            onClick={[Function]}
-                                          >
-                                            Coupling Scores
-                                          </div>
-                                        </Label>
-                                      </div>
-                                    </Button>
-                                    <input
-                                      accept=".csv"
-                                      disabled={false}
-                                      hidden={true}
-                                      id="coupling-score"
-                                      multiple={false}
-                                      onChange={[Function]}
-                                      required={true}
+                                      tabIndex={-1}
                                       type="file"
                                     />
-                                  </label>
-                                </Label>
-                              </div>
-                            </GridColumn>
-                          </div>
-                        </GridRow>
-                      </div>
-                    </GridColumn>
-                    <GridColumn>
-                      <div
-                        className="column"
-                      >
-                        <GridRow>
-                          <div
-                            className="row"
-                          >
-                            <GridColumn>
-                              <div
-                                className="column"
-                              >
-                                <Label
-                                  as="label"
-                                  basic={true}
-                                  htmlFor="pdb"
-                                >
-                                  <label
-                                    className="ui basic label"
-                                    htmlFor="pdb"
-                                    onClick={[Function]}
-                                  >
-                                    <Button
-                                      as="button"
-                                      disabled={false}
-                                      icon="upload"
-                                      label={
-                                        Object {
-                                          "basic": true,
-                                          "content": "PDB",
-                                        }
-                                      }
-                                      labelPosition="right"
-                                    >
-                                      <div
-                                        className="ui right labeled button"
-                                        onClick={[Function]}
-                                      >
-                                        <button
-                                          className="ui icon button"
-                                          disabled={false}
-                                          tabIndex={0}
-                                        >
-                                          <Icon
-                                            as="i"
-                                            name="upload"
-                                          >
-                                            <i
-                                              aria-hidden="true"
-                                              className="upload icon"
-                                              onClick={[Function]}
-                                            />
-                                          </Icon>
-                                           
-                                        </button>
-                                        <Label
-                                          basic={true}
-                                          content="PDB"
-                                          pointing="left"
-                                        >
-                                          <div
-                                            className="ui left pointing basic label"
-                                            onClick={[Function]}
-                                          >
-                                            PDB
-                                          </div>
-                                        </Label>
-                                      </div>
-                                    </Button>
-                                    <input
-                                      accept=".pdb"
-                                      disabled={false}
-                                      hidden={true}
-                                      id="pdb"
-                                      multiple={false}
-                                      onChange={[Function]}
-                                      required={true}
-                                      type="file"
-                                    />
-                                  </label>
-                                </Label>
-                              </div>
-                            </GridColumn>
+                                    <p>
+                                      Drag 'n' drop some files here, or click to select files
+                                    </p>
+                                  </div>
+                                </section>
+                              </Dropzone>
+                            </FolderUploadComponent>
                           </div>
                         </GridRow>
                       </div>
@@ -431,14 +264,14 @@ exports[`LandingPage Should match existing snapshot when hooked up to a Redux st
                               "secondaryStructures": Array [],
                             }
                           }
-                          height="550px"
+                          height="500px"
                           isDataLoading={false}
                           style={
                             Object {
                               "backgroundColor": "#ffffff",
                             }
                           }
-                          width="550px"
+                          width="500px"
                         >
                           <ContactMapClass
                             addHoveredResidues={[Function]}
@@ -468,7 +301,7 @@ exports[`LandingPage Should match existing snapshot when hooked up to a Redux st
                             }
                             enableSliders={true}
                             formattedPoints={Array []}
-                            height="550px"
+                            height="500px"
                             highlightColor="#ff8800"
                             hoveredResidues={Array []}
                             hoveredSecondaryStructures={Array []}
@@ -487,7 +320,7 @@ exports[`LandingPage Should match existing snapshot when hooked up to a Redux st
                               }
                             }
                             toggleLockedResiduePair={[Function]}
-                            width="550px"
+                            width="500px"
                           >
                             <ComponentCard
                               componentName="Contact Map"
@@ -1334,15 +1167,6 @@ exports[`LandingPage Should match existing snapshot when no props are provided. 
         padded={true}
         relaxed={true}
       >
-        <GridRow>
-          <FolderUploadComponent
-            style={
-              Object {
-                "border": "3px dashed black",
-              }
-            }
-          />
-        </GridRow>
         <GridRow
           columns={4}
           textAlign="center"
@@ -1350,70 +1174,14 @@ exports[`LandingPage Should match existing snapshot when no props are provided. 
         >
           <GridColumn>
             <GridRow>
-              <GridColumn>
-                <Label
-                  as="label"
-                  basic={true}
-                  htmlFor="coupling-score"
-                >
-                  <Button
-                    as="button"
-                    disabled={false}
-                    icon="upload"
-                    label={
-                      Object {
-                        "basic": true,
-                        "content": "Coupling Scores",
-                      }
-                    }
-                    labelPosition="right"
-                  />
-                  <input
-                    accept=".csv"
-                    disabled={false}
-                    hidden={true}
-                    id="coupling-score"
-                    multiple={false}
-                    onChange={[Function]}
-                    required={true}
-                    type="file"
-                  />
-                </Label>
-              </GridColumn>
-            </GridRow>
-          </GridColumn>
-          <GridColumn>
-            <GridRow>
-              <GridColumn>
-                <Label
-                  as="label"
-                  basic={true}
-                  htmlFor="pdb"
-                >
-                  <Button
-                    as="button"
-                    disabled={false}
-                    icon="upload"
-                    label={
-                      Object {
-                        "basic": true,
-                        "content": "PDB",
-                      }
-                    }
-                    labelPosition="right"
-                  />
-                  <input
-                    accept=".pdb"
-                    disabled={false}
-                    hidden={true}
-                    id="pdb"
-                    multiple={false}
-                    onChange={[Function]}
-                    required={true}
-                    type="file"
-                  />
-                </Label>
-              </GridColumn>
+              <FolderUploadComponent
+                onDrop={[Function]}
+                style={
+                  Object {
+                    "border": "3px dashed black",
+                  }
+                }
+              />
             </GridRow>
           </GridColumn>
           <GridColumn>
@@ -1475,14 +1243,14 @@ exports[`LandingPage Should match existing snapshot when no props are provided. 
                   "secondaryStructures": Array [],
                 }
               }
-              height="550px"
+              height="500px"
               isDataLoading={false}
               style={
                 Object {
                   "backgroundColor": "#ffffff",
                 }
               }
-              width="550px"
+              width="500px"
             />
           </GridColumn>
           <GridColumn

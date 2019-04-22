@@ -1,9 +1,10 @@
 import * as React from 'react';
 // tslint:disable-next-line: import-name
-import Dropzone from 'react-dropzone';
+import Dropzone, { DropEvent } from 'react-dropzone';
 
 export interface IFolderUploadZoneComponent {
   style: React.CSSProperties;
+  onDrop?(acceptedFiles: File[], rejectedFiles: File[], event: DropEvent): void;
 }
 
 export class FolderUploadComponent extends React.Component<IFolderUploadZoneComponent, any> {
@@ -12,15 +13,16 @@ export class FolderUploadComponent extends React.Component<IFolderUploadZoneComp
       border: '3px dashed black',
     },
   };
+
   constructor(props: IFolderUploadZoneComponent) {
     super(props);
   }
 
   public render() {
-    const { style } = this.props;
+    const { onDrop, style } = this.props;
 
     return (
-      <Dropzone onDrop={this.onDrop}>
+      <Dropzone onDrop={onDrop}>
         {({ getRootProps, getInputProps }) => (
           <section>
             <div style={style} {...getRootProps()}>
@@ -32,8 +34,4 @@ export class FolderUploadComponent extends React.Component<IFolderUploadZoneComp
       </Dropzone>
     );
   }
-
-  protected onDrop = (files: File[]) => {
-    console.log(files);
-  };
 }
