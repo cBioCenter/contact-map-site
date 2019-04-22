@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
-import { Accordion, Button, Grid, GridColumn, GridRow, Header, Label, Message, Segment } from 'semantic-ui-react';
+import { Accordion, Button, Grid, GridColumn, GridRow, Label, Message, Segment } from 'semantic-ui-react';
 
 import {
   BioblocksPDB,
@@ -147,9 +147,6 @@ export class LandingPageClass extends React.Component<ILandingPageProps, ILandin
       .state,
   ) => (
     <div>
-      <Header as={'h1'} attached={'top'}>
-        ContactMap.org: 2D and 3D Visualization
-      </Header>
       {errorMsg.length > 1 && this.renderErrorMessage()}
       {!pdbData && couplingScores.length === 0 && this.renderStartMessage()}
 

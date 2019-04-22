@@ -31,16 +31,6 @@ exports[`LandingPage Should match existing snapshot when hooked up to a Redux st
       }
     >
       <div>
-        <Header
-          as="h1"
-          attached="top"
-        >
-          <h1
-            className="ui top attached header"
-          >
-            ContactMap.org: 2D and 3D Visualization
-          </h1>
-        </Header>
         <Message>
           <div
             className="ui message"
@@ -1311,12 +1301,6 @@ exports[`LandingPage Should match existing snapshot when no props are provided. 
   }
 >
   <div>
-    <Header
-      as="h1"
-      attached="top"
-    >
-      ContactMap.org: 2D and 3D Visualization
-    </Header>
     <Message>
       To get started, please upload either a PDB (.pdb) or EVCouplings score (.csv) file!
        

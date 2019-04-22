@@ -3,6 +3,7 @@ import * as React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import { Container } from 'semantic-ui-react';
 
+import { SiteHeader } from '~contact-map-site~/container';
 import { LandingPage, ManuscriptPage } from '~contact-map-site~/page';
 import { history } from '~contact-map-site~/reducer';
 
@@ -11,6 +12,7 @@ export class ContactMapSitePage extends React.Component {
     return (
       <ConnectedRouter history={history}>
         <Container id={'ContactMapSitePage'} fluid={true}>
+          <SiteHeader />
           <Switch>
             <Route path={'/manuscript'} render={this.renderManuscriptPage} />
             <Route exact={true} path={'/'} render={this.renderLandingPage} />
