@@ -11,9 +11,11 @@
  */
 
 // tslint:disable:no-backbone-get-set-outside-model
+import { readFileSync } from 'fs';
 import * as NGL from 'ngl';
 import { Vector2 } from 'three';
 
+const nglAutoLoad = NGL.autoLoad;
 const ngl = jest.genMockFromModule<typeof NGL>('ngl');
 
 class MockStage {
@@ -163,9 +165,9 @@ class MockStructureComponent {
 class MockStructure {
   public atomMap = { dict: { 'CA|C': 2 } };
 
-  public eachResidue = jest.fn((cb: (...args: any[]) => void) =>
-    this.name.localeCompare('sample.pdb') ? sampleResidues.map(cb) : {},
-  );
+  public eachResidue = jest.fn((cb: (...args: any[]) => void) => {
+    return this.name.localeCompare('sample.pdb') === 0 ? sampleResidues.map(cb) : {};
+  });
   public getAtomProxy = jest.fn((index: number) => ({
     distanceTo: (pos: number) => pos + index,
     positionToVector3: () => index,
@@ -185,7 +187,7 @@ class MockStructure {
     residueTypeId: [2, 1, 1, 2],
     resno: [1, 2],
   };
-  public constructor(readonly name: string) {
+  public constructor(readonly name: string = 'mock-ngl-structure') {
     return;
   }
 }
@@ -194,8 +196,16 @@ class MockStructure {
   return new MockStructure(name);
 });
 
-(ngl.autoLoad as any) = jest.fn((path: string) =>
-  path.localeCompare('error/protein.pdb') === 0 ? Promise.reject('Invalid NGL path.') : new NGL.Structure(path),
-);
+(ngl.autoLoad as any) = jest.fn((file: string | File) => {
+  if (typeof file === 'string') {
+    return file.localeCompare('error/protein.pdb') === 0
+      ? Promise.reject('Invalid NGL path.')
+      : new NGL.Structure(file);
+  } else {
+    const pdbText = readFileSync('test/datasets/5P21/5P21.pdb', 'utf8');
+
+    return nglAutoLoad(new Blob([pdbText], { type: 'text/plain' }), { ext: 'pdb' });
+  }
+});
 
 module.exports = ngl;

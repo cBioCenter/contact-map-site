@@ -5,7 +5,7 @@ import { Icon, Label } from 'semantic-ui-react';
 
 export interface IFolderUploadZoneComponent {
   style: React.CSSProperties;
-  onDrop?(acceptedFiles: File[], rejectedFiles: File[], event: DropEvent): void;
+  onDrop?(acceptedFiles: File[], rejectedFiles: File[], event: DropEvent): Promise<void>;
 }
 
 export class FolderUploadComponent extends React.Component<IFolderUploadZoneComponent, any> {

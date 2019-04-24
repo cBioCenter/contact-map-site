@@ -4751,7 +4751,7 @@ exports[`VisualizationPage Should match existing snapshot when hooked up to a Re
                                 "getAtomProxy": [MockFunction],
                                 "getResidueProxy": [MockFunction],
                                 "getSequence": [MockFunction],
-                                "name": undefined,
+                                "name": "mock-ngl-structure",
                                 "residueMap": Object {
                                   "list": Array [],
                                 },
@@ -4812,7 +4812,7 @@ exports[`VisualizationPage Should match existing snapshot when hooked up to a Re
                                   "getAtomProxy": [MockFunction],
                                   "getResidueProxy": [MockFunction],
                                   "getSequence": [MockFunction],
-                                  "name": undefined,
+                                  "name": "mock-ngl-structure",
                                   "residueMap": Object {
                                     "list": Array [],
                                   },

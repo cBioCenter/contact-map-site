@@ -18,8 +18,8 @@
     "coverageDirectory": "dist/test-results/jest/coverage",
     "coverageThreshold": {
       "global": {
-        "functions": 50,
-        "lines": 35
+        "functions": 75,
+        "lines": 75
       }
     },
     "globals": {

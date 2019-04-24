@@ -198,40 +198,6 @@ export class VisualizationPageClass extends React.Component<IVisualizationPagePr
     </Message>
   );
 
-  protected renderUploadForm = (
-    onChange: (e: React.ChangeEvent) => void,
-    id: string,
-    content: string,
-    disabled?: boolean,
-    accepts: string[] = [],
-  ) => {
-    return (
-      <GridColumn>
-        <Label as="label" basic={true} htmlFor={id}>
-          <Button
-            disabled={disabled}
-            icon={'upload'}
-            label={{
-              basic: true,
-              content,
-            }}
-            labelPosition={'right'}
-          />
-          <input
-            accept={`.${accepts.join(',.')}`}
-            disabled={disabled}
-            id={id}
-            onChange={onChange}
-            hidden={true}
-            type={'file'}
-            required={true}
-            multiple={false}
-          />
-        </Label>
-      </GridColumn>
-    );
-  };
-
   protected renderContactMapCard = (
     arePredictionsAvailable: boolean,
     size: number | string,
