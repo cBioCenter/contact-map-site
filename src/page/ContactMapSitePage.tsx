@@ -4,7 +4,7 @@ import { Route, Switch } from 'react-router-dom';
 import { Container } from 'semantic-ui-react';
 
 import { SiteHeader } from '~contact-map-site~/container';
-import { LandingPage, ManuscriptPage } from '~contact-map-site~/page';
+import { ManuscriptPage, VisualizationPage } from '~contact-map-site~/page';
 import { history } from '~contact-map-site~/reducer';
 
 export class ContactMapSitePage extends React.Component {
@@ -15,15 +15,19 @@ export class ContactMapSitePage extends React.Component {
           <SiteHeader />
           <Switch>
             <Route path={'/manuscript'} render={this.renderManuscriptPage} />
-            <Route exact={true} path={'/'} render={this.renderLandingPage} />
+            <Route exact={true} path={'/'} render={this.renderVisualizationPage} />
           </Switch>
         </Container>
       </ConnectedRouter>
     );
   }
 
-  protected renderLandingPage = () => {
-    return <LandingPage />;
+  protected renderVisualizationPage = () => {
+    return <VisualizationPage />;
+  };
+
+  protected onFolderUpload = async (files: File[]) => {
+    console.log(files);
   };
 
   protected renderManuscriptPage = () => {

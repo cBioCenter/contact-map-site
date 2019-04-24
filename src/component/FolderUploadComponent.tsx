@@ -1,7 +1,7 @@
 import * as React from 'react';
 // tslint:disable-next-line: import-name
 import Dropzone, { DropEvent } from 'react-dropzone';
-import { Container, Label, Sidebar } from 'semantic-ui-react';
+import { Icon, Label } from 'semantic-ui-react';
 
 export interface IFolderUploadZoneComponent {
   style: React.CSSProperties;
@@ -11,7 +11,9 @@ export interface IFolderUploadZoneComponent {
 export class FolderUploadComponent extends React.Component<IFolderUploadZoneComponent, any> {
   public static defaultProps = {
     style: {
-      border: '3px dashed black',
+      border: '7px dashed lightblue',
+      padding: '20px',
+      textAlign: 'center' as const,
     },
   };
 
@@ -23,18 +25,25 @@ export class FolderUploadComponent extends React.Component<IFolderUploadZoneComp
     const { onDrop, style } = this.props;
 
     return (
-      <Sidebar.Pushable>
-        <Sidebar>
-          <Dropzone onDrop={onDrop}>
-            {({ getRootProps, getInputProps }) => (
-              <Container style={{ ...FolderUploadComponent.defaultProps.style, ...style }} {...getRootProps()}>
-                <input {...getInputProps()} />
-                <Label>Drag your files or folder here!</Label>
-              </Container>
-            )}
-          </Dropzone>
-        </Sidebar>
-      </Sidebar.Pushable>
+      <Dropzone onDrop={onDrop}>
+        {({ getRootProps, getInputProps }) => {
+          const { ref, ...rootProps } = getRootProps();
+
+          return (
+            <div
+              ref={ref as React.RefObject<HTMLDivElement>}
+              style={{ ...FolderUploadComponent.defaultProps.style, ...style }}
+              {...rootProps}
+            >
+              <input {...getInputProps()} />
+              <Label circular={true} size={'massive'}>
+                <Icon name={'upload'} size={'large'} />
+                Upload an EVCouplings folder or files!
+              </Label>
+            </div>
+          );
+        }}
+      </Dropzone>
     );
   }
 }

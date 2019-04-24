@@ -1,17 +1,17 @@
 import * as React from 'react';
 
-import { LandingPage } from '~contact-map-site~/page';
+import { VisualizationPage } from '~contact-map-site~/page';
 
 export class ManuscriptPage extends React.Component {
   public render() {
     return <div>Here there be manuscripts</div>;
   }
 
-  protected renderLandingPage = () => {
-    return <LandingPage />;
+  protected renderVisualizationPage = () => {
+    return <VisualizationPage />;
   };
 
   protected renderManuscriptPage = () => {
-    return <LandingPage />;
+    return <VisualizationPage />;
   };
 }

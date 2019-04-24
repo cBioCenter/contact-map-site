@@ -1,3 +1,3 @@
 export * from './ContactMapSitePage';
-export * from './LandingPage';
 export * from './ManuscriptPage';
+export * from './VisualizationPage';

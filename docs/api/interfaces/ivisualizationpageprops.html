@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>ILandingPageState | contact-map-site</title>
+	<title>IVisualizationPageProps | contact-map-site</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -54,10 +54,10 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="ilandingpagestate.html">ILandingPageState</a>
+					<a href="ivisualizationpageprops.html">IVisualizationPageProps</a>
 				</li>
 			</ul>
-			<h1>Interface ILandingPageState</h1>
+			<h1>Interface IVisualizationPageProps</h1>
 		</div>
 	</div>
 </header>
@@ -68,7 +68,7 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">ILandingPageState</span>
+						<span class="target">IVisualizationPageProps</span>
 					</li>
 				</ul>
 			</section>
@@ -79,15 +79,14 @@
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="ilandingpagestate.html#__computed" class="tsd-kind-icon">__computed</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="ilandingpagestate.html#arepredictionsavailable" class="tsd-kind-icon">are<wbr>Predictions<wbr>Available</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="ilandingpagestate.html#errormsg" class="tsd-kind-icon">error<wbr>Msg</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="ilandingpagestate.html#filenames" class="tsd-kind-icon">filenames</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="ilandingpagestate.html#isloading" class="tsd-kind-icon">is<wbr>Loading</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="ilandingpagestate.html#measuredproximity" class="tsd-kind-icon">measured<wbr>Proximity</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="ilandingpagestate.html#mismatches" class="tsd-kind-icon">mismatches</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="ilandingpagestate.html#pdbdata" class="tsd-kind-icon">pdb<wbr>Data</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="ilandingpagestate.html#residuemapping" class="tsd-kind-icon">residue<wbr>Mapping</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="ivisualizationpageprops.html#style" class="tsd-kind-icon">style</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section ">
+							<h3>Methods</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="ivisualizationpageprops.html#clearallresidues" class="tsd-kind-icon">clear<wbr>All<wbr>Residues</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="ivisualizationpageprops.html#clearallsecondarystructures" class="tsd-kind-icon">clear<wbr>All<wbr>Secondary<wbr>Structures</a></li>
 							</ul>
 						</section>
 					</div>
@@ -96,94 +95,51 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="__computed" class="tsd-anchor"></a>
-					<h3>__computed</h3>
-					<div class="tsd-signature tsd-kind-icon">__computed<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">CONTACT_MAP_DATA_TYPE</span></div>
+					<a name="style" class="tsd-anchor"></a>
+					<h3>style</h3>
+					<div class="tsd-signature tsd-kind-icon">style<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Exclude</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">CSSProperties</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">"height"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"width"</span><span class="tsd-signature-symbol">&gt;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/cBioCenter/contact-map-site/blob/c97146e/src/page/LandingPage.tsx#L34">src/page/LandingPage.tsx:34</a></li>
+							<li>Defined in <a href="https://github.com/cBioCenter/contact-map-site/blob/4b87483/src/page/VisualizationPage.tsx#L28">src/page/VisualizationPage.tsx:28</a></li>
 						</ul>
 					</aside>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="arepredictionsavailable" class="tsd-anchor"></a>
-					<h3>are<wbr>Predictions<wbr>Available</h3>
-					<div class="tsd-signature tsd-kind-icon">are<wbr>Predictions<wbr>Available<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/cBioCenter/contact-map-site/blob/c97146e/src/page/LandingPage.tsx#L35">src/page/LandingPage.tsx:35</a></li>
-						</ul>
-					</aside>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Methods</h2>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface">
+					<a name="clearallresidues" class="tsd-anchor"></a>
+					<h3>clear<wbr>All<wbr>Residues</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface">
+						<li class="tsd-signature tsd-kind-icon">clear<wbr>All<wbr>Residues<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/cBioCenter/contact-map-site/blob/4b87483/src/page/VisualizationPage.tsx#L29">src/page/VisualizationPage.tsx:29</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="errormsg" class="tsd-anchor"></a>
-					<h3>error<wbr>Msg</h3>
-					<div class="tsd-signature tsd-kind-icon">error<wbr>Msg<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/cBioCenter/contact-map-site/blob/c97146e/src/page/LandingPage.tsx#L36">src/page/LandingPage.tsx:36</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="filenames" class="tsd-anchor"></a>
-					<h3>filenames</h3>
-					<div class="tsd-signature tsd-kind-icon">filenames<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Partial</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">&gt;</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/cBioCenter/contact-map-site/blob/c97146e/src/page/LandingPage.tsx#L37">src/page/LandingPage.tsx:37</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="isloading" class="tsd-anchor"></a>
-					<h3>is<wbr>Loading</h3>
-					<div class="tsd-signature tsd-kind-icon">is<wbr>Loading<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/cBioCenter/contact-map-site/blob/c97146e/src/page/LandingPage.tsx#L42">src/page/LandingPage.tsx:42</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="measuredproximity" class="tsd-anchor"></a>
-					<h3>measured<wbr>Proximity</h3>
-					<div class="tsd-signature tsd-kind-icon">measured<wbr>Proximity<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">CONTACT_DISTANCE_PROXIMITY</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/cBioCenter/contact-map-site/blob/c97146e/src/page/LandingPage.tsx#L43">src/page/LandingPage.tsx:43</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="mismatches" class="tsd-anchor"></a>
-					<h3>mismatches</h3>
-					<div class="tsd-signature tsd-kind-icon">mismatches<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">IResidueMismatchResult</span><span class="tsd-signature-symbol">[]</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/cBioCenter/contact-map-site/blob/c97146e/src/page/LandingPage.tsx#L44">src/page/LandingPage.tsx:44</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="pdbdata" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> pdb<wbr>Data</h3>
-					<div class="tsd-signature tsd-kind-icon">pdb<wbr>Data<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">BioblocksPDB</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/cBioCenter/contact-map-site/blob/c97146e/src/page/LandingPage.tsx#L45">src/page/LandingPage.tsx:45</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="residuemapping" class="tsd-anchor"></a>
-					<h3>residue<wbr>Mapping</h3>
-					<div class="tsd-signature tsd-kind-icon">residue<wbr>Mapping<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">IResidueMapping</span><span class="tsd-signature-symbol">[]</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/cBioCenter/contact-map-site/blob/c97146e/src/page/LandingPage.tsx#L46">src/page/LandingPage.tsx:46</a></li>
-						</ul>
-					</aside>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface">
+					<a name="clearallsecondarystructures" class="tsd-anchor"></a>
+					<h3>clear<wbr>All<wbr>Secondary<wbr>Structures</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface">
+						<li class="tsd-signature tsd-kind-icon">clear<wbr>All<wbr>Secondary<wbr>Structures<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/cBioCenter/contact-map-site/blob/4b87483/src/page/VisualizationPage.tsx#L30">src/page/VisualizationPage.tsx:30</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
 				</section>
 			</section>
 		</div>
@@ -207,13 +163,13 @@
 						<a href="../classes/folderuploadcomponent.html" class="tsd-kind-icon">Folder<wbr>Upload<wbr>Component</a>
 					</li>
 					<li class=" tsd-kind-class tsd-has-type-parameter">
-						<a href="../classes/landingpageclass.html" class="tsd-kind-icon">Landing<wbr>Page<wbr>Class</a>
-					</li>
-					<li class=" tsd-kind-class tsd-has-type-parameter">
 						<a href="../classes/manuscriptpage.html" class="tsd-kind-icon">Manuscript<wbr>Page</a>
 					</li>
 					<li class=" tsd-kind-class tsd-has-type-parameter">
 						<a href="../classes/unconnectedsiteheader.html" class="tsd-kind-icon">Unconnected<wbr>Site<wbr>Header</a>
+					</li>
+					<li class=" tsd-kind-class tsd-has-type-parameter">
+						<a href="../classes/visualizationpageclass.html" class="tsd-kind-icon">Visualization<wbr>Page<wbr>Class</a>
 					</li>
 					<li class=" tsd-kind-interface">
 						<a href="icontactmapsitestate.html" class="tsd-kind-icon">IContact<wbr>Map<wbr>Site<wbr>State</a>
@@ -225,58 +181,40 @@
 						<a href="ifolderuploadzonecomponent.html" class="tsd-kind-icon">IFolder<wbr>Upload<wbr>Zone<wbr>Component</a>
 					</li>
 					<li class=" tsd-kind-interface">
-						<a href="ilandingpageprops.html" class="tsd-kind-icon">ILanding<wbr>Page<wbr>Props</a>
+						<a href="isiteheaderprops.html" class="tsd-kind-icon">ISite<wbr>Header<wbr>Props</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="isiteheaderstate.html" class="tsd-kind-icon">ISite<wbr>Header<wbr>State</a>
 					</li>
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-interface">
-						<a href="ilandingpagestate.html" class="tsd-kind-icon">ILanding<wbr>Page<wbr>State</a>
+						<a href="ivisualizationpageprops.html" class="tsd-kind-icon">IVisualization<wbr>Page<wbr>Props</a>
 						<ul>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="ilandingpagestate.html#__computed" class="tsd-kind-icon">__computed</a>
+								<a href="ivisualizationpageprops.html#style" class="tsd-kind-icon">style</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="ilandingpagestate.html#arepredictionsavailable" class="tsd-kind-icon">are<wbr>Predictions<wbr>Available</a>
+							<li class=" tsd-kind-method tsd-parent-kind-interface">
+								<a href="ivisualizationpageprops.html#clearallresidues" class="tsd-kind-icon">clear<wbr>All<wbr>Residues</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="ilandingpagestate.html#errormsg" class="tsd-kind-icon">error<wbr>Msg</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="ilandingpagestate.html#filenames" class="tsd-kind-icon">filenames</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="ilandingpagestate.html#isloading" class="tsd-kind-icon">is<wbr>Loading</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="ilandingpagestate.html#measuredproximity" class="tsd-kind-icon">measured<wbr>Proximity</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="ilandingpagestate.html#mismatches" class="tsd-kind-icon">mismatches</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="ilandingpagestate.html#pdbdata" class="tsd-kind-icon">pdb<wbr>Data</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="ilandingpagestate.html#residuemapping" class="tsd-kind-icon">residue<wbr>Mapping</a>
+							<li class=" tsd-kind-method tsd-parent-kind-interface">
+								<a href="ivisualizationpageprops.html#clearallsecondarystructures" class="tsd-kind-icon">clear<wbr>All<wbr>Secondary<wbr>Structures</a>
 							</li>
 						</ul>
 					</li>
 				</ul>
 				<ul class="after-current">
 					<li class=" tsd-kind-interface">
-						<a href="isiteheaderprops.html" class="tsd-kind-icon">ISite<wbr>Header<wbr>Props</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="isiteheaderstate.html" class="tsd-kind-icon">ISite<wbr>Header<wbr>State</a>
-					</li>
-					<li class=" tsd-kind-variable">
-						<a href="../globals.html#landingpage" class="tsd-kind-icon">Landing<wbr>Page</a>
+						<a href="ivisualizationpagestate.html" class="tsd-kind-icon">IVisualization<wbr>Page<wbr>State</a>
 					</li>
 					<li class=" tsd-kind-variable">
 						<a href="../globals.html#siteheader" class="tsd-kind-icon">Site<wbr>Header</a>
 					</li>
 					<li class=" tsd-kind-variable tsd-is-not-exported">
 						<a href="../globals.html#store" class="tsd-kind-icon">Store</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="../globals.html#visualizationpage" class="tsd-kind-icon">Visualization<wbr>Page</a>
 					</li>
 					<li class=" tsd-kind-variable">
 						<a href="../globals.html#history" class="tsd-kind-icon">history</a>

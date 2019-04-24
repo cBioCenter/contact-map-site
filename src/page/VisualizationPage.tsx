@@ -20,17 +20,17 @@ import {
 import * as React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators, Dispatch } from 'redux';
-import { Button, Grid, GridColumn, GridRow, Label, Message, Segment } from 'semantic-ui-react';
+import { Button, Grid, GridColumn, GridRow, Label, Message, Modal, Segment } from 'semantic-ui-react';
 
 import { ErrorMessageComponent, FolderUploadComponent } from '~contact-map-site~/component';
 
-export interface ILandingPageProps {
+export interface IVisualizationPageProps {
   style: Exclude<React.CSSProperties, 'height' | 'width'>;
   clearAllResidues(): void;
   clearAllSecondaryStructures(): void;
 }
 
-export interface ILandingPageState {
+export interface IVisualizationPageState {
   [VIZ_TYPE.CONTACT_MAP]: CONTACT_MAP_DATA_TYPE;
   arePredictionsAvailable: boolean;
   errorMsg: string;
@@ -39,6 +39,7 @@ export interface ILandingPageState {
     pdb: string;
     residue_mapper: string;
   }>;
+  isDragHappening: boolean;
   isLoading: boolean;
   measuredProximity: CONTACT_DISTANCE_PROXIMITY;
   mismatches: IResidueMismatchResult[];
@@ -46,7 +47,7 @@ export interface ILandingPageState {
   residueMapping: IResidueMapping[];
 }
 
-export class LandingPageClass extends React.Component<ILandingPageProps, ILandingPageState> {
+export class VisualizationPageClass extends React.Component<IVisualizationPageProps, IVisualizationPageState> {
   public static defaultProps = {
     clearAllResidues: EMPTY_FUNCTION,
     clearAllSecondaryStructures: EMPTY_FUNCTION,
@@ -55,7 +56,7 @@ export class LandingPageClass extends React.Component<ILandingPageProps, ILandin
     },
   };
 
-  protected static initialState: ILandingPageState = {
+  protected static initialState: IVisualizationPageState = {
     [VIZ_TYPE.CONTACT_MAP]: {
       couplingScores: new CouplingContainer(),
       pdbData: undefined,
@@ -64,6 +65,7 @@ export class LandingPageClass extends React.Component<ILandingPageProps, ILandin
     arePredictionsAvailable: false,
     errorMsg: '',
     filenames: {},
+    isDragHappening: false,
     isLoading: false,
     measuredProximity: CONTACT_DISTANCE_PROXIMITY.CLOSEST,
     mismatches: [],
@@ -71,12 +73,16 @@ export class LandingPageClass extends React.Component<ILandingPageProps, ILandin
     residueMapping: [],
   };
 
-  public constructor(props: ILandingPageProps) {
+  public constructor(props: IVisualizationPageProps) {
     super(props);
-    this.state = LandingPageClass.initialState;
+    this.state = VisualizationPageClass.initialState;
   }
 
-  public componentDidUpdate(prevProps: ILandingPageProps, prevState: ILandingPageState) {
+  public componentDidMount() {
+    window.addEventListener('dragover', this.onDragOver);
+  }
+
+  public componentDidUpdate(prevProps: IVisualizationPageProps, prevState: IVisualizationPageState) {
     const { measuredProximity, pdbData } = this.state;
     const { couplingScores } = this.state[VIZ_TYPE.CONTACT_MAP];
 
@@ -116,9 +122,19 @@ export class LandingPageClass extends React.Component<ILandingPageProps, ILandin
     }
   }
 
-  public render({ style } = this.props, { errorMsg, mismatches, pdbData } = this.state) {
+  public render({ style } = this.props, { errorMsg, isDragHappening, mismatches, pdbData } = this.state) {
     return (
       <div id="BioblocksVizApp" style={{ ...style, height: '1000px' }}>
+        <Modal
+          closeOnDimmerClick={true}
+          closeOnEscape={true}
+          closeOnPortalMouseLeave={true}
+          onClose={this.onCloseUpload}
+          open={isDragHappening}
+          size={'fullscreen'}
+        >
+          <FolderUploadComponent onDrop={this.onFolderUpload} />
+        </Modal>
         <ErrorMessageComponent
           couplingScores={this.state[VIZ_TYPE.CONTACT_MAP].couplingScores}
           errorMsg={errorMsg}
@@ -126,28 +142,41 @@ export class LandingPageClass extends React.Component<ILandingPageProps, ILandin
           mismatches={mismatches}
         />
         {!pdbData && this.renderStartMessage()}
-        <Segment attached={true} raised={true}>
-          {this.renderCouplingComponents()}
-        </Segment>
+        {this.renderCouplingComponents()}
         {this.renderFooter()}
       </div>
     );
   }
 
+  protected onDragOver = (event: Event) => {
+    event.stopPropagation();
+    window.removeEventListener('dragover', this.onDragOver);
+    this.setState({ isDragHappening: true });
+  };
+
+  protected onCloseUpload = () => {
+    window.addEventListener('dragover', this.onDragOver);
+    this.setState({ isDragHappening: false });
+  };
+
   protected renderCouplingComponents = (
     { style } = this.props,
     { arePredictionsAvailable, measuredProximity, pdbData } = this.state,
   ) => (
-    <Grid centered={true} padded={true} relaxed={true}>
-      {this.renderUploadButtonsRow()}
-      <Grid.Row>
-        <br />
-      </Grid.Row>
-      <GridRow columns={2}>
-        <GridColumn width={7}>{this.renderContactMapCard(arePredictionsAvailable, '500px', style, pdbData)}</GridColumn>
-        <GridColumn width={7}>{this.renderNGLCard(measuredProximity, pdbData)}</GridColumn>
-      </GridRow>
-    </Grid>
+    <Segment attached={true} raised={true}>
+      <Grid centered={true} padded={true} relaxed={true}>
+        {this.renderButtonsRow()}
+        <Grid.Row>
+          <br />
+        </Grid.Row>
+        <GridRow columns={2}>
+          <GridColumn width={7}>
+            {this.renderContactMapCard(arePredictionsAvailable, '500px', style, pdbData)}
+          </GridColumn>
+          <GridColumn width={7}>{this.renderNGLCard(measuredProximity, pdbData)}</GridColumn>
+        </GridRow>
+      </Grid>
+    </Segment>
   );
 
   protected renderFooter = () => {
@@ -244,13 +273,8 @@ export class LandingPageClass extends React.Component<ILandingPageProps, ILandin
     />
   );
 
-  protected renderUploadButtonsRow = () => (
+  protected renderButtonsRow = () => (
     <GridRow columns={4} textAlign={'center'} verticalAlign={'bottom'}>
-      <GridColumn style={{ height: '100%' }}>
-        <GridRow style={{ height: '100%' }}>
-          <FolderUploadComponent onDrop={this.onFolderUpload} style={{ height: '100%' }} />
-        </GridRow>
-      </GridColumn>
       <GridColumn>{this.renderClearAllButton()}</GridColumn>
     </GridRow>
   );
@@ -275,7 +299,7 @@ export class LandingPageClass extends React.Component<ILandingPageProps, ILandin
 
   protected onClearAll = () => async () => {
     const { clearAllResidues, clearAllSecondaryStructures } = this.props;
-    this.setState(LandingPageClass.initialState);
+    this.setState(VisualizationPageClass.initialState);
     clearAllResidues();
     clearAllSecondaryStructures();
     this.forceUpdate();
@@ -359,7 +383,7 @@ const mapDispatchToProps = (dispatch: Dispatch) =>
     dispatch,
   );
 
-export const LandingPage = connect(
+export const VisualizationPage = connect(
   null,
   mapDispatchToProps,
-)(LandingPageClass);
+)(VisualizationPageClass);
