@@ -26,10 +26,6 @@ export class ContactMapSitePage extends React.Component {
     return <VisualizationPage />;
   };
 
-  protected onFolderUpload = async (files: File[]) => {
-    console.log(files);
-  };
-
   protected renderManuscriptPage = () => {
     return <ManuscriptPage />;
   };
