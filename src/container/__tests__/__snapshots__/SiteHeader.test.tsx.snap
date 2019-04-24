@@ -1,0 +1,175 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SiteHeader Should match existing snapshot when no props are provided. 1`] = `
+<Header>
+  <Menu
+    borderless={true}
+    fluid={true}
+    secondary={true}
+    style={
+      Object {
+        "maxHeight": "40px",
+        "padding": "20px 0 0 0",
+      }
+    }
+  >
+    <MenuItem
+      fitted="vertically"
+      position="left"
+    >
+      <Link
+        replace={false}
+        to="/"
+      >
+        <img
+          alt="hca-dynamics-icon"
+          src="assets/icons/bio-blocks-icon-2x.png"
+          style={
+            Object {
+              "height": "32px",
+              "width": "32px",
+            }
+          }
+        />
+        <span
+          style={
+            Object {
+              "color": "black",
+              "fontSize": "32px",
+              "fontWeight": "bold",
+            }
+          }
+        >
+          ContactMap.org: 2D and 3D Visualization
+        </span>
+      </Link>
+    </MenuItem>
+  </Menu>
+  <Menu
+    defaultActiveIndex={-1}
+    secondary={true}
+  >
+    <MenuItem
+      key="home"
+    >
+      <Link
+        replace={false}
+        style={
+          Object {
+            "color": "black",
+            "fontSize": "18px",
+            "fontWeight": "bold",
+          }
+        }
+        to="/"
+      >
+        Home
+      </Link>
+    </MenuItem>
+    <MenuItem
+      key="manuscript"
+    >
+      <Link
+        replace={false}
+        style={
+          Object {
+            "color": "black",
+            "fontSize": "18px",
+            "fontWeight": "normal",
+          }
+        }
+        to="/manuscript"
+      >
+        Manuscripts
+      </Link>
+    </MenuItem>
+  </Menu>
+</Header>
+`;
+
+exports[`SiteHeader Should update the menu buttons when changing pages. 1`] = `
+<Header>
+  <Menu
+    borderless={true}
+    fluid={true}
+    secondary={true}
+    style={
+      Object {
+        "maxHeight": "40px",
+        "padding": "20px 0 0 0",
+      }
+    }
+  >
+    <MenuItem
+      fitted="vertically"
+      position="left"
+    >
+      <Link
+        replace={false}
+        to="/"
+      >
+        <img
+          alt="hca-dynamics-icon"
+          src="assets/icons/bio-blocks-icon-2x.png"
+          style={
+            Object {
+              "height": "32px",
+              "width": "32px",
+            }
+          }
+        />
+        <span
+          style={
+            Object {
+              "color": "black",
+              "fontSize": "32px",
+              "fontWeight": "bold",
+            }
+          }
+        >
+          ContactMap.org: 2D and 3D Visualization
+        </span>
+      </Link>
+    </MenuItem>
+  </Menu>
+  <Menu
+    defaultActiveIndex={-1}
+    secondary={true}
+  >
+    <MenuItem
+      key="home"
+    >
+      <Link
+        replace={false}
+        style={
+          Object {
+            "color": "black",
+            "fontSize": "18px",
+            "fontWeight": "normal",
+          }
+        }
+        to="/"
+      >
+        Home
+      </Link>
+    </MenuItem>
+    <MenuItem
+      key="manuscript"
+    >
+      <Link
+        replace={false}
+        style={
+          Object {
+            "color": "black",
+            "fontSize": "18px",
+            "fontWeight": "bold",
+          }
+        }
+        to="/manuscript"
+      >
+        Manuscripts
+      </Link>
+    </MenuItem>
+  </Menu>
+</Header>
+`;

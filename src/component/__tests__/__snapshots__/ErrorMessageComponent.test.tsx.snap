@@ -1,0 +1,134 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ErrorMessageComponent Should be empty when no props are provided. 1`] = `""`;
+
+exports[`ErrorMessageComponent Should be empty when pdb is available but no mismatches present. 1`] = `""`;
+
+exports[`ErrorMessageComponent Should print a error message when given one. 1`] = `
+<Message
+  warning={true}
+>
+  Tomorrow is Today
+</Message>
+`;
+
+exports[`ErrorMessageComponent Should print error message when pdb is available but no mismatches present. 1`] = `
+<Message
+  warning={true}
+>
+  Where'd You Go
+</Message>
+`;
+
+exports[`ErrorMessageComponent Should print mismatches when they and PDB are present. 1`] = `
+<Message
+  warning={true}
+>
+  <div>
+    <MessageHeader>
+      Residue numbering mismatch detected. Please upload a file to correct the position numbering differences.
+      <br />
+      EVCouplings and EVFold outputs this file in the 
+      <strong>
+        OUTPUT
+      </strong>
+       directory.
+                This file might be named similar to
+                'sample.csv' or 'sample.indextableplus'
+    </MessageHeader>
+    <MessageList
+      as="ul"
+    >
+      Where'd You Go
+    </MessageList>
+    <MessageContent>
+      <Accordion
+        defaultActiveIndex={Array []}
+        exclusive={false}
+        fluid={true}
+        panels={
+          Array [
+            Object {
+              "content": Object {
+                "content": <p
+                  style={
+                    Object {
+                      "width": "80%",
+                      "wordBreak": "break-word",
+                    }
+                  }
+                >
+                  <span
+                    style={
+                      Object {
+                        "color": "black",
+                        "fontSize": "12px",
+                      }
+                    }
+                  >
+                    
+                  </span>
+                </p>,
+              },
+              "key": "panel-PDB sequence",
+              "title": Object {
+                "content": "PDB sequence (0 Amino Acids)",
+              },
+            },
+            Object {
+              "content": Object {
+                "content": <p
+                  style={
+                    Object {
+                      "width": "80%",
+                      "wordBreak": "break-word",
+                    }
+                  }
+                >
+                  <React.Fragment>
+                    <span
+                      style={
+                        Object {
+                          "color": "black",
+                          "fontSize": "12px",
+                        }
+                      }
+                    >
+                      F
+                    </span>
+                    <span
+                      style={
+                        Object {
+                          "color": "red",
+                          "fontSize": "16px",
+                          "textDecoration": "underline",
+                        }
+                      }
+                    >
+                      C
+                    </span>
+                  </React.Fragment>
+                  <span
+                    style={
+                      Object {
+                        "color": "black",
+                        "fontSize": "12px",
+                      }
+                    }
+                  >
+                    
+                  </span>
+                </p>,
+              },
+              "key": "panel-Couplings Score sequence",
+              "title": Object {
+                "content": "Couplings Score sequence (2 Amino Acids)",
+              },
+            },
+          ]
+        }
+      />
+    </MessageContent>
+  </div>
+</Message>
+`;

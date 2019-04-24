@@ -1,0 +1,338 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ContactMapSitePage Should match existing snapshot when no props are provided. 1`] = `
+<Connect(ConnectedRouterWithContext)
+  history={
+    Object {
+      "action": "POP",
+      "block": [Function],
+      "createHref": [Function],
+      "go": [Function],
+      "goBack": [Function],
+      "goForward": [Function],
+      "length": 1,
+      "listen": [Function],
+      "location": Object {
+        "hash": "",
+        "pathname": "/",
+        "search": "",
+        "state": undefined,
+      },
+      "push": [Function],
+      "replace": [Function],
+    }
+  }
+>
+  <Container
+    fluid={true}
+    id="ContactMapSitePage"
+  >
+    <Connect(UnconnectedSiteHeader) />
+    <Switch>
+      <Route
+        path="/manuscript"
+        render={[Function]}
+      />
+      <Route
+        exact={true}
+        path="/"
+        render={[Function]}
+      />
+    </Switch>
+  </Container>
+</Connect(ConnectedRouterWithContext)>
+`;
+
+exports[`ContactMapSitePage Should update the menu buttons when changing pages. 1`] = `
+<ContactMapSitePage>
+  <Connect(ConnectedRouterWithContext)
+    history={
+      Object {
+        "action": "PUSH",
+        "block": [Function],
+        "createHref": [Function],
+        "go": [Function],
+        "goBack": [Function],
+        "goForward": [Function],
+        "length": 2,
+        "listen": [Function],
+        "location": Object {
+          "hash": "",
+          "pathname": "/manuscript",
+          "search": "",
+        },
+        "push": [Function],
+        "replace": [Function],
+      }
+    }
+  >
+    <ConnectedRouterWithContext
+      history={
+        Object {
+          "action": "PUSH",
+          "block": [Function],
+          "createHref": [Function],
+          "go": [Function],
+          "goBack": [Function],
+          "goForward": [Function],
+          "length": 2,
+          "listen": [Function],
+          "location": Object {
+            "hash": "",
+            "pathname": "/manuscript",
+            "search": "",
+          },
+          "push": [Function],
+          "replace": [Function],
+        }
+      }
+      onLocationChanged={[Function]}
+    >
+      <ConnectedRouter
+        history={
+          Object {
+            "action": "PUSH",
+            "block": [Function],
+            "createHref": [Function],
+            "go": [Function],
+            "goBack": [Function],
+            "goForward": [Function],
+            "length": 2,
+            "listen": [Function],
+            "location": Object {
+              "hash": "",
+              "pathname": "/manuscript",
+              "search": "",
+            },
+            "push": [Function],
+            "replace": [Function],
+          }
+        }
+        onLocationChanged={[Function]}
+        store={
+          Object {
+            "dispatch": [Function],
+            "getState": [Function],
+            "replaceReducer": [Function],
+            "subscribe": [Function],
+            Symbol(observable): [Function],
+          }
+        }
+      >
+        <Router
+          history={
+            Object {
+              "action": "PUSH",
+              "block": [Function],
+              "createHref": [Function],
+              "go": [Function],
+              "goBack": [Function],
+              "goForward": [Function],
+              "length": 2,
+              "listen": [Function],
+              "location": Object {
+                "hash": "",
+                "pathname": "/manuscript",
+                "search": "",
+              },
+              "push": [Function],
+              "replace": [Function],
+            }
+          }
+        >
+          <Container
+            fluid={true}
+            id="ContactMapSitePage"
+          >
+            <div
+              className="ui fluid container"
+              id="ContactMapSitePage"
+            >
+              <Connect(UnconnectedSiteHeader)>
+                <UnconnectedSiteHeader
+                  dispatch={[Function]}
+                  pathname="/manuscript"
+                >
+                  <Header>
+                    <div
+                      className="ui header"
+                    >
+                      <Menu
+                        borderless={true}
+                        fluid={true}
+                        secondary={true}
+                        style={
+                          Object {
+                            "maxHeight": "40px",
+                            "padding": "20px 0 0 0",
+                          }
+                        }
+                      >
+                        <div
+                          className="ui borderless fluid secondary menu"
+                          style={
+                            Object {
+                              "maxHeight": "40px",
+                              "padding": "20px 0 0 0",
+                            }
+                          }
+                        >
+                          <MenuItem
+                            fitted="vertically"
+                            position="left"
+                          >
+                            <div
+                              className="left vertically fitted item"
+                              onClick={[Function]}
+                            >
+                              <Link
+                                replace={false}
+                                to="/"
+                              >
+                                <a
+                                  href="#/"
+                                  onClick={[Function]}
+                                >
+                                  <img
+                                    alt="hca-dynamics-icon"
+                                    src="assets/icons/bio-blocks-icon-2x.png"
+                                    style={
+                                      Object {
+                                        "height": "32px",
+                                        "width": "32px",
+                                      }
+                                    }
+                                  />
+                                  <span
+                                    style={
+                                      Object {
+                                        "color": "black",
+                                        "fontSize": "32px",
+                                        "fontWeight": "bold",
+                                      }
+                                    }
+                                  >
+                                    ContactMap.org: 2D and 3D Visualization
+                                  </span>
+                                </a>
+                              </Link>
+                            </div>
+                          </MenuItem>
+                        </div>
+                      </Menu>
+                      <Menu
+                        defaultActiveIndex={-1}
+                        secondary={true}
+                      >
+                        <div
+                          className="ui secondary menu"
+                        >
+                          <MenuItem
+                            key="home"
+                          >
+                            <div
+                              className="item"
+                              onClick={[Function]}
+                            >
+                              <Link
+                                replace={false}
+                                style={
+                                  Object {
+                                    "color": "black",
+                                    "fontSize": "18px",
+                                    "fontWeight": "normal",
+                                  }
+                                }
+                                to="/"
+                              >
+                                <a
+                                  href="#/"
+                                  onClick={[Function]}
+                                  style={
+                                    Object {
+                                      "color": "black",
+                                      "fontSize": "18px",
+                                      "fontWeight": "normal",
+                                    }
+                                  }
+                                >
+                                  Home
+                                </a>
+                              </Link>
+                            </div>
+                          </MenuItem>
+                          <MenuItem
+                            key="manuscript"
+                          >
+                            <div
+                              className="item"
+                              onClick={[Function]}
+                            >
+                              <Link
+                                replace={false}
+                                style={
+                                  Object {
+                                    "color": "black",
+                                    "fontSize": "18px",
+                                    "fontWeight": "bold",
+                                  }
+                                }
+                                to="/manuscript"
+                              >
+                                <a
+                                  href="#/manuscript"
+                                  onClick={[Function]}
+                                  style={
+                                    Object {
+                                      "color": "black",
+                                      "fontSize": "18px",
+                                      "fontWeight": "bold",
+                                    }
+                                  }
+                                >
+                                  Manuscripts
+                                </a>
+                              </Link>
+                            </div>
+                          </MenuItem>
+                        </div>
+                      </Menu>
+                    </div>
+                  </Header>
+                </UnconnectedSiteHeader>
+              </Connect(UnconnectedSiteHeader)>
+              <Switch>
+                <Route
+                  computedMatch={
+                    Object {
+                      "isExact": true,
+                      "params": Object {},
+                      "path": "/manuscript",
+                      "url": "/manuscript",
+                    }
+                  }
+                  location={
+                    Object {
+                      "hash": "",
+                      "pathname": "/manuscript",
+                      "search": "",
+                    }
+                  }
+                  path="/manuscript"
+                  render={[Function]}
+                >
+                  <ManuscriptPage>
+                    <div>
+                      Here there be manuscripts
+                    </div>
+                  </ManuscriptPage>
+                </Route>
+              </Switch>
+            </div>
+          </Container>
+        </Router>
+      </ConnectedRouter>
+    </ConnectedRouterWithContext>
+  </Connect(ConnectedRouterWithContext)>
+</ContactMapSitePage>
+`;

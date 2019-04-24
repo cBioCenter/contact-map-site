@@ -135,19 +135,12 @@ module.exports = {
         toType: 'dir',
       },
     ]),
-    new CopyWebpackPlugin([
-      {
-        from: './SPRING_dev',
-        to: './',
-        toType: 'dir',
-      },
-    ]),
     new MiniCssExtractPlugin(),
     new webpack.NamedModulesPlugin(),
   ],
   resolve: {
     alias: {
-      ngl: path.resolve(__dirname, './node_modules/ngl/dist/ngl.js'),
+      ngl: path.resolve(__dirname, './node_modules/ngl/dist/ngl.esm.js'),
       'plotly.js/lib/index-gl2d': path.resolve(__dirname, './node_modules/plotly.js/dist/plotly-gl2d.min.js'),
       '~contact-map-site~': path.resolve(__dirname, './src'),
       '~contact-map-site~/component': path.resolve(__dirname, './src/component'),

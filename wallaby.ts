@@ -7,6 +7,7 @@ const generateWallabyConfig = wallaby => {
       type: 'node',
     },
     files: [
+      'test/datasets/**/*',
       'tsconfig.json',
       'test/**/*.+(js|jsx|ts|tsx|json|snap|css|less|sass|scss|jpg|jpeg|gif|png|svg)',
       'src/**/*.+(js|jsx|ts|tsx|json|snap|css|less|sass|scss|jpg|jpeg|gif|png|svg)',

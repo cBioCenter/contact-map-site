@@ -18,8 +18,8 @@
     "coverageDirectory": "dist/test-results/jest/coverage",
     "coverageThreshold": {
       "global": {
-        "functions": 50,
-        "lines": 35
+        "functions": 75,
+        "lines": 75
       }
     },
     "globals": {
@@ -124,28 +124,30 @@
     "fix-alias": "tscpaths -p tsconfig.json -s ./ -o ./lib",
     "lint": "yarn npm-run-all lint:*",
     "lint:src": "tslint --project tsconfig.json",
-    "lint:markdown": "markdownlint ./ -c ./markdownlint.json -i dist -i node_modules -i SPRING_dev",
+    "lint:markdown": "markdownlint ./ -c ./markdownlint.json -i dist -i node_modules",
     "prepublish": "rm -rf lib && tsc -p configs/tsconfig.publish.json && yarn fix-alias >/dev/null 2>&1",
-    "start": "webpack-dev-server --open --mode development --config ./configs/webpack.dev.ts",
-    "start:hot": "webpack-dev-server --hot-only --open --mode development --config ./configs/webpack.dev.ts",
-    "start:prod": "webpack-dev-server --open --mode production ./configs/webpack.prod.ts",
+    "start": "webpack-dev-server --open --config ./configs/webpack.dev.ts",
+    "start:hot": "node --max-old-space-size=8192 ./node_modules/webpack-dev-server/bin/webpack-dev-server.js --hot-only --open --config ./configs/webpack.dev.ts",
+    "start:prod": "node --max-old-space-size=8192 ./node_modules/webpack-dev-server/bin/webpack-dev-server.js --open --config ./configs/webpack.prod.ts",
     "pretest": "yarn build:test && mkdir -p dist/test-results/jest",
     "test": "cross-env TEST_REPORT_PATH=dist/test-results/jest jest",
     "test:cover": "yarn test --collectCoverage true",
     "test:staged": "jest --onlyChanged"
   },
   "dependencies": {
-    "bioblocks-viz": "^0.0.103",
+    "bioblocks-viz": "^0.0.104",
     "canvas": "^2.4.1",
-    "connected-react-router": "^6.3.1",
+    "connected-react-router": "^6.4.0",
     "d3": "^5.9.2",
     "history": "^4.7.2",
     "immutable": "^4.0.0-rc.12",
+    "lodash": "^4.17.11",
     "ngl": "^2.0.0-dev.33",
     "plotly.js": "^1.47.2",
     "prop-types": "^15.7.2",
     "react": "^16.5.2",
     "react-dom": "^16.5.2",
+    "react-dropzone": "^10.1.4",
     "react-iframe-comm": "^1.2.2",
     "react-redux": "^6.0.0",
     "react-router": "^4.3.1",
@@ -166,6 +168,7 @@
     "@types/mini-css-extract-plugin": "^0.2.0",
     "@types/react": "^16.4.7",
     "@types/react-dom": "^16.0.5",
+    "@types/react-dropzone": "^4.2.2",
     "@types/react-redux": "^6.0.11",
     "@types/react-router-dom": "^4.3.1",
     "@types/redux-logger": "^3.0.7",
