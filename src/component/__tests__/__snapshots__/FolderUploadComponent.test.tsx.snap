@@ -1,7 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`FolderUploadComponent Should match existing snapshot when no props are provided. 1`] = `
-<Dropzone>
-  <Component />
-</Dropzone>
+<SidebarPushable>
+  <Sidebar
+    direction="left"
+  >
+    <Dropzone>
+      <Component />
+    </Dropzone>
+  </Sidebar>
+</SidebarPushable>
 `;

@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>ISiteHeaderState | contact-map-site</title>
+	<title>IErrorMessageComponentProps | contact-map-site</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -54,10 +54,10 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="isiteheaderstate.html">ISiteHeaderState</a>
+					<a href="ierrormessagecomponentprops.html">IErrorMessageComponentProps</a>
 				</li>
 			</ul>
-			<h1>Interface ISiteHeaderState</h1>
+			<h1>Interface IErrorMessageComponentProps</h1>
 		</div>
 	</div>
 </header>
@@ -68,7 +68,7 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">ISiteHeaderState</span>
+						<span class="target">IErrorMessageComponentProps</span>
 					</li>
 				</ul>
 			</section>
@@ -79,7 +79,10 @@
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="isiteheaderstate.html#currentpagename" class="tsd-kind-icon">current<wbr>Page<wbr>Name</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="ierrormessagecomponentprops.html#couplingscores" class="tsd-kind-icon">coupling<wbr>Scores</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="ierrormessagecomponentprops.html#errormsg" class="tsd-kind-icon">error<wbr>Msg</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="ierrormessagecomponentprops.html#mismatches" class="tsd-kind-icon">mismatches</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="ierrormessagecomponentprops.html#pdbdata" class="tsd-kind-icon">pdb<wbr>Data</a></li>
 							</ul>
 						</section>
 					</div>
@@ -88,12 +91,42 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="currentpagename" class="tsd-anchor"></a>
-					<h3>current<wbr>Page<wbr>Name</h3>
-					<div class="tsd-signature tsd-kind-icon">current<wbr>Page<wbr>Name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></div>
+					<a name="couplingscores" class="tsd-anchor"></a>
+					<h3>coupling<wbr>Scores</h3>
+					<div class="tsd-signature tsd-kind-icon">coupling<wbr>Scores<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">CouplingContainer</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/cBioCenter/contact-map-site/blob/c97146e/src/container/SiteHeader.tsx#L13">src/container/SiteHeader.tsx:13</a></li>
+							<li>Defined in <a href="https://github.com/cBioCenter/contact-map-site/blob/c97146e/src/component/ErrorMessageComponent.tsx#L6">src/component/ErrorMessageComponent.tsx:6</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="errormsg" class="tsd-anchor"></a>
+					<h3>error<wbr>Msg</h3>
+					<div class="tsd-signature tsd-kind-icon">error<wbr>Msg<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/cBioCenter/contact-map-site/blob/c97146e/src/component/ErrorMessageComponent.tsx#L7">src/component/ErrorMessageComponent.tsx:7</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="mismatches" class="tsd-anchor"></a>
+					<h3>mismatches</h3>
+					<div class="tsd-signature tsd-kind-icon">mismatches<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">IResidueMismatchResult</span><span class="tsd-signature-symbol">[]</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/cBioCenter/contact-map-site/blob/c97146e/src/component/ErrorMessageComponent.tsx#L8">src/component/ErrorMessageComponent.tsx:8</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="pdbdata" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> pdb<wbr>Data</h3>
+					<div class="tsd-signature tsd-kind-icon">pdb<wbr>Data<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">BioblocksPDB</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/cBioCenter/contact-map-site/blob/c97146e/src/component/ErrorMessageComponent.tsx#L9">src/component/ErrorMessageComponent.tsx:9</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -130,9 +163,27 @@
 					<li class=" tsd-kind-interface">
 						<a href="icontactmapsitestate.html" class="tsd-kind-icon">IContact<wbr>Map<wbr>Site<wbr>State</a>
 					</li>
-					<li class=" tsd-kind-interface">
+				</ul>
+				<ul class="current">
+					<li class="current tsd-kind-interface">
 						<a href="ierrormessagecomponentprops.html" class="tsd-kind-icon">IError<wbr>Message<wbr>Component<wbr>Props</a>
+						<ul>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="ierrormessagecomponentprops.html#couplingscores" class="tsd-kind-icon">coupling<wbr>Scores</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="ierrormessagecomponentprops.html#errormsg" class="tsd-kind-icon">error<wbr>Msg</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="ierrormessagecomponentprops.html#mismatches" class="tsd-kind-icon">mismatches</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="ierrormessagecomponentprops.html#pdbdata" class="tsd-kind-icon">pdb<wbr>Data</a>
+							</li>
+						</ul>
 					</li>
+				</ul>
+				<ul class="after-current">
 					<li class=" tsd-kind-interface">
 						<a href="ifolderuploadzonecomponent.html" class="tsd-kind-icon">IFolder<wbr>Upload<wbr>Zone<wbr>Component</a>
 					</li>
@@ -145,18 +196,9 @@
 					<li class=" tsd-kind-interface">
 						<a href="isiteheaderprops.html" class="tsd-kind-icon">ISite<wbr>Header<wbr>Props</a>
 					</li>
-				</ul>
-				<ul class="current">
-					<li class="current tsd-kind-interface">
+					<li class=" tsd-kind-interface">
 						<a href="isiteheaderstate.html" class="tsd-kind-icon">ISite<wbr>Header<wbr>State</a>
-						<ul>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="isiteheaderstate.html#currentpagename" class="tsd-kind-icon">current<wbr>Page<wbr>Name</a>
-							</li>
-						</ul>
 					</li>
-				</ul>
-				<ul class="after-current">
 					<li class=" tsd-kind-variable">
 						<a href="../globals.html#landingpage" class="tsd-kind-icon">Landing<wbr>Page</a>
 					</li>
