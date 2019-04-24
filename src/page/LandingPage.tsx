@@ -132,7 +132,7 @@ export class LandingPageClass extends React.Component<ILandingPageProps, ILandin
 
   protected renderCouplingComponents = (
     { style } = this.props,
-    { arePredictionsAvailable, errorMsg, isResidueMappingNeeded, measuredProximity, pdbData } = this.state,
+    { arePredictionsAvailable, errorMsg, measuredProximity, pdbData } = this.state,
   ) => (
     <div>
       {errorMsg.length > 1 && this.renderErrorMessage()}
@@ -140,7 +140,7 @@ export class LandingPageClass extends React.Component<ILandingPageProps, ILandin
 
       <Segment attached={true} raised={true}>
         <Grid centered={true} padded={true} relaxed={true}>
-          {this.renderUploadButtonsRow(isResidueMappingNeeded)}
+          {this.renderUploadButtonsRow()}
           <Grid.Row>
             <br />
           </Grid.Row>
@@ -294,22 +294,6 @@ export class LandingPageClass extends React.Component<ILandingPageProps, ILandin
     );
   };
 
-  protected renderUploadLabel = (label: string | undefined) =>
-    label ? (
-      <GridColumn verticalAlign={'middle'} textAlign={'justified'}>
-        <Label>{label}</Label>
-      </GridColumn>
-    ) : null;
-
-  protected renderUploadBox = ({ filenames } = this.state) => {
-    return (
-      <GridRow>
-        {this.renderUploadLabel(filenames.couplings)}
-        <FolderUploadComponent onDrop={this.onFolderUpload} />
-      </GridRow>
-    );
-  };
-
   protected renderContactMapCard = (
     arePredictionsAvailable: boolean,
     size: number | string,
@@ -351,9 +335,13 @@ export class LandingPageClass extends React.Component<ILandingPageProps, ILandin
     />
   );
 
-  protected renderUploadButtonsRow = (isResidueMappingNeeded: boolean) => (
+  protected renderUploadButtonsRow = () => (
     <GridRow columns={4} textAlign={'center'} verticalAlign={'bottom'}>
-      <GridColumn>{this.renderUploadBox()}</GridColumn>
+      <GridColumn style={{ height: '100%' }}>
+        <GridRow style={{ height: '100%' }}>
+          <FolderUploadComponent onDrop={this.onFolderUpload} style={{ height: '100%' }} />
+        </GridRow>
+      </GridColumn>
       <GridColumn>{this.renderClearAllButton()}</GridColumn>
     </GridRow>
   );

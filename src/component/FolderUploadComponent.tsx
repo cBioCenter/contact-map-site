@@ -1,6 +1,7 @@
 import * as React from 'react';
 // tslint:disable-next-line: import-name
 import Dropzone, { DropEvent } from 'react-dropzone';
+import { Container, Label } from 'semantic-ui-react';
 
 export interface IFolderUploadZoneComponent {
   style: React.CSSProperties;
@@ -24,12 +25,10 @@ export class FolderUploadComponent extends React.Component<IFolderUploadZoneComp
     return (
       <Dropzone onDrop={onDrop}>
         {({ getRootProps, getInputProps }) => (
-          <section>
-            <div style={style} {...getRootProps()}>
-              <input {...getInputProps()} />
-              <p>Drag 'n' drop some files here, or click to select files</p>
-            </div>
-          </section>
+          <Container style={{ ...FolderUploadComponent.defaultProps.style, ...style }} {...getRootProps()}>
+            <input {...getInputProps()} />
+            <Label>Drag your files or folder here!</Label>
+          </Container>
         )}
       </Dropzone>
     );
