@@ -20,7 +20,7 @@ import {
 import * as React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators, Dispatch } from 'redux';
-import { Button, Grid, GridColumn, GridRow, Label, Message, Modal, Segment } from 'semantic-ui-react';
+import { Button, Grid, GridColumn, GridRow, Label, Message, Modal, Popup, Segment } from 'semantic-ui-react';
 
 import { ErrorMessageComponent, FolderUploadComponent } from '~contact-map-site~/component';
 
@@ -191,9 +191,21 @@ export class VisualizationPageClass extends React.Component<IVisualizationPagePr
 
   protected renderStartMessage = () => (
     <Message>
-      {`To get started, please upload either a PDB (.pdb) or EVCouplings score (.csv) file!`} {<br />} Check out the
+      {'To get started, please drag and drop onto the page either:'}
+      {<br />}
+      {'(1) An evcouplings results directory.'}
+      {<br />}
+      {'(2) Individual .pdb, coupling scores and residue mapping files.'}
+      <Popup
+        trigger={<a> (?) </a>}
+        content={
+          "A .csv file that starts with 'residue_mapping' - or - A file that ends in .indextable / .indextableplus"
+        }
+      />
+      {<br />}
+      {<br />} Check out the
       {/* tslint:disable-next-line:no-http-string */}
-      {<a href="http://evfold.org"> EVFold</a>}, {<a href="http://sanderlab.org/contact-maps/">Sander Lab</a>}, or
+      {<a href="http://evfold.org"> EVFold</a>} or
       {<a href="https://evcouplings.org/"> EVCouplings </a>} website to get these files.
     </Message>
   );
@@ -240,7 +252,7 @@ export class VisualizationPageClass extends React.Component<IVisualizationPagePr
   );
 
   protected renderButtonsRow = () => (
-    <GridRow columns={4} textAlign={'center'} verticalAlign={'bottom'}>
+    <GridRow columns={1} textAlign={'right'} verticalAlign={'bottom'}>
       <GridColumn>{this.renderClearAllButton()}</GridColumn>
     </GridRow>
   );

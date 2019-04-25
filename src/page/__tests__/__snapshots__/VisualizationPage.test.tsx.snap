@@ -26,8 +26,9 @@ exports[`VisualizationPage Should match existing snapshot when given a PDB. 1`] 
       onDrop={[Function]}
       style={
         Object {
-          "border": "7px dashed lightblue",
-          "padding": "20px",
+          "backgroundColor": "lightblue",
+          "border": "7px dashed blue",
+          "height": "90vmin",
           "textAlign": "center",
         }
       }
@@ -1317,8 +1318,8 @@ exports[`VisualizationPage Should match existing snapshot when given a PDB. 1`] 
       relaxed={true}
     >
       <GridRow
-        columns={4}
-        textAlign="center"
+        columns={1}
+        textAlign="right"
         verticalAlign="bottom"
       >
         <GridColumn>
@@ -4007,8 +4008,63 @@ exports[`VisualizationPage Should match existing snapshot when hooked up to a Re
         <div
           className="ui message"
         >
-          To get started, please upload either a PDB (.pdb) or EVCouplings score (.csv) file!
-           
+          To get started, please drag and drop onto the page either:
+          <br />
+          (1) An evcouplings results directory.
+          <br />
+          (2) Individual .pdb, coupling scores and residue mapping files.
+          <Popup
+            content="A .csv file that starts with 'residue_mapping' - or - A file that ends in .indextable / .indextableplus"
+            disabled={false}
+            keepInViewPort={true}
+            on="hover"
+            position="top left"
+            trigger={
+              <a>
+                 (?) 
+              </a>
+            }
+          >
+            <Portal
+              closeOnDocumentClick={true}
+              closeOnEscape={true}
+              closeOnTriggerMouseLeave={true}
+              eventPool="default"
+              mouseEnterDelay={50}
+              mouseLeaveDelay={70}
+              onClose={[Function]}
+              onMount={[Function]}
+              onOpen={[Function]}
+              onUnmount={[Function]}
+              openOnTriggerClick={true}
+              openOnTriggerMouseEnter={true}
+              trigger={
+                <a>
+                   (?) 
+                </a>
+              }
+              triggerRef={[Function]}
+            >
+              <Ref
+                innerRef={[Function]}
+              >
+                <RefFindNode
+                  innerRef={[Function]}
+                >
+                  <a
+                    onBlur={[Function]}
+                    onClick={[Function]}
+                    onFocus={[Function]}
+                    onMouseEnter={[Function]}
+                    onMouseLeave={[Function]}
+                  >
+                     (?) 
+                  </a>
+                </RefFindNode>
+              </Ref>
+            </Portal>
+          </Popup>
+          <br />
           <br />
            Check out the
           <a
@@ -4016,13 +4072,7 @@ exports[`VisualizationPage Should match existing snapshot when hooked up to a Re
           >
              EVFold
           </a>
-          , 
-          <a
-            href="http://sanderlab.org/contact-maps/"
-          >
-            Sander Lab
-          </a>
-          , or
+           or
           <a
             href="https://evcouplings.org/"
           >
@@ -4047,12 +4097,12 @@ exports[`VisualizationPage Should match existing snapshot when hooked up to a Re
               className="ui centered padded relaxed grid"
             >
               <GridRow
-                columns={4}
-                textAlign="center"
+                columns={1}
+                textAlign="right"
                 verticalAlign="bottom"
               >
                 <div
-                  className="center aligned bottom aligned four column row"
+                  className="right aligned bottom aligned one column row"
                 >
                   <GridColumn>
                     <div
@@ -5060,8 +5110,9 @@ exports[`VisualizationPage Should match existing snapshot when no props are prov
       onDrop={[Function]}
       style={
         Object {
-          "border": "7px dashed lightblue",
-          "padding": "20px",
+          "backgroundColor": "lightblue",
+          "border": "7px dashed blue",
+          "height": "90vmin",
           "textAlign": "center",
         }
       }
@@ -5086,8 +5137,24 @@ exports[`VisualizationPage Should match existing snapshot when no props are prov
     mismatches={Array []}
   />
   <Message>
-    To get started, please upload either a PDB (.pdb) or EVCouplings score (.csv) file!
-     
+    To get started, please drag and drop onto the page either:
+    <br />
+    (1) An evcouplings results directory.
+    <br />
+    (2) Individual .pdb, coupling scores and residue mapping files.
+    <Popup
+      content="A .csv file that starts with 'residue_mapping' - or - A file that ends in .indextable / .indextableplus"
+      disabled={false}
+      keepInViewPort={true}
+      on="hover"
+      position="top left"
+      trigger={
+        <a>
+           (?) 
+        </a>
+      }
+    />
+    <br />
     <br />
      Check out the
     <a
@@ -5095,13 +5162,7 @@ exports[`VisualizationPage Should match existing snapshot when no props are prov
     >
        EVFold
     </a>
-    , 
-    <a
-      href="http://sanderlab.org/contact-maps/"
-    >
-      Sander Lab
-    </a>
-    , or
+     or
     <a
       href="https://evcouplings.org/"
     >
@@ -5119,8 +5180,8 @@ exports[`VisualizationPage Should match existing snapshot when no props are prov
       relaxed={true}
     >
       <GridRow
-        columns={4}
-        textAlign="center"
+        columns={1}
+        textAlign="right"
         verticalAlign="bottom"
       >
         <GridColumn>
@@ -5248,8 +5309,9 @@ exports[`VisualizationPage Should match existing snapshot when using c-alpha pro
       onDrop={[Function]}
       style={
         Object {
-          "border": "7px dashed lightblue",
-          "padding": "20px",
+          "backgroundColor": "lightblue",
+          "border": "7px dashed blue",
+          "height": "90vmin",
           "textAlign": "center",
         }
       }
@@ -6551,8 +6613,8 @@ exports[`VisualizationPage Should match existing snapshot when using c-alpha pro
       relaxed={true}
     >
       <GridRow
-        columns={4}
-        textAlign="center"
+        columns={1}
+        textAlign="right"
         verticalAlign="bottom"
       >
         <GridColumn>
@@ -9213,8 +9275,9 @@ exports[`VisualizationPage Should match existing snapshot when using closest pro
       onDrop={[Function]}
       style={
         Object {
-          "border": "7px dashed lightblue",
-          "padding": "20px",
+          "backgroundColor": "lightblue",
+          "border": "7px dashed blue",
+          "height": "90vmin",
           "textAlign": "center",
         }
       }
@@ -10504,8 +10567,8 @@ exports[`VisualizationPage Should match existing snapshot when using closest pro
       relaxed={true}
     >
       <GridRow
-        columns={4}
-        textAlign="center"
+        columns={1}
+        textAlign="right"
         verticalAlign="bottom"
       >
         <GridColumn>

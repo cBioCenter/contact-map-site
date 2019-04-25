@@ -11,8 +11,9 @@ export interface IFolderUploadZoneComponent {
 export class FolderUploadComponent extends React.Component<IFolderUploadZoneComponent, any> {
   public static defaultProps = {
     style: {
-      border: '7px dashed lightblue',
-      padding: '20px',
+      backgroundColor: 'lightblue',
+      border: '7px dashed blue',
+      height: '90vmin',
       textAlign: 'center' as const,
     },
   };
@@ -24,21 +25,19 @@ export class FolderUploadComponent extends React.Component<IFolderUploadZoneComp
   public render() {
     const { onDrop, style } = this.props;
 
+    const combinedStyle = { ...FolderUploadComponent.defaultProps.style, ...style };
+
     return (
       <Dropzone onDrop={onDrop}>
         {({ getRootProps, getInputProps }) => {
           const { ref, ...rootProps } = getRootProps();
 
           return (
-            <div
-              ref={ref as React.RefObject<HTMLDivElement>}
-              style={{ ...FolderUploadComponent.defaultProps.style, ...style }}
-              {...rootProps}
-            >
+            <div ref={ref as React.RefObject<HTMLDivElement>} style={combinedStyle} {...rootProps}>
               <input {...getInputProps()} />
-              <Label circular={true} size={'massive'}>
+              <Label size={'massive'}>
                 <Icon name={'upload'} size={'large'} />
-                Upload an EVCouplings folder or files!
+                Drop 'em here!
               </Label>
             </div>
           );
