@@ -20,7 +20,19 @@ import {
 import * as React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators, Dispatch } from 'redux';
-import { Button, Grid, GridColumn, GridRow, Label, Message, Modal, Popup, Segment } from 'semantic-ui-react';
+import {
+  Button,
+  Dropdown,
+  DropdownProps,
+  Grid,
+  GridColumn,
+  GridRow,
+  Label,
+  Message,
+  Modal,
+  Popup,
+  Segment,
+} from 'semantic-ui-react';
 
 import { ErrorMessageComponent, FolderUploadComponent } from '~contact-map-site~/component';
 
@@ -33,6 +45,7 @@ export interface IVisualizationPageProps {
 export interface IVisualizationPageState {
   [VIZ_TYPE.CONTACT_MAP]: CONTACT_MAP_DATA_TYPE;
   arePredictionsAvailable: boolean;
+  availablePdbFiles: BioblocksPDB[];
   errorMsg: string;
   filenames: Partial<{
     couplings: string;
@@ -63,6 +76,7 @@ export class VisualizationPageClass extends React.Component<IVisualizationPagePr
       secondaryStructures: [],
     },
     arePredictionsAvailable: false,
+    availablePdbFiles: [],
     errorMsg: '',
     filenames: {},
     isDragHappening: false,
@@ -169,7 +183,7 @@ export class VisualizationPageClass extends React.Component<IVisualizationPagePr
         <Grid.Row>
           <br />
         </Grid.Row>
-        <GridRow columns={2}>
+        <GridRow columns={2} verticalAlign={'bottom'}>
           <GridColumn width={7}>
             {this.renderContactMapCard(arePredictionsAvailable, '500px', style, pdbData)}
           </GridColumn>
@@ -242,25 +256,40 @@ export class VisualizationPageClass extends React.Component<IVisualizationPagePr
       />
     );
 
-  protected renderNGLCard = (measuredProximity: CONTACT_DISTANCE_PROXIMITY, pdbData?: BioblocksPDB) => (
-    <NGLContainer
-      data={pdbData}
-      isDataLoading={this.state.isLoading}
-      measuredProximity={measuredProximity}
-      onMeasuredProximityChange={this.onMeasuredProximityChange()}
-    />
-  );
+  protected renderNGLCard = (measuredProximity: CONTACT_DISTANCE_PROXIMITY, pdbData?: BioblocksPDB) => {
+    return (
+      <NGLContainer
+        data={pdbData}
+        isDataLoading={this.state.isLoading}
+        measuredProximity={measuredProximity}
+        onMeasuredProximityChange={this.onMeasuredProximityChange()}
+      />
+    );
+  };
 
-  protected renderButtonsRow = () => (
-    <GridRow columns={1} textAlign={'right'} verticalAlign={'bottom'}>
-      <GridColumn>{this.renderClearAllButton()}</GridColumn>
-    </GridRow>
-  );
+  protected onPdbFileChange = (event: React.SyntheticEvent<HTMLElement>, data: DropdownProps) => {
+    const { availablePdbFiles } = this.state;
+    const value = data.value as string;
+    this.setState({
+      pdbData: availablePdbFiles.find(pdbFile => pdbFile.name.localeCompare(value) === 0),
+    });
+  };
+
+  protected renderButtonsRow = () => {
+    return (
+      <GridRow verticalAlign={'bottom'} textAlign={'right'}>
+        <GridColumn floated={'right'} width={2}>
+          {this.renderPdbDropdown()}
+        </GridColumn>
+        <GridColumn width={2}>{this.renderClearAllButton()}</GridColumn>
+      </GridRow>
+    );
+  };
 
   protected renderClearAllButton = () => (
     <GridRow verticalAlign={'middle'} columns={1} centered={true}>
       <GridColumn>
-        <Label as="label" basic={true} htmlFor={'clear-data'}>
+        <Label as={'label'} basic={true} htmlFor={'clear-data'}>
           <Button
             icon={'trash'}
             label={{
@@ -275,6 +304,27 @@ export class VisualizationPageClass extends React.Component<IVisualizationPagePr
     </GridRow>
   );
 
+  protected renderPdbDropdown = () => {
+    const { availablePdbFiles, pdbData } = this.state;
+
+    return (
+      <Label as={'label'} basic={true}>
+        <Dropdown
+          disabled={availablePdbFiles.length === 0}
+          fluid={false}
+          onChange={this.onPdbFileChange}
+          options={availablePdbFiles.map((pdbFile, index) => ({
+            key: `pdb-dropdown-${index}`,
+            text: pdbFile.name,
+            value: pdbFile.name,
+          }))}
+          selection={true}
+          text={pdbData && pdbData.nglStructure ? pdbData.name : 'No PDB selected!'}
+        />
+      </Label>
+    );
+  };
+
   protected onClearAll = () => async () => {
     const { clearAllResidues, clearAllSecondaryStructures } = this.props;
     this.setState(VisualizationPageClass.initialState);
@@ -286,6 +336,8 @@ export class VisualizationPageClass extends React.Component<IVisualizationPagePr
   protected onFolderUpload = async (files: File[]) => {
     await this.onClearAll()();
     const { measuredProximity } = this.state;
+    const availablePdbFiles = new Array<BioblocksPDB>();
+
     this.setState({
       isLoading: true,
     });
@@ -303,6 +355,7 @@ export class VisualizationPageClass extends React.Component<IVisualizationPagePr
       if (file.name.endsWith('.pdb')) {
         pdbData = await BioblocksPDB.createPDB(file);
         filenames.pdb = file.name;
+        availablePdbFiles.push(pdbData);
       } else {
         const parsedFile = await readFileAsText(file);
         if (
@@ -330,6 +383,7 @@ export class VisualizationPageClass extends React.Component<IVisualizationPagePr
         secondaryStructures: pdbData.secondaryStructureSections,
       },
       arePredictionsAvailable: true,
+      availablePdbFiles,
       errorMsg: '',
       filenames,
       isLoading: false,

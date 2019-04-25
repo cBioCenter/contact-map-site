@@ -1318,11 +1318,43 @@ exports[`VisualizationPage Should match existing snapshot when given a PDB. 1`] 
       relaxed={true}
     >
       <GridRow
-        columns={1}
         textAlign="right"
         verticalAlign="bottom"
       >
-        <GridColumn>
+        <GridColumn
+          floated="right"
+          width={2}
+        >
+          <Label
+            as="label"
+            basic={true}
+          >
+            <Dropdown
+              additionLabel="Add "
+              additionPosition="top"
+              closeOnBlur={true}
+              deburr={false}
+              disabled={true}
+              fluid={false}
+              icon="dropdown"
+              minCharacters={1}
+              noResultsMessage="No results found."
+              onChange={[Function]}
+              openOnFocus={true}
+              options={Array []}
+              renderLabel={[Function]}
+              searchInput="text"
+              selectOnBlur={true}
+              selectOnNavigation={true}
+              selection={true}
+              text="sample"
+              wrapSelection={true}
+            />
+          </Label>
+        </GridColumn>
+        <GridColumn
+          width={2}
+        >
           <GridRow
             centered={true}
             columns={1}
@@ -1356,6 +1388,7 @@ exports[`VisualizationPage Should match existing snapshot when given a PDB. 1`] 
       </GridRow>
       <GridRow
         columns={2}
+        verticalAlign="bottom"
       >
         <GridColumn
           width={7}
@@ -4097,16 +4130,95 @@ exports[`VisualizationPage Should match existing snapshot when hooked up to a Re
               className="ui centered padded relaxed grid"
             >
               <GridRow
-                columns={1}
                 textAlign="right"
                 verticalAlign="bottom"
               >
                 <div
-                  className="right aligned bottom aligned one column row"
+                  className="right aligned bottom aligned row"
                 >
-                  <GridColumn>
+                  <GridColumn
+                    floated="right"
+                    width={2}
+                  >
                     <div
-                      className="column"
+                      className="right floated two wide column"
+                    >
+                      <Label
+                        as="label"
+                        basic={true}
+                      >
+                        <label
+                          className="ui basic label"
+                          onClick={[Function]}
+                        >
+                          <Dropdown
+                            additionLabel="Add "
+                            additionPosition="top"
+                            closeOnBlur={true}
+                            deburr={false}
+                            disabled={true}
+                            fluid={false}
+                            icon="dropdown"
+                            minCharacters={1}
+                            noResultsMessage="No results found."
+                            onChange={[Function]}
+                            openOnFocus={true}
+                            options={Array []}
+                            renderLabel={[Function]}
+                            searchInput="text"
+                            selectOnBlur={true}
+                            selectOnNavigation={true}
+                            selection={true}
+                            text="No PDB selected!"
+                            wrapSelection={true}
+                          >
+                            <div
+                              aria-disabled={true}
+                              aria-expanded={false}
+                              className="ui disabled selection dropdown"
+                              onBlur={[Function]}
+                              onChange={[Function]}
+                              onClick={[Function]}
+                              onFocus={[Function]}
+                              onMouseDown={[Function]}
+                              role="listbox"
+                              tabIndex={-1}
+                            >
+                              <div
+                                aria-live="polite"
+                                className="text"
+                                role="alert"
+                              >
+                                No PDB selected!
+                              </div>
+                              <Icon
+                                as="i"
+                                className=""
+                                name="dropdown"
+                                onClick={[Function]}
+                              >
+                                <i
+                                  aria-hidden="true"
+                                  className="dropdown icon"
+                                  onClick={[Function]}
+                                />
+                              </Icon>
+                              <DropdownMenu>
+                                <div
+                                  className="menu transition"
+                                />
+                              </DropdownMenu>
+                            </div>
+                          </Dropdown>
+                        </label>
+                      </Label>
+                    </div>
+                  </GridColumn>
+                  <GridColumn
+                    width={2}
+                  >
+                    <div
+                      className="two wide column"
                     >
                       <GridRow
                         centered={true}
@@ -4195,9 +4307,10 @@ exports[`VisualizationPage Should match existing snapshot when hooked up to a Re
               </GridRow>
               <GridRow
                 columns={2}
+                verticalAlign="bottom"
               >
                 <div
-                  className="two column row"
+                  className="bottom aligned two column row"
                 >
                   <GridColumn
                     width={7}
@@ -5180,11 +5293,43 @@ exports[`VisualizationPage Should match existing snapshot when no props are prov
       relaxed={true}
     >
       <GridRow
-        columns={1}
         textAlign="right"
         verticalAlign="bottom"
       >
-        <GridColumn>
+        <GridColumn
+          floated="right"
+          width={2}
+        >
+          <Label
+            as="label"
+            basic={true}
+          >
+            <Dropdown
+              additionLabel="Add "
+              additionPosition="top"
+              closeOnBlur={true}
+              deburr={false}
+              disabled={true}
+              fluid={false}
+              icon="dropdown"
+              minCharacters={1}
+              noResultsMessage="No results found."
+              onChange={[Function]}
+              openOnFocus={true}
+              options={Array []}
+              renderLabel={[Function]}
+              searchInput="text"
+              selectOnBlur={true}
+              selectOnNavigation={true}
+              selection={true}
+              text="No PDB selected!"
+              wrapSelection={true}
+            />
+          </Label>
+        </GridColumn>
+        <GridColumn
+          width={2}
+        >
           <GridRow
             centered={true}
             columns={1}
@@ -5218,6 +5363,7 @@ exports[`VisualizationPage Should match existing snapshot when no props are prov
       </GridRow>
       <GridRow
         columns={2}
+        verticalAlign="bottom"
       >
         <GridColumn
           width={7}
@@ -6613,11 +6759,43 @@ exports[`VisualizationPage Should match existing snapshot when using c-alpha pro
       relaxed={true}
     >
       <GridRow
-        columns={1}
         textAlign="right"
         verticalAlign="bottom"
       >
-        <GridColumn>
+        <GridColumn
+          floated="right"
+          width={2}
+        >
+          <Label
+            as="label"
+            basic={true}
+          >
+            <Dropdown
+              additionLabel="Add "
+              additionPosition="top"
+              closeOnBlur={true}
+              deburr={false}
+              disabled={true}
+              fluid={false}
+              icon="dropdown"
+              minCharacters={1}
+              noResultsMessage="No results found."
+              onChange={[Function]}
+              openOnFocus={true}
+              options={Array []}
+              renderLabel={[Function]}
+              searchInput="text"
+              selectOnBlur={true}
+              selectOnNavigation={true}
+              selection={true}
+              text="sample"
+              wrapSelection={true}
+            />
+          </Label>
+        </GridColumn>
+        <GridColumn
+          width={2}
+        >
           <GridRow
             centered={true}
             columns={1}
@@ -6651,6 +6829,7 @@ exports[`VisualizationPage Should match existing snapshot when using c-alpha pro
       </GridRow>
       <GridRow
         columns={2}
+        verticalAlign="bottom"
       >
         <GridColumn
           width={7}
@@ -10567,11 +10746,43 @@ exports[`VisualizationPage Should match existing snapshot when using closest pro
       relaxed={true}
     >
       <GridRow
-        columns={1}
         textAlign="right"
         verticalAlign="bottom"
       >
-        <GridColumn>
+        <GridColumn
+          floated="right"
+          width={2}
+        >
+          <Label
+            as="label"
+            basic={true}
+          >
+            <Dropdown
+              additionLabel="Add "
+              additionPosition="top"
+              closeOnBlur={true}
+              deburr={false}
+              disabled={true}
+              fluid={false}
+              icon="dropdown"
+              minCharacters={1}
+              noResultsMessage="No results found."
+              onChange={[Function]}
+              openOnFocus={true}
+              options={Array []}
+              renderLabel={[Function]}
+              searchInput="text"
+              selectOnBlur={true}
+              selectOnNavigation={true}
+              selection={true}
+              text="sample"
+              wrapSelection={true}
+            />
+          </Label>
+        </GridColumn>
+        <GridColumn
+          width={2}
+        >
           <GridRow
             centered={true}
             columns={1}
@@ -10605,6 +10816,7 @@ exports[`VisualizationPage Should match existing snapshot when using closest pro
       </GridRow>
       <GridRow
         columns={2}
+        verticalAlign="bottom"
       >
         <GridColumn
           width={7}
