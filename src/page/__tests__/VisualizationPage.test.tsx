@@ -82,13 +82,13 @@ describe('VisualizationPage', () => {
       expect(onDrop).not.toBeUndefined();
     } else {
       const event = new Event('drop');
-      const couplingFile = new File([], 'coupling_scores.csv');
+      const couplingFile = new File([], 'CouplingScores.csv');
       const pdbFile = new File([], 'mock.pdb');
       const residueMapFile = new File([], 'residue_mapping.csv');
 
       await onDrop([pdbFile, residueMapFile, couplingFile], [], event);
       expect(instance.state.filenames).toEqual({
-        couplings: 'coupling_scores.csv',
+        couplings: 'CouplingScores.csv',
         pdb: 'mock.pdb',
         residue_mapper: 'residue_mapping.csv',
       });
@@ -108,7 +108,7 @@ describe('VisualizationPage', () => {
       179,66,0.78681,3.5872,A,A,0.9,1.3,37,1.0,T,M';
 
       const event = new Event('drop');
-      const couplingFile = new File([couplingScoresCsv], 'coupling_scores.csv');
+      const couplingFile = new File([couplingScoresCsv], 'CouplingScores.csv');
       const pdbFile = new File([], 'mock.pdb');
       const residueMapFile = new File([], 'residue_mapping.csv');
 

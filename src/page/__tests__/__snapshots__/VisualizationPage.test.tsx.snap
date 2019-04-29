@@ -1323,7 +1323,11 @@ exports[`VisualizationPage Should match existing snapshot when given a PDB. 1`] 
       >
         <GridColumn
           floated="right"
-          width={2}
+          style={
+            Object {
+              "width": "auto",
+            }
+          }
         >
           <Label
             as="label"
@@ -1343,44 +1347,46 @@ exports[`VisualizationPage Should match existing snapshot when given a PDB. 1`] 
               openOnFocus={true}
               options={Array []}
               renderLabel={[Function]}
+              search={false}
               searchInput="text"
               selectOnBlur={true}
               selectOnNavigation={true}
               selection={true}
+              style={
+                Object {
+                  "minWidth": "265px",
+                }
+              }
               text="sample"
               wrapSelection={true}
             />
           </Label>
         </GridColumn>
         <GridColumn
-          width={2}
+          style={
+            Object {
+              "width": "auto",
+            }
+          }
         >
-          <GridRow
-            centered={true}
-            columns={1}
-            verticalAlign="middle"
+          <Label
+            as="label"
+            basic={true}
+            htmlFor="clear-data"
           >
-            <GridColumn>
-              <Label
-                as="label"
-                basic={true}
-                htmlFor="clear-data"
-              >
-                <Button
-                  as="button"
-                  icon="trash"
-                  label={
-                    Object {
-                      "basic": true,
-                      "content": "Clean View",
-                    }
-                  }
-                  labelPosition="right"
-                  onClick={[Function]}
-                />
-              </Label>
-            </GridColumn>
-          </GridRow>
+            <Button
+              as="button"
+              icon="trash"
+              label={
+                Object {
+                  "basic": true,
+                  "content": "Clean View",
+                }
+              }
+              labelPosition="right"
+              onClick={[Function]}
+            />
+          </Label>
         </GridColumn>
       </GridRow>
       <GridRow>
@@ -4045,16 +4051,16 @@ exports[`VisualizationPage Should match existing snapshot when hooked up to a Re
           <br />
           (1) An evcouplings results directory.
           <br />
-          (2) Individual .pdb, coupling scores and residue mapping files.
+          (2) Individual .pdb, coupling scores
           <Popup
-            content="A .csv file that starts with 'residue_mapping' - or - A file that ends in .indextable / .indextableplus"
+            content="A file that ends as 'CouplingScores.csv'"
             disabled={false}
             keepInViewPort={true}
             on="hover"
             position="top left"
             trigger={
               <a>
-                 (?) 
+                (?)
               </a>
             }
           >
@@ -4073,7 +4079,7 @@ exports[`VisualizationPage Should match existing snapshot when hooked up to a Re
               openOnTriggerMouseEnter={true}
               trigger={
                 <a>
-                   (?) 
+                  (?)
                 </a>
               }
               triggerRef={[Function]}
@@ -4091,12 +4097,65 @@ exports[`VisualizationPage Should match existing snapshot when hooked up to a Re
                     onMouseEnter={[Function]}
                     onMouseLeave={[Function]}
                   >
-                     (?) 
+                    (?)
                   </a>
                 </RefFindNode>
               </Ref>
             </Portal>
           </Popup>
+          , and residue mapping files
+          <Popup
+            content="A .csv file that starts with 'residue_mapping' - or - A file that ends in .indextable / .indextableplus"
+            disabled={false}
+            keepInViewPort={true}
+            on="hover"
+            position="top left"
+            trigger={
+              <a>
+                (?)
+              </a>
+            }
+          >
+            <Portal
+              closeOnDocumentClick={true}
+              closeOnEscape={true}
+              closeOnTriggerMouseLeave={true}
+              eventPool="default"
+              mouseEnterDelay={50}
+              mouseLeaveDelay={70}
+              onClose={[Function]}
+              onMount={[Function]}
+              onOpen={[Function]}
+              onUnmount={[Function]}
+              openOnTriggerClick={true}
+              openOnTriggerMouseEnter={true}
+              trigger={
+                <a>
+                  (?)
+                </a>
+              }
+              triggerRef={[Function]}
+            >
+              <Ref
+                innerRef={[Function]}
+              >
+                <RefFindNode
+                  innerRef={[Function]}
+                >
+                  <a
+                    onBlur={[Function]}
+                    onClick={[Function]}
+                    onFocus={[Function]}
+                    onMouseEnter={[Function]}
+                    onMouseLeave={[Function]}
+                  >
+                    (?)
+                  </a>
+                </RefFindNode>
+              </Ref>
+            </Portal>
+          </Popup>
+          .
           <br />
           <br />
            Check out the
@@ -4138,10 +4197,19 @@ exports[`VisualizationPage Should match existing snapshot when hooked up to a Re
                 >
                   <GridColumn
                     floated="right"
-                    width={2}
+                    style={
+                      Object {
+                        "width": "auto",
+                      }
+                    }
                   >
                     <div
-                      className="right floated two wide column"
+                      className="right floated column"
+                      style={
+                        Object {
+                          "width": "auto",
+                        }
+                      }
                     >
                       <Label
                         as="label"
@@ -4165,10 +4233,16 @@ exports[`VisualizationPage Should match existing snapshot when hooked up to a Re
                             openOnFocus={true}
                             options={Array []}
                             renderLabel={[Function]}
+                            search={false}
                             searchInput="text"
                             selectOnBlur={true}
                             selectOnNavigation={true}
                             selection={true}
+                            style={
+                              Object {
+                                "minWidth": "265px",
+                              }
+                            }
                             text="No PDB selected!"
                             wrapSelection={true}
                           >
@@ -4182,6 +4256,11 @@ exports[`VisualizationPage Should match existing snapshot when hooked up to a Re
                               onFocus={[Function]}
                               onMouseDown={[Function]}
                               role="listbox"
+                              style={
+                                Object {
+                                  "minWidth": "265px",
+                                }
+                              }
                               tabIndex={-1}
                             >
                               <div
@@ -4215,85 +4294,78 @@ exports[`VisualizationPage Should match existing snapshot when hooked up to a Re
                     </div>
                   </GridColumn>
                   <GridColumn
-                    width={2}
+                    style={
+                      Object {
+                        "width": "auto",
+                      }
+                    }
                   >
                     <div
-                      className="two wide column"
+                      className="column"
+                      style={
+                        Object {
+                          "width": "auto",
+                        }
+                      }
                     >
-                      <GridRow
-                        centered={true}
-                        columns={1}
-                        verticalAlign="middle"
+                      <Label
+                        as="label"
+                        basic={true}
+                        htmlFor="clear-data"
                       >
-                        <div
-                          className="centered middle aligned one column row"
+                        <label
+                          className="ui basic label"
+                          htmlFor="clear-data"
+                          onClick={[Function]}
                         >
-                          <GridColumn>
+                          <Button
+                            as="button"
+                            icon="trash"
+                            label={
+                              Object {
+                                "basic": true,
+                                "content": "Clean View",
+                              }
+                            }
+                            labelPosition="right"
+                            onClick={[Function]}
+                          >
                             <div
-                              className="column"
+                              className="ui right labeled button"
+                              onClick={[Function]}
                             >
-                              <Label
-                                as="label"
-                                basic={true}
-                                htmlFor="clear-data"
+                              <button
+                                className="ui icon button"
+                                tabIndex={0}
                               >
-                                <label
-                                  className="ui basic label"
-                                  htmlFor="clear-data"
+                                <Icon
+                                  as="i"
+                                  name="trash"
+                                >
+                                  <i
+                                    aria-hidden="true"
+                                    className="trash icon"
+                                    onClick={[Function]}
+                                  />
+                                </Icon>
+                                 
+                              </button>
+                              <Label
+                                basic={true}
+                                content="Clean View"
+                                pointing="left"
+                              >
+                                <div
+                                  className="ui left pointing basic label"
                                   onClick={[Function]}
                                 >
-                                  <Button
-                                    as="button"
-                                    icon="trash"
-                                    label={
-                                      Object {
-                                        "basic": true,
-                                        "content": "Clean View",
-                                      }
-                                    }
-                                    labelPosition="right"
-                                    onClick={[Function]}
-                                  >
-                                    <div
-                                      className="ui right labeled button"
-                                      onClick={[Function]}
-                                    >
-                                      <button
-                                        className="ui icon button"
-                                        tabIndex={0}
-                                      >
-                                        <Icon
-                                          as="i"
-                                          name="trash"
-                                        >
-                                          <i
-                                            aria-hidden="true"
-                                            className="trash icon"
-                                            onClick={[Function]}
-                                          />
-                                        </Icon>
-                                         
-                                      </button>
-                                      <Label
-                                        basic={true}
-                                        content="Clean View"
-                                        pointing="left"
-                                      >
-                                        <div
-                                          className="ui left pointing basic label"
-                                          onClick={[Function]}
-                                        >
-                                          Clean View
-                                        </div>
-                                      </Label>
-                                    </div>
-                                  </Button>
-                                </label>
+                                  Clean View
+                                </div>
                               </Label>
                             </div>
-                          </GridColumn>
-                        </div>
-                      </GridRow>
+                          </Button>
+                        </label>
+                      </Label>
                     </div>
                   </GridColumn>
                 </div>
@@ -4637,6 +4709,7 @@ exports[`VisualizationPage Should match existing snapshot when hooked up to a Re
                                     }
                                     dataTransformFn={[Function]}
                                     height="100%"
+                                    isDataLoading={false}
                                     legendModifiers={
                                       Object {
                                         "y": -0.4,
@@ -4802,69 +4875,9 @@ exports[`VisualizationPage Should match existing snapshot when hooked up to a Re
                                         ]
                                       }
                                       selectedSecondaryStructuresColor="#feb83f"
-                                      showLoader={true}
+                                      showLoader={false}
                                       width="100%"
                                     >
-                                      <Dimmer
-                                        active={false}
-                                      >
-                                        <DimmerInner
-                                          active={false}
-                                        >
-                                          <Ref
-                                            innerRef={
-                                              Object {
-                                                "current": <div
-                                                  class="ui dimmer"
-                                                  style=""
-                                                >
-                                                  <div
-                                                    class="content"
-                                                  >
-                                                    <div
-                                                      class="ui loader"
-                                                    />
-                                                  </div>
-                                                </div>,
-                                              }
-                                            }
-                                          >
-                                            <RefFindNode
-                                              innerRef={
-                                                Object {
-                                                  "current": <div
-                                                    class="ui dimmer"
-                                                    style=""
-                                                  >
-                                                    <div
-                                                      class="content"
-                                                    >
-                                                      <div
-                                                        class="ui loader"
-                                                      />
-                                                    </div>
-                                                  </div>,
-                                                }
-                                              }
-                                            >
-                                              <div
-                                                className="ui dimmer"
-                                                onClick={[Function]}
-                                              >
-                                                <div
-                                                  className="content"
-                                                >
-                                                  <Loader>
-                                                    <div
-                                                      className="ui loader"
-                                                    />
-                                                  </Loader>
-                                                </div>
-                                              </div>
-                                            </RefFindNode>
-                                          </Ref>
-                                        </DimmerInner>
-                                      </Dimmer>
                                       <div
                                         className="plotly-chart"
                                         style={
@@ -5150,6 +5163,64 @@ exports[`VisualizationPage Should match existing snapshot when hooked up to a Re
                                       }
                                     }
                                   >
+                                    <Dimmer
+                                      active={false}
+                                    >
+                                      <DimmerInner
+                                        active={false}
+                                      >
+                                        <Ref
+                                          innerRef={
+                                            Object {
+                                              "current": <div
+                                                class="ui dimmer"
+                                              >
+                                                <div
+                                                  class="content"
+                                                >
+                                                  <div
+                                                    class="ui loader"
+                                                  />
+                                                </div>
+                                              </div>,
+                                            }
+                                          }
+                                        >
+                                          <RefFindNode
+                                            innerRef={
+                                              Object {
+                                                "current": <div
+                                                  class="ui dimmer"
+                                                >
+                                                  <div
+                                                    class="content"
+                                                  >
+                                                    <div
+                                                      class="ui loader"
+                                                    />
+                                                  </div>
+                                                </div>,
+                                              }
+                                            }
+                                          >
+                                            <div
+                                              className="ui dimmer"
+                                              onClick={[Function]}
+                                            >
+                                              <div
+                                                className="content"
+                                              >
+                                                <Loader>
+                                                  <div
+                                                    className="ui loader"
+                                                  />
+                                                </Loader>
+                                              </div>
+                                            </div>
+                                          </RefFindNode>
+                                        </Ref>
+                                      </DimmerInner>
+                                    </Dimmer>
                                     <div
                                       className="NGLCanvas"
                                       onKeyDown={[Function]}
@@ -5254,7 +5325,20 @@ exports[`VisualizationPage Should match existing snapshot when no props are prov
     <br />
     (1) An evcouplings results directory.
     <br />
-    (2) Individual .pdb, coupling scores and residue mapping files.
+    (2) Individual .pdb, coupling scores
+    <Popup
+      content="A file that ends as 'CouplingScores.csv'"
+      disabled={false}
+      keepInViewPort={true}
+      on="hover"
+      position="top left"
+      trigger={
+        <a>
+          (?)
+        </a>
+      }
+    />
+    , and residue mapping files
     <Popup
       content="A .csv file that starts with 'residue_mapping' - or - A file that ends in .indextable / .indextableplus"
       disabled={false}
@@ -5263,10 +5347,11 @@ exports[`VisualizationPage Should match existing snapshot when no props are prov
       position="top left"
       trigger={
         <a>
-           (?) 
+          (?)
         </a>
       }
     />
+    .
     <br />
     <br />
      Check out the
@@ -5298,7 +5383,11 @@ exports[`VisualizationPage Should match existing snapshot when no props are prov
       >
         <GridColumn
           floated="right"
-          width={2}
+          style={
+            Object {
+              "width": "auto",
+            }
+          }
         >
           <Label
             as="label"
@@ -5318,44 +5407,46 @@ exports[`VisualizationPage Should match existing snapshot when no props are prov
               openOnFocus={true}
               options={Array []}
               renderLabel={[Function]}
+              search={false}
               searchInput="text"
               selectOnBlur={true}
               selectOnNavigation={true}
               selection={true}
+              style={
+                Object {
+                  "minWidth": "265px",
+                }
+              }
               text="No PDB selected!"
               wrapSelection={true}
             />
           </Label>
         </GridColumn>
         <GridColumn
-          width={2}
+          style={
+            Object {
+              "width": "auto",
+            }
+          }
         >
-          <GridRow
-            centered={true}
-            columns={1}
-            verticalAlign="middle"
+          <Label
+            as="label"
+            basic={true}
+            htmlFor="clear-data"
           >
-            <GridColumn>
-              <Label
-                as="label"
-                basic={true}
-                htmlFor="clear-data"
-              >
-                <Button
-                  as="button"
-                  icon="trash"
-                  label={
-                    Object {
-                      "basic": true,
-                      "content": "Clean View",
-                    }
-                  }
-                  labelPosition="right"
-                  onClick={[Function]}
-                />
-              </Label>
-            </GridColumn>
-          </GridRow>
+            <Button
+              as="button"
+              icon="trash"
+              label={
+                Object {
+                  "basic": true,
+                  "content": "Clean View",
+                }
+              }
+              labelPosition="right"
+              onClick={[Function]}
+            />
+          </Label>
         </GridColumn>
       </GridRow>
       <GridRow>
@@ -6764,7 +6855,11 @@ exports[`VisualizationPage Should match existing snapshot when using c-alpha pro
       >
         <GridColumn
           floated="right"
-          width={2}
+          style={
+            Object {
+              "width": "auto",
+            }
+          }
         >
           <Label
             as="label"
@@ -6784,44 +6879,46 @@ exports[`VisualizationPage Should match existing snapshot when using c-alpha pro
               openOnFocus={true}
               options={Array []}
               renderLabel={[Function]}
+              search={false}
               searchInput="text"
               selectOnBlur={true}
               selectOnNavigation={true}
               selection={true}
+              style={
+                Object {
+                  "minWidth": "265px",
+                }
+              }
               text="sample"
               wrapSelection={true}
             />
           </Label>
         </GridColumn>
         <GridColumn
-          width={2}
+          style={
+            Object {
+              "width": "auto",
+            }
+          }
         >
-          <GridRow
-            centered={true}
-            columns={1}
-            verticalAlign="middle"
+          <Label
+            as="label"
+            basic={true}
+            htmlFor="clear-data"
           >
-            <GridColumn>
-              <Label
-                as="label"
-                basic={true}
-                htmlFor="clear-data"
-              >
-                <Button
-                  as="button"
-                  icon="trash"
-                  label={
-                    Object {
-                      "basic": true,
-                      "content": "Clean View",
-                    }
-                  }
-                  labelPosition="right"
-                  onClick={[Function]}
-                />
-              </Label>
-            </GridColumn>
-          </GridRow>
+            <Button
+              as="button"
+              icon="trash"
+              label={
+                Object {
+                  "basic": true,
+                  "content": "Clean View",
+                }
+              }
+              labelPosition="right"
+              onClick={[Function]}
+            />
+          </Label>
         </GridColumn>
       </GridRow>
       <GridRow>
@@ -10751,7 +10848,11 @@ exports[`VisualizationPage Should match existing snapshot when using closest pro
       >
         <GridColumn
           floated="right"
-          width={2}
+          style={
+            Object {
+              "width": "auto",
+            }
+          }
         >
           <Label
             as="label"
@@ -10771,44 +10872,46 @@ exports[`VisualizationPage Should match existing snapshot when using closest pro
               openOnFocus={true}
               options={Array []}
               renderLabel={[Function]}
+              search={false}
               searchInput="text"
               selectOnBlur={true}
               selectOnNavigation={true}
               selection={true}
+              style={
+                Object {
+                  "minWidth": "265px",
+                }
+              }
               text="sample"
               wrapSelection={true}
             />
           </Label>
         </GridColumn>
         <GridColumn
-          width={2}
+          style={
+            Object {
+              "width": "auto",
+            }
+          }
         >
-          <GridRow
-            centered={true}
-            columns={1}
-            verticalAlign="middle"
+          <Label
+            as="label"
+            basic={true}
+            htmlFor="clear-data"
           >
-            <GridColumn>
-              <Label
-                as="label"
-                basic={true}
-                htmlFor="clear-data"
-              >
-                <Button
-                  as="button"
-                  icon="trash"
-                  label={
-                    Object {
-                      "basic": true,
-                      "content": "Clean View",
-                    }
-                  }
-                  labelPosition="right"
-                  onClick={[Function]}
-                />
-              </Label>
-            </GridColumn>
-          </GridRow>
+            <Button
+              as="button"
+              icon="trash"
+              label={
+                Object {
+                  "basic": true,
+                  "content": "Clean View",
+                }
+              }
+              labelPosition="right"
+              onClick={[Function]}
+            />
+          </Label>
         </GridColumn>
       </GridRow>
       <GridRow>

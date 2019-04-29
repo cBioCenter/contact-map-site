@@ -1,4 +1,5 @@
 import {
+  Bioblocks1DSection,
   BioblocksPDB,
   CONTACT_DISTANCE_PROXIMITY,
   CONTACT_MAP_DATA_TYPE,
@@ -15,6 +16,8 @@ import {
   NGLContainer,
   PredictedContactMap,
   readFileAsText,
+  SECONDARY_STRUCTURE_CODES,
+  SECONDARY_STRUCTURE_SECTION,
   VIZ_TYPE,
 } from 'bioblocks-viz';
 import * as React from 'react';
@@ -209,13 +212,16 @@ export class VisualizationPageClass extends React.Component<IVisualizationPagePr
       {<br />}
       {'(1) An evcouplings results directory.'}
       {<br />}
-      {'(2) Individual .pdb, coupling scores and residue mapping files.'}
+      {'(2) Individual .pdb, coupling scores'}
+      <Popup trigger={<a>(?)</a>} content={"A file that ends as 'CouplingScores.csv'"} />
+      {', and residue mapping files'}
       <Popup
-        trigger={<a> (?) </a>}
+        trigger={<a>(?)</a>}
         content={
           "A .csv file that starts with 'residue_mapping' - or - A file that ends in .indextable / .indextableplus"
         }
       />
+      {'.'}
       {<br />}
       {<br />} Check out the
       {/* tslint:disable-next-line:no-http-string */}
@@ -229,8 +235,8 @@ export class VisualizationPageClass extends React.Component<IVisualizationPagePr
     size: number | string,
     style: React.CSSProperties,
     pdbData?: BioblocksPDB,
-  ) =>
-    arePredictionsAvailable ? (
+  ) => {
+    return arePredictionsAvailable ? (
       <PredictedContactMap
         data={{
           couplingScores: this.state[VIZ_TYPE.CONTACT_MAP].couplingScores,
@@ -255,6 +261,7 @@ export class VisualizationPageClass extends React.Component<IVisualizationPagePr
         width={size}
       />
     );
+  };
 
   protected renderNGLCard = (measuredProximity: CONTACT_DISTANCE_PROXIMITY, pdbData?: BioblocksPDB) => {
     return (
@@ -278,30 +285,26 @@ export class VisualizationPageClass extends React.Component<IVisualizationPagePr
   protected renderButtonsRow = () => {
     return (
       <GridRow verticalAlign={'bottom'} textAlign={'right'}>
-        <GridColumn floated={'right'} width={2}>
+        <GridColumn floated={'right'} style={{ width: 'auto' }}>
           {this.renderPdbDropdown()}
         </GridColumn>
-        <GridColumn width={2}>{this.renderClearAllButton()}</GridColumn>
+        <GridColumn style={{ width: 'auto' }}>{this.renderClearAllButton()}</GridColumn>
       </GridRow>
     );
   };
 
   protected renderClearAllButton = () => (
-    <GridRow verticalAlign={'middle'} columns={1} centered={true}>
-      <GridColumn>
-        <Label as={'label'} basic={true} htmlFor={'clear-data'}>
-          <Button
-            icon={'trash'}
-            label={{
-              basic: true,
-              content: 'Clean View',
-            }}
-            labelPosition={'right'}
-            onClick={this.onClearAll()}
-          />
-        </Label>
-      </GridColumn>
-    </GridRow>
+    <Label as={'label'} basic={true} htmlFor={'clear-data'}>
+      <Button
+        icon={'trash'}
+        label={{
+          basic: true,
+          content: 'Clean View',
+        }}
+        labelPosition={'right'}
+        onClick={this.onClearAll()}
+      />
+    </Label>
   );
 
   protected renderPdbDropdown = () => {
@@ -318,7 +321,9 @@ export class VisualizationPageClass extends React.Component<IVisualizationPagePr
             text: pdbFile.name,
             value: pdbFile.name,
           }))}
+          search={availablePdbFiles.length >= 1}
           selection={true}
+          style={{ minWidth: '265px' }}
           text={pdbData && pdbData.nglStructure ? pdbData.name : 'No PDB selected!'}
         />
       </Label>
@@ -334,6 +339,7 @@ export class VisualizationPageClass extends React.Component<IVisualizationPagePr
   };
 
   protected onFolderUpload = async (files: File[]) => {
+    this.onCloseUpload();
     await this.onClearAll()();
     const { measuredProximity } = this.state;
     const availablePdbFiles = new Array<BioblocksPDB>();
@@ -347,9 +353,11 @@ export class VisualizationPageClass extends React.Component<IVisualizationPagePr
       pdb: '',
       residue_mapper: '',
     };
+
     let couplingScoresCSV: string = '';
     let pdbData: BioblocksPDB = BioblocksPDB.createEmptyPDB();
     let residueMapping: IResidueMapping[] = [];
+    let secondaryStructures: SECONDARY_STRUCTURE_SECTION[] = [];
 
     for (const file of files) {
       if (file.name.endsWith('.pdb')) {
@@ -365,9 +373,28 @@ export class VisualizationPageClass extends React.Component<IVisualizationPagePr
         ) {
           residueMapping = generateResidueMapping(parsedFile);
           filenames.residue_mapper = file.name;
-        } else if (file.name.endsWith('.csv')) {
+        } else if (file.name.endsWith('CouplingScores.csv')) {
           couplingScoresCSV = parsedFile;
           filenames.couplings = file.name;
+        } else if (file.name.endsWith('distance_map_multimer.csv')) {
+          secondaryStructures = new Array<SECONDARY_STRUCTURE_SECTION>();
+          parsedFile
+            .split('\n')
+            .slice(1)
+            .filter(row => row.split(',').length >= 3)
+            .forEach(row => {
+              const items = row.split(',');
+              const resno = parseFloat(items[1]);
+              const structId = items[2] as keyof typeof SECONDARY_STRUCTURE_CODES;
+              if (
+                secondaryStructures[secondaryStructures.length - 1] &&
+                secondaryStructures[secondaryStructures.length - 1].label === structId
+              ) {
+                secondaryStructures[secondaryStructures.length - 1].updateEnd(resno);
+              } else {
+                secondaryStructures.push(new Bioblocks1DSection(structId, resno));
+              }
+            });
         }
       }
     }
@@ -380,7 +407,8 @@ export class VisualizationPageClass extends React.Component<IVisualizationPagePr
       [VIZ_TYPE.CONTACT_MAP]: {
         couplingScores,
         pdbData: { known: pdbData },
-        secondaryStructures: pdbData.secondaryStructureSections,
+        secondaryStructures:
+          secondaryStructures.length >= 1 ? [secondaryStructures] : pdbData.secondaryStructureSections,
       },
       arePredictionsAvailable: true,
       availablePdbFiles,

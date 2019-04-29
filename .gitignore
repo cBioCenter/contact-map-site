@@ -1,6 +1,7 @@
-node_modules
+datasets
 dist
 lib
+node_modules
 
 datasets/**/*.npz
 *.hdf5
