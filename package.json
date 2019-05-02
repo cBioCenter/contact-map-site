@@ -108,11 +108,11 @@
     }
   },
   "scripts": {
-    "analyzebundle": "webpack-bundle-analyzer webpack-stats.json dist",
+    "analyze-bundle": "webpack-bundle-analyzer webpack-stats.json dist",
     "build": "webpack --config ./configs/webpack.dev.ts",
-    "build:analyze": "yarn --silent build --profile --json > webpack-stats.json && yarn analyzebundle",
+    "build:analyze": "yarn --silent build --profile --json > webpack-stats.json && yarn analyze-bundle",
     "build:prod": "webpack --config ./configs/webpack.prod.ts",
-    "build:prod:analyze": "yarn --silent build:prod --profile --json > webpack-stats.json && yarn analyzebundle",
+    "build:prod:analyze": "yarn --silent build:prod --profile --json > webpack-stats.json && yarn analyze-bundle",
     "build:test": "tsc",
     "deploy": "yarn build:prod && yarn deploy:doc && yarn deploy:gh-pages",
     "deploy:demo": "yarn build && yarn deploy:doc && yarn deploy:gh-pages",
@@ -135,7 +135,7 @@
     "test:staged": "jest --onlyChanged"
   },
   "dependencies": {
-    "bioblocks-viz": "^0.0.104",
+    "bioblocks-viz": "^0.0.107",
     "canvas": "^2.4.1",
     "connected-react-router": "^6.4.0",
     "d3": "^5.9.2",
@@ -172,6 +172,7 @@
     "@types/react-redux": "^6.0.11",
     "@types/react-router-dom": "^4.3.1",
     "@types/redux-logger": "^3.0.7",
+    "@types/terser-webpack-plugin": "^1.2.1",
     "@types/wallabyjs": "^0.0.6",
     "@types/webpack-bundle-analyzer": "^2.9.2",
     "@types/webpack-env": "^1.13.6",
@@ -207,6 +208,7 @@
     "react-test-renderer": "^16.5.2",
     "redux-devtools-extension": "^2.13.7",
     "style-loader": "^0.23.0",
+    "terser-webpack-plugin": "^1.2.3",
     "ts-jest": "^23.10.2",
     "ts-loader": "^5.1.0",
     "ts-node": "^7.0.0",
@@ -219,6 +221,7 @@
     "tslint-react": "^3.5.1",
     "typedoc": "^0.13.0",
     "typescript": "^3.0.1",
+    "uglify-js": "^3.5.10",
     "utility-types": "^3.2.0",
     "webpack": "^4.19.1",
     "webpack-bundle-analyzer": "^3.0.2",

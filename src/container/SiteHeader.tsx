@@ -47,7 +47,7 @@ export class UnconnectedSiteHeader extends React.Component<ISiteHeaderProps, ISi
                 style={{ height: '32px', width: '32px' }}
               />
               <span style={{ color: 'black', fontSize: '32px', fontWeight: 'bold' }}>
-                ContactMap.org: 2D and 3D Visualization
+                ContactMap.org: 2D and 3D Protein Visualization
               </span>
             </Link>
           </Menu.Item>
