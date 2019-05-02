@@ -1,11 +1,12 @@
+import { BioblocksPDB, CONTACT_DISTANCE_PROXIMITY, Store, VIZ_TYPE } from 'bioblocks-viz';
 import { mount, shallow } from 'enzyme';
 import * as React from 'react';
 import { Provider } from 'react-redux';
-import { Modal } from 'semantic-ui-react';
+import { Button, Dropdown, Modal } from 'semantic-ui-react';
 
-import { BioblocksPDB, CONTACT_DISTANCE_PROXIMITY, Store } from 'bioblocks-viz';
 import { FolderUploadComponent } from '~contact-map-site~/component';
-import { VisualizationPageClass } from '~contact-map-site~/page';
+import { VisualizationPage, VisualizationPageClass } from '~contact-map-site~/page';
+import { configureStore } from '~contact-map-site~/reducer';
 
 describe('VisualizationPage', () => {
   beforeEach(() => {
@@ -21,7 +22,7 @@ describe('VisualizationPage', () => {
   it('Should match existing snapshot when hooked up to a Redux store.', () => {
     const wrapper = mount(
       <Provider store={Store}>
-        <VisualizationPageClass />
+        <VisualizationPage />
       </Provider>,
     );
     expect(wrapper).toMatchSnapshot();
@@ -115,5 +116,89 @@ describe('VisualizationPage', () => {
       await onDrop([pdbFile, residueMapFile, couplingFile], [], event);
       expect(instance.state.mismatches).not.toEqual([]);
     }
+  });
+
+  it('Should select the last PDB when given a list.', async () => {
+    const wrapper = shallow(<VisualizationPageClass />);
+    const instance = wrapper.instance() as VisualizationPageClass;
+    expect(instance.state.filenames).toEqual({});
+    const onDrop = wrapper.find(FolderUploadComponent).props().onDrop;
+    if (!onDrop) {
+      expect(onDrop).not.toBeUndefined();
+    } else {
+      const event = new Event('drop');
+      const pdbFileAlpha = new File([], 'mock_alpha.pdb');
+      const pdbFileBeta = new File([], 'mock_beta.pdb');
+      const pdbFileDelta = new File([], 'mock_delta.pdb');
+
+      await onDrop([pdbFileAlpha, pdbFileBeta, pdbFileDelta], [], event);
+      expect(instance.state.filenames.pdb).toEqual('mock_delta.pdb');
+    }
+  });
+
+  it('Should handle switching the PDB.', async () => {
+    const wrapper = shallow(<VisualizationPageClass />);
+    const instance = wrapper.instance() as VisualizationPageClass;
+    expect(instance.state.filenames).toEqual({});
+    const onDrop = wrapper.find(FolderUploadComponent).props().onDrop;
+    if (!onDrop) {
+      expect(onDrop).not.toBeUndefined();
+    } else {
+      const event = new Event('drop');
+      const pdbFileAlpha = new File([], 'mock_alpha.pdb');
+      const pdbFileBeta = new File([], 'mock_beta.pdb');
+      const pdbFileDelta = new File([], 'mock_delta.pdb');
+
+      await onDrop([pdbFileAlpha, pdbFileBeta, pdbFileDelta], [], event);
+
+      expect(instance.state.filenames.pdb).not.toEqual('mock_alpha.pdb');
+
+      wrapper.find(Dropdown).simulate('change', {}, { value: 'mock_alpha' });
+      expect(instance.state.filenames.pdb).toEqual('mock_alpha.pdb');
+    }
+  });
+
+  it('Should handle parsing the secondary structure from the distance_map_multimer file.', async () => {
+    const wrapper = shallow(<VisualizationPageClass />);
+    const instance = wrapper.instance() as VisualizationPageClass;
+    expect(instance.state.filenames).toEqual({});
+    const onDrop = wrapper.find(FolderUploadComponent).props().onDrop;
+    if (!onDrop) {
+      expect(onDrop).not.toBeUndefined();
+    } else {
+      const distanceMapCsv = ',id,sec_struct_3state\n\
+        0,3,E\n\
+        1,4,E\n\
+        2,5,E\n';
+
+      const event = new Event('drop');
+      const secStructFile = new File([distanceMapCsv], 'distance_map_multimer.csv');
+
+      await onDrop([secStructFile], [], event);
+      expect(instance.state[VIZ_TYPE.CONTACT_MAP].secondaryStructures).toEqual([
+        [{ label: 'E', sectionEnd: 5, sectionStart: 3 }],
+      ]);
+    }
+  });
+
+  it('Should call the right functions when clearing data.', () => {
+    const store = configureStore();
+    store.dispatch = jest.fn();
+
+    const wrapper = mount(
+      <Provider store={store}>
+        <VisualizationPage />
+      </Provider>,
+    );
+
+    wrapper
+      .find(Button)
+      .at(0)
+      .simulate('click');
+
+    expect((store.dispatch as jest.Mock).mock.calls).toEqual([
+      [{ meta: undefined, payload: undefined, type: 'BIOBLOCKS/RESIDUEPAIR/LOCKED_CLEAR' }],
+      [{ meta: undefined, payload: undefined, type: 'BIOBLOCKS/SECONDARYSTRUCTURE/SELECTED_CLEAR' }],
+    ]);
   });
 });

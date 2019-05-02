@@ -277,6 +277,10 @@ export class VisualizationPageClass extends React.Component<IVisualizationPagePr
     const { availablePdbFiles } = this.state;
     const value = data.value as string;
     this.setState({
+      filenames: {
+        ...this.state.filenames,
+        pdb: `${value}.pdb`,
+      },
       pdbData: availablePdbFiles.find(pdbFile => pdbFile.name.localeCompare(value) === 0),
     });
   };
