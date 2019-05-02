@@ -30,7 +30,6 @@ import {
   Grid,
   GridColumn,
   GridRow,
-  Label,
   Message,
   Modal,
   Popup,
@@ -284,49 +283,45 @@ export class VisualizationPageClass extends React.Component<IVisualizationPagePr
 
   protected renderButtonsRow = () => {
     return (
-      <GridRow verticalAlign={'bottom'} textAlign={'right'}>
-        <GridColumn floated={'right'} style={{ width: 'auto' }}>
+      <GridRow textAlign={'right'} verticalAlign={'bottom'}>
+        <GridColumn floated={'right'} style={{ height: '100%', width: 'auto' }}>
           {this.renderPdbDropdown()}
         </GridColumn>
-        <GridColumn style={{ width: 'auto' }}>{this.renderClearAllButton()}</GridColumn>
+        <GridColumn style={{ height: '100%', width: 'auto' }}>{this.renderClearAllButton()}</GridColumn>
       </GridRow>
     );
   };
 
   protected renderClearAllButton = () => (
-    <Label as={'label'} basic={true} htmlFor={'clear-data'}>
-      <Button
-        icon={'trash'}
-        label={{
-          basic: true,
-          content: 'Clean View',
-        }}
-        labelPosition={'right'}
-        onClick={this.onClearAll()}
-      />
-    </Label>
+    <Button
+      icon={'trash'}
+      label={{
+        content: 'Clean View',
+      }}
+      labelPosition={'right'}
+      onClick={this.onClearAll()}
+      style={{ height: '100%' }}
+    />
   );
 
   protected renderPdbDropdown = () => {
     const { availablePdbFiles, pdbData } = this.state;
 
     return (
-      <Label as={'label'} basic={true}>
-        <Dropdown
-          disabled={availablePdbFiles.length === 0}
-          fluid={false}
-          onChange={this.onPdbFileChange}
-          options={availablePdbFiles.map((pdbFile, index) => ({
-            key: `pdb-dropdown-${index}`,
-            text: pdbFile.name,
-            value: pdbFile.name,
-          }))}
-          search={availablePdbFiles.length >= 1}
-          selection={true}
-          style={{ minWidth: '265px' }}
-          text={pdbData && pdbData.nglStructure ? pdbData.name : 'No PDB selected!'}
-        />
-      </Label>
+      <Dropdown
+        button={true}
+        disabled={availablePdbFiles.length === 0}
+        onChange={this.onPdbFileChange}
+        options={availablePdbFiles.map((pdbFile, index) => ({
+          key: `pdb-dropdown-${index}`,
+          text: pdbFile.name,
+          value: pdbFile.name,
+        }))}
+        scrolling={true}
+        search={availablePdbFiles.length >= 1}
+        selection={true}
+        text={pdbData && pdbData.nglStructure ? pdbData.name : 'No PDB selected!'}
+      />
     );
   };
 

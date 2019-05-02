@@ -1325,68 +1325,59 @@ exports[`VisualizationPage Should match existing snapshot when given a PDB. 1`] 
           floated="right"
           style={
             Object {
+              "height": "100%",
               "width": "auto",
             }
           }
         >
-          <Label
-            as="label"
-            basic={true}
-          >
-            <Dropdown
-              additionLabel="Add "
-              additionPosition="top"
-              closeOnBlur={true}
-              deburr={false}
-              disabled={true}
-              fluid={false}
-              icon="dropdown"
-              minCharacters={1}
-              noResultsMessage="No results found."
-              onChange={[Function]}
-              openOnFocus={true}
-              options={Array []}
-              renderLabel={[Function]}
-              search={false}
-              searchInput="text"
-              selectOnBlur={true}
-              selectOnNavigation={true}
-              selection={true}
-              style={
-                Object {
-                  "minWidth": "265px",
-                }
-              }
-              text="sample"
-              wrapSelection={true}
-            />
-          </Label>
+          <Dropdown
+            additionLabel="Add "
+            additionPosition="top"
+            button={true}
+            closeOnBlur={true}
+            deburr={false}
+            disabled={true}
+            icon="dropdown"
+            minCharacters={1}
+            noResultsMessage="No results found."
+            onChange={[Function]}
+            openOnFocus={true}
+            options={Array []}
+            renderLabel={[Function]}
+            scrolling={true}
+            search={false}
+            searchInput="text"
+            selectOnBlur={true}
+            selectOnNavigation={true}
+            selection={true}
+            text="sample"
+            wrapSelection={true}
+          />
         </GridColumn>
         <GridColumn
           style={
             Object {
+              "height": "100%",
               "width": "auto",
             }
           }
         >
-          <Label
-            as="label"
-            basic={true}
-            htmlFor="clear-data"
-          >
-            <Button
-              as="button"
-              icon="trash"
-              label={
-                Object {
-                  "basic": true,
-                  "content": "Clean View",
-                }
+          <Button
+            as="button"
+            icon="trash"
+            label={
+              Object {
+                "content": "Clean View",
               }
-              labelPosition="right"
-              onClick={[Function]}
-            />
-          </Label>
+            }
+            labelPosition="right"
+            onClick={[Function]}
+            style={
+              Object {
+                "height": "100%",
+              }
+            }
+          />
         </GridColumn>
       </GridRow>
       <GridRow>
@@ -4199,6 +4190,7 @@ exports[`VisualizationPage Should match existing snapshot when hooked up to a Re
                     floated="right"
                     style={
                       Object {
+                        "height": "100%",
                         "width": "auto",
                       }
                     }
@@ -4207,95 +4199,78 @@ exports[`VisualizationPage Should match existing snapshot when hooked up to a Re
                       className="right floated column"
                       style={
                         Object {
+                          "height": "100%",
                           "width": "auto",
                         }
                       }
                     >
-                      <Label
-                        as="label"
-                        basic={true}
+                      <Dropdown
+                        additionLabel="Add "
+                        additionPosition="top"
+                        button={true}
+                        closeOnBlur={true}
+                        deburr={false}
+                        disabled={true}
+                        icon="dropdown"
+                        minCharacters={1}
+                        noResultsMessage="No results found."
+                        onChange={[Function]}
+                        openOnFocus={true}
+                        options={Array []}
+                        renderLabel={[Function]}
+                        scrolling={true}
+                        search={false}
+                        searchInput="text"
+                        selectOnBlur={true}
+                        selectOnNavigation={true}
+                        selection={true}
+                        text="No PDB selected!"
+                        wrapSelection={true}
                       >
-                        <label
-                          className="ui basic label"
+                        <div
+                          aria-disabled={true}
+                          aria-expanded={false}
+                          className="ui disabled button selection scrolling dropdown"
+                          onBlur={[Function]}
+                          onChange={[Function]}
                           onClick={[Function]}
+                          onFocus={[Function]}
+                          onMouseDown={[Function]}
+                          role="listbox"
+                          tabIndex={-1}
                         >
-                          <Dropdown
-                            additionLabel="Add "
-                            additionPosition="top"
-                            closeOnBlur={true}
-                            deburr={false}
-                            disabled={true}
-                            fluid={false}
-                            icon="dropdown"
-                            minCharacters={1}
-                            noResultsMessage="No results found."
-                            onChange={[Function]}
-                            openOnFocus={true}
-                            options={Array []}
-                            renderLabel={[Function]}
-                            search={false}
-                            searchInput="text"
-                            selectOnBlur={true}
-                            selectOnNavigation={true}
-                            selection={true}
-                            style={
-                              Object {
-                                "minWidth": "265px",
-                              }
-                            }
-                            text="No PDB selected!"
-                            wrapSelection={true}
+                          <div
+                            aria-live="polite"
+                            className="text"
+                            role="alert"
                           >
-                            <div
-                              aria-disabled={true}
-                              aria-expanded={false}
-                              className="ui disabled selection dropdown"
-                              onBlur={[Function]}
-                              onChange={[Function]}
+                            No PDB selected!
+                          </div>
+                          <Icon
+                            as="i"
+                            className=""
+                            name="dropdown"
+                            onClick={[Function]}
+                          >
+                            <i
+                              aria-hidden="true"
+                              className="dropdown icon"
                               onClick={[Function]}
-                              onFocus={[Function]}
-                              onMouseDown={[Function]}
-                              role="listbox"
-                              style={
-                                Object {
-                                  "minWidth": "265px",
-                                }
-                              }
-                              tabIndex={-1}
-                            >
-                              <div
-                                aria-live="polite"
-                                className="text"
-                                role="alert"
-                              >
-                                No PDB selected!
-                              </div>
-                              <Icon
-                                as="i"
-                                className=""
-                                name="dropdown"
-                                onClick={[Function]}
-                              >
-                                <i
-                                  aria-hidden="true"
-                                  className="dropdown icon"
-                                  onClick={[Function]}
-                                />
-                              </Icon>
-                              <DropdownMenu>
-                                <div
-                                  className="menu transition"
-                                />
-                              </DropdownMenu>
-                            </div>
-                          </Dropdown>
-                        </label>
-                      </Label>
+                            />
+                          </Icon>
+                          <DropdownMenu>
+                            <div
+                              className="menu transition"
+                            />
+                          </DropdownMenu>
+                        </div>
+                      </Dropdown>
                     </div>
                   </GridColumn>
                   <GridColumn
                     style={
                       Object {
+                        "height": "100%",
                         "width": "auto",
                       }
                     }
@@ -4304,68 +4279,66 @@ exports[`VisualizationPage Should match existing snapshot when hooked up to a Re
                       className="column"
                       style={
                         Object {
+                          "height": "100%",
                           "width": "auto",
                         }
                       }
                     >
-                      <Label
-                        as="label"
-                        basic={true}
-                        htmlFor="clear-data"
+                      <Button
+                        as="button"
+                        icon="trash"
+                        label={
+                          Object {
+                            "content": "Clean View",
+                          }
+                        }
+                        labelPosition="right"
+                        onClick={[Function]}
+                        style={
+                          Object {
+                            "height": "100%",
+                          }
+                        }
                       >
-                        <label
-                          className="ui basic label"
-                          htmlFor="clear-data"
+                        <div
+                          className="ui right labeled button"
                           onClick={[Function]}
-                        >
-                          <Button
-                            as="button"
-                            icon="trash"
-                            label={
-                              Object {
-                                "basic": true,
-                                "content": "Clean View",
-                              }
+                          style={
+                            Object {
+                              "height": "100%",
                             }
-                            labelPosition="right"
-                            onClick={[Function]}
+                          }
+                        >
+                          <button
+                            className="ui icon button"
+                            tabIndex={0}
+                          >
+                            <Icon
+                              as="i"
+                              name="trash"
+                            >
+                              <i
+                                aria-hidden="true"
+                                className="trash icon"
+                                onClick={[Function]}
+                              />
+                            </Icon>
+                             
+                          </button>
+                          <Label
+                            basic={true}
+                            content="Clean View"
+                            pointing="left"
                           >
                             <div
-                              className="ui right labeled button"
+                              className="ui left pointing basic label"
                               onClick={[Function]}
                             >
-                              <button
-                                className="ui icon button"
-                                tabIndex={0}
-                              >
-                                <Icon
-                                  as="i"
-                                  name="trash"
-                                >
-                                  <i
-                                    aria-hidden="true"
-                                    className="trash icon"
-                                    onClick={[Function]}
-                                  />
-                                </Icon>
-                                 
-                              </button>
-                              <Label
-                                basic={true}
-                                content="Clean View"
-                                pointing="left"
-                              >
-                                <div
-                                  className="ui left pointing basic label"
-                                  onClick={[Function]}
-                                >
-                                  Clean View
-                                </div>
-                              </Label>
+                              Clean View
                             </div>
-                          </Button>
-                        </label>
-                      </Label>
+                          </Label>
+                        </div>
+                      </Button>
                     </div>
                   </GridColumn>
                 </div>
@@ -5385,68 +5358,59 @@ exports[`VisualizationPage Should match existing snapshot when no props are prov
           floated="right"
           style={
             Object {
+              "height": "100%",
               "width": "auto",
             }
           }
         >
-          <Label
-            as="label"
-            basic={true}
-          >
-            <Dropdown
-              additionLabel="Add "
-              additionPosition="top"
-              closeOnBlur={true}
-              deburr={false}
-              disabled={true}
-              fluid={false}
-              icon="dropdown"
-              minCharacters={1}
-              noResultsMessage="No results found."
-              onChange={[Function]}
-              openOnFocus={true}
-              options={Array []}
-              renderLabel={[Function]}
-              search={false}
-              searchInput="text"
-              selectOnBlur={true}
-              selectOnNavigation={true}
-              selection={true}
-              style={
-                Object {
-                  "minWidth": "265px",
-                }
-              }
-              text="No PDB selected!"
-              wrapSelection={true}
-            />
-          </Label>
+          <Dropdown
+            additionLabel="Add "
+            additionPosition="top"
+            button={true}
+            closeOnBlur={true}
+            deburr={false}
+            disabled={true}
+            icon="dropdown"
+            minCharacters={1}
+            noResultsMessage="No results found."
+            onChange={[Function]}
+            openOnFocus={true}
+            options={Array []}
+            renderLabel={[Function]}
+            scrolling={true}
+            search={false}
+            searchInput="text"
+            selectOnBlur={true}
+            selectOnNavigation={true}
+            selection={true}
+            text="No PDB selected!"
+            wrapSelection={true}
+          />
         </GridColumn>
         <GridColumn
           style={
             Object {
+              "height": "100%",
               "width": "auto",
             }
           }
         >
-          <Label
-            as="label"
-            basic={true}
-            htmlFor="clear-data"
-          >
-            <Button
-              as="button"
-              icon="trash"
-              label={
-                Object {
-                  "basic": true,
-                  "content": "Clean View",
-                }
+          <Button
+            as="button"
+            icon="trash"
+            label={
+              Object {
+                "content": "Clean View",
               }
-              labelPosition="right"
-              onClick={[Function]}
-            />
-          </Label>
+            }
+            labelPosition="right"
+            onClick={[Function]}
+            style={
+              Object {
+                "height": "100%",
+              }
+            }
+          />
         </GridColumn>
       </GridRow>
       <GridRow>
@@ -6857,68 +6821,59 @@ exports[`VisualizationPage Should match existing snapshot when using c-alpha pro
           floated="right"
           style={
             Object {
+              "height": "100%",
               "width": "auto",
             }
           }
         >
-          <Label
-            as="label"
-            basic={true}
-          >
-            <Dropdown
-              additionLabel="Add "
-              additionPosition="top"
-              closeOnBlur={true}
-              deburr={false}
-              disabled={true}
-              fluid={false}
-              icon="dropdown"
-              minCharacters={1}
-              noResultsMessage="No results found."
-              onChange={[Function]}
-              openOnFocus={true}
-              options={Array []}
-              renderLabel={[Function]}
-              search={false}
-              searchInput="text"
-              selectOnBlur={true}
-              selectOnNavigation={true}
-              selection={true}
-              style={
-                Object {
-                  "minWidth": "265px",
-                }
-              }
-              text="sample"
-              wrapSelection={true}
-            />
-          </Label>
+          <Dropdown
+            additionLabel="Add "
+            additionPosition="top"
+            button={true}
+            closeOnBlur={true}
+            deburr={false}
+            disabled={true}
+            icon="dropdown"
+            minCharacters={1}
+            noResultsMessage="No results found."
+            onChange={[Function]}
+            openOnFocus={true}
+            options={Array []}
+            renderLabel={[Function]}
+            scrolling={true}
+            search={false}
+            searchInput="text"
+            selectOnBlur={true}
+            selectOnNavigation={true}
+            selection={true}
+            text="sample"
+            wrapSelection={true}
+          />
         </GridColumn>
         <GridColumn
           style={
             Object {
+              "height": "100%",
               "width": "auto",
             }
           }
         >
-          <Label
-            as="label"
-            basic={true}
-            htmlFor="clear-data"
-          >
-            <Button
-              as="button"
-              icon="trash"
-              label={
-                Object {
-                  "basic": true,
-                  "content": "Clean View",
-                }
+          <Button
+            as="button"
+            icon="trash"
+            label={
+              Object {
+                "content": "Clean View",
               }
-              labelPosition="right"
-              onClick={[Function]}
-            />
-          </Label>
+            }
+            labelPosition="right"
+            onClick={[Function]}
+            style={
+              Object {
+                "height": "100%",
+              }
+            }
+          />
         </GridColumn>
       </GridRow>
       <GridRow>
@@ -10850,68 +10805,59 @@ exports[`VisualizationPage Should match existing snapshot when using closest pro
           floated="right"
           style={
             Object {
+              "height": "100%",
               "width": "auto",
             }
           }
         >
-          <Label
-            as="label"
-            basic={true}
-          >
-            <Dropdown
-              additionLabel="Add "
-              additionPosition="top"
-              closeOnBlur={true}
-              deburr={false}
-              disabled={true}
-              fluid={false}
-              icon="dropdown"
-              minCharacters={1}
-              noResultsMessage="No results found."
-              onChange={[Function]}
-              openOnFocus={true}
-              options={Array []}
-              renderLabel={[Function]}
-              search={false}
-              searchInput="text"
-              selectOnBlur={true}
-              selectOnNavigation={true}
-              selection={true}
-              style={
-                Object {
-                  "minWidth": "265px",
-                }
-              }
-              text="sample"
-              wrapSelection={true}
-            />
-          </Label>
+          <Dropdown
+            additionLabel="Add "
+            additionPosition="top"
+            button={true}
+            closeOnBlur={true}
+            deburr={false}
+            disabled={true}
+            icon="dropdown"
+            minCharacters={1}
+            noResultsMessage="No results found."
+            onChange={[Function]}
+            openOnFocus={true}
+            options={Array []}
+            renderLabel={[Function]}
+            scrolling={true}
+            search={false}
+            searchInput="text"
+            selectOnBlur={true}
+            selectOnNavigation={true}
+            selection={true}
+            text="sample"
+            wrapSelection={true}
+          />
         </GridColumn>
         <GridColumn
           style={
             Object {
+              "height": "100%",
               "width": "auto",
             }
           }
         >
-          <Label
-            as="label"
-            basic={true}
-            htmlFor="clear-data"
-          >
-            <Button
-              as="button"
-              icon="trash"
-              label={
-                Object {
-                  "basic": true,
-                  "content": "Clean View",
-                }
+          <Button
+            as="button"
+            icon="trash"
+            label={
+              Object {
+                "content": "Clean View",
               }
-              labelPosition="right"
-              onClick={[Function]}
-            />
-          </Label>
+            }
+            labelPosition="right"
+            onClick={[Function]}
+            style={
+              Object {
+                "height": "100%",
+              }
+            }
+          />
         </GridColumn>
       </GridRow>
       <GridRow>
