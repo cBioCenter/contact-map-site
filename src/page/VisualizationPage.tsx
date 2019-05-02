@@ -344,6 +344,7 @@ export class VisualizationPageClass extends React.Component<IVisualizationPagePr
     const availablePdbFiles = new Array<BioblocksPDB>();
 
     this.setState({
+      isDragHappening: false,
       isLoading: true,
     });
 

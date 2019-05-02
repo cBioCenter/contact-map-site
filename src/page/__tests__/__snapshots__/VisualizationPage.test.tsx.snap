@@ -54,9 +54,9 @@ exports[`VisualizationPage Should match existing snapshot when given a PDB. 1`] 
     pdbData={
       BioblocksPDB {
         "fileName": "sample.pdb",
-        "nglData": Xg {
-          "_ap": ag {
-            "atomMap": Rg {
+        "nglData": cx {
+          "_ap": nb {
+            "atomMap": Hb {
               "dict": Object {},
               "list": Array [],
               "structure": [Circular],
@@ -164,7 +164,7 @@ exports[`VisualizationPage Should match existing snapshot when given a PDB. 1`] 
               "residueOffset": Uint32Array [],
             },
             "index": 0,
-            "residueMap": Bg {
+            "residueMap": Kb {
               "dict": Object {},
               "list": Array [],
               "structure": [Circular],
@@ -219,9 +219,9 @@ exports[`VisualizationPage Should match existing snapshot when given a PDB. 1`] 
             },
             "structure": [Circular],
           },
-          "_bp": Ng {
-            "_ap1": ag {
-              "atomMap": Rg {
+          "_bp": Jb {
+            "_ap1": nb {
+              "atomMap": Hb {
                 "dict": Object {},
                 "list": Array [],
                 "structure": [Circular],
@@ -329,7 +329,7 @@ exports[`VisualizationPage Should match existing snapshot when given a PDB. 1`] 
                 "residueOffset": Uint32Array [],
               },
               "index": 0,
-              "residueMap": Bg {
+              "residueMap": Kb {
                 "dict": Object {},
                 "list": Array [],
                 "structure": [Circular],
@@ -384,8 +384,8 @@ exports[`VisualizationPage Should match existing snapshot when given a PDB. 1`] 
               },
               "structure": [Circular],
             },
-            "_ap2": ag {
-              "atomMap": Rg {
+            "_ap2": nb {
+              "atomMap": Hb {
                 "dict": Object {},
                 "list": Array [],
                 "structure": [Circular],
@@ -493,7 +493,7 @@ exports[`VisualizationPage Should match existing snapshot when given a PDB. 1`] 
                 "residueOffset": Uint32Array [],
               },
               "index": 0,
-              "residueMap": Bg {
+              "residueMap": Kb {
                 "dict": Object {},
                 "list": Array [],
                 "structure": [Circular],
@@ -548,8 +548,8 @@ exports[`VisualizationPage Should match existing snapshot when given a PDB. 1`] 
               },
               "structure": [Circular],
             },
-            "_ap3": ag {
-              "atomMap": Rg {
+            "_ap3": nb {
+              "atomMap": Hb {
                 "dict": Object {},
                 "list": Array [],
                 "structure": [Circular],
@@ -657,7 +657,7 @@ exports[`VisualizationPage Should match existing snapshot when given a PDB. 1`] 
                 "residueOffset": Uint32Array [],
               },
               "index": 0,
-              "residueMap": Bg {
+              "residueMap": Kb {
                 "dict": Object {},
                 "list": Array [],
                 "structure": [Circular],
@@ -712,12 +712,12 @@ exports[`VisualizationPage Should match existing snapshot when given a PDB. 1`] 
               },
               "structure": [Circular],
             },
-            "_v12": a {
+            "_v12": ri {
               "x": 0,
               "y": 0,
               "z": 0,
             },
-            "_v13": a {
+            "_v13": ri {
               "x": 0,
               "y": 0,
               "z": 0,
@@ -749,7 +749,7 @@ exports[`VisualizationPage Should match existing snapshot when given a PDB. 1`] 
             "index": 0,
             "structure": [Circular],
           },
-          "_cp": Vg {
+          "_cp": nx {
             "chainStore": e {
               "_fields": Array [
                 Array [
@@ -843,8 +843,8 @@ exports[`VisualizationPage Should match existing snapshot when given a PDB. 1`] 
             },
             "structure": [Circular],
           },
-          "_rp": zg {
-            "atomMap": Rg {
+          "_rp": tx {
+            "atomMap": Hb {
               "dict": Object {},
               "list": Array [],
               "structure": [Circular],
@@ -952,7 +952,7 @@ exports[`VisualizationPage Should match existing snapshot when given a PDB. 1`] 
               "residueOffset": Uint32Array [],
             },
             "index": 0,
-            "residueMap": Bg {
+            "residueMap": Kb {
               "dict": Object {},
               "list": Array [],
               "structure": [Circular],
@@ -1007,7 +1007,7 @@ exports[`VisualizationPage Should match existing snapshot when given a PDB. 1`] 
             },
             "structure": [Circular],
           },
-          "atomMap": Rg {
+          "atomMap": Hb {
             "dict": Object {},
             "list": Array [],
             "structure": [Circular],
@@ -1126,20 +1126,20 @@ exports[`VisualizationPage Should match existing snapshot when given a PDB. 1`] 
             "count": 0,
             "length": 0,
           },
-          "boundingBox": tt {
-            "max": a {
+          "boundingBox": Pi {
+            "max": ri {
               "x": -Infinity,
               "y": -Infinity,
               "z": -Infinity,
             },
-            "min": a {
+            "min": ri {
               "x": Infinity,
               "y": Infinity,
               "z": Infinity,
             },
           },
           "boxes": Array [],
-          "center": a {
+          "center": ri {
             "x": 0,
             "y": 0,
             "z": 0,
@@ -1216,7 +1216,7 @@ exports[`VisualizationPage Should match existing snapshot when given a PDB. 1`] 
           },
           "name": "sample.pdb",
           "path": "",
-          "residueMap": Bg {
+          "residueMap": Kb {
             "dict": Object {},
             "list": Array [],
             "structure": [Circular],
@@ -1408,9 +1408,9 @@ exports[`VisualizationPage Should match existing snapshot when given a PDB. 1`] 
                 "pdbData": Object {
                   "known": BioblocksPDB {
                     "fileName": "sample.pdb",
-                    "nglData": Xg {
-                      "_ap": ag {
-                        "atomMap": Rg {
+                    "nglData": cx {
+                      "_ap": nb {
+                        "atomMap": Hb {
                           "dict": Object {},
                           "list": Array [],
                           "structure": [Circular],
@@ -1518,7 +1518,7 @@ exports[`VisualizationPage Should match existing snapshot when given a PDB. 1`] 
                           "residueOffset": Uint32Array [],
                         },
                         "index": 0,
-                        "residueMap": Bg {
+                        "residueMap": Kb {
                           "dict": Object {},
                           "list": Array [],
                           "structure": [Circular],
@@ -1573,9 +1573,9 @@ exports[`VisualizationPage Should match existing snapshot when given a PDB. 1`] 
                         },
                         "structure": [Circular],
                       },
-                      "_bp": Ng {
-                        "_ap1": ag {
-                          "atomMap": Rg {
+                      "_bp": Jb {
+                        "_ap1": nb {
+                          "atomMap": Hb {
                             "dict": Object {},
                             "list": Array [],
                             "structure": [Circular],
@@ -1683,7 +1683,7 @@ exports[`VisualizationPage Should match existing snapshot when given a PDB. 1`] 
                             "residueOffset": Uint32Array [],
                           },
                           "index": 0,
-                          "residueMap": Bg {
+                          "residueMap": Kb {
                             "dict": Object {},
                             "list": Array [],
                             "structure": [Circular],
@@ -1738,8 +1738,8 @@ exports[`VisualizationPage Should match existing snapshot when given a PDB. 1`] 
                           },
                           "structure": [Circular],
                         },
-                        "_ap2": ag {
-                          "atomMap": Rg {
+                        "_ap2": nb {
+                          "atomMap": Hb {
                             "dict": Object {},
                             "list": Array [],
                             "structure": [Circular],
@@ -1847,7 +1847,7 @@ exports[`VisualizationPage Should match existing snapshot when given a PDB. 1`] 
                             "residueOffset": Uint32Array [],
                           },
                           "index": 0,
-                          "residueMap": Bg {
+                          "residueMap": Kb {
                             "dict": Object {},
                             "list": Array [],
                             "structure": [Circular],
@@ -1902,8 +1902,8 @@ exports[`VisualizationPage Should match existing snapshot when given a PDB. 1`] 
                           },
                           "structure": [Circular],
                         },
-                        "_ap3": ag {
-                          "atomMap": Rg {
+                        "_ap3": nb {
+                          "atomMap": Hb {
                             "dict": Object {},
                             "list": Array [],
                             "structure": [Circular],
@@ -2011,7 +2011,7 @@ exports[`VisualizationPage Should match existing snapshot when given a PDB. 1`] 
                             "residueOffset": Uint32Array [],
                           },
                           "index": 0,
-                          "residueMap": Bg {
+                          "residueMap": Kb {
                             "dict": Object {},
                             "list": Array [],
                             "structure": [Circular],
@@ -2066,12 +2066,12 @@ exports[`VisualizationPage Should match existing snapshot when given a PDB. 1`] 
                           },
                           "structure": [Circular],
                         },
-                        "_v12": a {
+                        "_v12": ri {
                           "x": 0,
                           "y": 0,
                           "z": 0,
                         },
-                        "_v13": a {
+                        "_v13": ri {
                           "x": 0,
                           "y": 0,
                           "z": 0,
@@ -2103,7 +2103,7 @@ exports[`VisualizationPage Should match existing snapshot when given a PDB. 1`] 
                         "index": 0,
                         "structure": [Circular],
                       },
-                      "_cp": Vg {
+                      "_cp": nx {
                         "chainStore": e {
                           "_fields": Array [
                             Array [
@@ -2197,8 +2197,8 @@ exports[`VisualizationPage Should match existing snapshot when given a PDB. 1`] 
                         },
                         "structure": [Circular],
                       },
-                      "_rp": zg {
-                        "atomMap": Rg {
+                      "_rp": tx {
+                        "atomMap": Hb {
                           "dict": Object {},
                           "list": Array [],
                           "structure": [Circular],
@@ -2306,7 +2306,7 @@ exports[`VisualizationPage Should match existing snapshot when given a PDB. 1`] 
                           "residueOffset": Uint32Array [],
                         },
                         "index": 0,
-                        "residueMap": Bg {
+                        "residueMap": Kb {
                           "dict": Object {},
                           "list": Array [],
                           "structure": [Circular],
@@ -2361,7 +2361,7 @@ exports[`VisualizationPage Should match existing snapshot when given a PDB. 1`] 
                         },
                         "structure": [Circular],
                       },
-                      "atomMap": Rg {
+                      "atomMap": Hb {
                         "dict": Object {},
                         "list": Array [],
                         "structure": [Circular],
@@ -2480,20 +2480,20 @@ exports[`VisualizationPage Should match existing snapshot when given a PDB. 1`] 
                         "count": 0,
                         "length": 0,
                       },
-                      "boundingBox": tt {
-                        "max": a {
+                      "boundingBox": Pi {
+                        "max": ri {
                           "x": -Infinity,
                           "y": -Infinity,
                           "z": -Infinity,
                         },
-                        "min": a {
+                        "min": ri {
                           "x": Infinity,
                           "y": Infinity,
                           "z": Infinity,
                         },
                       },
                       "boxes": Array [],
-                      "center": a {
+                      "center": ri {
                         "x": 0,
                         "y": 0,
                         "z": 0,
@@ -2570,7 +2570,7 @@ exports[`VisualizationPage Should match existing snapshot when given a PDB. 1`] 
                       },
                       "name": "sample.pdb",
                       "path": "",
-                      "residueMap": Bg {
+                      "residueMap": Kb {
                         "dict": Object {},
                         "list": Array [],
                         "structure": [Circular],
@@ -2681,9 +2681,9 @@ exports[`VisualizationPage Should match existing snapshot when given a PDB. 1`] 
             data={
               BioblocksPDB {
                 "fileName": "sample.pdb",
-                "nglData": Xg {
-                  "_ap": ag {
-                    "atomMap": Rg {
+                "nglData": cx {
+                  "_ap": nb {
+                    "atomMap": Hb {
                       "dict": Object {},
                       "list": Array [],
                       "structure": [Circular],
@@ -2791,7 +2791,7 @@ exports[`VisualizationPage Should match existing snapshot when given a PDB. 1`] 
                       "residueOffset": Uint32Array [],
                     },
                     "index": 0,
-                    "residueMap": Bg {
+                    "residueMap": Kb {
                       "dict": Object {},
                       "list": Array [],
                       "structure": [Circular],
@@ -2846,9 +2846,9 @@ exports[`VisualizationPage Should match existing snapshot when given a PDB. 1`] 
                     },
                     "structure": [Circular],
                   },
-                  "_bp": Ng {
-                    "_ap1": ag {
-                      "atomMap": Rg {
+                  "_bp": Jb {
+                    "_ap1": nb {
+                      "atomMap": Hb {
                         "dict": Object {},
                         "list": Array [],
                         "structure": [Circular],
@@ -2956,7 +2956,7 @@ exports[`VisualizationPage Should match existing snapshot when given a PDB. 1`] 
                         "residueOffset": Uint32Array [],
                       },
                       "index": 0,
-                      "residueMap": Bg {
+                      "residueMap": Kb {
                         "dict": Object {},
                         "list": Array [],
                         "structure": [Circular],
@@ -3011,8 +3011,8 @@ exports[`VisualizationPage Should match existing snapshot when given a PDB. 1`] 
                       },
                       "structure": [Circular],
                     },
-                    "_ap2": ag {
-                      "atomMap": Rg {
+                    "_ap2": nb {
+                      "atomMap": Hb {
                         "dict": Object {},
                         "list": Array [],
                         "structure": [Circular],
@@ -3120,7 +3120,7 @@ exports[`VisualizationPage Should match existing snapshot when given a PDB. 1`] 
                         "residueOffset": Uint32Array [],
                       },
                       "index": 0,
-                      "residueMap": Bg {
+                      "residueMap": Kb {
                         "dict": Object {},
                         "list": Array [],
                         "structure": [Circular],
@@ -3175,8 +3175,8 @@ exports[`VisualizationPage Should match existing snapshot when given a PDB. 1`] 
                       },
                       "structure": [Circular],
                     },
-                    "_ap3": ag {
-                      "atomMap": Rg {
+                    "_ap3": nb {
+                      "atomMap": Hb {
                         "dict": Object {},
                         "list": Array [],
                         "structure": [Circular],
@@ -3284,7 +3284,7 @@ exports[`VisualizationPage Should match existing snapshot when given a PDB. 1`] 
                         "residueOffset": Uint32Array [],
                       },
                       "index": 0,
-                      "residueMap": Bg {
+                      "residueMap": Kb {
                         "dict": Object {},
                         "list": Array [],
                         "structure": [Circular],
@@ -3339,12 +3339,12 @@ exports[`VisualizationPage Should match existing snapshot when given a PDB. 1`] 
                       },
                       "structure": [Circular],
                     },
-                    "_v12": a {
+                    "_v12": ri {
                       "x": 0,
                       "y": 0,
                       "z": 0,
                     },
-                    "_v13": a {
+                    "_v13": ri {
                       "x": 0,
                       "y": 0,
                       "z": 0,
@@ -3376,7 +3376,7 @@ exports[`VisualizationPage Should match existing snapshot when given a PDB. 1`] 
                     "index": 0,
                     "structure": [Circular],
                   },
-                  "_cp": Vg {
+                  "_cp": nx {
                     "chainStore": e {
                       "_fields": Array [
                         Array [
@@ -3470,8 +3470,8 @@ exports[`VisualizationPage Should match existing snapshot when given a PDB. 1`] 
                     },
                     "structure": [Circular],
                   },
-                  "_rp": zg {
-                    "atomMap": Rg {
+                  "_rp": tx {
+                    "atomMap": Hb {
                       "dict": Object {},
                       "list": Array [],
                       "structure": [Circular],
@@ -3579,7 +3579,7 @@ exports[`VisualizationPage Should match existing snapshot when given a PDB. 1`] 
                       "residueOffset": Uint32Array [],
                     },
                     "index": 0,
-                    "residueMap": Bg {
+                    "residueMap": Kb {
                       "dict": Object {},
                       "list": Array [],
                       "structure": [Circular],
@@ -3634,7 +3634,7 @@ exports[`VisualizationPage Should match existing snapshot when given a PDB. 1`] 
                     },
                     "structure": [Circular],
                   },
-                  "atomMap": Rg {
+                  "atomMap": Hb {
                     "dict": Object {},
                     "list": Array [],
                     "structure": [Circular],
@@ -3753,20 +3753,20 @@ exports[`VisualizationPage Should match existing snapshot when given a PDB. 1`] 
                     "count": 0,
                     "length": 0,
                   },
-                  "boundingBox": tt {
-                    "max": a {
+                  "boundingBox": Pi {
+                    "max": ri {
                       "x": -Infinity,
                       "y": -Infinity,
                       "z": -Infinity,
                     },
-                    "min": a {
+                    "min": ri {
                       "x": Infinity,
                       "y": Infinity,
                       "z": Infinity,
                     },
                   },
                   "boxes": Array [],
-                  "center": a {
+                  "center": ri {
                     "x": 0,
                     "y": 0,
                     "z": 0,
@@ -3843,7 +3843,7 @@ exports[`VisualizationPage Should match existing snapshot when given a PDB. 1`] 
                   },
                   "name": "sample.pdb",
                   "path": "",
-                  "residueMap": Bg {
+                  "residueMap": Kb {
                     "dict": Object {},
                     "list": Array [],
                     "structure": [Circular],
@@ -5552,9 +5552,9 @@ exports[`VisualizationPage Should match existing snapshot when using c-alpha pro
           "totalStoredContacts": 0,
         },
         "fileName": "sample.pdb",
-        "nglData": Xg {
-          "_ap": ag {
-            "atomMap": Rg {
+        "nglData": cx {
+          "_ap": nb {
+            "atomMap": Hb {
               "dict": Object {},
               "list": Array [],
               "structure": [Circular],
@@ -5662,7 +5662,7 @@ exports[`VisualizationPage Should match existing snapshot when using c-alpha pro
               "residueOffset": Uint32Array [],
             },
             "index": 0,
-            "residueMap": Bg {
+            "residueMap": Kb {
               "dict": Object {},
               "list": Array [],
               "structure": [Circular],
@@ -5717,9 +5717,9 @@ exports[`VisualizationPage Should match existing snapshot when using c-alpha pro
             },
             "structure": [Circular],
           },
-          "_bp": Ng {
-            "_ap1": ag {
-              "atomMap": Rg {
+          "_bp": Jb {
+            "_ap1": nb {
+              "atomMap": Hb {
                 "dict": Object {},
                 "list": Array [],
                 "structure": [Circular],
@@ -5827,7 +5827,7 @@ exports[`VisualizationPage Should match existing snapshot when using c-alpha pro
                 "residueOffset": Uint32Array [],
               },
               "index": 0,
-              "residueMap": Bg {
+              "residueMap": Kb {
                 "dict": Object {},
                 "list": Array [],
                 "structure": [Circular],
@@ -5882,8 +5882,8 @@ exports[`VisualizationPage Should match existing snapshot when using c-alpha pro
               },
               "structure": [Circular],
             },
-            "_ap2": ag {
-              "atomMap": Rg {
+            "_ap2": nb {
+              "atomMap": Hb {
                 "dict": Object {},
                 "list": Array [],
                 "structure": [Circular],
@@ -5991,7 +5991,7 @@ exports[`VisualizationPage Should match existing snapshot when using c-alpha pro
                 "residueOffset": Uint32Array [],
               },
               "index": 0,
-              "residueMap": Bg {
+              "residueMap": Kb {
                 "dict": Object {},
                 "list": Array [],
                 "structure": [Circular],
@@ -6046,8 +6046,8 @@ exports[`VisualizationPage Should match existing snapshot when using c-alpha pro
               },
               "structure": [Circular],
             },
-            "_ap3": ag {
-              "atomMap": Rg {
+            "_ap3": nb {
+              "atomMap": Hb {
                 "dict": Object {},
                 "list": Array [],
                 "structure": [Circular],
@@ -6155,7 +6155,7 @@ exports[`VisualizationPage Should match existing snapshot when using c-alpha pro
                 "residueOffset": Uint32Array [],
               },
               "index": 0,
-              "residueMap": Bg {
+              "residueMap": Kb {
                 "dict": Object {},
                 "list": Array [],
                 "structure": [Circular],
@@ -6210,12 +6210,12 @@ exports[`VisualizationPage Should match existing snapshot when using c-alpha pro
               },
               "structure": [Circular],
             },
-            "_v12": a {
+            "_v12": ri {
               "x": 0,
               "y": 0,
               "z": 0,
             },
-            "_v13": a {
+            "_v13": ri {
               "x": 0,
               "y": 0,
               "z": 0,
@@ -6247,7 +6247,7 @@ exports[`VisualizationPage Should match existing snapshot when using c-alpha pro
             "index": 0,
             "structure": [Circular],
           },
-          "_cp": Vg {
+          "_cp": nx {
             "chainStore": e {
               "_fields": Array [
                 Array [
@@ -6341,8 +6341,8 @@ exports[`VisualizationPage Should match existing snapshot when using c-alpha pro
             },
             "structure": [Circular],
           },
-          "_rp": zg {
-            "atomMap": Rg {
+          "_rp": tx {
+            "atomMap": Hb {
               "dict": Object {},
               "list": Array [],
               "structure": [Circular],
@@ -6450,7 +6450,7 @@ exports[`VisualizationPage Should match existing snapshot when using c-alpha pro
               "residueOffset": Uint32Array [],
             },
             "index": 0,
-            "residueMap": Bg {
+            "residueMap": Kb {
               "dict": Object {},
               "list": Array [],
               "structure": [Circular],
@@ -6505,7 +6505,7 @@ exports[`VisualizationPage Should match existing snapshot when using c-alpha pro
             },
             "structure": [Circular],
           },
-          "atomMap": Rg {
+          "atomMap": Hb {
             "dict": Object {},
             "list": Array [],
             "structure": [Circular],
@@ -6624,20 +6624,20 @@ exports[`VisualizationPage Should match existing snapshot when using c-alpha pro
             "count": 0,
             "length": 0,
           },
-          "boundingBox": tt {
-            "max": a {
+          "boundingBox": Pi {
+            "max": ri {
               "x": -Infinity,
               "y": -Infinity,
               "z": -Infinity,
             },
-            "min": a {
+            "min": ri {
               "x": Infinity,
               "y": Infinity,
               "z": Infinity,
             },
           },
           "boxes": Array [],
-          "center": a {
+          "center": ri {
             "x": 0,
             "y": 0,
             "z": 0,
@@ -6714,7 +6714,7 @@ exports[`VisualizationPage Should match existing snapshot when using c-alpha pro
           },
           "name": "sample.pdb",
           "path": "",
-          "residueMap": Bg {
+          "residueMap": Kb {
             "dict": Object {},
             "list": Array [],
             "structure": [Circular],
@@ -6918,9 +6918,9 @@ exports[`VisualizationPage Should match existing snapshot when using c-alpha pro
                       "totalStoredContacts": 0,
                     },
                     "fileName": "sample.pdb",
-                    "nglData": Xg {
-                      "_ap": ag {
-                        "atomMap": Rg {
+                    "nglData": cx {
+                      "_ap": nb {
+                        "atomMap": Hb {
                           "dict": Object {},
                           "list": Array [],
                           "structure": [Circular],
@@ -7028,7 +7028,7 @@ exports[`VisualizationPage Should match existing snapshot when using c-alpha pro
                           "residueOffset": Uint32Array [],
                         },
                         "index": 0,
-                        "residueMap": Bg {
+                        "residueMap": Kb {
                           "dict": Object {},
                           "list": Array [],
                           "structure": [Circular],
@@ -7083,9 +7083,9 @@ exports[`VisualizationPage Should match existing snapshot when using c-alpha pro
                         },
                         "structure": [Circular],
                       },
-                      "_bp": Ng {
-                        "_ap1": ag {
-                          "atomMap": Rg {
+                      "_bp": Jb {
+                        "_ap1": nb {
+                          "atomMap": Hb {
                             "dict": Object {},
                             "list": Array [],
                             "structure": [Circular],
@@ -7193,7 +7193,7 @@ exports[`VisualizationPage Should match existing snapshot when using c-alpha pro
                             "residueOffset": Uint32Array [],
                           },
                           "index": 0,
-                          "residueMap": Bg {
+                          "residueMap": Kb {
                             "dict": Object {},
                             "list": Array [],
                             "structure": [Circular],
@@ -7248,8 +7248,8 @@ exports[`VisualizationPage Should match existing snapshot when using c-alpha pro
                           },
                           "structure": [Circular],
                         },
-                        "_ap2": ag {
-                          "atomMap": Rg {
+                        "_ap2": nb {
+                          "atomMap": Hb {
                             "dict": Object {},
                             "list": Array [],
                             "structure": [Circular],
@@ -7357,7 +7357,7 @@ exports[`VisualizationPage Should match existing snapshot when using c-alpha pro
                             "residueOffset": Uint32Array [],
                           },
                           "index": 0,
-                          "residueMap": Bg {
+                          "residueMap": Kb {
                             "dict": Object {},
                             "list": Array [],
                             "structure": [Circular],
@@ -7412,8 +7412,8 @@ exports[`VisualizationPage Should match existing snapshot when using c-alpha pro
                           },
                           "structure": [Circular],
                         },
-                        "_ap3": ag {
-                          "atomMap": Rg {
+                        "_ap3": nb {
+                          "atomMap": Hb {
                             "dict": Object {},
                             "list": Array [],
                             "structure": [Circular],
@@ -7521,7 +7521,7 @@ exports[`VisualizationPage Should match existing snapshot when using c-alpha pro
                             "residueOffset": Uint32Array [],
                           },
                           "index": 0,
-                          "residueMap": Bg {
+                          "residueMap": Kb {
                             "dict": Object {},
                             "list": Array [],
                             "structure": [Circular],
@@ -7576,12 +7576,12 @@ exports[`VisualizationPage Should match existing snapshot when using c-alpha pro
                           },
                           "structure": [Circular],
                         },
-                        "_v12": a {
+                        "_v12": ri {
                           "x": 0,
                           "y": 0,
                           "z": 0,
                         },
-                        "_v13": a {
+                        "_v13": ri {
                           "x": 0,
                           "y": 0,
                           "z": 0,
@@ -7613,7 +7613,7 @@ exports[`VisualizationPage Should match existing snapshot when using c-alpha pro
                         "index": 0,
                         "structure": [Circular],
                       },
-                      "_cp": Vg {
+                      "_cp": nx {
                         "chainStore": e {
                           "_fields": Array [
                             Array [
@@ -7707,8 +7707,8 @@ exports[`VisualizationPage Should match existing snapshot when using c-alpha pro
                         },
                         "structure": [Circular],
                       },
-                      "_rp": zg {
-                        "atomMap": Rg {
+                      "_rp": tx {
+                        "atomMap": Hb {
                           "dict": Object {},
                           "list": Array [],
                           "structure": [Circular],
@@ -7816,7 +7816,7 @@ exports[`VisualizationPage Should match existing snapshot when using c-alpha pro
                           "residueOffset": Uint32Array [],
                         },
                         "index": 0,
-                        "residueMap": Bg {
+                        "residueMap": Kb {
                           "dict": Object {},
                           "list": Array [],
                           "structure": [Circular],
@@ -7871,7 +7871,7 @@ exports[`VisualizationPage Should match existing snapshot when using c-alpha pro
                         },
                         "structure": [Circular],
                       },
-                      "atomMap": Rg {
+                      "atomMap": Hb {
                         "dict": Object {},
                         "list": Array [],
                         "structure": [Circular],
@@ -7990,20 +7990,20 @@ exports[`VisualizationPage Should match existing snapshot when using c-alpha pro
                         "count": 0,
                         "length": 0,
                       },
-                      "boundingBox": tt {
-                        "max": a {
+                      "boundingBox": Pi {
+                        "max": ri {
                           "x": -Infinity,
                           "y": -Infinity,
                           "z": -Infinity,
                         },
-                        "min": a {
+                        "min": ri {
                           "x": Infinity,
                           "y": Infinity,
                           "z": Infinity,
                         },
                       },
                       "boxes": Array [],
-                      "center": a {
+                      "center": ri {
                         "x": 0,
                         "y": 0,
                         "z": 0,
@@ -8080,7 +8080,7 @@ exports[`VisualizationPage Should match existing snapshot when using c-alpha pro
                       },
                       "name": "sample.pdb",
                       "path": "",
-                      "residueMap": Bg {
+                      "residueMap": Kb {
                         "dict": Object {},
                         "list": Array [],
                         "structure": [Circular],
@@ -8203,9 +8203,9 @@ exports[`VisualizationPage Should match existing snapshot when using c-alpha pro
                   "totalStoredContacts": 0,
                 },
                 "fileName": "sample.pdb",
-                "nglData": Xg {
-                  "_ap": ag {
-                    "atomMap": Rg {
+                "nglData": cx {
+                  "_ap": nb {
+                    "atomMap": Hb {
                       "dict": Object {},
                       "list": Array [],
                       "structure": [Circular],
@@ -8313,7 +8313,7 @@ exports[`VisualizationPage Should match existing snapshot when using c-alpha pro
                       "residueOffset": Uint32Array [],
                     },
                     "index": 0,
-                    "residueMap": Bg {
+                    "residueMap": Kb {
                       "dict": Object {},
                       "list": Array [],
                       "structure": [Circular],
@@ -8368,9 +8368,9 @@ exports[`VisualizationPage Should match existing snapshot when using c-alpha pro
                     },
                     "structure": [Circular],
                   },
-                  "_bp": Ng {
-                    "_ap1": ag {
-                      "atomMap": Rg {
+                  "_bp": Jb {
+                    "_ap1": nb {
+                      "atomMap": Hb {
                         "dict": Object {},
                         "list": Array [],
                         "structure": [Circular],
@@ -8478,7 +8478,7 @@ exports[`VisualizationPage Should match existing snapshot when using c-alpha pro
                         "residueOffset": Uint32Array [],
                       },
                       "index": 0,
-                      "residueMap": Bg {
+                      "residueMap": Kb {
                         "dict": Object {},
                         "list": Array [],
                         "structure": [Circular],
@@ -8533,8 +8533,8 @@ exports[`VisualizationPage Should match existing snapshot when using c-alpha pro
                       },
                       "structure": [Circular],
                     },
-                    "_ap2": ag {
-                      "atomMap": Rg {
+                    "_ap2": nb {
+                      "atomMap": Hb {
                         "dict": Object {},
                         "list": Array [],
                         "structure": [Circular],
@@ -8642,7 +8642,7 @@ exports[`VisualizationPage Should match existing snapshot when using c-alpha pro
                         "residueOffset": Uint32Array [],
                       },
                       "index": 0,
-                      "residueMap": Bg {
+                      "residueMap": Kb {
                         "dict": Object {},
                         "list": Array [],
                         "structure": [Circular],
@@ -8697,8 +8697,8 @@ exports[`VisualizationPage Should match existing snapshot when using c-alpha pro
                       },
                       "structure": [Circular],
                     },
-                    "_ap3": ag {
-                      "atomMap": Rg {
+                    "_ap3": nb {
+                      "atomMap": Hb {
                         "dict": Object {},
                         "list": Array [],
                         "structure": [Circular],
@@ -8806,7 +8806,7 @@ exports[`VisualizationPage Should match existing snapshot when using c-alpha pro
                         "residueOffset": Uint32Array [],
                       },
                       "index": 0,
-                      "residueMap": Bg {
+                      "residueMap": Kb {
                         "dict": Object {},
                         "list": Array [],
                         "structure": [Circular],
@@ -8861,12 +8861,12 @@ exports[`VisualizationPage Should match existing snapshot when using c-alpha pro
                       },
                       "structure": [Circular],
                     },
-                    "_v12": a {
+                    "_v12": ri {
                       "x": 0,
                       "y": 0,
                       "z": 0,
                     },
-                    "_v13": a {
+                    "_v13": ri {
                       "x": 0,
                       "y": 0,
                       "z": 0,
@@ -8898,7 +8898,7 @@ exports[`VisualizationPage Should match existing snapshot when using c-alpha pro
                     "index": 0,
                     "structure": [Circular],
                   },
-                  "_cp": Vg {
+                  "_cp": nx {
                     "chainStore": e {
                       "_fields": Array [
                         Array [
@@ -8992,8 +8992,8 @@ exports[`VisualizationPage Should match existing snapshot when using c-alpha pro
                     },
                     "structure": [Circular],
                   },
-                  "_rp": zg {
-                    "atomMap": Rg {
+                  "_rp": tx {
+                    "atomMap": Hb {
                       "dict": Object {},
                       "list": Array [],
                       "structure": [Circular],
@@ -9101,7 +9101,7 @@ exports[`VisualizationPage Should match existing snapshot when using c-alpha pro
                       "residueOffset": Uint32Array [],
                     },
                     "index": 0,
-                    "residueMap": Bg {
+                    "residueMap": Kb {
                       "dict": Object {},
                       "list": Array [],
                       "structure": [Circular],
@@ -9156,7 +9156,7 @@ exports[`VisualizationPage Should match existing snapshot when using c-alpha pro
                     },
                     "structure": [Circular],
                   },
-                  "atomMap": Rg {
+                  "atomMap": Hb {
                     "dict": Object {},
                     "list": Array [],
                     "structure": [Circular],
@@ -9275,20 +9275,20 @@ exports[`VisualizationPage Should match existing snapshot when using c-alpha pro
                     "count": 0,
                     "length": 0,
                   },
-                  "boundingBox": tt {
-                    "max": a {
+                  "boundingBox": Pi {
+                    "max": ri {
                       "x": -Infinity,
                       "y": -Infinity,
                       "z": -Infinity,
                     },
-                    "min": a {
+                    "min": ri {
                       "x": Infinity,
                       "y": Infinity,
                       "z": Infinity,
                     },
                   },
                   "boxes": Array [],
-                  "center": a {
+                  "center": ri {
                     "x": 0,
                     "y": 0,
                     "z": 0,
@@ -9365,7 +9365,7 @@ exports[`VisualizationPage Should match existing snapshot when using c-alpha pro
                   },
                   "name": "sample.pdb",
                   "path": "",
-                  "residueMap": Bg {
+                  "residueMap": Kb {
                     "dict": Object {},
                     "list": Array [],
                     "structure": [Circular],
@@ -9536,9 +9536,9 @@ exports[`VisualizationPage Should match existing snapshot when using closest pro
     pdbData={
       BioblocksPDB {
         "fileName": "sample.pdb",
-        "nglData": Xg {
-          "_ap": ag {
-            "atomMap": Rg {
+        "nglData": cx {
+          "_ap": nb {
+            "atomMap": Hb {
               "dict": Object {},
               "list": Array [],
               "structure": [Circular],
@@ -9646,7 +9646,7 @@ exports[`VisualizationPage Should match existing snapshot when using closest pro
               "residueOffset": Uint32Array [],
             },
             "index": 0,
-            "residueMap": Bg {
+            "residueMap": Kb {
               "dict": Object {},
               "list": Array [],
               "structure": [Circular],
@@ -9701,9 +9701,9 @@ exports[`VisualizationPage Should match existing snapshot when using closest pro
             },
             "structure": [Circular],
           },
-          "_bp": Ng {
-            "_ap1": ag {
-              "atomMap": Rg {
+          "_bp": Jb {
+            "_ap1": nb {
+              "atomMap": Hb {
                 "dict": Object {},
                 "list": Array [],
                 "structure": [Circular],
@@ -9811,7 +9811,7 @@ exports[`VisualizationPage Should match existing snapshot when using closest pro
                 "residueOffset": Uint32Array [],
               },
               "index": 0,
-              "residueMap": Bg {
+              "residueMap": Kb {
                 "dict": Object {},
                 "list": Array [],
                 "structure": [Circular],
@@ -9866,8 +9866,8 @@ exports[`VisualizationPage Should match existing snapshot when using closest pro
               },
               "structure": [Circular],
             },
-            "_ap2": ag {
-              "atomMap": Rg {
+            "_ap2": nb {
+              "atomMap": Hb {
                 "dict": Object {},
                 "list": Array [],
                 "structure": [Circular],
@@ -9975,7 +9975,7 @@ exports[`VisualizationPage Should match existing snapshot when using closest pro
                 "residueOffset": Uint32Array [],
               },
               "index": 0,
-              "residueMap": Bg {
+              "residueMap": Kb {
                 "dict": Object {},
                 "list": Array [],
                 "structure": [Circular],
@@ -10030,8 +10030,8 @@ exports[`VisualizationPage Should match existing snapshot when using closest pro
               },
               "structure": [Circular],
             },
-            "_ap3": ag {
-              "atomMap": Rg {
+            "_ap3": nb {
+              "atomMap": Hb {
                 "dict": Object {},
                 "list": Array [],
                 "structure": [Circular],
@@ -10139,7 +10139,7 @@ exports[`VisualizationPage Should match existing snapshot when using closest pro
                 "residueOffset": Uint32Array [],
               },
               "index": 0,
-              "residueMap": Bg {
+              "residueMap": Kb {
                 "dict": Object {},
                 "list": Array [],
                 "structure": [Circular],
@@ -10194,12 +10194,12 @@ exports[`VisualizationPage Should match existing snapshot when using closest pro
               },
               "structure": [Circular],
             },
-            "_v12": a {
+            "_v12": ri {
               "x": 0,
               "y": 0,
               "z": 0,
             },
-            "_v13": a {
+            "_v13": ri {
               "x": 0,
               "y": 0,
               "z": 0,
@@ -10231,7 +10231,7 @@ exports[`VisualizationPage Should match existing snapshot when using closest pro
             "index": 0,
             "structure": [Circular],
           },
-          "_cp": Vg {
+          "_cp": nx {
             "chainStore": e {
               "_fields": Array [
                 Array [
@@ -10325,8 +10325,8 @@ exports[`VisualizationPage Should match existing snapshot when using closest pro
             },
             "structure": [Circular],
           },
-          "_rp": zg {
-            "atomMap": Rg {
+          "_rp": tx {
+            "atomMap": Hb {
               "dict": Object {},
               "list": Array [],
               "structure": [Circular],
@@ -10434,7 +10434,7 @@ exports[`VisualizationPage Should match existing snapshot when using closest pro
               "residueOffset": Uint32Array [],
             },
             "index": 0,
-            "residueMap": Bg {
+            "residueMap": Kb {
               "dict": Object {},
               "list": Array [],
               "structure": [Circular],
@@ -10489,7 +10489,7 @@ exports[`VisualizationPage Should match existing snapshot when using closest pro
             },
             "structure": [Circular],
           },
-          "atomMap": Rg {
+          "atomMap": Hb {
             "dict": Object {},
             "list": Array [],
             "structure": [Circular],
@@ -10608,20 +10608,20 @@ exports[`VisualizationPage Should match existing snapshot when using closest pro
             "count": 0,
             "length": 0,
           },
-          "boundingBox": tt {
-            "max": a {
+          "boundingBox": Pi {
+            "max": ri {
               "x": -Infinity,
               "y": -Infinity,
               "z": -Infinity,
             },
-            "min": a {
+            "min": ri {
               "x": Infinity,
               "y": Infinity,
               "z": Infinity,
             },
           },
           "boxes": Array [],
-          "center": a {
+          "center": ri {
             "x": 0,
             "y": 0,
             "z": 0,
@@ -10698,7 +10698,7 @@ exports[`VisualizationPage Should match existing snapshot when using closest pro
           },
           "name": "sample.pdb",
           "path": "",
-          "residueMap": Bg {
+          "residueMap": Kb {
             "dict": Object {},
             "list": Array [],
             "structure": [Circular],
@@ -10890,9 +10890,9 @@ exports[`VisualizationPage Should match existing snapshot when using closest pro
                 "pdbData": Object {
                   "known": BioblocksPDB {
                     "fileName": "sample.pdb",
-                    "nglData": Xg {
-                      "_ap": ag {
-                        "atomMap": Rg {
+                    "nglData": cx {
+                      "_ap": nb {
+                        "atomMap": Hb {
                           "dict": Object {},
                           "list": Array [],
                           "structure": [Circular],
@@ -11000,7 +11000,7 @@ exports[`VisualizationPage Should match existing snapshot when using closest pro
                           "residueOffset": Uint32Array [],
                         },
                         "index": 0,
-                        "residueMap": Bg {
+                        "residueMap": Kb {
                           "dict": Object {},
                           "list": Array [],
                           "structure": [Circular],
@@ -11055,9 +11055,9 @@ exports[`VisualizationPage Should match existing snapshot when using closest pro
                         },
                         "structure": [Circular],
                       },
-                      "_bp": Ng {
-                        "_ap1": ag {
-                          "atomMap": Rg {
+                      "_bp": Jb {
+                        "_ap1": nb {
+                          "atomMap": Hb {
                             "dict": Object {},
                             "list": Array [],
                             "structure": [Circular],
@@ -11165,7 +11165,7 @@ exports[`VisualizationPage Should match existing snapshot when using closest pro
                             "residueOffset": Uint32Array [],
                           },
                           "index": 0,
-                          "residueMap": Bg {
+                          "residueMap": Kb {
                             "dict": Object {},
                             "list": Array [],
                             "structure": [Circular],
@@ -11220,8 +11220,8 @@ exports[`VisualizationPage Should match existing snapshot when using closest pro
                           },
                           "structure": [Circular],
                         },
-                        "_ap2": ag {
-                          "atomMap": Rg {
+                        "_ap2": nb {
+                          "atomMap": Hb {
                             "dict": Object {},
                             "list": Array [],
                             "structure": [Circular],
@@ -11329,7 +11329,7 @@ exports[`VisualizationPage Should match existing snapshot when using closest pro
                             "residueOffset": Uint32Array [],
                           },
                           "index": 0,
-                          "residueMap": Bg {
+                          "residueMap": Kb {
                             "dict": Object {},
                             "list": Array [],
                             "structure": [Circular],
@@ -11384,8 +11384,8 @@ exports[`VisualizationPage Should match existing snapshot when using closest pro
                           },
                           "structure": [Circular],
                         },
-                        "_ap3": ag {
-                          "atomMap": Rg {
+                        "_ap3": nb {
+                          "atomMap": Hb {
                             "dict": Object {},
                             "list": Array [],
                             "structure": [Circular],
@@ -11493,7 +11493,7 @@ exports[`VisualizationPage Should match existing snapshot when using closest pro
                             "residueOffset": Uint32Array [],
                           },
                           "index": 0,
-                          "residueMap": Bg {
+                          "residueMap": Kb {
                             "dict": Object {},
                             "list": Array [],
                             "structure": [Circular],
@@ -11548,12 +11548,12 @@ exports[`VisualizationPage Should match existing snapshot when using closest pro
                           },
                           "structure": [Circular],
                         },
-                        "_v12": a {
+                        "_v12": ri {
                           "x": 0,
                           "y": 0,
                           "z": 0,
                         },
-                        "_v13": a {
+                        "_v13": ri {
                           "x": 0,
                           "y": 0,
                           "z": 0,
@@ -11585,7 +11585,7 @@ exports[`VisualizationPage Should match existing snapshot when using closest pro
                         "index": 0,
                         "structure": [Circular],
                       },
-                      "_cp": Vg {
+                      "_cp": nx {
                         "chainStore": e {
                           "_fields": Array [
                             Array [
@@ -11679,8 +11679,8 @@ exports[`VisualizationPage Should match existing snapshot when using closest pro
                         },
                         "structure": [Circular],
                       },
-                      "_rp": zg {
-                        "atomMap": Rg {
+                      "_rp": tx {
+                        "atomMap": Hb {
                           "dict": Object {},
                           "list": Array [],
                           "structure": [Circular],
@@ -11788,7 +11788,7 @@ exports[`VisualizationPage Should match existing snapshot when using closest pro
                           "residueOffset": Uint32Array [],
                         },
                         "index": 0,
-                        "residueMap": Bg {
+                        "residueMap": Kb {
                           "dict": Object {},
                           "list": Array [],
                           "structure": [Circular],
@@ -11843,7 +11843,7 @@ exports[`VisualizationPage Should match existing snapshot when using closest pro
                         },
                         "structure": [Circular],
                       },
-                      "atomMap": Rg {
+                      "atomMap": Hb {
                         "dict": Object {},
                         "list": Array [],
                         "structure": [Circular],
@@ -11962,20 +11962,20 @@ exports[`VisualizationPage Should match existing snapshot when using closest pro
                         "count": 0,
                         "length": 0,
                       },
-                      "boundingBox": tt {
-                        "max": a {
+                      "boundingBox": Pi {
+                        "max": ri {
                           "x": -Infinity,
                           "y": -Infinity,
                           "z": -Infinity,
                         },
-                        "min": a {
+                        "min": ri {
                           "x": Infinity,
                           "y": Infinity,
                           "z": Infinity,
                         },
                       },
                       "boxes": Array [],
-                      "center": a {
+                      "center": ri {
                         "x": 0,
                         "y": 0,
                         "z": 0,
@@ -12052,7 +12052,7 @@ exports[`VisualizationPage Should match existing snapshot when using closest pro
                       },
                       "name": "sample.pdb",
                       "path": "",
-                      "residueMap": Bg {
+                      "residueMap": Kb {
                         "dict": Object {},
                         "list": Array [],
                         "structure": [Circular],
@@ -12163,9 +12163,9 @@ exports[`VisualizationPage Should match existing snapshot when using closest pro
             data={
               BioblocksPDB {
                 "fileName": "sample.pdb",
-                "nglData": Xg {
-                  "_ap": ag {
-                    "atomMap": Rg {
+                "nglData": cx {
+                  "_ap": nb {
+                    "atomMap": Hb {
                       "dict": Object {},
                       "list": Array [],
                       "structure": [Circular],
@@ -12273,7 +12273,7 @@ exports[`VisualizationPage Should match existing snapshot when using closest pro
                       "residueOffset": Uint32Array [],
                     },
                     "index": 0,
-                    "residueMap": Bg {
+                    "residueMap": Kb {
                       "dict": Object {},
                       "list": Array [],
                       "structure": [Circular],
@@ -12328,9 +12328,9 @@ exports[`VisualizationPage Should match existing snapshot when using closest pro
                     },
                     "structure": [Circular],
                   },
-                  "_bp": Ng {
-                    "_ap1": ag {
-                      "atomMap": Rg {
+                  "_bp": Jb {
+                    "_ap1": nb {
+                      "atomMap": Hb {
                         "dict": Object {},
                         "list": Array [],
                         "structure": [Circular],
@@ -12438,7 +12438,7 @@ exports[`VisualizationPage Should match existing snapshot when using closest pro
                         "residueOffset": Uint32Array [],
                       },
                       "index": 0,
-                      "residueMap": Bg {
+                      "residueMap": Kb {
                         "dict": Object {},
                         "list": Array [],
                         "structure": [Circular],
@@ -12493,8 +12493,8 @@ exports[`VisualizationPage Should match existing snapshot when using closest pro
                       },
                       "structure": [Circular],
                     },
-                    "_ap2": ag {
-                      "atomMap": Rg {
+                    "_ap2": nb {
+                      "atomMap": Hb {
                         "dict": Object {},
                         "list": Array [],
                         "structure": [Circular],
@@ -12602,7 +12602,7 @@ exports[`VisualizationPage Should match existing snapshot when using closest pro
                         "residueOffset": Uint32Array [],
                       },
                       "index": 0,
-                      "residueMap": Bg {
+                      "residueMap": Kb {
                         "dict": Object {},
                         "list": Array [],
                         "structure": [Circular],
@@ -12657,8 +12657,8 @@ exports[`VisualizationPage Should match existing snapshot when using closest pro
                       },
                       "structure": [Circular],
                     },
-                    "_ap3": ag {
-                      "atomMap": Rg {
+                    "_ap3": nb {
+                      "atomMap": Hb {
                         "dict": Object {},
                         "list": Array [],
                         "structure": [Circular],
@@ -12766,7 +12766,7 @@ exports[`VisualizationPage Should match existing snapshot when using closest pro
                         "residueOffset": Uint32Array [],
                       },
                       "index": 0,
-                      "residueMap": Bg {
+                      "residueMap": Kb {
                         "dict": Object {},
                         "list": Array [],
                         "structure": [Circular],
@@ -12821,12 +12821,12 @@ exports[`VisualizationPage Should match existing snapshot when using closest pro
                       },
                       "structure": [Circular],
                     },
-                    "_v12": a {
+                    "_v12": ri {
                       "x": 0,
                       "y": 0,
                       "z": 0,
                     },
-                    "_v13": a {
+                    "_v13": ri {
                       "x": 0,
                       "y": 0,
                       "z": 0,
@@ -12858,7 +12858,7 @@ exports[`VisualizationPage Should match existing snapshot when using closest pro
                     "index": 0,
                     "structure": [Circular],
                   },
-                  "_cp": Vg {
+                  "_cp": nx {
                     "chainStore": e {
                       "_fields": Array [
                         Array [
@@ -12952,8 +12952,8 @@ exports[`VisualizationPage Should match existing snapshot when using closest pro
                     },
                     "structure": [Circular],
                   },
-                  "_rp": zg {
-                    "atomMap": Rg {
+                  "_rp": tx {
+                    "atomMap": Hb {
                       "dict": Object {},
                       "list": Array [],
                       "structure": [Circular],
@@ -13061,7 +13061,7 @@ exports[`VisualizationPage Should match existing snapshot when using closest pro
                       "residueOffset": Uint32Array [],
                     },
                     "index": 0,
-                    "residueMap": Bg {
+                    "residueMap": Kb {
                       "dict": Object {},
                       "list": Array [],
                       "structure": [Circular],
@@ -13116,7 +13116,7 @@ exports[`VisualizationPage Should match existing snapshot when using closest pro
                     },
                     "structure": [Circular],
                   },
-                  "atomMap": Rg {
+                  "atomMap": Hb {
                     "dict": Object {},
                     "list": Array [],
                     "structure": [Circular],
@@ -13235,20 +13235,20 @@ exports[`VisualizationPage Should match existing snapshot when using closest pro
                     "count": 0,
                     "length": 0,
                   },
-                  "boundingBox": tt {
-                    "max": a {
+                  "boundingBox": Pi {
+                    "max": ri {
                       "x": -Infinity,
                       "y": -Infinity,
                       "z": -Infinity,
                     },
-                    "min": a {
+                    "min": ri {
                       "x": Infinity,
                       "y": Infinity,
                       "z": Infinity,
                     },
                   },
                   "boxes": Array [],
-                  "center": a {
+                  "center": ri {
                     "x": 0,
                     "y": 0,
                     "z": 0,
@@ -13325,7 +13325,7 @@ exports[`VisualizationPage Should match existing snapshot when using closest pro
                   },
                   "name": "sample.pdb",
                   "path": "",
-                  "residueMap": Bg {
+                  "residueMap": Kb {
                     "dict": Object {},
                     "list": Array [],
                     "structure": [Circular],
