@@ -3,9 +3,13 @@ import * as React from 'react';
 import Dropzone, { DropEvent } from 'react-dropzone';
 import { Icon, Label } from 'semantic-ui-react';
 
+export interface IDropzoneFile extends File {
+  path?: string;
+}
+
 export interface IFolderUploadZoneComponent {
   style: React.CSSProperties;
-  onDrop?(acceptedFiles: File[], rejectedFiles: File[], event: DropEvent): Promise<void>;
+  onDrop?(acceptedFiles: IDropzoneFile[], rejectedFiles: IDropzoneFile[], event: DropEvent): Promise<void>;
 }
 
 export class FolderUploadComponent extends React.Component<IFolderUploadZoneComponent, any> {

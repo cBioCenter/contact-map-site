@@ -23,20 +23,9 @@ import {
 import * as React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators, Dispatch } from 'redux';
-import {
-  Button,
-  Dropdown,
-  DropdownProps,
-  Grid,
-  GridColumn,
-  GridRow,
-  Message,
-  Modal,
-  Popup,
-  Segment,
-} from 'semantic-ui-react';
+import { Button, Grid, GridColumn, GridRow, Message, Modal, Popup, Segment } from 'semantic-ui-react';
 
-import { ErrorMessageComponent, FolderUploadComponent } from '~contact-map-site~/component';
+import { ErrorMessageComponent, FolderUploadComponent, IDropzoneFile } from '~contact-map-site~/component';
 
 export interface IVisualizationPageProps {
   style: Exclude<React.CSSProperties, 'height' | 'width'>;
@@ -47,18 +36,13 @@ export interface IVisualizationPageProps {
 export interface IVisualizationPageState {
   [VIZ_TYPE.CONTACT_MAP]: CONTACT_MAP_DATA_TYPE;
   arePredictionsAvailable: boolean;
-  availablePdbFiles: BioblocksPDB[];
   errorMsg: string;
-  filenames: Partial<{
-    couplings: string;
-    pdb: string;
-    residue_mapper: string;
-  }>;
+  experimentalProteins: BioblocksPDB[];
   isDragHappening: boolean;
   isLoading: boolean;
   measuredProximity: CONTACT_DISTANCE_PROXIMITY;
   mismatches: IResidueMismatchResult[];
-  pdbData?: BioblocksPDB;
+  predictedProteins: BioblocksPDB[];
   residueMapping: IResidueMapping[];
 }
 
@@ -78,14 +62,13 @@ export class VisualizationPageClass extends React.Component<IVisualizationPagePr
       secondaryStructures: [],
     },
     arePredictionsAvailable: false,
-    availablePdbFiles: [],
     errorMsg: '',
-    filenames: {},
+    experimentalProteins: [],
     isDragHappening: false,
     isLoading: false,
     measuredProximity: CONTACT_DISTANCE_PROXIMITY.CLOSEST,
     mismatches: [],
-    pdbData: undefined,
+    predictedProteins: [],
     residueMapping: [],
   };
 
@@ -99,8 +82,10 @@ export class VisualizationPageClass extends React.Component<IVisualizationPagePr
   }
 
   public componentDidUpdate(prevProps: IVisualizationPageProps, prevState: IVisualizationPageState) {
-    const { measuredProximity, pdbData } = this.state;
+    const { measuredProximity, predictedProteins } = this.state;
     const { couplingScores } = this.state[VIZ_TYPE.CONTACT_MAP];
+
+    const pdbData = predictedProteins.length >= 1 ? predictedProteins[0] : undefined;
 
     let errorMsg = '';
 
@@ -108,8 +93,10 @@ export class VisualizationPageClass extends React.Component<IVisualizationPagePr
 
     if (
       pdbData &&
-      (couplingScores !== prevState[VIZ_TYPE.CONTACT_MAP].couplingScores || pdbData !== prevState.pdbData)
+      (prevState.predictedProteins.length === 0 || prevState.predictedProteins[0] !== pdbData) &&
+      couplingScores !== prevState[VIZ_TYPE.CONTACT_MAP].couplingScores
     ) {
+      console.log(1);
       newMismatches = getPDBAndCouplingMismatch(pdbData, couplingScores);
 
       if (newMismatches.length >= 1) {
@@ -124,7 +111,7 @@ export class VisualizationPageClass extends React.Component<IVisualizationPagePr
       this.setState({
         [VIZ_TYPE.CONTACT_MAP]: {
           couplingScores: pdbData.amendPDBWithCouplingScores(couplingScores.rankedContacts, measuredProximity),
-          pdbData: { known: this.state.pdbData },
+          pdbData: { known: pdbData },
           secondaryStructures: [],
         },
         errorMsg,
@@ -138,7 +125,10 @@ export class VisualizationPageClass extends React.Component<IVisualizationPagePr
     }
   }
 
-  public render({ style } = this.props, { errorMsg, isDragHappening, mismatches, pdbData } = this.state) {
+  public render(
+    { style } = this.props,
+    { errorMsg, experimentalProteins, isDragHappening, mismatches, predictedProteins } = this.state,
+  ) {
     return (
       <div id="BioblocksVizApp" style={{ ...style, height: '1000px' }}>
         <Modal
@@ -154,10 +144,9 @@ export class VisualizationPageClass extends React.Component<IVisualizationPagePr
         <ErrorMessageComponent
           couplingScores={this.state[VIZ_TYPE.CONTACT_MAP].couplingScores}
           errorMsg={errorMsg}
-          pdbData={pdbData}
           mismatches={mismatches}
         />
-        {!pdbData && this.renderStartMessage()}
+        {experimentalProteins.length === 0 && predictedProteins.length === 0 && this.renderStartMessage()}
         {this.renderCouplingComponents()}
         {this.renderFooter()}
       </div>
@@ -177,7 +166,7 @@ export class VisualizationPageClass extends React.Component<IVisualizationPagePr
 
   protected renderCouplingComponents = (
     { style } = this.props,
-    { arePredictionsAvailable, measuredProximity, pdbData } = this.state,
+    { arePredictionsAvailable, measuredProximity } = this.state,
   ) => (
     <Segment attached={true} raised={true}>
       <Grid centered={true} padded={true} relaxed={true}>
@@ -186,10 +175,8 @@ export class VisualizationPageClass extends React.Component<IVisualizationPagePr
           <br />
         </Grid.Row>
         <GridRow columns={2} verticalAlign={'bottom'}>
-          <GridColumn width={7}>
-            {this.renderContactMapCard(arePredictionsAvailable, '500px', style, pdbData)}
-          </GridColumn>
-          <GridColumn width={7}>{this.renderNGLCard(measuredProximity, pdbData)}</GridColumn>
+          <GridColumn width={7}>{this.renderContactMapCard(arePredictionsAvailable, '500px', style)}</GridColumn>
+          <GridColumn width={7}>{this.renderNGLCard(measuredProximity)}</GridColumn>
         </GridRow>
       </Grid>
     </Segment>
@@ -262,35 +249,21 @@ export class VisualizationPageClass extends React.Component<IVisualizationPagePr
     );
   };
 
-  protected renderNGLCard = (measuredProximity: CONTACT_DISTANCE_PROXIMITY, pdbData?: BioblocksPDB) => {
+  protected renderNGLCard = (measuredProximity: CONTACT_DISTANCE_PROXIMITY) => {
     return (
       <NGLContainer
-        data={pdbData}
+        experimentalProteins={this.state.experimentalProteins}
         isDataLoading={this.state.isLoading}
         measuredProximity={measuredProximity}
         onMeasuredProximityChange={this.onMeasuredProximityChange()}
+        predictedProteins={this.state.predictedProteins}
       />
     );
-  };
-
-  protected onPdbFileChange = (event: React.SyntheticEvent<HTMLElement>, data: DropdownProps) => {
-    const { availablePdbFiles } = this.state;
-    const value = data.value as string;
-    this.setState({
-      filenames: {
-        ...this.state.filenames,
-        pdb: `${value}.pdb`,
-      },
-      pdbData: availablePdbFiles.find(pdbFile => pdbFile.name.localeCompare(value) === 0),
-    });
   };
 
   protected renderButtonsRow = () => {
     return (
       <GridRow textAlign={'right'} verticalAlign={'bottom'}>
-        <GridColumn floated={'right'} style={{ height: '100%', width: 'auto' }}>
-          {this.renderPdbDropdown()}
-        </GridColumn>
         <GridColumn style={{ height: '100%', width: 'auto' }}>{this.renderClearAllButton()}</GridColumn>
       </GridRow>
     );
@@ -308,27 +281,6 @@ export class VisualizationPageClass extends React.Component<IVisualizationPagePr
     />
   );
 
-  protected renderPdbDropdown = () => {
-    const { availablePdbFiles, pdbData } = this.state;
-
-    return (
-      <Dropdown
-        button={true}
-        disabled={availablePdbFiles.length === 0}
-        onChange={this.onPdbFileChange}
-        options={availablePdbFiles.map((pdbFile, index) => ({
-          key: `pdb-dropdown-${index}`,
-          text: pdbFile.name,
-          value: pdbFile.name,
-        }))}
-        scrolling={true}
-        search={availablePdbFiles.length >= 1}
-        selection={true}
-        text={pdbData && pdbData.nglStructure ? pdbData.name : 'No PDB selected!'}
-      />
-    );
-  };
-
   protected onClearAll = () => async () => {
     const { clearAllResidues, clearAllSecondaryStructures } = this.props;
     this.setState(VisualizationPageClass.initialState);
@@ -337,33 +289,32 @@ export class VisualizationPageClass extends React.Component<IVisualizationPagePr
     this.forceUpdate();
   };
 
-  protected onFolderUpload = async (files: File[]) => {
+  protected onFolderUpload = async (files: IDropzoneFile[]) => {
     this.onCloseUpload();
     await this.onClearAll()();
     const { measuredProximity } = this.state;
-    const availablePdbFiles = new Array<BioblocksPDB>();
 
     this.setState({
       isDragHappening: false,
       isLoading: true,
     });
 
-    const filenames = {
-      couplings: '',
-      pdb: '',
-      residue_mapper: '',
-    };
-
     let couplingScoresCSV: string = '';
-    let pdbData: BioblocksPDB = BioblocksPDB.createEmptyPDB();
+    let pdbData = BioblocksPDB.createEmptyPDB();
     let residueMapping: IResidueMapping[] = [];
     let secondaryStructures: SECONDARY_STRUCTURE_SECTION[] = [];
+
+    const experimentalProteins = new Array<BioblocksPDB>();
+    const predictedProteins = new Array<BioblocksPDB>();
 
     for (const file of files) {
       if (file.name.endsWith('.pdb')) {
         pdbData = await BioblocksPDB.createPDB(file);
-        filenames.pdb = file.name;
-        availablePdbFiles.push(pdbData);
+        if (file.path && file.path.includes('/fold/')) {
+          predictedProteins.push(pdbData);
+        } else if (file.path && file.path.includes('/aux/')) {
+          experimentalProteins.push(pdbData);
+        }
       } else {
         const parsedFile = await readFileAsText(file);
         if (
@@ -372,10 +323,8 @@ export class VisualizationPageClass extends React.Component<IVisualizationPagePr
           file.name.startsWith('residue_mapping')
         ) {
           residueMapping = generateResidueMapping(parsedFile);
-          filenames.residue_mapper = file.name;
         } else if (file.name.endsWith('CouplingScores.csv')) {
           couplingScoresCSV = parsedFile;
-          filenames.couplings = file.name;
         } else if (file.name.endsWith('distance_map_multimer.csv')) {
           secondaryStructures = new Array<SECONDARY_STRUCTURE_SECTION>();
           parsedFile
@@ -399,6 +348,12 @@ export class VisualizationPageClass extends React.Component<IVisualizationPagePr
       }
     }
 
+    if (predictedProteins.length === 0) {
+      predictedProteins.push(pdbData);
+    } else {
+      pdbData = predictedProteins[0];
+    }
+
     let couplingScores = getCouplingScoresData(couplingScoresCSV, residueMapping);
     couplingScores = pdbData.amendPDBWithCouplingScores(couplingScores.rankedContacts, measuredProximity);
     const mismatches = pdbData.getResidueNumberingMismatches(couplingScores);
@@ -411,12 +366,11 @@ export class VisualizationPageClass extends React.Component<IVisualizationPagePr
           secondaryStructures.length >= 1 ? [secondaryStructures] : pdbData.secondaryStructureSections,
       },
       arePredictionsAvailable: true,
-      availablePdbFiles,
       errorMsg: '',
-      filenames,
+      experimentalProteins,
       isLoading: false,
       mismatches,
-      pdbData,
+      predictedProteins,
     });
   };
 

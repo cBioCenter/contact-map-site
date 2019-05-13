@@ -2,7 +2,7 @@ import { BioblocksPDB, CONTACT_DISTANCE_PROXIMITY, Store, VIZ_TYPE } from 'biobl
 import { mount, shallow } from 'enzyme';
 import * as React from 'react';
 import { Provider } from 'react-redux';
-import { Button, Dropdown, Modal } from 'semantic-ui-react';
+import { Button, Modal } from 'semantic-ui-react';
 
 import { FolderUploadComponent } from '~contact-map-site~/component';
 import { VisualizationPage, VisualizationPageClass } from '~contact-map-site~/page';
@@ -77,22 +77,20 @@ describe('VisualizationPage', () => {
   it('Should handle files/folders being dragged.', async () => {
     const wrapper = shallow(<VisualizationPageClass />);
     const instance = wrapper.instance() as VisualizationPageClass;
-    expect(instance.state.filenames).toEqual({});
+    expect(instance.state.experimentalProteins).toEqual([]);
+    expect(instance.state.predictedProteins).toEqual([]);
     const onDrop = wrapper.find(FolderUploadComponent).props().onDrop;
     if (!onDrop) {
       expect(onDrop).not.toBeUndefined();
     } else {
       const event = new Event('drop');
-      const couplingFile = new File([], 'CouplingScores.csv');
+      const couplingFile = new File(['\n'], 'CouplingScores.csv');
       const pdbFile = new File([], 'mock.pdb');
-      const residueMapFile = new File([], 'residue_mapping.csv');
+      const residueMapFile = new File(['\n'], 'residue_mapping.csv');
 
       await onDrop([pdbFile, residueMapFile, couplingFile], [], event);
-      expect(instance.state.filenames).toEqual({
-        couplings: 'CouplingScores.csv',
-        pdb: 'mock.pdb',
-        residue_mapper: 'residue_mapping.csv',
-      });
+      expect(instance.state.experimentalProteins).toEqual([]);
+      expect(instance.state.predictedProteins).toEqual(['mock']);
     }
   });
 
@@ -118,50 +116,9 @@ describe('VisualizationPage', () => {
     }
   });
 
-  it('Should select the last PDB when given a list.', async () => {
-    const wrapper = shallow(<VisualizationPageClass />);
-    const instance = wrapper.instance() as VisualizationPageClass;
-    expect(instance.state.filenames).toEqual({});
-    const onDrop = wrapper.find(FolderUploadComponent).props().onDrop;
-    if (!onDrop) {
-      expect(onDrop).not.toBeUndefined();
-    } else {
-      const event = new Event('drop');
-      const pdbFileAlpha = new File([], 'mock_alpha.pdb');
-      const pdbFileBeta = new File([], 'mock_beta.pdb');
-      const pdbFileDelta = new File([], 'mock_delta.pdb');
-
-      await onDrop([pdbFileAlpha, pdbFileBeta, pdbFileDelta], [], event);
-      expect(instance.state.filenames.pdb).toEqual('mock_delta.pdb');
-    }
-  });
-
-  it('Should handle switching the PDB.', async () => {
-    const wrapper = shallow(<VisualizationPageClass />);
-    const instance = wrapper.instance() as VisualizationPageClass;
-    expect(instance.state.filenames).toEqual({});
-    const onDrop = wrapper.find(FolderUploadComponent).props().onDrop;
-    if (!onDrop) {
-      expect(onDrop).not.toBeUndefined();
-    } else {
-      const event = new Event('drop');
-      const pdbFileAlpha = new File([], 'mock_alpha.pdb');
-      const pdbFileBeta = new File([], 'mock_beta.pdb');
-      const pdbFileDelta = new File([], 'mock_delta.pdb');
-
-      await onDrop([pdbFileAlpha, pdbFileBeta, pdbFileDelta], [], event);
-
-      expect(instance.state.filenames.pdb).not.toEqual('mock_alpha.pdb');
-
-      wrapper.find(Dropdown).simulate('change', {}, { value: 'mock_alpha' });
-      expect(instance.state.filenames.pdb).toEqual('mock_alpha.pdb');
-    }
-  });
-
   it('Should handle parsing the secondary structure from the distance_map_multimer file.', async () => {
     const wrapper = shallow(<VisualizationPageClass />);
     const instance = wrapper.instance() as VisualizationPageClass;
-    expect(instance.state.filenames).toEqual({});
     const onDrop = wrapper.find(FolderUploadComponent).props().onDrop;
     if (!onDrop) {
       expect(onDrop).not.toBeUndefined();
