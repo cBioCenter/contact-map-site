@@ -90,7 +90,7 @@ describe('VisualizationPage', () => {
 
       await onDrop([pdbFile, residueMapFile, couplingFile], [], event);
       expect(instance.state.experimentalProteins).toEqual([]);
-      expect(instance.state.predictedProteins).toEqual(['mock']);
+      expect(instance.state.predictedProteins).toHaveLength(1);
     }
   });
 

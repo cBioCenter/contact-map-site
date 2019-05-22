@@ -96,7 +96,6 @@ export class VisualizationPageClass extends React.Component<IVisualizationPagePr
       (prevState.predictedProteins.length === 0 || prevState.predictedProteins[0] !== pdbData) &&
       couplingScores !== prevState[VIZ_TYPE.CONTACT_MAP].couplingScores
     ) {
-      console.log(1);
       newMismatches = getPDBAndCouplingMismatch(pdbData, couplingScores);
 
       if (newMismatches.length >= 1) {

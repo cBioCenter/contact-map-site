@@ -13,7 +13,7 @@
 // tslint:disable:no-backbone-get-set-outside-model
 import { readFileSync } from 'fs';
 import * as NGL from 'ngl';
-import { Vector2 } from 'three';
+import { Matrix4, Vector2 } from 'three';
 
 const nglAutoLoad = NGL.autoLoad;
 const ngl = jest.genMockFromModule<typeof NGL>('ngl');
@@ -30,6 +30,7 @@ class MockStage {
 
   public mouseControls = {
     add: (eventName: string, callback: (...args: any[]) => void) => this.events.set(eventName, callback),
+    remove: (eventName: string, callback: (...args: any[]) => void) => this.events.delete(eventName),
     run: (eventName: string, ...args: any[]) => {
       const cb = this.events.get(eventName);
       if (cb !== undefined) {
@@ -76,7 +77,9 @@ class MockStage {
   };
 
   public viewerControls = {
+    getOrientation: () => new Matrix4(),
     getPositionOnCanvas: (pos: number) => pos,
+    orient: (matrix: Matrix4) => undefined,
   };
 
   constructor(readonly canvas: HTMLElement) {
@@ -95,6 +98,7 @@ class MockStage {
 
     return structure;
   };
+  public autoView = () => jest.fn();
   public defaultFileRepresentation = (...args: any[]) => jest.fn();
   public dispose = () => jest.fn();
   public handleResize = () => jest.fn();
@@ -133,6 +137,7 @@ const sampleResidues = [helixResidue(1), sheetResidue(2), turnResidue(3)];
 // tslint:disable-next-line:max-classes-per-file
 class MockStructureComponent {
   public name = '';
+  public position = new Array<number>();
   public reprList = new Array<string>();
 
   public structure: MockStructure;
@@ -158,6 +163,14 @@ class MockStructureComponent {
 
   public removeAllRepresentations() {
     this.reprList = [];
+  }
+
+  public setPosition(position: number[]) {
+    this.position = position;
+  }
+
+  public updateRepresentations(rep: object) {
+    return;
   }
 }
 
@@ -207,5 +220,4 @@ class MockStructure {
     return nglAutoLoad(new Blob([pdbText], { type: 'text/plain' }), { ext: 'pdb' });
   }
 });
-
 module.exports = ngl;
