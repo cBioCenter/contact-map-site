@@ -150,7 +150,8 @@ exports[`VisualizationPage Should match existing snapshot when given a PDB. 1`] 
         <GridColumn
           width={7}
         >
-          <Connect(ContactMapClass)
+          <PredictedContactMap
+            correctColor="#ff0000"
             data={
               Object {
                 "couplingScores": CouplingContainer {
@@ -172,14 +173,15 @@ exports[`VisualizationPage Should match existing snapshot when given a PDB. 1`] 
                 "secondaryStructures": Array [],
               }
             }
-            height="500px"
+            height="100%"
+            incorrectColor="#000000"
             isDataLoading={false}
             style={
               Object {
                 "backgroundColor": "#ffffff",
               }
             }
-            width="500px"
+            width="100%"
           />
         </GridColumn>
         <GridColumn
@@ -188,7 +190,7 @@ exports[`VisualizationPage Should match existing snapshot when given a PDB. 1`] 
           <Connect(NGLContainerClass)
             experimentalProteins={Array []}
             isDataLoading={false}
-            measuredProximity="CLOSEST"
+            measuredProximity="CLOSEST ATOM"
             onMeasuredProximityChange={[Function]}
             predictedProteins={Array []}
           />
@@ -538,7 +540,8 @@ exports[`VisualizationPage Should match existing snapshot when hooked up to a Re
                       <div
                         className="seven wide column"
                       >
-                        <Connect(ContactMapClass)
+                        <PredictedContactMap
+                          correctColor="#ff0000"
                           data={
                             Object {
                               "couplingScores": CouplingContainer {
@@ -560,683 +563,975 @@ exports[`VisualizationPage Should match existing snapshot when hooked up to a Re
                               "secondaryStructures": Array [],
                             }
                           }
-                          height="500px"
+                          height="100%"
+                          incorrectColor="#000000"
                           isDataLoading={false}
                           style={
                             Object {
                               "backgroundColor": "#ffffff",
                             }
                           }
-                          width="500px"
+                          width="100%"
                         >
-                          <ContactMapClass
-                            addHoveredResidues={[Function]}
-                            addHoveredSecondaryStructure={[Function]}
-                            addSelectedSecondaryStructure={[Function]}
-                            candidateResidues={Array []}
-                            configurations={Array []}
-                            data={
-                              Object {
-                                "couplingScores": CouplingContainer {
-                                  "colCounter": 0,
-                                  "contacts": Array [],
-                                  "getCouplingScore": [Function],
-                                  "includes": [Function],
-                                  "indexRange": Object {
-                                    "max": 50,
-                                    "min": 1,
-                                  },
-                                  "rowCounter": 0,
-                                  "scoreSource": "cn",
-                                  "totalStoredContacts": 0,
-                                },
-                                "pdbData": Object {
-                                  "known": undefined,
-                                },
-                                "secondaryStructures": Array [],
-                              }
-                            }
-                            enableSliders={true}
-                            formattedPoints={Array []}
-                            height="500px"
-                            highlightColor="#ff8800"
-                            hoveredResidues={Array []}
-                            hoveredSecondaryStructures={Array []}
-                            isDataLoading={false}
-                            lockedResiduePairs={Object {}}
-                            observedColor="#0000ff"
-                            removeAllLockedResiduePairs={[Function]}
-                            removeHoveredResidues={[Function]}
-                            removeHoveredSecondaryStructure={[Function]}
-                            removeSecondaryStructure={[Function]}
-                            selectedSecondaryStructures={Array []}
-                            showConfigurations={true}
+                          <div
+                            className="PredictedContactMapComponent"
                             style={
                               Object {
                                 "backgroundColor": "#ffffff",
                               }
                             }
-                            toggleLockedResiduePair={[Function]}
-                            width="500px"
                           >
-                            <ComponentCard
-                              componentName="Contact Map"
-                              frameHeight={0}
-                              frameWidth={0}
-                              headerHeight={40}
-                              height="570px"
-                              iconSrc="assets/icons/spring-icon.png"
-                              isFramedComponent={false}
-                              isFullPage={false}
-                              menuItems={
+                            <Connect(ContactMapClass)
+                              configurations={
                                 Array [
                                   Object {
-                                    "component": Object {
-                                      "configs": Array [
-                                        Object {
-                                          "name": "Clear Selections",
-                                          "onClick": [Function],
-                                          "type": "BUTTON",
-                                        },
-                                        Object {
-                                          "id": "node-size-slider-0",
-                                          "name": "Node size for Predicted Structure Contact",
-                                          "onChange": [Function],
-                                          "type": "SLIDER",
-                                          "values": Object {
-                                            "current": 4,
-                                            "defaultValue": 4,
-                                            "max": 20,
-                                            "min": 1,
-                                          },
-                                        },
-                                        Object {
-                                          "id": "node-size-slider-1",
-                                          "name": "Node size for Selected Residue Pairs",
-                                          "onChange": [Function],
-                                          "type": "SLIDER",
-                                          "values": Object {
-                                            "current": 4,
-                                            "defaultValue": 4,
-                                            "max": 20,
-                                            "min": 1,
-                                          },
-                                        },
-                                      ],
-                                      "name": "POPUP",
+                                    "name": "Linear Distance Filter (|i - j|)",
+                                    "onChange": [Function],
+                                    "type": "SLIDER",
+                                    "values": Object {
+                                      "current": 5,
+                                      "defaultValue": 5,
+                                      "max": 10,
+                                      "min": 1,
                                     },
-                                    "description": "Settings",
+                                  },
+                                  Object {
+                                    "name": "Top N Predictions to Show",
+                                    "onChange": [Function],
+                                    "type": "SLIDER",
+                                    "values": Object {
+                                      "current": 25,
+                                      "defaultValue": 100,
+                                      "max": 50,
+                                      "min": 1,
+                                    },
                                   },
                                 ]
                               }
-                              padding={0}
-                              showSettings={false}
-                              width="525px"
-                            >
-                              <Card
-                                centered={true}
-                                className="bioblocks-component-card"
-                                style={
+                              correctColor="#ff0000"
+                              data={
+                                Object {
+                                  "couplingScores": CouplingContainer {
+                                    "colCounter": 0,
+                                    "contacts": Array [],
+                                    "getCouplingScore": [Function],
+                                    "includes": [Function],
+                                    "indexRange": Object {
+                                      "max": 50,
+                                      "min": 1,
+                                    },
+                                    "rowCounter": 0,
+                                    "scoreSource": "cn",
+                                    "totalStoredContacts": 0,
+                                  },
+                                  "pdbData": Object {
+                                    "known": undefined,
+                                  },
+                                  "secondaryStructures": Array [],
+                                }
+                              }
+                              formattedPoints={
+                                Array [
                                   Object {
-                                    "height": "570px",
-                                    "maxWidth": "unset",
-                                    "width": "525px",
+                                    "hoverinfo": "text",
+                                    "marker": Object {
+                                      "color": Array [],
+                                    },
+                                    "mode": "lines+markers",
+                                    "name": "Predicted Contact",
+                                    "nodeSize": 4,
+                                    "points": Array [],
+                                    "subtitle": "(N=25, L=50)",
+                                    "text": Array [],
+                                  },
+                                  Object {
+                                    "hoverinfo": "text",
+                                    "marker": Object {
+                                      "color": Array [],
+                                    },
+                                    "mode": "lines+markers",
+                                    "name": "Correct Prediction",
+                                    "nodeSize": 6,
+                                    "points": Array [],
+                                    "subtitle": "(N=0, NaN%)",
+                                    "text": Array [],
+                                  },
+                                ]
+                              }
+                              height="100%"
+                              incorrectColor="#000000"
+                              isDataLoading={false}
+                              width="100%"
+                            >
+                              <ContactMapClass
+                                addHoveredResidues={[Function]}
+                                addHoveredSecondaryStructure={[Function]}
+                                addSelectedSecondaryStructure={[Function]}
+                                candidateResidues={Array []}
+                                configurations={
+                                  Array [
+                                    Object {
+                                      "name": "Linear Distance Filter (|i - j|)",
+                                      "onChange": [Function],
+                                      "type": "SLIDER",
+                                      "values": Object {
+                                        "current": 5,
+                                        "defaultValue": 5,
+                                        "max": 10,
+                                        "min": 1,
+                                      },
+                                    },
+                                    Object {
+                                      "name": "Top N Predictions to Show",
+                                      "onChange": [Function],
+                                      "type": "SLIDER",
+                                      "values": Object {
+                                        "current": 25,
+                                        "defaultValue": 100,
+                                        "max": 50,
+                                        "min": 1,
+                                      },
+                                    },
+                                  ]
+                                }
+                                correctColor="#ff0000"
+                                data={
+                                  Object {
+                                    "couplingScores": CouplingContainer {
+                                      "colCounter": 0,
+                                      "contacts": Array [],
+                                      "getCouplingScore": [Function],
+                                      "includes": [Function],
+                                      "indexRange": Object {
+                                        "max": 50,
+                                        "min": 1,
+                                      },
+                                      "rowCounter": 0,
+                                      "scoreSource": "cn",
+                                      "totalStoredContacts": 0,
+                                    },
+                                    "pdbData": Object {
+                                      "known": undefined,
+                                    },
+                                    "secondaryStructures": Array [],
                                   }
                                 }
-                              >
-                                <div
-                                  className="ui centered card bioblocks-component-card"
-                                  onClick={[Function]}
-                                  style={
+                                enableSliders={true}
+                                formattedPoints={
+                                  Array [
                                     Object {
-                                      "height": "570px",
-                                      "maxWidth": "unset",
-                                      "width": "525px",
-                                    }
-                                  }
-                                >
-                                  <ComponentMenuBar
-                                    componentName="Contact Map"
-                                    configurations={Array []}
-                                    height={40}
-                                    iconSrc="assets/icons/spring-icon.png"
-                                    isExpanded={false}
-                                    menuItems={
-                                      Array [
-                                        Object {
-                                          "component": Object {
-                                            "configs": Array [
-                                              Object {
-                                                "name": "Clear Selections",
-                                                "onClick": [Function],
-                                                "type": "BUTTON",
+                                      "hoverinfo": "text",
+                                      "marker": Object {
+                                        "color": Array [],
+                                      },
+                                      "mode": "lines+markers",
+                                      "name": "Predicted Contact",
+                                      "nodeSize": 4,
+                                      "points": Array [],
+                                      "subtitle": "(N=25, L=50)",
+                                      "text": Array [],
+                                    },
+                                    Object {
+                                      "hoverinfo": "text",
+                                      "marker": Object {
+                                        "color": Array [],
+                                      },
+                                      "mode": "lines+markers",
+                                      "name": "Correct Prediction",
+                                      "nodeSize": 6,
+                                      "points": Array [],
+                                      "subtitle": "(N=0, NaN%)",
+                                      "text": Array [],
+                                    },
+                                  ]
+                                }
+                                height="100%"
+                                highlightColor="#ff8800"
+                                hoveredResidues={Array []}
+                                hoveredSecondaryStructures={Array []}
+                                incorrectColor="#000000"
+                                isDataLoading={false}
+                                lockedResiduePairs={Object {}}
+                                observedColor="#0000ff"
+                                removeAllLockedResiduePairs={[Function]}
+                                removeHoveredResidues={[Function]}
+                                removeHoveredSecondaryStructure={[Function]}
+                                removeSecondaryStructure={[Function]}
+                                selectedSecondaryStructures={Array []}
+                                showConfigurations={true}
+                                toggleLockedResiduePair={[Function]}
+                                width="100%"
+                              >
+                                <ComponentCard
+                                  componentName="Contact Map"
+                                  frameHeight={0}
+                                  frameWidth={0}
+                                  headerHeight={40}
+                                  height="570px"
+                                  iconSrc="assets/icons/spring-icon.png"
+                                  isFramedComponent={false}
+                                  isFullPage={false}
+                                  menuItems={
+                                    Array [
+                                      Object {
+                                        "component": Object {
+                                          "configs": Array [
+                                            Object {
+                                              "name": "Clear Selections",
+                                              "onClick": [Function],
+                                              "type": "BUTTON",
+                                            },
+                                            Object {
+                                              "name": "Linear Distance Filter (|i - j|)",
+                                              "onChange": [Function],
+                                              "type": "SLIDER",
+                                              "values": Object {
+                                                "current": 5,
+                                                "defaultValue": 5,
+                                                "max": 10,
+                                                "min": 1,
                                               },
-                                              Object {
-                                                "id": "node-size-slider-0",
-                                                "name": "Node size for Predicted Structure Contact",
-                                                "onChange": [Function],
-                                                "type": "SLIDER",
-                                                "values": Object {
-                                                  "current": 4,
-                                                  "defaultValue": 4,
-                                                  "max": 20,
-                                                  "min": 1,
-                                                },
+                                            },
+                                            Object {
+                                              "name": "Top N Predictions to Show",
+                                              "onChange": [Function],
+                                              "type": "SLIDER",
+                                              "values": Object {
+                                                "current": 25,
+                                                "defaultValue": 100,
+                                                "max": 50,
+                                                "min": 1,
                                               },
-                                              Object {
-                                                "id": "node-size-slider-1",
-                                                "name": "Node size for Selected Residue Pairs",
-                                                "onChange": [Function],
-                                                "type": "SLIDER",
-                                                "values": Object {
-                                                  "current": 4,
-                                                  "defaultValue": 4,
-                                                  "max": 20,
-                                                  "min": 1,
-                                                },
+                                            },
+                                            Object {
+                                              "id": "node-size-slider-0",
+                                              "name": "Node size for Predicted Structure Contact",
+                                              "onChange": [Function],
+                                              "type": "SLIDER",
+                                              "values": Object {
+                                                "current": 4,
+                                                "defaultValue": 4,
+                                                "max": 20,
+                                                "min": 1,
                                               },
-                                            ],
-                                            "name": "POPUP",
-                                          },
-                                          "description": "Settings",
+                                            },
+                                            Object {
+                                              "id": "node-size-slider-1",
+                                              "name": "Node size for Predicted Contact",
+                                              "onChange": [Function],
+                                              "type": "SLIDER",
+                                              "values": Object {
+                                                "current": 4,
+                                                "defaultValue": 4,
+                                                "max": 20,
+                                                "min": 1,
+                                              },
+                                            },
+                                            Object {
+                                              "id": "node-size-slider-2",
+                                              "name": "Node size for Correct Prediction",
+                                              "onChange": [Function],
+                                              "type": "SLIDER",
+                                              "values": Object {
+                                                "current": 6,
+                                                "defaultValue": 4,
+                                                "max": 20,
+                                                "min": 1,
+                                              },
+                                            },
+                                            Object {
+                                              "id": "node-size-slider-3",
+                                              "name": "Node size for Selected Residue Pairs",
+                                              "onChange": [Function],
+                                              "type": "SLIDER",
+                                              "values": Object {
+                                                "current": 4,
+                                                "defaultValue": 4,
+                                                "max": 20,
+                                                "min": 1,
+                                              },
+                                            },
+                                          ],
+                                          "name": "POPUP",
                                         },
-                                      ]
+                                        "description": "Settings",
+                                      },
+                                    ]
+                                  }
+                                  padding={0}
+                                  showSettings={false}
+                                  width="525px"
+                                >
+                                  <Card
+                                    centered={true}
+                                    className="bioblocks-component-card"
+                                    style={
+                                      Object {
+                                        "height": "570px",
+                                        "maxWidth": "unset",
+                                        "width": "525px",
+                                      }
                                     }
-                                    onExpandToggleCb={[Function]}
-                                    width="100%"
                                   >
                                     <div
-                                      onMouseEnter={[Function]}
-                                      onMouseLeave={[Function]}
-                                    >
-                                      <Menu
-                                        secondary={true}
-                                        style={
-                                          Object {
-                                            "height": 40,
-                                            "margin": 0,
-                                          }
+                                      className="ui centered card bioblocks-component-card"
+                                      onClick={[Function]}
+                                      style={
+                                        Object {
+                                          "height": "570px",
+                                          "maxWidth": "unset",
+                                          "width": "525px",
                                         }
-                                        widths={2}
+                                      }
+                                    >
+                                      <ComponentMenuBar
+                                        componentName="Contact Map"
+                                        configurations={Array []}
+                                        height={40}
+                                        iconSrc="assets/icons/spring-icon.png"
+                                        isExpanded={false}
+                                        menuItems={
+                                          Array [
+                                            Object {
+                                              "component": Object {
+                                                "configs": Array [
+                                                  Object {
+                                                    "name": "Clear Selections",
+                                                    "onClick": [Function],
+                                                    "type": "BUTTON",
+                                                  },
+                                                  Object {
+                                                    "name": "Linear Distance Filter (|i - j|)",
+                                                    "onChange": [Function],
+                                                    "type": "SLIDER",
+                                                    "values": Object {
+                                                      "current": 5,
+                                                      "defaultValue": 5,
+                                                      "max": 10,
+                                                      "min": 1,
+                                                    },
+                                                  },
+                                                  Object {
+                                                    "name": "Top N Predictions to Show",
+                                                    "onChange": [Function],
+                                                    "type": "SLIDER",
+                                                    "values": Object {
+                                                      "current": 25,
+                                                      "defaultValue": 100,
+                                                      "max": 50,
+                                                      "min": 1,
+                                                    },
+                                                  },
+                                                  Object {
+                                                    "id": "node-size-slider-0",
+                                                    "name": "Node size for Predicted Structure Contact",
+                                                    "onChange": [Function],
+                                                    "type": "SLIDER",
+                                                    "values": Object {
+                                                      "current": 4,
+                                                      "defaultValue": 4,
+                                                      "max": 20,
+                                                      "min": 1,
+                                                    },
+                                                  },
+                                                  Object {
+                                                    "id": "node-size-slider-1",
+                                                    "name": "Node size for Predicted Contact",
+                                                    "onChange": [Function],
+                                                    "type": "SLIDER",
+                                                    "values": Object {
+                                                      "current": 4,
+                                                      "defaultValue": 4,
+                                                      "max": 20,
+                                                      "min": 1,
+                                                    },
+                                                  },
+                                                  Object {
+                                                    "id": "node-size-slider-2",
+                                                    "name": "Node size for Correct Prediction",
+                                                    "onChange": [Function],
+                                                    "type": "SLIDER",
+                                                    "values": Object {
+                                                      "current": 6,
+                                                      "defaultValue": 4,
+                                                      "max": 20,
+                                                      "min": 1,
+                                                    },
+                                                  },
+                                                  Object {
+                                                    "id": "node-size-slider-3",
+                                                    "name": "Node size for Selected Residue Pairs",
+                                                    "onChange": [Function],
+                                                    "type": "SLIDER",
+                                                    "values": Object {
+                                                      "current": 4,
+                                                      "defaultValue": 4,
+                                                      "max": 20,
+                                                      "min": 1,
+                                                    },
+                                                  },
+                                                ],
+                                                "name": "POPUP",
+                                              },
+                                              "description": "Settings",
+                                            },
+                                          ]
+                                        }
+                                        onExpandToggleCb={[Function]}
+                                        opacity={0.85}
+                                        width="100%"
                                       >
                                         <div
-                                          className="ui secondary two item menu"
-                                          style={
-                                            Object {
-                                              "height": 40,
-                                              "margin": 0,
-                                            }
-                                          }
+                                          onMouseEnter={[Function]}
+                                          onMouseLeave={[Function]}
                                         >
                                           <Menu
                                             secondary={true}
-                                            widths={1}
+                                            style={
+                                              Object {
+                                                "height": 40,
+                                                "margin": 0,
+                                              }
+                                            }
+                                            widths={2}
                                           >
                                             <div
-                                              className="ui secondary one item menu"
-                                            >
-                                              <MenuItem
-                                                fitted="horizontally"
-                                                position="left"
-                                                style={
-                                                  Object {
-                                                    "margin": 0,
-                                                    "padding": 0,
-                                                  }
+                                              className="ui secondary two item menu"
+                                              style={
+                                                Object {
+                                                  "height": 40,
+                                                  "margin": 0,
                                                 }
+                                              }
+                                            >
+                                              <Menu
+                                                secondary={true}
+                                                widths={1}
                                               >
                                                 <div
-                                                  className="left horizontally fitted item"
-                                                  onClick={[Function]}
-                                                  style={
-                                                    Object {
-                                                      "margin": 0,
-                                                      "padding": 0,
-                                                    }
-                                                  }
+                                                  className="ui secondary one item menu"
                                                 >
-                                                  <img
-                                                    alt="component icon"
-                                                    src="assets/icons/spring-icon.png"
+                                                  <MenuItem
+                                                    fitted="horizontally"
+                                                    position="left"
                                                     style={
                                                       Object {
-                                                        "height": "32px",
-                                                        "padding": "2px",
-                                                        "width": "32px",
+                                                        "margin": 0,
+                                                        "padding": 0,
                                                       }
                                                     }
-                                                  />
-                                                  Contact Map
+                                                  >
+                                                    <div
+                                                      className="left horizontally fitted item"
+                                                      onClick={[Function]}
+                                                      style={
+                                                        Object {
+                                                          "margin": 0,
+                                                          "padding": 0,
+                                                        }
+                                                      }
+                                                    >
+                                                      <img
+                                                        alt="component icon"
+                                                        src="assets/icons/spring-icon.png"
+                                                        style={
+                                                          Object {
+                                                            "height": "32px",
+                                                            "padding": "2px",
+                                                            "width": "32px",
+                                                          }
+                                                        }
+                                                      />
+                                                      Contact Map
+                                                    </div>
+                                                  </MenuItem>
                                                 </div>
-                                              </MenuItem>
-                                            </div>
-                                          </Menu>
-                                          <Menu
-                                            secondary={true}
-                                            widths={4}
-                                          >
-                                            <div
-                                              className="ui secondary four item menu"
-                                            >
-                                              <MenuItem
-                                                fitted="horizontally"
-                                                key="Contact Map-menu-item-0"
-                                                position="right"
-                                                style={
-                                                  Object {
-                                                    "flexDirection": "column",
-                                                  }
-                                                }
+                                              </Menu>
+                                              <Menu
+                                                secondary={true}
+                                                widths={4}
                                               >
                                                 <div
-                                                  className="right horizontally fitted item"
-                                                  onClick={[Function]}
-                                                  style={
-                                                    Object {
-                                                      "flexDirection": "column",
-                                                    }
-                                                  }
+                                                  className="ui secondary four item menu"
                                                 >
-                                                  <Popup
-                                                    closeOnPortalMouseLeave={false}
-                                                    closeOnTriggerClick={true}
-                                                    closeOnTriggerMouseLeave={false}
-                                                    disabled={false}
-                                                    hoverable={false}
-                                                    keepInViewPort={true}
-                                                    on="hover"
-                                                    openOnTriggerClick={true}
-                                                    openOnTriggerFocus={false}
-                                                    openOnTriggerMouseEnter={false}
-                                                    position="bottom center"
-                                                    trigger={
-                                                      <Icon
-                                                        as="i"
-                                                        name="setting"
-                                                      />
-                                                    }
-                                                    wide={true}
-                                                  >
-                                                    <Portal
-                                                      closeOnDocumentClick={true}
-                                                      closeOnEscape={true}
-                                                      closeOnPortalMouseLeave={false}
-                                                      closeOnTriggerClick={true}
-                                                      closeOnTriggerMouseLeave={false}
-                                                      eventPool="default"
-                                                      mouseEnterDelay={50}
-                                                      mouseLeaveDelay={70}
-                                                      onClose={[Function]}
-                                                      onMount={[Function]}
-                                                      onOpen={[Function]}
-                                                      onUnmount={[Function]}
-                                                      openOnTriggerClick={true}
-                                                      openOnTriggerFocus={false}
-                                                      openOnTriggerMouseEnter={false}
-                                                      trigger={
-                                                        <Icon
-                                                          as="i"
-                                                          name="setting"
-                                                        />
+                                                  <MenuItem
+                                                    fitted="horizontally"
+                                                    key="Contact Map-menu-item-0"
+                                                    position="right"
+                                                    style={
+                                                      Object {
+                                                        "flexDirection": "column",
                                                       }
-                                                      triggerRef={[Function]}
+                                                    }
+                                                  >
+                                                    <div
+                                                      className="right horizontally fitted item"
+                                                      onClick={[Function]}
+                                                      style={
+                                                        Object {
+                                                          "flexDirection": "column",
+                                                        }
+                                                      }
                                                     >
-                                                      <Ref
-                                                        innerRef={[Function]}
-                                                      >
-                                                        <RefFindNode
-                                                          innerRef={[Function]}
-                                                        >
+                                                      <Popup
+                                                        closeOnPortalMouseLeave={false}
+                                                        closeOnTriggerClick={true}
+                                                        closeOnTriggerMouseLeave={false}
+                                                        disabled={false}
+                                                        hoverable={false}
+                                                        keepInViewPort={true}
+                                                        on="hover"
+                                                        openOnTriggerClick={true}
+                                                        openOnTriggerFocus={false}
+                                                        openOnTriggerMouseEnter={false}
+                                                        position="bottom center"
+                                                        style={
+                                                          Object {
+                                                            "opacity": 0.85,
+                                                          }
+                                                        }
+                                                        trigger={
                                                           <Icon
                                                             as="i"
                                                             name="setting"
-                                                            onBlur={[Function]}
-                                                            onClick={[Function]}
-                                                            onFocus={[Function]}
-                                                            onMouseEnter={[Function]}
-                                                            onMouseLeave={[Function]}
-                                                          >
-                                                            <i
-                                                              aria-hidden="true"
-                                                              className="setting icon"
-                                                              onBlur={[Function]}
-                                                              onClick={[Function]}
-                                                              onFocus={[Function]}
-                                                              onMouseEnter={[Function]}
-                                                              onMouseLeave={[Function]}
+                                                          />
+                                                        }
+                                                        wide={true}
+                                                      >
+                                                        <Portal
+                                                          closeOnDocumentClick={true}
+                                                          closeOnEscape={true}
+                                                          closeOnPortalMouseLeave={false}
+                                                          closeOnTriggerClick={true}
+                                                          closeOnTriggerMouseLeave={false}
+                                                          eventPool="default"
+                                                          mouseEnterDelay={50}
+                                                          mouseLeaveDelay={70}
+                                                          onClose={[Function]}
+                                                          onMount={[Function]}
+                                                          onOpen={[Function]}
+                                                          onUnmount={[Function]}
+                                                          openOnTriggerClick={true}
+                                                          openOnTriggerFocus={false}
+                                                          openOnTriggerMouseEnter={false}
+                                                          trigger={
+                                                            <Icon
+                                                              as="i"
+                                                              name="setting"
                                                             />
-                                                          </Icon>
-                                                        </RefFindNode>
-                                                      </Ref>
-                                                    </Portal>
-                                                  </Popup>
-                                                  <span
+                                                          }
+                                                          triggerRef={[Function]}
+                                                        >
+                                                          <Ref
+                                                            innerRef={[Function]}
+                                                          >
+                                                            <RefFindNode
+                                                              innerRef={[Function]}
+                                                            >
+                                                              <Icon
+                                                                as="i"
+                                                                name="setting"
+                                                                onBlur={[Function]}
+                                                                onClick={[Function]}
+                                                                onFocus={[Function]}
+                                                                onMouseEnter={[Function]}
+                                                                onMouseLeave={[Function]}
+                                                              >
+                                                                <i
+                                                                  aria-hidden="true"
+                                                                  className="setting icon"
+                                                                  onBlur={[Function]}
+                                                                  onClick={[Function]}
+                                                                  onFocus={[Function]}
+                                                                  onMouseEnter={[Function]}
+                                                                  onMouseLeave={[Function]}
+                                                                />
+                                                              </Icon>
+                                                            </RefFindNode>
+                                                          </Ref>
+                                                        </Portal>
+                                                      </Popup>
+                                                      <span
+                                                        style={
+                                                          Object {
+                                                            "fontSize": "11px",
+                                                            "visibility": "hidden",
+                                                          }
+                                                        }
+                                                      >
+                                                        Settings
+                                                      </span>
+                                                    </div>
+                                                  </MenuItem>
+                                                  <MenuItem
+                                                    fitted="horizontally"
+                                                    position="right"
                                                     style={
                                                       Object {
-                                                        "fontSize": "11px",
-                                                        "visibility": "hidden",
+                                                        "flexDirection": "column",
                                                       }
                                                     }
                                                   >
-                                                    Settings
-                                                  </span>
-                                                </div>
-                                              </MenuItem>
-                                              <MenuItem
-                                                fitted="horizontally"
-                                                position="right"
-                                                style={
-                                                  Object {
-                                                    "flexDirection": "column",
-                                                  }
-                                                }
-                                              >
-                                                <div
-                                                  className="right horizontally fitted item"
-                                                  onClick={[Function]}
-                                                  style={
-                                                    Object {
-                                                      "flexDirection": "column",
-                                                    }
-                                                  }
-                                                >
-                                                  <Icon
-                                                    as="i"
-                                                    name="expand arrows alternate"
-                                                    onClick={[Function]}
-                                                  >
-                                                    <i
-                                                      aria-hidden="true"
-                                                      className="expand arrows alternate icon"
+                                                    <div
+                                                      className="right horizontally fitted item"
                                                       onClick={[Function]}
-                                                    />
-                                                  </Icon>
-                                                  <span
-                                                    style={
-                                                      Object {
-                                                        "fontSize": "11px",
-                                                        "visibility": "hidden",
+                                                      style={
+                                                        Object {
+                                                          "flexDirection": "column",
+                                                        }
                                                       }
-                                                    }
-                                                  >
-                                                    Expand
-                                                  </span>
+                                                    >
+                                                      <Icon
+                                                        as="i"
+                                                        name="expand arrows alternate"
+                                                        onClick={[Function]}
+                                                      >
+                                                        <i
+                                                          aria-hidden="true"
+                                                          className="expand arrows alternate icon"
+                                                          onClick={[Function]}
+                                                        />
+                                                      </Icon>
+                                                      <span
+                                                        style={
+                                                          Object {
+                                                            "fontSize": "11px",
+                                                            "visibility": "hidden",
+                                                          }
+                                                        }
+                                                      >
+                                                        Expand
+                                                      </span>
+                                                    </div>
+                                                  </MenuItem>
                                                 </div>
-                                              </MenuItem>
+                                              </Menu>
                                             </div>
                                           </Menu>
                                         </div>
-                                      </Menu>
-                                    </div>
-                                  </ComponentMenuBar>
-                                  <ContactMapChart
-                                    candidateResidues={Array []}
-                                    configurations={Array []}
-                                    contactData={
-                                      Array [
-                                        Object {
-                                          "hoverinfo": "text",
-                                          "marker": Object {
-                                            "colorscale": Array [
-                                              Array [
-                                                0,
-                                                "rgb(12,50,102)",
-                                              ],
-                                              Array [
-                                                0.1,
-                                                "rgb(17,83,150)",
-                                              ],
-                                              Array [
-                                                0.2,
-                                                "rgb(40,114,175)",
-                                              ],
-                                              Array [
-                                                0.3,
-                                                "rgb(71,147,193)",
-                                              ],
-                                              Array [
-                                                0.4,
-                                                "rgb(111,175,209)",
-                                              ],
-                                              Array [
-                                                0.5,
-                                                "rgb(160,202,222)",
-                                              ],
-                                              Array [
-                                                0.6,
-                                                "rgb(200,219,237)",
-                                              ],
-                                              Array [
-                                                0.7,
-                                                "rgb(224,235,246)",
-                                              ],
-                                              Array [
-                                                0.8,
-                                                "rgb(247,251,255)",
-                                              ],
-                                              Array [
-                                                0.9,
-                                                "rgb(249,253,255)",
-                                              ],
-                                              Array [
-                                                1,
-                                                "rgb(255,255,255)",
-                                              ],
-                                            ],
-                                          },
-                                          "mode": "lines+markers",
-                                          "name": "Predicted Structure Contact",
-                                          "nodeSize": 4,
-                                          "points": Array [],
-                                          "subtitle": "(from PDB structure)",
-                                          "text": Array [],
-                                        },
-                                        Object {
-                                          "hoverinfo": "none",
-                                          "marker": Object {
-                                            "color": Array [],
-                                            "line": Object {
-                                              "color": "#ff8800",
-                                              "width": 3,
-                                            },
-                                            "symbol": "circle-open",
-                                          },
-                                          "mode": "lines+markers",
-                                          "name": "Selected Residue Pairs",
-                                          "nodeSize": 4,
-                                          "points": Array [],
-                                          "subtitle": "",
-                                        },
-                                      ]
-                                    }
-                                    dataTransformFn={[Function]}
-                                    height="500px"
-                                    isDataLoading={false}
-                                    legendModifiers={
-                                      Object {
-                                        "y": -0.4,
-                                      }
-                                    }
-                                    marginModifiers={
-                                      Object {
-                                        "b": 65,
-                                        "l": 65,
-                                      }
-                                    }
-                                    onClickCallback={[Function]}
-                                    onHoverCallback={[Function]}
-                                    onSelectedCallback={[Function]}
-                                    onUnHoverCallback={[Function]}
-                                    range={70}
-                                    secondaryStructures={Array []}
-                                    selectedSecondaryStructures={
-                                      Array [
-                                        Array [],
-                                      ]
-                                    }
-                                    selectedSecondaryStructuresColor="#feb83f"
-                                    showConfigurations={true}
-                                    width="500px"
-                                  >
-                                    <PlotlyChart
-                                      candidateResidues={Array []}
-                                      config={Object {}}
-                                      data={
-                                        Array [
-                                          Object {
-                                            "hoverinfo": "text",
-                                            "marker": Object {
-                                              "color": Array [],
-                                              "colorscale": Array [
-                                                Array [
-                                                  0,
-                                                  "rgb(12,50,102)",
+                                      </ComponentMenuBar>
+                                      <ContactMapChart
+                                        candidateResidues={Array []}
+                                        configurations={Array []}
+                                        contactData={
+                                          Array [
+                                            Object {
+                                              "hoverinfo": "text",
+                                              "marker": Object {
+                                                "colorscale": Array [
+                                                  Array [
+                                                    0,
+                                                    "rgb(12,50,102)",
+                                                  ],
+                                                  Array [
+                                                    0.1,
+                                                    "rgb(17,83,150)",
+                                                  ],
+                                                  Array [
+                                                    0.2,
+                                                    "rgb(40,114,175)",
+                                                  ],
+                                                  Array [
+                                                    0.3,
+                                                    "rgb(71,147,193)",
+                                                  ],
+                                                  Array [
+                                                    0.4,
+                                                    "rgb(111,175,209)",
+                                                  ],
+                                                  Array [
+                                                    0.5,
+                                                    "rgb(160,202,222)",
+                                                  ],
+                                                  Array [
+                                                    0.6,
+                                                    "rgb(200,219,237)",
+                                                  ],
+                                                  Array [
+                                                    0.7,
+                                                    "rgb(224,235,246)",
+                                                  ],
+                                                  Array [
+                                                    0.8,
+                                                    "rgb(247,251,255)",
+                                                  ],
+                                                  Array [
+                                                    0.9,
+                                                    "rgb(249,253,255)",
+                                                  ],
+                                                  Array [
+                                                    1,
+                                                    "rgb(255,255,255)",
+                                                  ],
                                                 ],
-                                                Array [
-                                                  0.1,
-                                                  "rgb(17,83,150)",
-                                                ],
-                                                Array [
-                                                  0.2,
-                                                  "rgb(40,114,175)",
-                                                ],
-                                                Array [
-                                                  0.3,
-                                                  "rgb(71,147,193)",
-                                                ],
-                                                Array [
-                                                  0.4,
-                                                  "rgb(111,175,209)",
-                                                ],
-                                                Array [
-                                                  0.5,
-                                                  "rgb(160,202,222)",
-                                                ],
-                                                Array [
-                                                  0.6,
-                                                  "rgb(200,219,237)",
-                                                ],
-                                                Array [
-                                                  0.7,
-                                                  "rgb(224,235,246)",
-                                                ],
-                                                Array [
-                                                  0.8,
-                                                  "rgb(247,251,255)",
-                                                ],
-                                                Array [
-                                                  0.9,
-                                                  "rgb(249,253,255)",
-                                                ],
-                                                Array [
-                                                  1,
-                                                  "rgb(255,255,255)",
-                                                ],
-                                              ],
-                                              "size": 4,
-                                            },
-                                            "mode": "markers",
-                                            "name": "Predicted Structure Contact (from PDB structure)",
-                                            "text": Array [],
-                                            "type": "scattergl",
-                                            "x": Array [],
-                                            "y": Array [],
-                                            "z": Array [],
-                                          },
-                                          Object {
-                                            "hoverinfo": "none",
-                                            "marker": Object {
-                                              "color": Array [],
-                                              "line": Object {
-                                                "color": "#ff8800",
-                                                "width": 3,
                                               },
-                                              "size": 4,
-                                              "symbol": "circle-open",
+                                              "mode": "lines+markers",
+                                              "name": "Predicted Structure Contact",
+                                              "nodeSize": 4,
+                                              "points": Array [],
+                                              "subtitle": "(from PDB structure)",
+                                              "text": Array [],
                                             },
-                                            "mode": "markers",
-                                            "name": "Selected Residue Pairs ",
-                                            "text": Array [],
-                                            "type": "scattergl",
-                                            "x": Array [],
-                                            "y": Array [],
-                                            "z": Array [],
-                                          },
-                                        ]
-                                      }
-                                      dataTransformFn={[Function]}
-                                      height="500px"
-                                      layout={
-                                        Object {
-                                          "legend": Object {
-                                            "orientation": "h",
-                                            "y": -0.4,
-                                            "yanchor": "bottom",
-                                          },
-                                          "margin": Object {
-                                            "b": 65,
-                                            "l": 65,
-                                          },
-                                          "showlegend": false,
-                                          "xaxis": Object {
-                                            "autorange": true,
-                                            "fixedrange": true,
-                                            "nticks": 10,
-                                            "range": Array [
-                                              0,
-                                              33000,
-                                            ],
-                                            "rangemode": "nonnegative",
-                                            "showline": true,
-                                            "tickmode": "auto",
-                                            "title": "Residue #",
-                                          },
-                                          "yaxis": Object {
-                                            "autorange": "reversed",
-                                            "fixedrange": true,
-                                            "nticks": 10,
-                                            "range": Array [
-                                              0,
-                                              33000,
-                                            ],
-                                            "rangemode": "nonnegative",
-                                            "showline": true,
-                                            "tickmode": "auto",
-                                            "title": "Residue #",
-                                          },
+                                            Object {
+                                              "hoverinfo": "text",
+                                              "marker": Object {
+                                                "color": Array [],
+                                              },
+                                              "mode": "lines+markers",
+                                              "name": "Predicted Contact",
+                                              "nodeSize": 4,
+                                              "points": Array [],
+                                              "subtitle": "(N=25, L=50)",
+                                              "text": Array [],
+                                            },
+                                            Object {
+                                              "hoverinfo": "text",
+                                              "marker": Object {
+                                                "color": Array [],
+                                              },
+                                              "mode": "lines+markers",
+                                              "name": "Correct Prediction",
+                                              "nodeSize": 6,
+                                              "points": Array [],
+                                              "subtitle": "(N=0, NaN%)",
+                                              "text": Array [],
+                                            },
+                                            Object {
+                                              "hoverinfo": "none",
+                                              "marker": Object {
+                                                "color": Array [],
+                                                "line": Object {
+                                                  "color": "#ff8800",
+                                                  "width": 3,
+                                                },
+                                                "symbol": "circle-open",
+                                              },
+                                              "mode": "lines+markers",
+                                              "name": "Selected Residue Pairs",
+                                              "nodeSize": 4,
+                                              "points": Array [],
+                                              "subtitle": "",
+                                            },
+                                          ]
                                         }
-                                      }
-                                      onClickCallback={[Function]}
-                                      onHoverCallback={[Function]}
-                                      onSelectedCallback={[Function]}
-                                      onUnHoverCallback={[Function]}
-                                      secondaryStructures={Array []}
-                                      selectedSecondaryStructures={
-                                        Array [
-                                          Array [],
-                                        ]
-                                      }
-                                      selectedSecondaryStructuresColor="#feb83f"
-                                      showLoader={false}
-                                      width="500px"
-                                    >
-                                      <div
-                                        className="plotly-chart"
-                                        style={
+                                        dataTransformFn={[Function]}
+                                        height="100%"
+                                        isDataLoading={false}
+                                        legendModifiers={
                                           Object {
-                                            "height": "500px",
-                                            "marginBottom": 5,
-                                            "width": "500px",
+                                            "y": -0.4,
                                           }
                                         }
-                                      />
-                                    </PlotlyChart>
-                                  </ContactMapChart>
-                                </div>
-                              </Card>
-                            </ComponentCard>
-                          </ContactMapClass>
-                        </Connect(ContactMapClass)>
+                                        marginModifiers={
+                                          Object {
+                                            "b": 65,
+                                            "l": 65,
+                                          }
+                                        }
+                                        onClickCallback={[Function]}
+                                        onHoverCallback={[Function]}
+                                        onSelectedCallback={[Function]}
+                                        onUnHoverCallback={[Function]}
+                                        range={70}
+                                        secondaryStructures={Array []}
+                                        selectedSecondaryStructures={
+                                          Array [
+                                            Array [],
+                                          ]
+                                        }
+                                        selectedSecondaryStructuresColor="#feb83f"
+                                        showConfigurations={true}
+                                        width="100%"
+                                      >
+                                        <PlotlyChart
+                                          candidateResidues={Array []}
+                                          config={Object {}}
+                                          data={
+                                            Array [
+                                              Object {
+                                                "hoverinfo": "text",
+                                                "marker": Object {
+                                                  "color": Array [],
+                                                  "colorscale": Array [
+                                                    Array [
+                                                      0,
+                                                      "rgb(12,50,102)",
+                                                    ],
+                                                    Array [
+                                                      0.1,
+                                                      "rgb(17,83,150)",
+                                                    ],
+                                                    Array [
+                                                      0.2,
+                                                      "rgb(40,114,175)",
+                                                    ],
+                                                    Array [
+                                                      0.3,
+                                                      "rgb(71,147,193)",
+                                                    ],
+                                                    Array [
+                                                      0.4,
+                                                      "rgb(111,175,209)",
+                                                    ],
+                                                    Array [
+                                                      0.5,
+                                                      "rgb(160,202,222)",
+                                                    ],
+                                                    Array [
+                                                      0.6,
+                                                      "rgb(200,219,237)",
+                                                    ],
+                                                    Array [
+                                                      0.7,
+                                                      "rgb(224,235,246)",
+                                                    ],
+                                                    Array [
+                                                      0.8,
+                                                      "rgb(247,251,255)",
+                                                    ],
+                                                    Array [
+                                                      0.9,
+                                                      "rgb(249,253,255)",
+                                                    ],
+                                                    Array [
+                                                      1,
+                                                      "rgb(255,255,255)",
+                                                    ],
+                                                  ],
+                                                  "size": 4,
+                                                },
+                                                "mode": "markers",
+                                                "name": "Predicted Structure Contact (from PDB structure)",
+                                                "text": Array [],
+                                                "type": "scattergl",
+                                                "x": Array [],
+                                                "y": Array [],
+                                                "z": Array [],
+                                              },
+                                              Object {
+                                                "hoverinfo": "text",
+                                                "marker": Object {
+                                                  "color": Array [],
+                                                  "size": 4,
+                                                },
+                                                "mode": "markers",
+                                                "name": "Predicted Contact (N=25, L=50)",
+                                                "text": Array [],
+                                                "type": "scattergl",
+                                                "x": Array [],
+                                                "y": Array [],
+                                                "z": Array [],
+                                              },
+                                              Object {
+                                                "hoverinfo": "text",
+                                                "marker": Object {
+                                                  "color": Array [],
+                                                  "size": 6,
+                                                },
+                                                "mode": "markers",
+                                                "name": "Correct Prediction (N=0, NaN%)",
+                                                "text": Array [],
+                                                "type": "scattergl",
+                                                "x": Array [],
+                                                "y": Array [],
+                                                "z": Array [],
+                                              },
+                                              Object {
+                                                "hoverinfo": "none",
+                                                "marker": Object {
+                                                  "color": Array [],
+                                                  "line": Object {
+                                                    "color": "#ff8800",
+                                                    "width": 3,
+                                                  },
+                                                  "size": 4,
+                                                  "symbol": "circle-open",
+                                                },
+                                                "mode": "markers",
+                                                "name": "Selected Residue Pairs ",
+                                                "text": Array [],
+                                                "type": "scattergl",
+                                                "x": Array [],
+                                                "y": Array [],
+                                                "z": Array [],
+                                              },
+                                            ]
+                                          }
+                                          dataTransformFn={[Function]}
+                                          height="100%"
+                                          layout={
+                                            Object {
+                                              "legend": Object {
+                                                "orientation": "h",
+                                                "y": -0.4,
+                                                "yanchor": "bottom",
+                                              },
+                                              "margin": Object {
+                                                "b": 65,
+                                                "l": 65,
+                                              },
+                                              "showlegend": false,
+                                              "xaxis": Object {
+                                                "autorange": true,
+                                                "fixedrange": true,
+                                                "nticks": 10,
+                                                "range": Array [
+                                                  0,
+                                                  33000,
+                                                ],
+                                                "rangemode": "nonnegative",
+                                                "showline": true,
+                                                "tickmode": "auto",
+                                                "title": "Residue #",
+                                              },
+                                              "yaxis": Object {
+                                                "autorange": "reversed",
+                                                "fixedrange": true,
+                                                "nticks": 10,
+                                                "range": Array [
+                                                  0,
+                                                  33000,
+                                                ],
+                                                "rangemode": "nonnegative",
+                                                "showline": true,
+                                                "tickmode": "auto",
+                                                "title": "Residue #",
+                                              },
+                                            }
+                                          }
+                                          onClickCallback={[Function]}
+                                          onHoverCallback={[Function]}
+                                          onSelectedCallback={[Function]}
+                                          onUnHoverCallback={[Function]}
+                                          secondaryStructures={Array []}
+                                          selectedSecondaryStructures={
+                                            Array [
+                                              Array [],
+                                            ]
+                                          }
+                                          selectedSecondaryStructuresColor="#feb83f"
+                                          showLoader={false}
+                                          width="100%"
+                                        >
+                                          <div
+                                            className="plotly-chart"
+                                            style={
+                                              Object {
+                                                "height": "100%",
+                                                "marginBottom": 5,
+                                                "width": "100%",
+                                              }
+                                            }
+                                          />
+                                        </PlotlyChart>
+                                      </ContactMapChart>
+                                    </div>
+                                  </Card>
+                                </ComponentCard>
+                              </ContactMapClass>
+                            </Connect(ContactMapClass)>
+                          </div>
+                        </PredictedContactMap>
                       </div>
                     </GridColumn>
                     <GridColumn
@@ -1248,7 +1543,7 @@ exports[`VisualizationPage Should match existing snapshot when hooked up to a Re
                         <Connect(NGLContainerClass)
                           experimentalProteins={Array []}
                           isDataLoading={false}
-                          measuredProximity="CLOSEST"
+                          measuredProximity="CLOSEST ATOM"
                           onMeasuredProximityChange={[Function]}
                           predictedProteins={Array []}
                         >
@@ -1264,7 +1559,7 @@ exports[`VisualizationPage Should match existing snapshot when hooked up to a Re
                             isDataLoading={false}
                             lockedResiduePairs={Immutable.Map {}}
                             maxPDBPerPopup={5}
-                            measuredProximity="CLOSEST"
+                            measuredProximity="CLOSEST ATOM"
                             onMeasuredProximityChange={[Function]}
                             predictedProteins={Array []}
                             removeAllLockedResiduePairs={[Function]}
@@ -1299,7 +1594,7 @@ exports[`VisualizationPage Should match existing snapshot when hooked up to a Re
                                       isDataLoading={false}
                                       lockedResiduePairs={Object {}}
                                       maxPDBPerPopup={5}
-                                      measuredProximity="CLOSEST"
+                                      measuredProximity="CLOSEST ATOM"
                                       menuItems={
                                         Array [
                                           Object {
@@ -1318,6 +1613,7 @@ exports[`VisualizationPage Should match existing snapshot when hooked up to a Re
                                                     </GridColumn>
                                                   </GridRow>
                                                   <GridRow
+                                                    columns={2}
                                                     style={
                                                       Object {
                                                         "padding": "5px 0",
@@ -1388,7 +1684,7 @@ exports[`VisualizationPage Should match existing snapshot when hooked up to a Re
                                                       </div>
                                                     </GridColumn>
                                                     <GridColumn
-                                                      width={6}
+                                                      width={7}
                                                     >
                                                       Predicted (0/0)
                                                       <div
@@ -1490,6 +1786,7 @@ exports[`VisualizationPage Should match existing snapshot when hooked up to a Re
                                                       </GridColumn>
                                                     </GridRow>
                                                     <GridRow
+                                                      columns={2}
                                                       style={
                                                         Object {
                                                           "padding": "5px 0",
@@ -1560,7 +1857,7 @@ exports[`VisualizationPage Should match existing snapshot when hooked up to a Re
                                                         </div>
                                                       </GridColumn>
                                                       <GridColumn
-                                                        width={6}
+                                                        width={7}
                                                       >
                                                         Predicted (0/0)
                                                         <div
@@ -1640,11 +1937,11 @@ exports[`VisualizationPage Should match existing snapshot when hooked up to a Re
                                                     "type": "RADIO",
                                                   },
                                                   Object {
-                                                    "current": "CLOSEST",
+                                                    "current": "CLOSEST ATOM",
                                                     "name": "Proximity Metric",
                                                     "onChange": [Function],
                                                     "options": Array [
-                                                      "Closest",
+                                                      "Closest Atom",
                                                       "C-α",
                                                     ],
                                                     "type": "RADIO",
@@ -1726,6 +2023,7 @@ exports[`VisualizationPage Should match existing snapshot when hooked up to a Re
                                                             </GridColumn>
                                                           </GridRow>
                                                           <GridRow
+                                                            columns={2}
                                                             style={
                                                               Object {
                                                                 "padding": "5px 0",
@@ -1796,7 +2094,7 @@ exports[`VisualizationPage Should match existing snapshot when hooked up to a Re
                                                               </div>
                                                             </GridColumn>
                                                             <GridColumn
-                                                              width={6}
+                                                              width={7}
                                                             >
                                                               Predicted (0/0)
                                                               <div
@@ -1876,11 +2174,11 @@ exports[`VisualizationPage Should match existing snapshot when hooked up to a Re
                                                           "type": "RADIO",
                                                         },
                                                         Object {
-                                                          "current": "CLOSEST",
+                                                          "current": "CLOSEST ATOM",
                                                           "name": "Proximity Metric",
                                                           "onChange": [Function],
                                                           "options": Array [
-                                                            "Closest",
+                                                            "Closest Atom",
                                                             "C-α",
                                                           ],
                                                           "type": "RADIO",
@@ -1913,6 +2211,7 @@ exports[`VisualizationPage Should match existing snapshot when hooked up to a Re
                                                 ]
                                               }
                                               onExpandToggleCb={[Function]}
+                                              opacity={0.85}
                                               width="100%"
                                             >
                                               <div
@@ -2019,6 +2318,11 @@ exports[`VisualizationPage Should match existing snapshot when hooked up to a Re
                                                               openOnTriggerFocus={false}
                                                               openOnTriggerMouseEnter={false}
                                                               position="bottom center"
+                                                              style={
+                                                                Object {
+                                                                  "opacity": 0.85,
+                                                                }
+                                                              }
                                                               trigger={
                                                                 <Icon
                                                                   as="i"
@@ -2081,6 +2385,11 @@ exports[`VisualizationPage Should match existing snapshot when hooked up to a Re
                                                               openOnTriggerFocus={false}
                                                               openOnTriggerMouseEnter={false}
                                                               position="bottom center"
+                                                              style={
+                                                                Object {
+                                                                  "opacity": 0.85,
+                                                                }
+                                                              }
                                                               trigger={
                                                                 <Icon
                                                                   as="i"
@@ -2281,24 +2590,63 @@ exports[`VisualizationPage Should match existing snapshot when hooked up to a Re
                                                 }
                                               />
                                             </div>
-                                            <div
-                                              style={
-                                                Object {
-                                                  "bottom": "20px",
-                                                  "position": "absolute",
-                                                  "right": "20px",
-                                                  "userSelect": "none",
-                                                }
-                                              }
-                                            >
-                                              <a
-                                                aria-pressed={false}
-                                                onClick={[Function]}
-                                                role="button"
+                                            <Grid>
+                                              <div
+                                                className="ui grid"
                                               >
-                                                Superposition: off
-                                              </a>
-                                            </div>
+                                                <GridRow
+                                                  centered={true}
+                                                  columns={2}
+                                                >
+                                                  <div
+                                                    className="centered two column row"
+                                                  >
+                                                    <GridColumn>
+                                                      <div
+                                                        className="column"
+                                                      >
+                                                        <div
+                                                          style={
+                                                            Object {
+                                                              "userSelect": "none",
+                                                            }
+                                                          }
+                                                        >
+                                                          <a
+                                                            aria-pressed={false}
+                                                            onClick={[Function]}
+                                                            role="button"
+                                                          >
+                                                            Center View
+                                                          </a>
+                                                        </div>
+                                                      </div>
+                                                    </GridColumn>
+                                                    <GridColumn>
+                                                      <div
+                                                        className="column"
+                                                      >
+                                                        <div
+                                                          style={
+                                                            Object {
+                                                              "userSelect": "none",
+                                                            }
+                                                          }
+                                                        >
+                                                          <a
+                                                            aria-pressed={false}
+                                                            onClick={[Function]}
+                                                            role="button"
+                                                          >
+                                                            Superimpose: off
+                                                          </a>
+                                                        </div>
+                                                      </div>
+                                                    </GridColumn>
+                                                  </div>
+                                                </GridRow>
+                                              </div>
+                                            </Grid>
                                           </div>
                                         </Card>
                                       </ComponentCard>
@@ -2488,7 +2836,8 @@ exports[`VisualizationPage Should match existing snapshot when no props are prov
         <GridColumn
           width={7}
         >
-          <Connect(ContactMapClass)
+          <PredictedContactMap
+            correctColor="#ff0000"
             data={
               Object {
                 "couplingScores": CouplingContainer {
@@ -2510,14 +2859,15 @@ exports[`VisualizationPage Should match existing snapshot when no props are prov
                 "secondaryStructures": Array [],
               }
             }
-            height="500px"
+            height="100%"
+            incorrectColor="#000000"
             isDataLoading={false}
             style={
               Object {
                 "backgroundColor": "#ffffff",
               }
             }
-            width="500px"
+            width="100%"
           />
         </GridColumn>
         <GridColumn
@@ -2526,7 +2876,7 @@ exports[`VisualizationPage Should match existing snapshot when no props are prov
           <Connect(NGLContainerClass)
             experimentalProteins={Array []}
             isDataLoading={false}
-            measuredProximity="CLOSEST"
+            measuredProximity="CLOSEST ATOM"
             onMeasuredProximityChange={[Function]}
             predictedProteins={Array []}
           />
@@ -2702,7 +3052,8 @@ exports[`VisualizationPage Should match existing snapshot when using c-alpha pro
         <GridColumn
           width={7}
         >
-          <Connect(ContactMapClass)
+          <PredictedContactMap
+            correctColor="#ff0000"
             data={
               Object {
                 "couplingScores": CouplingContainer {
@@ -2724,14 +3075,15 @@ exports[`VisualizationPage Should match existing snapshot when using c-alpha pro
                 "secondaryStructures": Array [],
               }
             }
-            height="500px"
+            height="100%"
+            incorrectColor="#000000"
             isDataLoading={false}
             style={
               Object {
                 "backgroundColor": "#ffffff",
               }
             }
-            width="500px"
+            width="100%"
           />
         </GridColumn>
         <GridColumn
@@ -2916,7 +3268,8 @@ exports[`VisualizationPage Should match existing snapshot when using closest pro
         <GridColumn
           width={7}
         >
-          <Connect(ContactMapClass)
+          <PredictedContactMap
+            correctColor="#ff0000"
             data={
               Object {
                 "couplingScores": CouplingContainer {
@@ -2938,14 +3291,15 @@ exports[`VisualizationPage Should match existing snapshot when using closest pro
                 "secondaryStructures": Array [],
               }
             }
-            height="500px"
+            height="100%"
+            incorrectColor="#000000"
             isDataLoading={false}
             style={
               Object {
                 "backgroundColor": "#ffffff",
               }
             }
-            width="500px"
+            width="100%"
           />
         </GridColumn>
         <GridColumn
@@ -2954,7 +3308,7 @@ exports[`VisualizationPage Should match existing snapshot when using closest pro
           <Connect(NGLContainerClass)
             experimentalProteins={Array []}
             isDataLoading={false}
-            measuredProximity="CLOSEST"
+            measuredProximity="CLOSEST ATOM"
             onMeasuredProximityChange={[Function]}
             predictedProteins={Array []}
           />

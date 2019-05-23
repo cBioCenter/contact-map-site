@@ -6,9 +6,9 @@
   "author": "Biostatistics and Computational Biology at Dana-Farber <bcb@jimmy.harvard.edu>",
   "license": "MIT",
   "engines": {
-    "node": "^10.0.0 || ^11.0.0",
+    "node": "^11.0.0 || ^12.0.0",
     "npm": "^6.0.0",
-    "yarn": "^1.7.0"
+    "yarn": "^1.16.0"
   },
   "homepage": "https://cbiocenter.github.io/contact-map-site/",
   "jest": {
@@ -118,7 +118,7 @@
     "deploy:demo": "yarn build && yarn deploy:doc && yarn deploy:gh-pages",
     "deploy:doc": "yarn doc && cp -r docs dist && cp README.md dist",
     "deploy:gh-pages": "gh-pages -d dist && git reset --hard HEAD",
-    "predoc": "rm -rf lib node_modules/typedoc/node_modules/typescript/lib",
+    "predoc": "rm -rf lib node_modules/typedoc/node_modules/typescript/lib && cp -r node_modules/typescript/lib node_modules/typedoc/node_modules/typescript/",
     "doc": "typedoc --tsconfig ./configs/tsconfig.doc.json",
     "doc:precommit": "yarn doc && git add docs/api && git add -u docs/api",
     "fix-alias": "tscpaths -p tsconfig.json -s ./ -o ./lib",
@@ -135,7 +135,7 @@
     "test:staged": "jest --onlyChanged"
   },
   "dependencies": {
-    "bioblocks-viz": "^0.0.112",
+    "bioblocks-viz": "^0.0.114",
     "canvas": "^2.4.1",
     "connected-react-router": "^6.4.0",
     "d3": "^5.9.2",

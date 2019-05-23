@@ -3,7 +3,6 @@ import {
   BioblocksPDB,
   CONTACT_DISTANCE_PROXIMITY,
   CONTACT_MAP_DATA_TYPE,
-  ContactMap,
   CouplingContainer,
   createContainerActions,
   createResiduePairActions,
@@ -35,7 +34,6 @@ export interface IVisualizationPageProps {
 
 export interface IVisualizationPageState {
   [VIZ_TYPE.CONTACT_MAP]: CONTACT_MAP_DATA_TYPE;
-  arePredictionsAvailable: boolean;
   errorMsg: string;
   experimentalProteins: BioblocksPDB[];
   isDragHappening: boolean;
@@ -61,7 +59,6 @@ export class VisualizationPageClass extends React.Component<IVisualizationPagePr
       pdbData: undefined,
       secondaryStructures: [],
     },
-    arePredictionsAvailable: false,
     errorMsg: '',
     experimentalProteins: [],
     isDragHappening: false,
@@ -163,10 +160,7 @@ export class VisualizationPageClass extends React.Component<IVisualizationPagePr
     this.setState({ isDragHappening: false });
   };
 
-  protected renderCouplingComponents = (
-    { style } = this.props,
-    { arePredictionsAvailable, measuredProximity } = this.state,
-  ) => (
+  protected renderCouplingComponents = ({ style } = this.props, { measuredProximity } = this.state) => (
     <Segment attached={true} raised={true}>
       <Grid centered={true} padded={true} relaxed={true}>
         {this.renderButtonsRow()}
@@ -174,7 +168,7 @@ export class VisualizationPageClass extends React.Component<IVisualizationPagePr
           <br />
         </Grid.Row>
         <GridRow columns={2} verticalAlign={'bottom'}>
-          <GridColumn width={7}>{this.renderContactMapCard(arePredictionsAvailable, '500px', style)}</GridColumn>
+          <GridColumn width={7}>{this.renderContactMapCard(style)}</GridColumn>
           <GridColumn width={7}>{this.renderNGLCard(measuredProximity)}</GridColumn>
         </GridRow>
       </Grid>
@@ -215,35 +209,18 @@ export class VisualizationPageClass extends React.Component<IVisualizationPagePr
     </Message>
   );
 
-  protected renderContactMapCard = (
-    arePredictionsAvailable: boolean,
-    size: number | string,
-    style: React.CSSProperties,
-    pdbData?: BioblocksPDB,
-  ) => {
-    return arePredictionsAvailable ? (
+  protected renderContactMapCard = (style: React.CSSProperties) => {
+    const { isLoading, 'Contact Map': contactMapState } = this.state;
+
+    return (
       <PredictedContactMap
         data={{
-          couplingScores: this.state[VIZ_TYPE.CONTACT_MAP].couplingScores,
-          pdbData: { known: pdbData },
-          secondaryStructures: this.state[VIZ_TYPE.CONTACT_MAP].secondaryStructures,
+          couplingScores: contactMapState.couplingScores,
+          pdbData: { known: contactMapState.pdbData ? contactMapState.pdbData.known : undefined },
+          secondaryStructures: contactMapState.secondaryStructures,
         }}
-        height={size}
-        isDataLoading={this.state.isLoading}
+        isDataLoading={isLoading}
         style={style}
-        width={size}
-      />
-    ) : (
-      <ContactMap
-        data={{
-          couplingScores: this.state[VIZ_TYPE.CONTACT_MAP].couplingScores,
-          pdbData: { known: pdbData },
-          secondaryStructures: this.state[VIZ_TYPE.CONTACT_MAP].secondaryStructures,
-        }}
-        height={size}
-        isDataLoading={this.state.isLoading}
-        style={style}
-        width={size}
       />
     );
   };
@@ -364,7 +341,6 @@ export class VisualizationPageClass extends React.Component<IVisualizationPagePr
         secondaryStructures:
           secondaryStructures.length >= 1 ? [secondaryStructures] : pdbData.secondaryStructureSections,
       },
-      arePredictionsAvailable: true,
       errorMsg: '',
       experimentalProteins,
       isLoading: false,

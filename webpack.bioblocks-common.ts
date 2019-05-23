@@ -41,11 +41,7 @@ module.exports = {
         test: /\.js$/,
       },
       {
-        include: [
-          path.resolve(__dirname, 'node_modules/anatomogram'),
-          path.resolve(__dirname, 'node_modules/bioblocks-viz'),
-        ],
-        test: /\.(woff(2)?|ttf|png|eot)(\?v=\d+\.\d+\.\d+)?$/,
+        test: /\.(png|svg|jpg|gif|eot|ttf|woff|woff2)$/,
         use: [
           {
             loader: 'file-loader',
