@@ -135,7 +135,7 @@
     "test:staged": "jest --onlyChanged"
   },
   "dependencies": {
-    "bioblocks-viz": "^0.0.114",
+    "bioblocks-viz": "^0.0.115",
     "canvas": "^2.4.1",
     "connected-react-router": "^6.4.0",
     "d3": "^5.9.2",

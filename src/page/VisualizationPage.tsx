@@ -288,7 +288,7 @@ export class VisualizationPageClass extends React.Component<IVisualizationPagePr
         pdbData = await BioblocksPDB.createPDB(file);
         if (file.path && file.path.includes('/fold/')) {
           predictedProteins.push(pdbData);
-        } else if (file.path && file.path.includes('/aux/')) {
+        } else if (file.path && file.path.includes('/compare/') && file.path.includes('/aux/')) {
           experimentalProteins.push(pdbData);
         }
       } else {

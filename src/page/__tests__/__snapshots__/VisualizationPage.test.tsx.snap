@@ -151,7 +151,8 @@ exports[`VisualizationPage Should match existing snapshot when given a PDB. 1`] 
           width={7}
         >
           <PredictedContactMap
-            correctColor="#ff0000"
+            agreementColor="#ff0000"
+            allColor="#000000"
             data={
               Object {
                 "couplingScores": CouplingContainer {
@@ -173,8 +174,8 @@ exports[`VisualizationPage Should match existing snapshot when given a PDB. 1`] 
                 "secondaryStructures": Array [],
               }
             }
+            filters={Array []}
             height="100%"
-            incorrectColor="#000000"
             isDataLoading={false}
             style={
               Object {
@@ -541,7 +542,8 @@ exports[`VisualizationPage Should match existing snapshot when hooked up to a Re
                         className="seven wide column"
                       >
                         <PredictedContactMap
-                          correctColor="#ff0000"
+                          agreementColor="#ff0000"
+                          allColor="#000000"
                           data={
                             Object {
                               "couplingScores": CouplingContainer {
@@ -563,8 +565,8 @@ exports[`VisualizationPage Should match existing snapshot when hooked up to a Re
                               "secondaryStructures": Array [],
                             }
                           }
+                          filters={Array []}
                           height="100%"
-                          incorrectColor="#000000"
                           isDataLoading={false}
                           style={
                             Object {
@@ -582,8 +584,21 @@ exports[`VisualizationPage Should match existing snapshot when hooked up to a Re
                             }
                           >
                             <Connect(ContactMapClass)
+                              agreementColor="#ff0000"
+                              allColor="#000000"
                               configurations={
                                 Array [
+                                  Object {
+                                    "name": "Number of Couplings to Display",
+                                    "onChange": [Function],
+                                    "type": "SLIDER",
+                                    "values": Object {
+                                      "current": 25,
+                                      "defaultValue": 100,
+                                      "max": 50,
+                                      "min": 1,
+                                    },
+                                  },
                                   Object {
                                     "name": "Linear Distance Filter (|i - j|)",
                                     "onChange": [Function],
@@ -596,19 +611,19 @@ exports[`VisualizationPage Should match existing snapshot when hooked up to a Re
                                     },
                                   },
                                   Object {
-                                    "name": "Top N Predictions to Show",
+                                    "name": "Minimum Allowed Probability",
                                     "onChange": [Function],
+                                    "step": 0.01,
                                     "type": "SLIDER",
                                     "values": Object {
-                                      "current": 25,
-                                      "defaultValue": 100,
-                                      "max": 50,
-                                      "min": 1,
+                                      "current": 0.9,
+                                      "defaultValue": 0.9,
+                                      "max": 1,
+                                      "min": 0,
                                     },
                                   },
                                 ]
                               }
-                              correctColor="#ff0000"
                               data={
                                 Object {
                                   "couplingScores": CouplingContainer {
@@ -630,6 +645,7 @@ exports[`VisualizationPage Should match existing snapshot when hooked up to a Re
                                   "secondaryStructures": Array [],
                                 }
                               }
+                              filters={Array []}
                               formattedPoints={
                                 Array [
                                   Object {
@@ -659,7 +675,6 @@ exports[`VisualizationPage Should match existing snapshot when hooked up to a Re
                                 ]
                               }
                               height="100%"
-                              incorrectColor="#000000"
                               isDataLoading={false}
                               width="100%"
                             >
@@ -667,9 +682,22 @@ exports[`VisualizationPage Should match existing snapshot when hooked up to a Re
                                 addHoveredResidues={[Function]}
                                 addHoveredSecondaryStructure={[Function]}
                                 addSelectedSecondaryStructure={[Function]}
+                                agreementColor="#ff0000"
+                                allColor="#000000"
                                 candidateResidues={Array []}
                                 configurations={
                                   Array [
+                                    Object {
+                                      "name": "Number of Couplings to Display",
+                                      "onChange": [Function],
+                                      "type": "SLIDER",
+                                      "values": Object {
+                                        "current": 25,
+                                        "defaultValue": 100,
+                                        "max": 50,
+                                        "min": 1,
+                                      },
+                                    },
                                     Object {
                                       "name": "Linear Distance Filter (|i - j|)",
                                       "onChange": [Function],
@@ -682,19 +710,19 @@ exports[`VisualizationPage Should match existing snapshot when hooked up to a Re
                                       },
                                     },
                                     Object {
-                                      "name": "Top N Predictions to Show",
+                                      "name": "Minimum Allowed Probability",
                                       "onChange": [Function],
+                                      "step": 0.01,
                                       "type": "SLIDER",
                                       "values": Object {
-                                        "current": 25,
-                                        "defaultValue": 100,
-                                        "max": 50,
-                                        "min": 1,
+                                        "current": 0.9,
+                                        "defaultValue": 0.9,
+                                        "max": 1,
+                                        "min": 0,
                                       },
                                     },
                                   ]
                                 }
-                                correctColor="#ff0000"
                                 data={
                                   Object {
                                     "couplingScores": CouplingContainer {
@@ -717,6 +745,7 @@ exports[`VisualizationPage Should match existing snapshot when hooked up to a Re
                                   }
                                 }
                                 enableSliders={true}
+                                filters={Array []}
                                 formattedPoints={
                                   Array [
                                     Object {
@@ -749,7 +778,6 @@ exports[`VisualizationPage Should match existing snapshot when hooked up to a Re
                                 highlightColor="#ff8800"
                                 hoveredResidues={Array []}
                                 hoveredSecondaryStructures={Array []}
-                                incorrectColor="#000000"
                                 isDataLoading={false}
                                 lockedResiduePairs={Object {}}
                                 observedColor="#0000ff"
@@ -777,9 +805,15 @@ exports[`VisualizationPage Should match existing snapshot when hooked up to a Re
                                         "component": Object {
                                           "configs": Array [
                                             Object {
-                                              "name": "Clear Selections",
-                                              "onClick": [Function],
-                                              "type": "BUTTON",
+                                              "name": "Number of Couplings to Display",
+                                              "onChange": [Function],
+                                              "type": "SLIDER",
+                                              "values": Object {
+                                                "current": 25,
+                                                "defaultValue": 100,
+                                                "max": 50,
+                                                "min": 1,
+                                              },
                                             },
                                             Object {
                                               "name": "Linear Distance Filter (|i - j|)",
@@ -793,15 +827,30 @@ exports[`VisualizationPage Should match existing snapshot when hooked up to a Re
                                               },
                                             },
                                             Object {
-                                              "name": "Top N Predictions to Show",
+                                              "name": "Minimum Allowed Probability",
                                               "onChange": [Function],
+                                              "step": 0.01,
                                               "type": "SLIDER",
                                               "values": Object {
-                                                "current": 25,
-                                                "defaultValue": 100,
-                                                "max": 50,
-                                                "min": 1,
+                                                "current": 0.9,
+                                                "defaultValue": 0.9,
+                                                "max": 1,
+                                                "min": 0,
                                               },
+                                            },
+                                          ],
+                                          "name": "POPUP",
+                                        },
+                                        "description": "Filter",
+                                        "iconName": "filter",
+                                      },
+                                      Object {
+                                        "component": Object {
+                                          "configs": Array [
+                                            Object {
+                                              "name": "Clear Selections",
+                                              "onClick": [Function],
+                                              "type": "BUTTON",
                                             },
                                             Object {
                                               "id": "node-size-slider-0",
@@ -896,9 +945,15 @@ exports[`VisualizationPage Should match existing snapshot when hooked up to a Re
                                               "component": Object {
                                                 "configs": Array [
                                                   Object {
-                                                    "name": "Clear Selections",
-                                                    "onClick": [Function],
-                                                    "type": "BUTTON",
+                                                    "name": "Number of Couplings to Display",
+                                                    "onChange": [Function],
+                                                    "type": "SLIDER",
+                                                    "values": Object {
+                                                      "current": 25,
+                                                      "defaultValue": 100,
+                                                      "max": 50,
+                                                      "min": 1,
+                                                    },
                                                   },
                                                   Object {
                                                     "name": "Linear Distance Filter (|i - j|)",
@@ -912,15 +967,30 @@ exports[`VisualizationPage Should match existing snapshot when hooked up to a Re
                                                     },
                                                   },
                                                   Object {
-                                                    "name": "Top N Predictions to Show",
+                                                    "name": "Minimum Allowed Probability",
                                                     "onChange": [Function],
+                                                    "step": 0.01,
                                                     "type": "SLIDER",
                                                     "values": Object {
-                                                      "current": 25,
-                                                      "defaultValue": 100,
-                                                      "max": 50,
-                                                      "min": 1,
+                                                      "current": 0.9,
+                                                      "defaultValue": 0.9,
+                                                      "max": 1,
+                                                      "min": 0,
                                                     },
+                                                  },
+                                                ],
+                                                "name": "POPUP",
+                                              },
+                                              "description": "Filter",
+                                              "iconName": "filter",
+                                            },
+                                            Object {
+                                              "component": Object {
+                                                "configs": Array [
+                                                  Object {
+                                                    "name": "Clear Selections",
+                                                    "onClick": [Function],
+                                                    "type": "BUTTON",
                                                   },
                                                   Object {
                                                     "id": "node-size-slider-0",
@@ -1057,6 +1127,115 @@ exports[`VisualizationPage Should match existing snapshot when hooked up to a Re
                                                   <MenuItem
                                                     fitted="horizontally"
                                                     key="Contact Map-menu-item-0"
+                                                    position="right"
+                                                    style={
+                                                      Object {
+                                                        "flexDirection": "column",
+                                                      }
+                                                    }
+                                                  >
+                                                    <div
+                                                      className="right horizontally fitted item"
+                                                      onClick={[Function]}
+                                                      style={
+                                                        Object {
+                                                          "flexDirection": "column",
+                                                        }
+                                                      }
+                                                    >
+                                                      <Popup
+                                                        closeOnPortalMouseLeave={false}
+                                                        closeOnTriggerClick={true}
+                                                        closeOnTriggerMouseLeave={false}
+                                                        disabled={false}
+                                                        hoverable={false}
+                                                        keepInViewPort={true}
+                                                        on="hover"
+                                                        openOnTriggerClick={true}
+                                                        openOnTriggerFocus={false}
+                                                        openOnTriggerMouseEnter={false}
+                                                        position="bottom center"
+                                                        style={
+                                                          Object {
+                                                            "opacity": 0.85,
+                                                          }
+                                                        }
+                                                        trigger={
+                                                          <Icon
+                                                            as="i"
+                                                            name="filter"
+                                                          />
+                                                        }
+                                                        wide={true}
+                                                      >
+                                                        <Portal
+                                                          closeOnDocumentClick={true}
+                                                          closeOnEscape={true}
+                                                          closeOnPortalMouseLeave={false}
+                                                          closeOnTriggerClick={true}
+                                                          closeOnTriggerMouseLeave={false}
+                                                          eventPool="default"
+                                                          mouseEnterDelay={50}
+                                                          mouseLeaveDelay={70}
+                                                          onClose={[Function]}
+                                                          onMount={[Function]}
+                                                          onOpen={[Function]}
+                                                          onUnmount={[Function]}
+                                                          openOnTriggerClick={true}
+                                                          openOnTriggerFocus={false}
+                                                          openOnTriggerMouseEnter={false}
+                                                          trigger={
+                                                            <Icon
+                                                              as="i"
+                                                              name="filter"
+                                                            />
+                                                          }
+                                                          triggerRef={[Function]}
+                                                        >
+                                                          <Ref
+                                                            innerRef={[Function]}
+                                                          >
+                                                            <RefFindNode
+                                                              innerRef={[Function]}
+                                                            >
+                                                              <Icon
+                                                                as="i"
+                                                                name="filter"
+                                                                onBlur={[Function]}
+                                                                onClick={[Function]}
+                                                                onFocus={[Function]}
+                                                                onMouseEnter={[Function]}
+                                                                onMouseLeave={[Function]}
+                                                              >
+                                                                <i
+                                                                  aria-hidden="true"
+                                                                  className="filter icon"
+                                                                  onBlur={[Function]}
+                                                                  onClick={[Function]}
+                                                                  onFocus={[Function]}
+                                                                  onMouseEnter={[Function]}
+                                                                  onMouseLeave={[Function]}
+                                                                />
+                                                              </Icon>
+                                                            </RefFindNode>
+                                                          </Ref>
+                                                        </Portal>
+                                                      </Popup>
+                                                      <span
+                                                        style={
+                                                          Object {
+                                                            "fontSize": "11px",
+                                                            "visibility": "hidden",
+                                                          }
+                                                        }
+                                                      >
+                                                        Filter
+                                                      </span>
+                                                    </div>
+                                                  </MenuItem>
+                                                  <MenuItem
+                                                    fitted="horizontally"
+                                                    key="Contact Map-menu-item-1"
                                                     position="right"
                                                     style={
                                                       Object {
@@ -1927,7 +2106,7 @@ exports[`VisualizationPage Should match existing snapshot when hooked up to a Re
                                                     "type": "BUTTON",
                                                   },
                                                   Object {
-                                                    "defaultOption": "Disable",
+                                                    "current": "Disable",
                                                     "name": "Zoom on Click",
                                                     "onChange": [Function],
                                                     "options": Array [
@@ -1947,8 +2126,22 @@ exports[`VisualizationPage Should match existing snapshot when hooked up to a Re
                                                     "type": "RADIO",
                                                   },
                                                   Object {
-                                                    "current": "default",
-                                                    "name": "Structure Representation Type",
+                                                    "current": "Default",
+                                                    "name": "Predicted Structure Representation",
+                                                    "onChange": [Function],
+                                                    "options": Array [
+                                                      "Default",
+                                                      "Spacefill",
+                                                      "Backbone",
+                                                      "Cartoon",
+                                                      "Surface",
+                                                      "Tube",
+                                                    ],
+                                                    "type": "RADIO",
+                                                  },
+                                                  Object {
+                                                    "current": "Default",
+                                                    "name": "Experimental Structure Representation",
                                                     "onChange": [Function],
                                                     "options": Array [
                                                       "Default",
@@ -2164,7 +2357,7 @@ exports[`VisualizationPage Should match existing snapshot when hooked up to a Re
                                                           "type": "BUTTON",
                                                         },
                                                         Object {
-                                                          "defaultOption": "Disable",
+                                                          "current": "Disable",
                                                           "name": "Zoom on Click",
                                                           "onChange": [Function],
                                                           "options": Array [
@@ -2184,8 +2377,22 @@ exports[`VisualizationPage Should match existing snapshot when hooked up to a Re
                                                           "type": "RADIO",
                                                         },
                                                         Object {
-                                                          "current": "default",
-                                                          "name": "Structure Representation Type",
+                                                          "current": "Default",
+                                                          "name": "Predicted Structure Representation",
+                                                          "onChange": [Function],
+                                                          "options": Array [
+                                                            "Default",
+                                                            "Spacefill",
+                                                            "Backbone",
+                                                            "Cartoon",
+                                                            "Surface",
+                                                            "Tube",
+                                                          ],
+                                                          "type": "RADIO",
+                                                        },
+                                                        Object {
+                                                          "current": "Default",
+                                                          "name": "Experimental Structure Representation",
                                                           "onChange": [Function],
                                                           "options": Array [
                                                             "Default",
@@ -2837,7 +3044,8 @@ exports[`VisualizationPage Should match existing snapshot when no props are prov
           width={7}
         >
           <PredictedContactMap
-            correctColor="#ff0000"
+            agreementColor="#ff0000"
+            allColor="#000000"
             data={
               Object {
                 "couplingScores": CouplingContainer {
@@ -2859,8 +3067,8 @@ exports[`VisualizationPage Should match existing snapshot when no props are prov
                 "secondaryStructures": Array [],
               }
             }
+            filters={Array []}
             height="100%"
-            incorrectColor="#000000"
             isDataLoading={false}
             style={
               Object {
@@ -3053,7 +3261,8 @@ exports[`VisualizationPage Should match existing snapshot when using c-alpha pro
           width={7}
         >
           <PredictedContactMap
-            correctColor="#ff0000"
+            agreementColor="#ff0000"
+            allColor="#000000"
             data={
               Object {
                 "couplingScores": CouplingContainer {
@@ -3075,8 +3284,8 @@ exports[`VisualizationPage Should match existing snapshot when using c-alpha pro
                 "secondaryStructures": Array [],
               }
             }
+            filters={Array []}
             height="100%"
-            incorrectColor="#000000"
             isDataLoading={false}
             style={
               Object {
@@ -3269,7 +3478,8 @@ exports[`VisualizationPage Should match existing snapshot when using closest pro
           width={7}
         >
           <PredictedContactMap
-            correctColor="#ff0000"
+            agreementColor="#ff0000"
+            allColor="#000000"
             data={
               Object {
                 "couplingScores": CouplingContainer {
@@ -3291,8 +3501,8 @@ exports[`VisualizationPage Should match existing snapshot when using closest pro
                 "secondaryStructures": Array [],
               }
             }
+            filters={Array []}
             height="100%"
-            incorrectColor="#000000"
             isDataLoading={false}
             style={
               Object {
