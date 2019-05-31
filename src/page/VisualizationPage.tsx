@@ -107,7 +107,7 @@ export class VisualizationPageClass extends React.Component<IVisualizationPagePr
       this.setState({
         [VIZ_TYPE.CONTACT_MAP]: {
           couplingScores: pdbData.amendPDBWithCouplingScores(couplingScores.rankedContacts, measuredProximity),
-          pdbData: { known: pdbData },
+          pdbData: { experimental: pdbData },
           secondaryStructures: [],
         },
         errorMsg,
@@ -216,7 +216,7 @@ export class VisualizationPageClass extends React.Component<IVisualizationPagePr
       <PredictedContactMap
         data={{
           couplingScores: contactMapState.couplingScores,
-          pdbData: { known: contactMapState.pdbData ? contactMapState.pdbData.known : undefined },
+          pdbData: { experimental: contactMapState.pdbData ? contactMapState.pdbData.experimental : undefined },
           secondaryStructures: contactMapState.secondaryStructures,
         }}
         isDataLoading={isLoading}
@@ -275,6 +275,7 @@ export class VisualizationPageClass extends React.Component<IVisualizationPagePr
       isLoading: true,
     });
 
+    let folderName: string = '';
     let couplingScoresCSV: string = '';
     let pdbData = BioblocksPDB.createEmptyPDB();
     let residueMapping: IResidueMapping[] = [];
@@ -290,6 +291,9 @@ export class VisualizationPageClass extends React.Component<IVisualizationPagePr
           predictedProteins.push(pdbData);
         } else if (file.path && file.path.includes('/compare/') && file.path.includes('/aux/')) {
           experimentalProteins.push(pdbData);
+        }
+        if (folderName.length === 0 && file.path) {
+          folderName = file.path.split('/')[1];
         }
       } else {
         const parsedFile = await readFileAsText(file);
@@ -321,6 +325,9 @@ export class VisualizationPageClass extends React.Component<IVisualizationPagePr
               }
             });
         }
+        if (folderName.length === 0 && file.path) {
+          folderName = file.path.split('/')[1];
+        }
       }
     }
 
@@ -337,11 +344,11 @@ export class VisualizationPageClass extends React.Component<IVisualizationPagePr
     this.setState({
       [VIZ_TYPE.CONTACT_MAP]: {
         couplingScores,
-        pdbData: { known: pdbData },
+        pdbData: { experimental: pdbData },
         secondaryStructures:
           secondaryStructures.length >= 1 ? [secondaryStructures] : pdbData.secondaryStructureSections,
       },
-      errorMsg: '',
+      errorMsg: `Showing data from folder '${folderName}'`,
       experimentalProteins,
       isLoading: false,
       mismatches,
