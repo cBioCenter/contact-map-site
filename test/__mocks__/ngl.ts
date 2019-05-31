@@ -29,6 +29,7 @@ class MockStage {
   };
 
   public mouseControls = {
+    actionList: new Array<string>(),
     add: (eventName: string, callback: (...args: any[]) => void) => this.events.set(eventName, callback),
     remove: (eventName: string, callback: (...args: any[]) => void) => this.events.delete(eventName),
     run: (eventName: string, ...args: any[]) => {
@@ -55,6 +56,10 @@ class MockStage {
     prevPosition: {
       distanceTo: jest.fn((pos: Vector2) => pos),
     },
+  };
+
+  public parameters: object = {
+    cameraType: 'perspective',
   };
 
   public signals = {
@@ -86,23 +91,26 @@ class MockStage {
     return;
   }
 
-  public addComponentFromObject = () => {
-    const structure = new MockStructureComponent(name, {
+  public addComponentFromObject = (structure: NGL.Structure) => {
+    const structureComponent = new MockStructureComponent(structure.name, {
       keyBehavior: this.keyBehavior,
       mouseControls: this.mouseControls,
       mouseObserver: this.mouseObserver,
       tooltip: this.tooltip,
       viewerControls: this.viewerControls,
     });
-    this.compList.push(structure);
+    this.compList.push(structureComponent);
 
-    return structure;
+    return structureComponent;
   };
   public autoView = () => jest.fn();
   public defaultFileRepresentation = (...args: any[]) => jest.fn();
   public dispose = () => jest.fn();
   public handleResize = () => jest.fn();
   public removeAllComponents = () => jest.fn();
+  public setParameters = (params: object) => {
+    this.parameters = params;
+  };
 }
 
 (ngl.Stage as jest.Mock<NGL.Stage>) = jest.fn().mockImplementation((canvas: HTMLCanvasElement) => {
@@ -110,6 +118,7 @@ class MockStage {
 });
 
 const genericResidue = (resno: number) => ({
+  chainIndex: 0,
   isHelix: () => false,
   isProtein: () => true,
   isSheet: () => false,
@@ -213,7 +222,7 @@ class MockStructure {
   if (typeof file === 'string') {
     return file.localeCompare('error/protein.pdb') === 0
       ? Promise.reject('Invalid NGL path.')
-      : new NGL.Structure(file);
+      : new ngl.Structure(file);
   } else {
     const pdbText = readFileSync('test/datasets/5P21/5P21.pdb', 'utf8');
 

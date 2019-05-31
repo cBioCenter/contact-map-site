@@ -107,7 +107,7 @@ export class VisualizationPageClass extends React.Component<IVisualizationPagePr
       this.setState({
         [VIZ_TYPE.CONTACT_MAP]: {
           couplingScores: pdbData.amendPDBWithCouplingScores(couplingScores.rankedContacts, measuredProximity),
-          pdbData: { known: pdbData },
+          pdbData: { experimental: pdbData },
           secondaryStructures: [],
         },
         errorMsg,
@@ -216,7 +216,7 @@ export class VisualizationPageClass extends React.Component<IVisualizationPagePr
       <PredictedContactMap
         data={{
           couplingScores: contactMapState.couplingScores,
-          pdbData: { known: contactMapState.pdbData ? contactMapState.pdbData.known : undefined },
+          pdbData: { experimental: contactMapState.pdbData ? contactMapState.pdbData.experimental : undefined },
           secondaryStructures: contactMapState.secondaryStructures,
         }}
         isDataLoading={isLoading}
@@ -344,7 +344,7 @@ export class VisualizationPageClass extends React.Component<IVisualizationPagePr
     this.setState({
       [VIZ_TYPE.CONTACT_MAP]: {
         couplingScores,
-        pdbData: { known: pdbData },
+        pdbData: { experimental: pdbData },
         secondaryStructures:
           secondaryStructures.length >= 1 ? [secondaryStructures] : pdbData.secondaryStructureSections,
       },

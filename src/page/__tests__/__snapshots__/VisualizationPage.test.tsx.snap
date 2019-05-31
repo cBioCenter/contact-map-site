@@ -42,7 +42,7 @@ exports[`VisualizationPage Should match existing snapshot when given a PDB. 1`] 
         "getCouplingScore": [Function],
         "includes": [Function],
         "indexRange": Object {
-          "max": 50,
+          "max": 1,
           "min": 1,
         },
         "rowCounter": 0,
@@ -161,7 +161,7 @@ exports[`VisualizationPage Should match existing snapshot when given a PDB. 1`] 
                   "getCouplingScore": [Function],
                   "includes": [Function],
                   "indexRange": Object {
-                    "max": 50,
+                    "max": 1,
                     "min": 1,
                   },
                   "rowCounter": 0,
@@ -169,7 +169,7 @@ exports[`VisualizationPage Should match existing snapshot when given a PDB. 1`] 
                   "totalStoredContacts": 0,
                 },
                 "pdbData": Object {
-                  "known": undefined,
+                  "experimental": undefined,
                 },
                 "secondaryStructures": Array [],
               }
@@ -282,7 +282,7 @@ exports[`VisualizationPage Should match existing snapshot when hooked up to a Re
               "getCouplingScore": [Function],
               "includes": [Function],
               "indexRange": Object {
-                "max": 50,
+                "max": 1,
                 "min": 1,
               },
               "rowCounter": 0,
@@ -552,7 +552,7 @@ exports[`VisualizationPage Should match existing snapshot when hooked up to a Re
                                 "getCouplingScore": [Function],
                                 "includes": [Function],
                                 "indexRange": Object {
-                                  "max": 50,
+                                  "max": 1,
                                   "min": 1,
                                 },
                                 "rowCounter": 0,
@@ -560,7 +560,7 @@ exports[`VisualizationPage Should match existing snapshot when hooked up to a Re
                                 "totalStoredContacts": 0,
                               },
                               "pdbData": Object {
-                                "known": undefined,
+                                "experimental": undefined,
                               },
                               "secondaryStructures": Array [],
                             }
@@ -589,14 +589,20 @@ exports[`VisualizationPage Should match existing snapshot when hooked up to a Re
                               configurations={
                                 Array [
                                   Object {
+                                    "marks": Object {
+                                      "0": "L/2",
+                                      "1": "L",
+                                      "2": "2L",
+                                      "3": "3L",
+                                    },
                                     "name": "Number of Couplings to Display",
                                     "onChange": [Function],
                                     "type": "SLIDER",
                                     "values": Object {
-                                      "current": 25,
+                                      "current": 0,
                                       "defaultValue": 100,
-                                      "max": 50,
-                                      "min": 1,
+                                      "max": 3,
+                                      "min": 0,
                                     },
                                   },
                                   Object {
@@ -611,7 +617,7 @@ exports[`VisualizationPage Should match existing snapshot when hooked up to a Re
                                     },
                                   },
                                   Object {
-                                    "name": "Minimum Allowed Probability",
+                                    "name": "Minimum Probability",
                                     "onChange": [Function],
                                     "step": 0.01,
                                     "type": "SLIDER",
@@ -632,7 +638,7 @@ exports[`VisualizationPage Should match existing snapshot when hooked up to a Re
                                     "getCouplingScore": [Function],
                                     "includes": [Function],
                                     "indexRange": Object {
-                                      "max": 50,
+                                      "max": 1,
                                       "min": 1,
                                     },
                                     "rowCounter": 0,
@@ -640,7 +646,7 @@ exports[`VisualizationPage Should match existing snapshot when hooked up to a Re
                                     "totalStoredContacts": 0,
                                   },
                                   "pdbData": Object {
-                                    "known": undefined,
+                                    "experimental": undefined,
                                   },
                                   "secondaryStructures": Array [],
                                 }
@@ -654,10 +660,10 @@ exports[`VisualizationPage Should match existing snapshot when hooked up to a Re
                                       "color": Array [],
                                     },
                                     "mode": "lines+markers",
-                                    "name": "Predicted Contact",
+                                    "name": "Inferred Contact",
                                     "nodeSize": 4,
                                     "points": Array [],
-                                    "subtitle": "(N=25, L=50)",
+                                    "subtitle": "(N=0, L=1)",
                                     "text": Array [],
                                   },
                                   Object {
@@ -666,7 +672,7 @@ exports[`VisualizationPage Should match existing snapshot when hooked up to a Re
                                       "color": Array [],
                                     },
                                     "mode": "lines+markers",
-                                    "name": "Correct Prediction",
+                                    "name": "Inferred Contact Agrees with X-ray Contact",
                                     "nodeSize": 6,
                                     "points": Array [],
                                     "subtitle": "(N=0, NaN%)",
@@ -688,14 +694,20 @@ exports[`VisualizationPage Should match existing snapshot when hooked up to a Re
                                 configurations={
                                   Array [
                                     Object {
+                                      "marks": Object {
+                                        "0": "L/2",
+                                        "1": "L",
+                                        "2": "2L",
+                                        "3": "3L",
+                                      },
                                       "name": "Number of Couplings to Display",
                                       "onChange": [Function],
                                       "type": "SLIDER",
                                       "values": Object {
-                                        "current": 25,
+                                        "current": 0,
                                         "defaultValue": 100,
-                                        "max": 50,
-                                        "min": 1,
+                                        "max": 3,
+                                        "min": 0,
                                       },
                                     },
                                     Object {
@@ -710,7 +722,7 @@ exports[`VisualizationPage Should match existing snapshot when hooked up to a Re
                                       },
                                     },
                                     Object {
-                                      "name": "Minimum Allowed Probability",
+                                      "name": "Minimum Probability",
                                       "onChange": [Function],
                                       "step": 0.01,
                                       "type": "SLIDER",
@@ -731,7 +743,7 @@ exports[`VisualizationPage Should match existing snapshot when hooked up to a Re
                                       "getCouplingScore": [Function],
                                       "includes": [Function],
                                       "indexRange": Object {
-                                        "max": 50,
+                                        "max": 1,
                                         "min": 1,
                                       },
                                       "rowCounter": 0,
@@ -739,7 +751,7 @@ exports[`VisualizationPage Should match existing snapshot when hooked up to a Re
                                       "totalStoredContacts": 0,
                                     },
                                     "pdbData": Object {
-                                      "known": undefined,
+                                      "experimental": undefined,
                                     },
                                     "secondaryStructures": Array [],
                                   }
@@ -754,10 +766,10 @@ exports[`VisualizationPage Should match existing snapshot when hooked up to a Re
                                         "color": Array [],
                                       },
                                       "mode": "lines+markers",
-                                      "name": "Predicted Contact",
+                                      "name": "Inferred Contact",
                                       "nodeSize": 4,
                                       "points": Array [],
-                                      "subtitle": "(N=25, L=50)",
+                                      "subtitle": "(N=0, L=1)",
                                       "text": Array [],
                                     },
                                     Object {
@@ -766,7 +778,7 @@ exports[`VisualizationPage Should match existing snapshot when hooked up to a Re
                                         "color": Array [],
                                       },
                                       "mode": "lines+markers",
-                                      "name": "Correct Prediction",
+                                      "name": "Inferred Contact Agrees with X-ray Contact",
                                       "nodeSize": 6,
                                       "points": Array [],
                                       "subtitle": "(N=0, NaN%)",
@@ -805,14 +817,20 @@ exports[`VisualizationPage Should match existing snapshot when hooked up to a Re
                                         "component": Object {
                                           "configs": Array [
                                             Object {
+                                              "marks": Object {
+                                                "0": "L/2",
+                                                "1": "L",
+                                                "2": "2L",
+                                                "3": "3L",
+                                              },
                                               "name": "Number of Couplings to Display",
                                               "onChange": [Function],
                                               "type": "SLIDER",
                                               "values": Object {
-                                                "current": 25,
+                                                "current": 0,
                                                 "defaultValue": 100,
-                                                "max": 50,
-                                                "min": 1,
+                                                "max": 3,
+                                                "min": 0,
                                               },
                                             },
                                             Object {
@@ -827,7 +845,7 @@ exports[`VisualizationPage Should match existing snapshot when hooked up to a Re
                                               },
                                             },
                                             Object {
-                                              "name": "Minimum Allowed Probability",
+                                              "name": "Minimum Probability",
                                               "onChange": [Function],
                                               "step": 0.01,
                                               "type": "SLIDER",
@@ -854,7 +872,7 @@ exports[`VisualizationPage Should match existing snapshot when hooked up to a Re
                                             },
                                             Object {
                                               "id": "node-size-slider-0",
-                                              "name": "Node size for Predicted Structure Contact",
+                                              "name": "Node size for X-ray Structure Contact",
                                               "onChange": [Function],
                                               "type": "SLIDER",
                                               "values": Object {
@@ -866,7 +884,7 @@ exports[`VisualizationPage Should match existing snapshot when hooked up to a Re
                                             },
                                             Object {
                                               "id": "node-size-slider-1",
-                                              "name": "Node size for Predicted Contact",
+                                              "name": "Node size for Inferred Contact",
                                               "onChange": [Function],
                                               "type": "SLIDER",
                                               "values": Object {
@@ -878,7 +896,7 @@ exports[`VisualizationPage Should match existing snapshot when hooked up to a Re
                                             },
                                             Object {
                                               "id": "node-size-slider-2",
-                                              "name": "Node size for Correct Prediction",
+                                              "name": "Node size for Inferred Contact Agrees with X-ray Contact",
                                               "onChange": [Function],
                                               "type": "SLIDER",
                                               "values": Object {
@@ -890,7 +908,7 @@ exports[`VisualizationPage Should match existing snapshot when hooked up to a Re
                                             },
                                             Object {
                                               "id": "node-size-slider-3",
-                                              "name": "Node size for Selected Residue Pairs",
+                                              "name": "Node size for Selected Residue Pair",
                                               "onChange": [Function],
                                               "type": "SLIDER",
                                               "values": Object {
@@ -945,14 +963,20 @@ exports[`VisualizationPage Should match existing snapshot when hooked up to a Re
                                               "component": Object {
                                                 "configs": Array [
                                                   Object {
+                                                    "marks": Object {
+                                                      "0": "L/2",
+                                                      "1": "L",
+                                                      "2": "2L",
+                                                      "3": "3L",
+                                                    },
                                                     "name": "Number of Couplings to Display",
                                                     "onChange": [Function],
                                                     "type": "SLIDER",
                                                     "values": Object {
-                                                      "current": 25,
+                                                      "current": 0,
                                                       "defaultValue": 100,
-                                                      "max": 50,
-                                                      "min": 1,
+                                                      "max": 3,
+                                                      "min": 0,
                                                     },
                                                   },
                                                   Object {
@@ -967,7 +991,7 @@ exports[`VisualizationPage Should match existing snapshot when hooked up to a Re
                                                     },
                                                   },
                                                   Object {
-                                                    "name": "Minimum Allowed Probability",
+                                                    "name": "Minimum Probability",
                                                     "onChange": [Function],
                                                     "step": 0.01,
                                                     "type": "SLIDER",
@@ -994,7 +1018,7 @@ exports[`VisualizationPage Should match existing snapshot when hooked up to a Re
                                                   },
                                                   Object {
                                                     "id": "node-size-slider-0",
-                                                    "name": "Node size for Predicted Structure Contact",
+                                                    "name": "Node size for X-ray Structure Contact",
                                                     "onChange": [Function],
                                                     "type": "SLIDER",
                                                     "values": Object {
@@ -1006,7 +1030,7 @@ exports[`VisualizationPage Should match existing snapshot when hooked up to a Re
                                                   },
                                                   Object {
                                                     "id": "node-size-slider-1",
-                                                    "name": "Node size for Predicted Contact",
+                                                    "name": "Node size for Inferred Contact",
                                                     "onChange": [Function],
                                                     "type": "SLIDER",
                                                     "values": Object {
@@ -1018,7 +1042,7 @@ exports[`VisualizationPage Should match existing snapshot when hooked up to a Re
                                                   },
                                                   Object {
                                                     "id": "node-size-slider-2",
-                                                    "name": "Node size for Correct Prediction",
+                                                    "name": "Node size for Inferred Contact Agrees with X-ray Contact",
                                                     "onChange": [Function],
                                                     "type": "SLIDER",
                                                     "values": Object {
@@ -1030,7 +1054,7 @@ exports[`VisualizationPage Should match existing snapshot when hooked up to a Re
                                                   },
                                                   Object {
                                                     "id": "node-size-slider-3",
-                                                    "name": "Node size for Selected Residue Pairs",
+                                                    "name": "Node size for Selected Residue Pair",
                                                     "onChange": [Function],
                                                     "type": "SLIDER",
                                                     "values": Object {
@@ -1445,10 +1469,10 @@ exports[`VisualizationPage Should match existing snapshot when hooked up to a Re
                                                 ],
                                               },
                                               "mode": "lines+markers",
-                                              "name": "Predicted Structure Contact",
+                                              "name": "X-ray Structure Contact",
                                               "nodeSize": 4,
                                               "points": Array [],
-                                              "subtitle": "(from PDB structure)",
+                                              "subtitle": "Predicted Structure Contact",
                                               "text": Array [],
                                             },
                                             Object {
@@ -1457,10 +1481,10 @@ exports[`VisualizationPage Should match existing snapshot when hooked up to a Re
                                                 "color": Array [],
                                               },
                                               "mode": "lines+markers",
-                                              "name": "Predicted Contact",
+                                              "name": "Inferred Contact",
                                               "nodeSize": 4,
                                               "points": Array [],
-                                              "subtitle": "(N=25, L=50)",
+                                              "subtitle": "(N=0, L=1)",
                                               "text": Array [],
                                             },
                                             Object {
@@ -1469,7 +1493,7 @@ exports[`VisualizationPage Should match existing snapshot when hooked up to a Re
                                                 "color": Array [],
                                               },
                                               "mode": "lines+markers",
-                                              "name": "Correct Prediction",
+                                              "name": "Inferred Contact Agrees with X-ray Contact",
                                               "nodeSize": 6,
                                               "points": Array [],
                                               "subtitle": "(N=0, NaN%)",
@@ -1486,7 +1510,7 @@ exports[`VisualizationPage Should match existing snapshot when hooked up to a Re
                                                 "symbol": "circle-open",
                                               },
                                               "mode": "lines+markers",
-                                              "name": "Selected Residue Pairs",
+                                              "name": "Selected Residue Pair",
                                               "nodeSize": 4,
                                               "points": Array [],
                                               "subtitle": "",
@@ -1511,7 +1535,7 @@ exports[`VisualizationPage Should match existing snapshot when hooked up to a Re
                                         onHoverCallback={[Function]}
                                         onSelectedCallback={[Function]}
                                         onUnHoverCallback={[Function]}
-                                        range={70}
+                                        range={33000}
                                         secondaryStructures={Array []}
                                         selectedSecondaryStructures={
                                           Array [
@@ -1580,7 +1604,7 @@ exports[`VisualizationPage Should match existing snapshot when hooked up to a Re
                                                   "size": 4,
                                                 },
                                                 "mode": "markers",
-                                                "name": "Predicted Structure Contact (from PDB structure)",
+                                                "name": "X-ray Structure Contact Predicted Structure Contact",
                                                 "text": Array [],
                                                 "type": "scattergl",
                                                 "x": Array [],
@@ -1594,7 +1618,7 @@ exports[`VisualizationPage Should match existing snapshot when hooked up to a Re
                                                   "size": 4,
                                                 },
                                                 "mode": "markers",
-                                                "name": "Predicted Contact (N=25, L=50)",
+                                                "name": "Inferred Contact (N=0, L=1)",
                                                 "text": Array [],
                                                 "type": "scattergl",
                                                 "x": Array [],
@@ -1608,7 +1632,7 @@ exports[`VisualizationPage Should match existing snapshot when hooked up to a Re
                                                   "size": 6,
                                                 },
                                                 "mode": "markers",
-                                                "name": "Correct Prediction (N=0, NaN%)",
+                                                "name": "Inferred Contact Agrees with X-ray Contact (N=0, NaN%)",
                                                 "text": Array [],
                                                 "type": "scattergl",
                                                 "x": Array [],
@@ -1627,7 +1651,7 @@ exports[`VisualizationPage Should match existing snapshot when hooked up to a Re
                                                   "symbol": "circle-open",
                                                 },
                                                 "mode": "markers",
-                                                "name": "Selected Residue Pairs ",
+                                                "name": "Selected Residue Pair ",
                                                 "text": Array [],
                                                 "type": "scattergl",
                                                 "x": Array [],
@@ -1651,7 +1675,6 @@ exports[`VisualizationPage Should match existing snapshot when hooked up to a Re
                                               },
                                               "showlegend": false,
                                               "xaxis": Object {
-                                                "autorange": true,
                                                 "fixedrange": true,
                                                 "nticks": 10,
                                                 "range": Array [
@@ -1664,12 +1687,11 @@ exports[`VisualizationPage Should match existing snapshot when hooked up to a Re
                                                 "title": "Residue #",
                                               },
                                               "yaxis": Object {
-                                                "autorange": "reversed",
                                                 "fixedrange": true,
                                                 "nticks": 10,
                                                 "range": Array [
-                                                  0,
                                                   33000,
+                                                  0,
                                                 ],
                                                 "rangemode": "nonnegative",
                                                 "showline": true,
@@ -2106,6 +2128,16 @@ exports[`VisualizationPage Should match existing snapshot when hooked up to a Re
                                                     "type": "BUTTON",
                                                   },
                                                   Object {
+                                                    "current": "Enable",
+                                                    "name": "Distance Representation",
+                                                    "onChange": [Function],
+                                                    "options": Array [
+                                                      "Enable",
+                                                      "Disable",
+                                                    ],
+                                                    "type": "RADIO",
+                                                  },
+                                                  Object {
                                                     "current": "Disable",
                                                     "name": "Zoom on Click",
                                                     "onChange": [Function],
@@ -2126,7 +2158,7 @@ exports[`VisualizationPage Should match existing snapshot when hooked up to a Re
                                                     "type": "RADIO",
                                                   },
                                                   Object {
-                                                    "current": "Default",
+                                                    "current": "Cartoon",
                                                     "name": "Predicted Structure Representation",
                                                     "onChange": [Function],
                                                     "options": Array [
@@ -2357,6 +2389,16 @@ exports[`VisualizationPage Should match existing snapshot when hooked up to a Re
                                                           "type": "BUTTON",
                                                         },
                                                         Object {
+                                                          "current": "Enable",
+                                                          "name": "Distance Representation",
+                                                          "onChange": [Function],
+                                                          "options": Array [
+                                                            "Enable",
+                                                            "Disable",
+                                                          ],
+                                                          "type": "RADIO",
+                                                        },
+                                                        Object {
                                                           "current": "Disable",
                                                           "name": "Zoom on Click",
                                                           "onChange": [Function],
@@ -2377,7 +2419,7 @@ exports[`VisualizationPage Should match existing snapshot when hooked up to a Re
                                                           "type": "RADIO",
                                                         },
                                                         Object {
-                                                          "current": "Default",
+                                                          "current": "Cartoon",
                                                           "name": "Predicted Structure Representation",
                                                           "onChange": [Function],
                                                           "options": Array [
@@ -2824,7 +2866,7 @@ exports[`VisualizationPage Should match existing snapshot when hooked up to a Re
                                                             onClick={[Function]}
                                                             role="button"
                                                           >
-                                                            Toggle Camera
+                                                            Switch to Stereo
                                                           </a>
                                                         </div>
                                                       </div>
@@ -2956,7 +2998,7 @@ exports[`VisualizationPage Should match existing snapshot when no props are prov
         "getCouplingScore": [Function],
         "includes": [Function],
         "indexRange": Object {
-          "max": 50,
+          "max": 1,
           "min": 1,
         },
         "rowCounter": 0,
@@ -3075,7 +3117,7 @@ exports[`VisualizationPage Should match existing snapshot when no props are prov
                   "getCouplingScore": [Function],
                   "includes": [Function],
                   "indexRange": Object {
-                    "max": 50,
+                    "max": 1,
                     "min": 1,
                   },
                   "rowCounter": 0,
@@ -3083,7 +3125,7 @@ exports[`VisualizationPage Should match existing snapshot when no props are prov
                   "totalStoredContacts": 0,
                 },
                 "pdbData": Object {
-                  "known": undefined,
+                  "experimental": undefined,
                 },
                 "secondaryStructures": Array [],
               }
@@ -3173,7 +3215,7 @@ exports[`VisualizationPage Should match existing snapshot when using c-alpha pro
         "getCouplingScore": [Function],
         "includes": [Function],
         "indexRange": Object {
-          "max": 50,
+          "max": 1,
           "min": 1,
         },
         "rowCounter": 0,
@@ -3292,7 +3334,7 @@ exports[`VisualizationPage Should match existing snapshot when using c-alpha pro
                   "getCouplingScore": [Function],
                   "includes": [Function],
                   "indexRange": Object {
-                    "max": 50,
+                    "max": 1,
                     "min": 1,
                   },
                   "rowCounter": 0,
@@ -3300,7 +3342,7 @@ exports[`VisualizationPage Should match existing snapshot when using c-alpha pro
                   "totalStoredContacts": 0,
                 },
                 "pdbData": Object {
-                  "known": undefined,
+                  "experimental": undefined,
                 },
                 "secondaryStructures": Array [],
               }
@@ -3390,7 +3432,7 @@ exports[`VisualizationPage Should match existing snapshot when using closest pro
         "getCouplingScore": [Function],
         "includes": [Function],
         "indexRange": Object {
-          "max": 50,
+          "max": 1,
           "min": 1,
         },
         "rowCounter": 0,
@@ -3509,7 +3551,7 @@ exports[`VisualizationPage Should match existing snapshot when using closest pro
                   "getCouplingScore": [Function],
                   "includes": [Function],
                   "indexRange": Object {
-                    "max": 50,
+                    "max": 1,
                     "min": 1,
                   },
                   "rowCounter": 0,
@@ -3517,7 +3559,7 @@ exports[`VisualizationPage Should match existing snapshot when using closest pro
                   "totalStoredContacts": 0,
                 },
                 "pdbData": Object {
-                  "known": undefined,
+                  "experimental": undefined,
                 },
                 "secondaryStructures": Array [],
               }
