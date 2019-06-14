@@ -1,9 +1,4 @@
-import {
-  AMINO_ACIDS_BY_SINGLE_LETTER_CODE,
-  BioblocksPDB,
-  CouplingContainer,
-  IResidueMismatchResult,
-} from 'bioblocks-viz';
+import { AMINO_ACID_BY_CODE, BioblocksPDB, CouplingContainer, IResidueMismatchResult } from 'bioblocks-viz';
 import { shallow } from 'enzyme';
 import * as React from 'react';
 
@@ -40,13 +35,13 @@ describe('ErrorMessageComponent', () => {
     ]);
     const mismatches: IResidueMismatchResult[] = [
       {
-        couplingAminoAcid: AMINO_ACIDS_BY_SINGLE_LETTER_CODE.A,
-        pdbAminoAcid: AMINO_ACIDS_BY_SINGLE_LETTER_CODE.E,
+        couplingAminoAcid: AMINO_ACID_BY_CODE.A,
+        pdbAminoAcid: AMINO_ACID_BY_CODE.E,
         resno: 1,
       },
       {
-        couplingAminoAcid: AMINO_ACIDS_BY_SINGLE_LETTER_CODE.C,
-        pdbAminoAcid: AMINO_ACIDS_BY_SINGLE_LETTER_CODE.P,
+        couplingAminoAcid: AMINO_ACID_BY_CODE.C,
+        pdbAminoAcid: AMINO_ACID_BY_CODE.P,
         resno: 2,
       },
     ];

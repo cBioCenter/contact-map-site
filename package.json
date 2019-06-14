@@ -135,14 +135,14 @@
     "test:staged": "jest --onlyChanged"
   },
   "dependencies": {
-    "bioblocks-viz": "^0.0.118",
+    "bioblocks-viz": "^0.0.121",
     "canvas": "^2.4.1",
     "connected-react-router": "^6.4.0",
     "d3": "^5.9.2",
     "history": "^4.7.2",
     "immutable": "^4.0.0-rc.12",
     "lodash": "^4.17.11",
-    "ngl": "^2.0.0-dev.36",
+    "ngl": "2.0.0-dev.36",
     "plotly.js": "^1.47.2",
     "prop-types": "^15.7.2",
     "react": "^16.5.2",
