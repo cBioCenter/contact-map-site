@@ -39,11 +39,12 @@ exports[`VisualizationPage Should match existing snapshot when given a PDB. 1`] 
       CouplingContainer {
         "colCounter": 0,
         "contacts": Array [],
+        "derivedFromCouplingScoresFlag": true,
         "getCouplingScore": [Function],
         "includes": [Function],
         "indexRange": Object {
           "max": 1,
-          "min": 1,
+          "min": 30000,
         },
         "rowCounter": 0,
         "scoreSource": "cn",
@@ -62,8 +63,9 @@ exports[`VisualizationPage Should match existing snapshot when given a PDB. 1`] 
     <Popup
       content="A file that ends as 'CouplingScores.csv'"
       disabled={false}
-      keepInViewPort={true}
+      offset={0}
       on="hover"
+      pinned={false}
       position="top left"
       trigger={
         <a>
@@ -75,8 +77,9 @@ exports[`VisualizationPage Should match existing snapshot when given a PDB. 1`] 
     <Popup
       content="A .csv file that starts with 'residue_mapping' - or - A file that ends in .indextable / .indextableplus"
       disabled={false}
-      keepInViewPort={true}
+      offset={0}
       on="hover"
+      pinned={false}
       position="top left"
       trigger={
         <a>
@@ -158,11 +161,12 @@ exports[`VisualizationPage Should match existing snapshot when given a PDB. 1`] 
                 "couplingScores": CouplingContainer {
                   "colCounter": 0,
                   "contacts": Array [],
+                  "derivedFromCouplingScoresFlag": true,
                   "getCouplingScore": [Function],
                   "includes": [Function],
                   "indexRange": Object {
                     "max": 1,
-                    "min": 1,
+                    "min": 30000,
                   },
                   "rowCounter": 0,
                   "scoreSource": "cn",
@@ -279,11 +283,12 @@ exports[`VisualizationPage Should match existing snapshot when hooked up to a Re
             CouplingContainer {
               "colCounter": 0,
               "contacts": Array [],
+              "derivedFromCouplingScoresFlag": true,
               "getCouplingScore": [Function],
               "includes": [Function],
               "indexRange": Object {
                 "max": 1,
-                "min": 1,
+                "min": 30000,
               },
               "rowCounter": 0,
               "scoreSource": "cn",
@@ -305,8 +310,9 @@ exports[`VisualizationPage Should match existing snapshot when hooked up to a Re
             <Popup
               content="A file that ends as 'CouplingScores.csv'"
               disabled={false}
-              keepInViewPort={true}
+              offset={0}
               on="hover"
+              pinned={false}
               position="top left"
               trigger={
                 <a>
@@ -332,7 +338,13 @@ exports[`VisualizationPage Should match existing snapshot when hooked up to a Re
                     (?)
                   </a>
                 }
-                triggerRef={[Function]}
+                triggerRef={
+                  Object {
+                    "current": <a>
+                      (?)
+                    </a>,
+                  }
+                }
               >
                 <Ref
                   innerRef={[Function]}
@@ -357,8 +369,9 @@ exports[`VisualizationPage Should match existing snapshot when hooked up to a Re
             <Popup
               content="A .csv file that starts with 'residue_mapping' - or - A file that ends in .indextable / .indextableplus"
               disabled={false}
-              keepInViewPort={true}
+              offset={0}
               on="hover"
+              pinned={false}
               position="top left"
               trigger={
                 <a>
@@ -384,7 +397,13 @@ exports[`VisualizationPage Should match existing snapshot when hooked up to a Re
                     (?)
                   </a>
                 }
-                triggerRef={[Function]}
+                triggerRef={
+                  Object {
+                    "current": <a>
+                      (?)
+                    </a>,
+                  }
+                }
               >
                 <Ref
                   innerRef={[Function]}
@@ -487,22 +506,56 @@ exports[`VisualizationPage Should match existing snapshot when hooked up to a Re
                               }
                             }
                           >
-                            <button
-                              className="ui icon button"
-                              tabIndex={0}
+                            <Ref
+                              innerRef={
+                                Object {
+                                  "current": <button
+                                    class="ui icon button"
+                                    tabindex="0"
+                                  >
+                                    <i
+                                      aria-hidden="true"
+                                      class="trash icon"
+                                    />
+                                     
+                                  </button>,
+                                }
+                              }
                             >
-                              <Icon
-                                as="i"
-                                name="trash"
+                              <RefFindNode
+                                innerRef={
+                                  Object {
+                                    "current": <button
+                                      class="ui icon button"
+                                      tabindex="0"
+                                    >
+                                      <i
+                                        aria-hidden="true"
+                                        class="trash icon"
+                                      />
+                                       
+                                    </button>,
+                                  }
+                                }
                               >
-                                <i
-                                  aria-hidden="true"
-                                  className="trash icon"
-                                  onClick={[Function]}
-                                />
-                              </Icon>
-                               
-                            </button>
+                                <button
+                                  className="ui icon button"
+                                  tabIndex={0}
+                                >
+                                  <Icon
+                                    as="i"
+                                    name="trash"
+                                  >
+                                    <i
+                                      aria-hidden="true"
+                                      className="trash icon"
+                                      onClick={[Function]}
+                                    />
+                                  </Icon>
+                                   
+                                </button>
+                              </RefFindNode>
+                            </Ref>
                             <Label
                               basic={true}
                               content="Clean View"
@@ -549,11 +602,12 @@ exports[`VisualizationPage Should match existing snapshot when hooked up to a Re
                               "couplingScores": CouplingContainer {
                                 "colCounter": 0,
                                 "contacts": Array [],
+                                "derivedFromCouplingScoresFlag": true,
                                 "getCouplingScore": [Function],
                                 "includes": [Function],
                                 "indexRange": Object {
                                   "max": 1,
-                                  "min": 1,
+                                  "min": 30000,
                                 },
                                 "rowCounter": 0,
                                 "scoreSource": "cn",
@@ -590,18 +644,20 @@ exports[`VisualizationPage Should match existing snapshot when hooked up to a Re
                                 Array [
                                   Object {
                                     "marks": Object {
-                                      "0": "L/2",
-                                      "1": "L",
-                                      "2": "2L",
-                                      "3": "3L",
+                                      "-14999": "L/2",
+                                      "-29998": "L",
+                                      "-59996": "2L",
+                                      "-7500": "L/4",
+                                      "-89994": "3L",
+                                      "0": "0",
                                     },
                                     "name": "# Couplings to Display",
                                     "onChange": [Function],
                                     "type": "SLIDER",
                                     "values": Object {
-                                      "current": 0,
+                                      "current": -14999,
                                       "defaultValue": 100,
-                                      "max": 3,
+                                      "max": -89994,
                                       "min": 0,
                                     },
                                   },
@@ -635,11 +691,12 @@ exports[`VisualizationPage Should match existing snapshot when hooked up to a Re
                                   "couplingScores": CouplingContainer {
                                     "colCounter": 0,
                                     "contacts": Array [],
+                                    "derivedFromCouplingScoresFlag": true,
                                     "getCouplingScore": [Function],
                                     "includes": [Function],
                                     "indexRange": Object {
                                       "max": 1,
-                                      "min": 1,
+                                      "min": 30000,
                                     },
                                     "rowCounter": 0,
                                     "scoreSource": "cn",
@@ -663,7 +720,7 @@ exports[`VisualizationPage Should match existing snapshot when hooked up to a Re
                                     "name": "Inferred Contact",
                                     "nodeSize": 4,
                                     "points": Array [],
-                                    "subtitle": "(N=0, L=1)",
+                                    "subtitle": "(N=-14999, L=-29998)",
                                     "text": Array [],
                                   },
                                   Object {
@@ -695,18 +752,20 @@ exports[`VisualizationPage Should match existing snapshot when hooked up to a Re
                                   Array [
                                     Object {
                                       "marks": Object {
-                                        "0": "L/2",
-                                        "1": "L",
-                                        "2": "2L",
-                                        "3": "3L",
+                                        "-14999": "L/2",
+                                        "-29998": "L",
+                                        "-59996": "2L",
+                                        "-7500": "L/4",
+                                        "-89994": "3L",
+                                        "0": "0",
                                       },
                                       "name": "# Couplings to Display",
                                       "onChange": [Function],
                                       "type": "SLIDER",
                                       "values": Object {
-                                        "current": 0,
+                                        "current": -14999,
                                         "defaultValue": 100,
-                                        "max": 3,
+                                        "max": -89994,
                                         "min": 0,
                                       },
                                     },
@@ -740,11 +799,12 @@ exports[`VisualizationPage Should match existing snapshot when hooked up to a Re
                                     "couplingScores": CouplingContainer {
                                       "colCounter": 0,
                                       "contacts": Array [],
+                                      "derivedFromCouplingScoresFlag": true,
                                       "getCouplingScore": [Function],
                                       "includes": [Function],
                                       "indexRange": Object {
                                         "max": 1,
-                                        "min": 1,
+                                        "min": 30000,
                                       },
                                       "rowCounter": 0,
                                       "scoreSource": "cn",
@@ -769,7 +829,7 @@ exports[`VisualizationPage Should match existing snapshot when hooked up to a Re
                                       "name": "Inferred Contact",
                                       "nodeSize": 4,
                                       "points": Array [],
-                                      "subtitle": "(N=0, L=1)",
+                                      "subtitle": "(N=-14999, L=-29998)",
                                       "text": Array [],
                                     },
                                     Object {
@@ -830,18 +890,20 @@ exports[`VisualizationPage Should match existing snapshot when hooked up to a Re
                                             "Filters": Array [
                                               Object {
                                                 "marks": Object {
-                                                  "0": "L/2",
-                                                  "1": "L",
-                                                  "2": "2L",
-                                                  "3": "3L",
+                                                  "-14999": "L/2",
+                                                  "-29998": "L",
+                                                  "-59996": "2L",
+                                                  "-7500": "L/4",
+                                                  "-89994": "3L",
+                                                  "0": "0",
                                                 },
                                                 "name": "# Couplings to Display",
                                                 "onChange": [Function],
                                                 "type": "SLIDER",
                                                 "values": Object {
-                                                  "current": 0,
+                                                  "current": -14999,
                                                   "defaultValue": 100,
-                                                  "max": 3,
+                                                  "max": -89994,
                                                   "min": 0,
                                                 },
                                               },
@@ -881,7 +943,7 @@ exports[`VisualizationPage Should match existing snapshot when hooked up to a Re
                                             "Node Sizes": Array [
                                               Object {
                                                 "id": "node-size-slider-0",
-                                                "name": "X-ray Structure Contact",
+                                                "name": "Structure Contact (PDB)",
                                                 "options": Array [
                                                   <Icon
                                                     as="i"
@@ -1101,18 +1163,20 @@ exports[`VisualizationPage Should match existing snapshot when hooked up to a Re
                                                     "Filters": Array [
                                                       Object {
                                                         "marks": Object {
-                                                          "0": "L/2",
-                                                          "1": "L",
-                                                          "2": "2L",
-                                                          "3": "3L",
+                                                          "-14999": "L/2",
+                                                          "-29998": "L",
+                                                          "-59996": "2L",
+                                                          "-7500": "L/4",
+                                                          "-89994": "3L",
+                                                          "0": "0",
                                                         },
                                                         "name": "# Couplings to Display",
                                                         "onChange": [Function],
                                                         "type": "SLIDER",
                                                         "values": Object {
-                                                          "current": 0,
+                                                          "current": -14999,
                                                           "defaultValue": 100,
-                                                          "max": 3,
+                                                          "max": -89994,
                                                           "min": 0,
                                                         },
                                                       },
@@ -1152,7 +1216,7 @@ exports[`VisualizationPage Should match existing snapshot when hooked up to a Re
                                                     "Node Sizes": Array [
                                                       Object {
                                                         "id": "node-size-slider-0",
-                                                        "name": "X-ray Structure Contact",
+                                                        "name": "Structure Contact (PDB)",
                                                         "options": Array [
                                                           <Icon
                                                             as="i"
@@ -1748,7 +1812,7 @@ exports[`VisualizationPage Should match existing snapshot when hooked up to a Re
                                                   ],
                                                 },
                                                 "mode": "lines+markers",
-                                                "name": "X-ray Structure Contact",
+                                                "name": "Structure Contact (PDB)",
                                                 "nodeSize": 4,
                                                 "points": Array [],
                                                 "subtitle": "Inferred Structure Contact",
@@ -1763,7 +1827,7 @@ exports[`VisualizationPage Should match existing snapshot when hooked up to a Re
                                                 "name": "Inferred Contact",
                                                 "nodeSize": 4,
                                                 "points": Array [],
-                                                "subtitle": "(N=0, L=1)",
+                                                "subtitle": "(N=-14999, L=-29998)",
                                                 "text": Array [],
                                               },
                                               Object {
@@ -1814,7 +1878,7 @@ exports[`VisualizationPage Should match existing snapshot when hooked up to a Re
                                           onHoverCallback={[Function]}
                                           onSelectedCallback={[Function]}
                                           onUnHoverCallback={[Function]}
-                                          range={33000}
+                                          range={30001}
                                           secondaryStructures={Array []}
                                           selectedSecondaryStructures={
                                             Array [
@@ -1883,7 +1947,7 @@ exports[`VisualizationPage Should match existing snapshot when hooked up to a Re
                                                     "size": 4,
                                                   },
                                                   "mode": "markers",
-                                                  "name": "X-ray Structure Contact Inferred Structure Contact",
+                                                  "name": "Structure Contact (PDB) Inferred Structure Contact",
                                                   "text": Array [],
                                                   "type": "scattergl",
                                                   "x": Array [],
@@ -1897,7 +1961,7 @@ exports[`VisualizationPage Should match existing snapshot when hooked up to a Re
                                                     "size": 4,
                                                   },
                                                   "mode": "markers",
-                                                  "name": "Inferred Contact (N=0, L=1)",
+                                                  "name": "Inferred Contact (N=-14999, L=-29998)",
                                                   "text": Array [],
                                                   "type": "scattergl",
                                                   "x": Array [],
@@ -1958,7 +2022,7 @@ exports[`VisualizationPage Should match existing snapshot when hooked up to a Re
                                                   "nticks": 10,
                                                   "range": Array [
                                                     0,
-                                                    33000,
+                                                    30001,
                                                   ],
                                                   "rangemode": "nonnegative",
                                                   "showline": true,
@@ -1969,7 +2033,7 @@ exports[`VisualizationPage Should match existing snapshot when hooked up to a Re
                                                   "fixedrange": true,
                                                   "nticks": 10,
                                                   "range": Array [
-                                                    33000,
+                                                    30001,
                                                     0,
                                                   ],
                                                   "rangemode": "nonnegative",
@@ -2481,14 +2545,14 @@ exports[`VisualizationPage Should match existing snapshot when hooked up to a Re
                                                   ],
                                                   "View Options": Array [
                                                     Object {
-                                                      "checked": true,
-                                                      "name": "Distance Representation",
+                                                      "checked": false,
+                                                      "name": "Zoom on Click",
                                                       "onChange": [Function],
                                                       "type": "CHECKBOX",
                                                     },
                                                     Object {
-                                                      "checked": false,
-                                                      "name": "Zoom on Click",
+                                                      "checked": true,
+                                                      "name": "Display Distance in Ångström",
                                                       "onChange": [Function],
                                                       "type": "CHECKBOX",
                                                     },
@@ -2740,14 +2804,14 @@ exports[`VisualizationPage Should match existing snapshot when hooked up to a Re
                                                           ],
                                                           "View Options": Array [
                                                             Object {
-                                                              "checked": true,
-                                                              "name": "Distance Representation",
+                                                              "checked": false,
+                                                              "name": "Zoom on Click",
                                                               "onChange": [Function],
                                                               "type": "CHECKBOX",
                                                             },
                                                             Object {
-                                                              "checked": false,
-                                                              "name": "Zoom on Click",
+                                                              "checked": true,
+                                                              "name": "Display Distance in Ångström",
                                                               "onChange": [Function],
                                                               "type": "CHECKBOX",
                                                             },
@@ -3284,11 +3348,12 @@ exports[`VisualizationPage Should match existing snapshot when no props are prov
       CouplingContainer {
         "colCounter": 0,
         "contacts": Array [],
+        "derivedFromCouplingScoresFlag": true,
         "getCouplingScore": [Function],
         "includes": [Function],
         "indexRange": Object {
           "max": 1,
-          "min": 1,
+          "min": 30000,
         },
         "rowCounter": 0,
         "scoreSource": "cn",
@@ -3307,8 +3372,9 @@ exports[`VisualizationPage Should match existing snapshot when no props are prov
     <Popup
       content="A file that ends as 'CouplingScores.csv'"
       disabled={false}
-      keepInViewPort={true}
+      offset={0}
       on="hover"
+      pinned={false}
       position="top left"
       trigger={
         <a>
@@ -3320,8 +3386,9 @@ exports[`VisualizationPage Should match existing snapshot when no props are prov
     <Popup
       content="A .csv file that starts with 'residue_mapping' - or - A file that ends in .indextable / .indextableplus"
       disabled={false}
-      keepInViewPort={true}
+      offset={0}
       on="hover"
+      pinned={false}
       position="top left"
       trigger={
         <a>
@@ -3403,11 +3470,12 @@ exports[`VisualizationPage Should match existing snapshot when no props are prov
                 "couplingScores": CouplingContainer {
                   "colCounter": 0,
                   "contacts": Array [],
+                  "derivedFromCouplingScoresFlag": true,
                   "getCouplingScore": [Function],
                   "includes": [Function],
                   "indexRange": Object {
                     "max": 1,
-                    "min": 1,
+                    "min": 30000,
                   },
                   "rowCounter": 0,
                   "scoreSource": "cn",
@@ -3501,11 +3569,12 @@ exports[`VisualizationPage Should match existing snapshot when using c-alpha pro
       CouplingContainer {
         "colCounter": 0,
         "contacts": Array [],
+        "derivedFromCouplingScoresFlag": true,
         "getCouplingScore": [Function],
         "includes": [Function],
         "indexRange": Object {
           "max": 1,
-          "min": 1,
+          "min": 30000,
         },
         "rowCounter": 0,
         "scoreSource": "cn",
@@ -3524,8 +3593,9 @@ exports[`VisualizationPage Should match existing snapshot when using c-alpha pro
     <Popup
       content="A file that ends as 'CouplingScores.csv'"
       disabled={false}
-      keepInViewPort={true}
+      offset={0}
       on="hover"
+      pinned={false}
       position="top left"
       trigger={
         <a>
@@ -3537,8 +3607,9 @@ exports[`VisualizationPage Should match existing snapshot when using c-alpha pro
     <Popup
       content="A .csv file that starts with 'residue_mapping' - or - A file that ends in .indextable / .indextableplus"
       disabled={false}
-      keepInViewPort={true}
+      offset={0}
       on="hover"
+      pinned={false}
       position="top left"
       trigger={
         <a>
@@ -3620,11 +3691,12 @@ exports[`VisualizationPage Should match existing snapshot when using c-alpha pro
                 "couplingScores": CouplingContainer {
                   "colCounter": 0,
                   "contacts": Array [],
+                  "derivedFromCouplingScoresFlag": true,
                   "getCouplingScore": [Function],
                   "includes": [Function],
                   "indexRange": Object {
                     "max": 1,
-                    "min": 1,
+                    "min": 30000,
                   },
                   "rowCounter": 0,
                   "scoreSource": "cn",
@@ -3718,11 +3790,12 @@ exports[`VisualizationPage Should match existing snapshot when using closest pro
       CouplingContainer {
         "colCounter": 0,
         "contacts": Array [],
+        "derivedFromCouplingScoresFlag": true,
         "getCouplingScore": [Function],
         "includes": [Function],
         "indexRange": Object {
           "max": 1,
-          "min": 1,
+          "min": 30000,
         },
         "rowCounter": 0,
         "scoreSource": "cn",
@@ -3741,8 +3814,9 @@ exports[`VisualizationPage Should match existing snapshot when using closest pro
     <Popup
       content="A file that ends as 'CouplingScores.csv'"
       disabled={false}
-      keepInViewPort={true}
+      offset={0}
       on="hover"
+      pinned={false}
       position="top left"
       trigger={
         <a>
@@ -3754,8 +3828,9 @@ exports[`VisualizationPage Should match existing snapshot when using closest pro
     <Popup
       content="A .csv file that starts with 'residue_mapping' - or - A file that ends in .indextable / .indextableplus"
       disabled={false}
-      keepInViewPort={true}
+      offset={0}
       on="hover"
+      pinned={false}
       position="top left"
       trigger={
         <a>
@@ -3837,11 +3912,12 @@ exports[`VisualizationPage Should match existing snapshot when using closest pro
                 "couplingScores": CouplingContainer {
                   "colCounter": 0,
                   "contacts": Array [],
+                  "derivedFromCouplingScoresFlag": true,
                   "getCouplingScore": [Function],
                   "includes": [Function],
                   "indexRange": Object {
                     "max": 1,
-                    "min": 1,
+                    "min": 30000,
                   },
                   "rowCounter": 0,
                   "scoreSource": "cn",

@@ -136,7 +136,7 @@
     "test:staged": "jest --onlyChanged"
   },
   "dependencies": {
-    "bioblocks-viz": "^0.0.123",
+    "bioblocks-viz": "^0.0.124",
     "canvas": "^2.4.1",
     "connected-react-router": "^6.4.0",
     "d3": "^5.9.2",
@@ -156,7 +156,7 @@
     "redux": "^4.0.1",
     "redux-logger": "^3.0.6",
     "redux-thunk": "^2.3.0",
-    "semantic-ui-react": "^0.85.0",
+    "semantic-ui-react": "^0.87.2",
     "three": "^0.103.0"
   },
   "devDependencies": {

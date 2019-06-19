@@ -79,7 +79,7 @@ export class VisualizationPageClass extends React.Component<IVisualizationPagePr
   }
 
   public componentDidUpdate(prevProps: IVisualizationPageProps, prevState: IVisualizationPageState) {
-    const { measuredProximity, predictedProteins } = this.state;
+    const { predictedProteins } = this.state;
     const { couplingScores } = this.state[VIZ_TYPE.CONTACT_MAP];
 
     const pdbData = predictedProteins.length >= 1 ? predictedProteins[0] : undefined;
@@ -96,24 +96,14 @@ export class VisualizationPageClass extends React.Component<IVisualizationPagePr
       newMismatches = getPDBAndCouplingMismatch(pdbData, couplingScores);
 
       if (newMismatches.length >= 1) {
+        // tslint:disable: max-line-length
         errorMsg = `Error details: ${newMismatches.length} mismatch(es) detected between coupling scores and PDB!\
-        For example, residue number ${newMismatches[0].resno} is '${
-          newMismatches[0].pdbAminoAcid.threeLetterCode
-        }' in the PDB but '${newMismatches[0].couplingAminoAcid.threeLetterCode}' in the coupling scores file.`;
+        For example, residue number ${newMismatches[0].resno} is '${newMismatches[0].pdbAminoAcid.threeLetterCode}' in the PDB but '${newMismatches[0].couplingAminoAcid.threeLetterCode}' in the coupling scores file.`;
+        // tslint:enable: max-line-length
       }
     }
 
-    if (pdbData && measuredProximity !== prevState.measuredProximity) {
-      this.setState({
-        [VIZ_TYPE.CONTACT_MAP]: {
-          couplingScores: pdbData.amendPDBWithCouplingScores(couplingScores.rankedContacts, measuredProximity),
-          pdbData: { experimental: pdbData },
-          secondaryStructures: [],
-        },
-        errorMsg,
-        mismatches: newMismatches,
-      });
-    } else if (errorMsg.length >= 1) {
+    if (errorMsg.length >= 1) {
       this.setState({
         errorMsg,
         mismatches: newMismatches,
@@ -265,10 +255,10 @@ export class VisualizationPageClass extends React.Component<IVisualizationPagePr
     this.forceUpdate();
   };
 
+  // tslint:disable-next-line: max-func-body-length
   protected onFolderUpload = async (files: IDropzoneFile[]) => {
     this.onCloseUpload();
     await this.onClearAll()();
-    const { measuredProximity } = this.state;
 
     this.setState({
       isDragHappening: false,
@@ -276,8 +266,9 @@ export class VisualizationPageClass extends React.Component<IVisualizationPagePr
     });
 
     let folderName: string = '';
+    let couplingFlag: boolean = false;
     let couplingScoresCSV: string = '';
-    let pdbData = BioblocksPDB.createEmptyPDB();
+    let pdbData: BioblocksPDB | undefined;
     let residueMapping: IResidueMapping[] = [];
     let secondaryStructures: SECONDARY_STRUCTURE_SECTION[] = [];
 
@@ -293,7 +284,8 @@ export class VisualizationPageClass extends React.Component<IVisualizationPagePr
           experimentalProteins.push(pdbData);
         }
         if (folderName.length === 0 && file.path) {
-          folderName = file.path.split('/')[1];
+          const splitParts = file.path.split('/');
+          folderName = splitParts.length >= 2 ? splitParts[1] : splitParts[0];
         }
       } else {
         const parsedFile = await readFileAsText(file);
@@ -303,8 +295,9 @@ export class VisualizationPageClass extends React.Component<IVisualizationPagePr
           file.name.startsWith('residue_mapping')
         ) {
           residueMapping = generateResidueMapping(parsedFile);
-        } else if (file.name.endsWith('CouplingScores.csv')) {
+        } else if (file.name.endsWith('.csv') && file.name.includes('CouplingScores')) {
           couplingScoresCSV = parsedFile;
+          couplingFlag = true;
         } else if (file.name.endsWith('distance_map_multimer.csv')) {
           secondaryStructures = new Array<SECONDARY_STRUCTURE_SECTION>();
           parsedFile
@@ -326,29 +319,43 @@ export class VisualizationPageClass extends React.Component<IVisualizationPagePr
             });
         }
         if (folderName.length === 0 && file.path) {
-          folderName = file.path.split('/')[1];
+          const splitParts = file.path.split('/');
+          folderName = splitParts.length >= 2 ? splitParts[1] : splitParts[0];
         }
       }
     }
 
-    if (predictedProteins.length === 0) {
-      predictedProteins.push(pdbData);
-    } else {
+    if (pdbData && experimentalProteins.length === 0 && predictedProteins.length === 0) {
+      experimentalProteins.push(pdbData);
+    } else if (experimentalProteins.length === 0) {
       pdbData = predictedProteins[0];
+    } else {
+      pdbData = experimentalProteins[0];
     }
 
     let couplingScores = getCouplingScoresData(couplingScoresCSV, residueMapping);
-    couplingScores = pdbData.amendPDBWithCouplingScores(couplingScores.rankedContacts, measuredProximity);
-    const mismatches = pdbData.getResidueNumberingMismatches(couplingScores);
+    let mismatches = new Array<IResidueMismatchResult>();
+
+    if (pdbData) {
+      if (couplingScores.rankedContacts.length === 0 || couplingScores.rankedContacts[0].dist === undefined) {
+        couplingScores = pdbData.amendPDBWithCouplingScores(
+          couplingScores.rankedContacts,
+          CONTACT_DISTANCE_PROXIMITY.CLOSEST,
+        );
+      } else {
+        mismatches = pdbData.getResidueNumberingMismatches(couplingScores);
+      }
+    }
+    couplingScores.isDerivedFromCouplingScores = couplingFlag;
 
     this.setState({
       [VIZ_TYPE.CONTACT_MAP]: {
         couplingScores,
-        pdbData: { experimental: pdbData },
+        pdbData: { experimental: experimentalProteins[0], predicted: predictedProteins[0] },
         secondaryStructures:
-          secondaryStructures.length >= 1 ? [secondaryStructures] : pdbData.secondaryStructureSections,
+          secondaryStructures.length >= 1 ? [secondaryStructures] : pdbData ? pdbData.secondaryStructureSections : [],
       },
-      errorMsg: `Showing data from folder '${folderName}'`,
+      errorMsg: `Showing data from '${folderName}'`,
       experimentalProteins,
       isLoading: false,
       mismatches,
