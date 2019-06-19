@@ -114,6 +114,7 @@
     "build:prod": "webpack --config ./configs/webpack.prod.ts",
     "build:prod:analyze": "yarn --silent build:prod --profile --json > webpack-stats.json && yarn analyze-bundle",
     "build:test": "tsc",
+    "create-release": "yarn build:prod && ts-node configs/CreateExampleRelease.ts",
     "deploy": "yarn build:prod && yarn deploy:doc && yarn deploy:gh-pages",
     "deploy:demo": "yarn build && yarn deploy:doc && yarn deploy:gh-pages",
     "deploy:doc": "yarn doc && cp -r docs dist && cp README.md dist",

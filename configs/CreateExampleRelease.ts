@@ -13,24 +13,31 @@ const dirName = `${date.getFullYear()}${paddedMonth}${paddedDay}`;
 const distDir = './dist';
 const releaseDir = `${distDir}/${dirName}`;
 
-mkdirSync(releaseDir);
-copyFileSync(`${distDir}/index.html`, `${releaseDir}/index.html`);
+try {
+  mkdirSync(releaseDir);
+  copyFileSync(`${distDir}/index.html`, `${releaseDir}/index.html`);
 
-const filesToCopy = ['*index*.bundle.js', 'favicon.ico'];
-filesToCopy.forEach(file => {
-  execSync(`cp ${distDir}/${file} ${releaseDir}/`);
-});
+  const filesToCopy = ['*index*.bundle.js', 'favicon.ico', 'vendors~index.css'];
+  filesToCopy.forEach(file => {
+    execSync(`cp ${distDir}/${file} ${releaseDir}/`);
+  });
 
-mkdirSync(`${releaseDir}/assets`);
-const assetFilesToCopy = ['assets/semantic*', 'assets/themes'];
-assetFilesToCopy.forEach(file => {
-  execSync(`cp -r ${distDir}/${file} ${releaseDir}/assets/`);
-});
+  mkdirSync(`${releaseDir}/assets`);
+  const assetFilesToCopy = ['assets/favicons', 'assets/icons', 'assets/semantic*', 'assets/themes'];
+  assetFilesToCopy.forEach(file => {
+    execSync(`cp -r ${distDir}/${file} ${releaseDir}/assets/`);
+  });
 
-execSync(`chmod -R og+rx ${releaseDir}`);
+  execSync(`chmod -R og+rx ${releaseDir}`);
 
-const resultMessage = `Created ${dirName} to be deployed!\n\
+  const resultMessage = `Created ${dirName} to be deployed!\n\
 To transfer to prod server, run 'scp -r ${releaseDir} $PROD_HOSTNAME'.\n\
 Ensure 'PROD_HOSTNAME' is substituted yourself or otherwise set as an environment variable.`;
 
-console.log(resultMessage);
+  console.log(resultMessage);
+} catch (e) {
+  if (e instanceof Error) {
+    console.log(e.message);
+  }
+  console.log('Quitting!');
+}
