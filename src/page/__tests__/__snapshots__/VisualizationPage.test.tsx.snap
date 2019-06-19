@@ -595,7 +595,7 @@ exports[`VisualizationPage Should match existing snapshot when hooked up to a Re
                                       "2": "2L",
                                       "3": "3L",
                                     },
-                                    "name": "Number of Couplings to Display",
+                                    "name": "# Couplings to Display",
                                     "onChange": [Function],
                                     "type": "SLIDER",
                                     "values": Object {
@@ -700,7 +700,7 @@ exports[`VisualizationPage Should match existing snapshot when hooked up to a Re
                                         "2": "2L",
                                         "3": "3L",
                                       },
-                                      "name": "Number of Couplings to Display",
+                                      "name": "# Couplings to Display",
                                       "onChange": [Function],
                                       "type": "SLIDER",
                                       "values": Object {
@@ -808,6 +808,7 @@ exports[`VisualizationPage Should match existing snapshot when hooked up to a Re
                                   dockItems={
                                     Array [
                                       Object {
+                                        "isVisibleCb": [Function],
                                         "onClick": [Function],
                                         "text": "Clear Selections",
                                       },
@@ -818,6 +819,7 @@ exports[`VisualizationPage Should match existing snapshot when hooked up to a Re
                                   headerHeight={40}
                                   height="570px"
                                   iconSrc="assets/icons/spring-icon.png"
+                                  isDataReady={false}
                                   isFramedComponent={false}
                                   isFullPage={false}
                                   menuItems={
@@ -833,7 +835,7 @@ exports[`VisualizationPage Should match existing snapshot when hooked up to a Re
                                                   "2": "2L",
                                                   "3": "3L",
                                                 },
-                                                "name": "Number of Couplings to Display",
+                                                "name": "# Couplings to Display",
                                                 "onChange": [Function],
                                                 "type": "SLIDER",
                                                 "values": Object {
@@ -1104,7 +1106,7 @@ exports[`VisualizationPage Should match existing snapshot when hooked up to a Re
                                                           "2": "2L",
                                                           "3": "3L",
                                                         },
-                                                        "name": "Number of Couplings to Display",
+                                                        "name": "# Couplings to Display",
                                                         "onChange": [Function],
                                                         "type": "SLIDER",
                                                         "values": Object {
@@ -1426,11 +1428,12 @@ exports[`VisualizationPage Should match existing snapshot when hooked up to a Re
                                                           closeOnTriggerMouseLeave={false}
                                                           disabled={false}
                                                           hoverable={false}
-                                                          keepInViewPort={true}
+                                                          offset={0}
                                                           on="hover"
                                                           openOnTriggerClick={true}
                                                           openOnTriggerFocus={false}
                                                           openOnTriggerMouseEnter={false}
+                                                          pinned={false}
                                                           position="bottom left"
                                                           style={
                                                             Object {
@@ -1467,7 +1470,14 @@ exports[`VisualizationPage Should match existing snapshot when hooked up to a Re
                                                                 name="filter"
                                                               />
                                                             }
-                                                            triggerRef={[Function]}
+                                                            triggerRef={
+                                                              Object {
+                                                                "current": <i
+                                                                  aria-hidden="true"
+                                                                  class="filter icon"
+                                                                />,
+                                                              }
+                                                            }
                                                           >
                                                             <Ref
                                                               innerRef={[Function]}
@@ -1535,11 +1545,12 @@ exports[`VisualizationPage Should match existing snapshot when hooked up to a Re
                                                           closeOnTriggerMouseLeave={false}
                                                           disabled={false}
                                                           hoverable={false}
-                                                          keepInViewPort={true}
+                                                          offset={0}
                                                           on="hover"
                                                           openOnTriggerClick={true}
                                                           openOnTriggerFocus={false}
                                                           openOnTriggerMouseEnter={false}
+                                                          pinned={false}
                                                           position="bottom left"
                                                           style={
                                                             Object {
@@ -1576,7 +1587,14 @@ exports[`VisualizationPage Should match existing snapshot when hooked up to a Re
                                                                 name="setting"
                                                               />
                                                             }
-                                                            triggerRef={[Function]}
+                                                            triggerRef={
+                                                              Object {
+                                                                "current": <i
+                                                                  aria-hidden="true"
+                                                                  class="setting icon"
+                                                                />,
+                                                              }
+                                                            }
                                                           >
                                                             <Ref
                                                               innerRef={[Function]}
@@ -1999,72 +2017,14 @@ exports[`VisualizationPage Should match existing snapshot when hooked up to a Re
                                           dockItems={
                                             Array [
                                               Object {
+                                                "isVisibleCb": [Function],
                                                 "onClick": [Function],
                                                 "text": "Clear Selections",
                                               },
                                             ]
                                           }
-                                        >
-                                          <Grid
-                                            centered={true}
-                                            columns="equal"
-                                            stretched={true}
-                                            style={
-                                              Object {
-                                                "marginLeft": "initial",
-                                                "marginRight": "initial",
-                                                "marginTop": "-0.5rem",
-                                                "padding": 0,
-                                              }
-                                            }
-                                          >
-                                            <div
-                                              className="ui centered stretched equal width grid"
-                                              style={
-                                                Object {
-                                                  "marginLeft": "initial",
-                                                  "marginRight": "initial",
-                                                  "marginTop": "-0.5rem",
-                                                  "padding": 0,
-                                                }
-                                              }
-                                            >
-                                              <GridColumn
-                                                key="dock-item-0"
-                                                style={
-                                                  Object {
-                                                    "padding": 0,
-                                                  }
-                                                }
-                                              >
-                                                <div
-                                                  className="column"
-                                                  style={
-                                                    Object {
-                                                      "padding": 0,
-                                                    }
-                                                  }
-                                                >
-                                                  <div
-                                                    style={
-                                                      Object {
-                                                        "userSelect": "none",
-                                                      }
-                                                    }
-                                                  >
-                                                    <a
-                                                      aria-pressed={false}
-                                                      onClick={[Function]}
-                                                      role="button"
-                                                    >
-                                                      Clear Selections
-                                                    </a>
-                                                  </div>
-                                                </div>
-                                              </GridColumn>
-                                            </div>
-                                          </Grid>
-                                        </ComponentDock>
+                                          visible={false}
+                                        />
                                       </div>
                                     </div>
                                   </Card>
@@ -2104,6 +2064,7 @@ exports[`VisualizationPage Should match existing snapshot when hooked up to a Re
                             onMeasuredProximityChange={[Function]}
                             predictedProteins={Array []}
                             removeAllLockedResiduePairs={[Function]}
+                            removeAllSelectedSecondaryStructures={[Function]}
                             removeCandidateResidues={[Function]}
                             removeHoveredResidues={[Function]}
                             removeLockedResiduePair={[Function]}
@@ -2280,6 +2241,7 @@ exports[`VisualizationPage Should match existing snapshot when hooked up to a Re
                                                   </GridRow>
                                                 </Grid>,
                                                 "disabled": true,
+                                                "position": "top center",
                                                 "wide": "very",
                                               },
                                             },
@@ -2292,6 +2254,7 @@ exports[`VisualizationPage Should match existing snapshot when hooked up to a Re
                                       onResize={[Function]}
                                       predictedProteins={Array []}
                                       removeAllLockedResiduePairs={[Function]}
+                                      removeAllSelectedSecondaryStructures={[Function]}
                                       removeCandidateResidues={[Function]}
                                       removeHoveredResidues={[Function]}
                                       removeLockedResiduePair={[Function]}
@@ -2305,6 +2268,7 @@ exports[`VisualizationPage Should match existing snapshot when hooked up to a Re
                                         dockItems={
                                           Array [
                                             Object {
+                                              "isVisibleCb": [Function],
                                               "onClick": [Function],
                                               "text": "Clear Selections",
                                             },
@@ -2313,6 +2277,7 @@ exports[`VisualizationPage Should match existing snapshot when hooked up to a Re
                                               "text": "Center View",
                                             },
                                             Object {
+                                              "isVisibleCb": [Function],
                                               "onClick": [Function],
                                               "text": "Superimpose: Off",
                                             },
@@ -2327,6 +2292,7 @@ exports[`VisualizationPage Should match existing snapshot when hooked up to a Re
                                         headerHeight={40}
                                         height="570px"
                                         iconSrc="assets/icons/spring-icon.png"
+                                        isDataReady={false}
                                         isFramedComponent={false}
                                         isFullPage={false}
                                         menuItems={
@@ -2473,6 +2439,7 @@ exports[`VisualizationPage Should match existing snapshot when hooked up to a Re
                                                     </GridRow>
                                                   </Grid>,
                                                   "disabled": true,
+                                                  "position": "top center",
                                                   "wide": "very",
                                                 },
                                               },
@@ -2731,6 +2698,7 @@ exports[`VisualizationPage Should match existing snapshot when hooked up to a Re
                                                             </GridRow>
                                                           </Grid>,
                                                           "disabled": true,
+                                                          "position": "top center",
                                                           "wide": "very",
                                                         },
                                                       },
@@ -2909,12 +2877,13 @@ exports[`VisualizationPage Should match existing snapshot when hooked up to a Re
                                                                 closeOnTriggerMouseLeave={false}
                                                                 disabled={true}
                                                                 hoverable={false}
-                                                                keepInViewPort={true}
+                                                                offset={0}
                                                                 on="hover"
                                                                 openOnTriggerClick={true}
                                                                 openOnTriggerFocus={false}
                                                                 openOnTriggerMouseEnter={false}
-                                                                position="bottom left"
+                                                                pinned={false}
+                                                                position="top center"
                                                                 style={
                                                                   Object {
                                                                     "opacity": 0.85,
@@ -2976,11 +2945,12 @@ exports[`VisualizationPage Should match existing snapshot when hooked up to a Re
                                                                 closeOnTriggerMouseLeave={false}
                                                                 disabled={false}
                                                                 hoverable={false}
-                                                                keepInViewPort={true}
+                                                                offset={0}
                                                                 on="hover"
                                                                 openOnTriggerClick={true}
                                                                 openOnTriggerFocus={false}
                                                                 openOnTriggerMouseEnter={false}
+                                                                pinned={false}
                                                                 position="bottom left"
                                                                 style={
                                                                   Object {
@@ -3017,7 +2987,14 @@ exports[`VisualizationPage Should match existing snapshot when hooked up to a Re
                                                                       name="setting"
                                                                     />
                                                                   }
-                                                                  triggerRef={[Function]}
+                                                                  triggerRef={
+                                                                    Object {
+                                                                      "current": <i
+                                                                        aria-hidden="true"
+                                                                        class="setting icon"
+                                                                      />,
+                                                                    }
+                                                                  }
                                                                 >
                                                                   <Ref
                                                                     innerRef={[Function]}
@@ -3207,6 +3184,7 @@ exports[`VisualizationPage Should match existing snapshot when hooked up to a Re
                                                 dockItems={
                                                   Array [
                                                     Object {
+                                                      "isVisibleCb": [Function],
                                                       "onClick": [Function],
                                                       "text": "Clear Selections",
                                                     },
@@ -3215,6 +3193,7 @@ exports[`VisualizationPage Should match existing snapshot when hooked up to a Re
                                                       "text": "Center View",
                                                     },
                                                     Object {
+                                                      "isVisibleCb": [Function],
                                                       "onClick": [Function],
                                                       "text": "Superimpose: Off",
                                                     },
@@ -3224,166 +3203,8 @@ exports[`VisualizationPage Should match existing snapshot when hooked up to a Re
                                                     },
                                                   ]
                                                 }
-                                              >
-                                                <Grid
-                                                  centered={true}
-                                                  columns="equal"
-                                                  stretched={true}
-                                                  style={
-                                                    Object {
-                                                      "marginLeft": "initial",
-                                                      "marginRight": "initial",
-                                                      "marginTop": "-0.5rem",
-                                                      "padding": 0,
-                                                    }
-                                                  }
-                                                >
-                                                  <div
-                                                    className="ui centered stretched equal width grid"
-                                                    style={
-                                                      Object {
-                                                        "marginLeft": "initial",
-                                                        "marginRight": "initial",
-                                                        "marginTop": "-0.5rem",
-                                                        "padding": 0,
-                                                      }
-                                                    }
-                                                  >
-                                                    <GridColumn
-                                                      key="dock-item-0"
-                                                      style={
-                                                        Object {
-                                                          "padding": 0,
-                                                        }
-                                                      }
-                                                    >
-                                                      <div
-                                                        className="column"
-                                                        style={
-                                                          Object {
-                                                            "padding": 0,
-                                                          }
-                                                        }
-                                                      >
-                                                        <div
-                                                          style={
-                                                            Object {
-                                                              "userSelect": "none",
-                                                            }
-                                                          }
-                                                        >
-                                                          <a
-                                                            aria-pressed={false}
-                                                            onClick={[Function]}
-                                                            role="button"
-                                                          >
-                                                            Clear Selections
-                                                          </a>
-                                                        </div>
-                                                      </div>
-                                                    </GridColumn>
-                                                    <GridColumn
-                                                      key="dock-item-1"
-                                                      style={
-                                                        Object {
-                                                          "padding": 0,
-                                                        }
-                                                      }
-                                                    >
-                                                      <div
-                                                        className="column"
-                                                        style={
-                                                          Object {
-                                                            "padding": 0,
-                                                          }
-                                                        }
-                                                      >
-                                                        <div
-                                                          style={
-                                                            Object {
-                                                              "userSelect": "none",
-                                                            }
-                                                          }
-                                                        >
-                                                          <a
-                                                            aria-pressed={false}
-                                                            onClick={[Function]}
-                                                            role="button"
-                                                          >
-                                                            Center View
-                                                          </a>
-                                                        </div>
-                                                      </div>
-                                                    </GridColumn>
-                                                    <GridColumn
-                                                      key="dock-item-2"
-                                                      style={
-                                                        Object {
-                                                          "padding": 0,
-                                                        }
-                                                      }
-                                                    >
-                                                      <div
-                                                        className="column"
-                                                        style={
-                                                          Object {
-                                                            "padding": 0,
-                                                          }
-                                                        }
-                                                      >
-                                                        <div
-                                                          style={
-                                                            Object {
-                                                              "userSelect": "none",
-                                                            }
-                                                          }
-                                                        >
-                                                          <a
-                                                            aria-pressed={false}
-                                                            onClick={[Function]}
-                                                            role="button"
-                                                          >
-                                                            Superimpose: Off
-                                                          </a>
-                                                        </div>
-                                                      </div>
-                                                    </GridColumn>
-                                                    <GridColumn
-                                                      key="dock-item-3"
-                                                      style={
-                                                        Object {
-                                                          "padding": 0,
-                                                        }
-                                                      }
-                                                    >
-                                                      <div
-                                                        className="column"
-                                                        style={
-                                                          Object {
-                                                            "padding": 0,
-                                                          }
-                                                        }
-                                                      >
-                                                        <div
-                                                          style={
-                                                            Object {
-                                                              "userSelect": "none",
-                                                            }
-                                                          }
-                                                        >
-                                                          <a
-                                                            aria-pressed={false}
-                                                            onClick={[Function]}
-                                                            role="button"
-                                                          >
-                                                            Enable Stereo
-                                                          </a>
-                                                        </div>
-                                                      </div>
-                                                    </GridColumn>
-                                                  </div>
-                                                </Grid>
-                                              </ComponentDock>
+                                                visible={false}
+                                              />
                                             </div>
                                           </div>
                                         </Card>
