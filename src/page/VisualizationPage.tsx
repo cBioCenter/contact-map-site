@@ -24,6 +24,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators, Dispatch } from 'redux';
 import { Button, Grid, GridColumn, GridRow, Message, Modal, Popup, Segment } from 'semantic-ui-react';
 
+import { DropEvent } from 'react-dropzone';
 import { ErrorMessageComponent, FolderUploadComponent, IDropzoneFile } from '~contact-map-site~/component';
 
 export interface IVisualizationPageProps {
@@ -256,13 +257,15 @@ export class VisualizationPageClass extends React.Component<IVisualizationPagePr
   };
 
   // tslint:disable-next-line: max-func-body-length
-  protected onFolderUpload = async (files: IDropzoneFile[]) => {
+  protected onFolderUpload = async (files: IDropzoneFile[], rejectedFiles: IDropzoneFile[], event: DropEvent) => {
     this.onCloseUpload();
     await this.onClearAll()();
 
     this.setState({
+      experimentalProteins: [],
       isDragHappening: false,
       isLoading: true,
+      predictedProteins: [],
     });
 
     let folderName: string = '';
@@ -295,7 +298,7 @@ export class VisualizationPageClass extends React.Component<IVisualizationPagePr
           file.name.startsWith('residue_mapping')
         ) {
           residueMapping = generateResidueMapping(parsedFile);
-        } else if (file.name.endsWith('.csv') && file.name.includes('CouplingScores')) {
+        } else if (file.name.includes('CouplingScoresCompared_all')) {
           couplingScoresCSV = parsedFile;
           couplingFlag = true;
         } else if (file.name.endsWith('distance_map_multimer.csv')) {
@@ -347,6 +350,10 @@ export class VisualizationPageClass extends React.Component<IVisualizationPagePr
       }
     }
     couplingScores.isDerivedFromCouplingScores = couplingFlag;
+
+    if (event.target) {
+      (event.target as HTMLInputElement).value = '';
+    }
 
     this.setState({
       [VIZ_TYPE.CONTACT_MAP]: {
