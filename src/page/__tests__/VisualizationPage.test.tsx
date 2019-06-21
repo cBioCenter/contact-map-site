@@ -112,8 +112,8 @@ describe('VisualizationPage', () => {
       179,66,0.78681,3.5872,A,A,0.9,1.3,37,1.0,T,M\n';
 
       const event = new Event('drop');
-      const couplingFile = new File([couplingScoresCsv], 'CouplingScores.csv');
-      const pdbFile = new File([], 'mock.pdb');
+      const couplingFile = new File([couplingScoresCsv], 'CouplingScoresCompared_all.csv');
+      const pdbFile = new File([], 'sample.pdb');
       const residueMapFile = new File([], 'residue_mapping.csv');
 
       await onDrop([pdbFile, residueMapFile, couplingFile], [], event);

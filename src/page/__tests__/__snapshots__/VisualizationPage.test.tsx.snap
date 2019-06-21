@@ -44,7 +44,7 @@ exports[`VisualizationPage Should match existing snapshot when given a PDB. 1`] 
         "includes": [Function],
         "indexRange": Object {
           "max": 1,
-          "min": 30000,
+          "min": 1,
         },
         "rowCounter": 0,
         "scoreSource": "cn",
@@ -166,7 +166,7 @@ exports[`VisualizationPage Should match existing snapshot when given a PDB. 1`] 
                   "includes": [Function],
                   "indexRange": Object {
                     "max": 1,
-                    "min": 30000,
+                    "min": 1,
                   },
                   "rowCounter": 0,
                   "scoreSource": "cn",
@@ -288,7 +288,7 @@ exports[`VisualizationPage Should match existing snapshot when hooked up to a Re
               "includes": [Function],
               "indexRange": Object {
                 "max": 1,
-                "min": 30000,
+                "min": 1,
               },
               "rowCounter": 0,
               "scoreSource": "cn",
@@ -607,7 +607,7 @@ exports[`VisualizationPage Should match existing snapshot when hooked up to a Re
                                 "includes": [Function],
                                 "indexRange": Object {
                                   "max": 1,
-                                  "min": 30000,
+                                  "min": 1,
                                 },
                                 "rowCounter": 0,
                                 "scoreSource": "cn",
@@ -644,20 +644,18 @@ exports[`VisualizationPage Should match existing snapshot when hooked up to a Re
                                 Array [
                                   Object {
                                     "marks": Object {
-                                      "-14999": "L/2",
-                                      "-29998": "L",
-                                      "-59996": "2L",
-                                      "-7500": "L/4",
-                                      "-89994": "3L",
                                       "0": "0",
+                                      "1": "L",
+                                      "2": "2L",
+                                      "3": "3L",
                                     },
                                     "name": "# Couplings to Display",
                                     "onChange": [Function],
                                     "type": "SLIDER",
                                     "values": Object {
-                                      "current": -14999,
-                                      "defaultValue": 100,
-                                      "max": -89994,
+                                      "current": 0,
+                                      "defaultValue": 0,
+                                      "max": 3,
                                       "min": 0,
                                     },
                                   },
@@ -696,7 +694,7 @@ exports[`VisualizationPage Should match existing snapshot when hooked up to a Re
                                     "includes": [Function],
                                     "indexRange": Object {
                                       "max": 1,
-                                      "min": 30000,
+                                      "min": 1,
                                     },
                                     "rowCounter": 0,
                                     "scoreSource": "cn",
@@ -717,10 +715,10 @@ exports[`VisualizationPage Should match existing snapshot when hooked up to a Re
                                       "color": Array [],
                                     },
                                     "mode": "lines+markers",
-                                    "name": "Inferred Contact",
+                                    "name": "Experimental Contact",
                                     "nodeSize": 4,
                                     "points": Array [],
-                                    "subtitle": "(N=-14999, L=-29998)",
+                                    "subtitle": "(N=0, L=1)",
                                     "text": Array [],
                                   },
                                   Object {
@@ -729,7 +727,7 @@ exports[`VisualizationPage Should match existing snapshot when hooked up to a Re
                                       "color": Array [],
                                     },
                                     "mode": "lines+markers",
-                                    "name": "Inferred Contact Agrees with X-ray Contact",
+                                    "name": "Inferred Contact Agrees with Experimental Contact",
                                     "nodeSize": 6,
                                     "points": Array [],
                                     "subtitle": "(N=0, NaN%)",
@@ -752,20 +750,18 @@ exports[`VisualizationPage Should match existing snapshot when hooked up to a Re
                                   Array [
                                     Object {
                                       "marks": Object {
-                                        "-14999": "L/2",
-                                        "-29998": "L",
-                                        "-59996": "2L",
-                                        "-7500": "L/4",
-                                        "-89994": "3L",
                                         "0": "0",
+                                        "1": "L",
+                                        "2": "2L",
+                                        "3": "3L",
                                       },
                                       "name": "# Couplings to Display",
                                       "onChange": [Function],
                                       "type": "SLIDER",
                                       "values": Object {
-                                        "current": -14999,
-                                        "defaultValue": 100,
-                                        "max": -89994,
+                                        "current": 0,
+                                        "defaultValue": 0,
+                                        "max": 3,
                                         "min": 0,
                                       },
                                     },
@@ -804,7 +800,7 @@ exports[`VisualizationPage Should match existing snapshot when hooked up to a Re
                                       "includes": [Function],
                                       "indexRange": Object {
                                         "max": 1,
-                                        "min": 30000,
+                                        "min": 1,
                                       },
                                       "rowCounter": 0,
                                       "scoreSource": "cn",
@@ -826,10 +822,10 @@ exports[`VisualizationPage Should match existing snapshot when hooked up to a Re
                                         "color": Array [],
                                       },
                                       "mode": "lines+markers",
-                                      "name": "Inferred Contact",
+                                      "name": "Experimental Contact",
                                       "nodeSize": 4,
                                       "points": Array [],
-                                      "subtitle": "(N=-14999, L=-29998)",
+                                      "subtitle": "(N=0, L=1)",
                                       "text": Array [],
                                     },
                                     Object {
@@ -838,7 +834,7 @@ exports[`VisualizationPage Should match existing snapshot when hooked up to a Re
                                         "color": Array [],
                                       },
                                       "mode": "lines+markers",
-                                      "name": "Inferred Contact Agrees with X-ray Contact",
+                                      "name": "Inferred Contact Agrees with Experimental Contact",
                                       "nodeSize": 6,
                                       "points": Array [],
                                       "subtitle": "(N=0, NaN%)",
@@ -890,20 +886,18 @@ exports[`VisualizationPage Should match existing snapshot when hooked up to a Re
                                             "Filters": Array [
                                               Object {
                                                 "marks": Object {
-                                                  "-14999": "L/2",
-                                                  "-29998": "L",
-                                                  "-59996": "2L",
-                                                  "-7500": "L/4",
-                                                  "-89994": "3L",
                                                   "0": "0",
+                                                  "1": "L",
+                                                  "2": "2L",
+                                                  "3": "3L",
                                                 },
                                                 "name": "# Couplings to Display",
                                                 "onChange": [Function],
                                                 "type": "SLIDER",
                                                 "values": Object {
-                                                  "current": -14999,
-                                                  "defaultValue": 100,
-                                                  "max": -89994,
+                                                  "current": 0,
+                                                  "defaultValue": 0,
+                                                  "max": 3,
                                                   "min": 0,
                                                 },
                                               },
@@ -943,7 +937,7 @@ exports[`VisualizationPage Should match existing snapshot when hooked up to a Re
                                             "Node Sizes": Array [
                                               Object {
                                                 "id": "node-size-slider-0",
-                                                "name": "Structure Contact (PDB)",
+                                                "name": "Structure Contact (Coupling Scores)",
                                                 "options": Array [
                                                   <Icon
                                                     as="i"
@@ -952,7 +946,7 @@ exports[`VisualizationPage Should match existing snapshot when hooked up to a Re
                                                     size="small"
                                                     style={
                                                       Object {
-                                                        "color": "rgb(12,50,102)",
+                                                        "color": "#0000ff",
                                                       }
                                                     }
                                                   />,
@@ -962,7 +956,7 @@ exports[`VisualizationPage Should match existing snapshot when hooked up to a Re
                                                     size="small"
                                                     style={
                                                       Object {
-                                                        "color": "rgb(12,50,102)",
+                                                        "color": "#0000ff",
                                                       }
                                                     }
                                                   />,
@@ -973,7 +967,7 @@ exports[`VisualizationPage Should match existing snapshot when hooked up to a Re
                                                     size="small"
                                                     style={
                                                       Object {
-                                                        "color": "rgb(12,50,102)",
+                                                        "color": "#0000ff",
                                                       }
                                                     }
                                                   />,
@@ -985,7 +979,7 @@ exports[`VisualizationPage Should match existing snapshot when hooked up to a Re
                                               },
                                               Object {
                                                 "id": "node-size-slider-1",
-                                                "name": "Inferred Contact",
+                                                "name": "Experimental Contact",
                                                 "options": Array [
                                                   <Icon
                                                     as="i"
@@ -1027,7 +1021,7 @@ exports[`VisualizationPage Should match existing snapshot when hooked up to a Re
                                               },
                                               Object {
                                                 "id": "node-size-slider-2",
-                                                "name": "Inferred Contact Agrees with X-ray Contact",
+                                                "name": "Inferred Contact Agrees with Experimental Contact",
                                                 "options": Array [
                                                   <Icon
                                                     as="i"
@@ -1163,20 +1157,18 @@ exports[`VisualizationPage Should match existing snapshot when hooked up to a Re
                                                     "Filters": Array [
                                                       Object {
                                                         "marks": Object {
-                                                          "-14999": "L/2",
-                                                          "-29998": "L",
-                                                          "-59996": "2L",
-                                                          "-7500": "L/4",
-                                                          "-89994": "3L",
                                                           "0": "0",
+                                                          "1": "L",
+                                                          "2": "2L",
+                                                          "3": "3L",
                                                         },
                                                         "name": "# Couplings to Display",
                                                         "onChange": [Function],
                                                         "type": "SLIDER",
                                                         "values": Object {
-                                                          "current": -14999,
-                                                          "defaultValue": 100,
-                                                          "max": -89994,
+                                                          "current": 0,
+                                                          "defaultValue": 0,
+                                                          "max": 3,
                                                           "min": 0,
                                                         },
                                                       },
@@ -1216,7 +1208,7 @@ exports[`VisualizationPage Should match existing snapshot when hooked up to a Re
                                                     "Node Sizes": Array [
                                                       Object {
                                                         "id": "node-size-slider-0",
-                                                        "name": "Structure Contact (PDB)",
+                                                        "name": "Structure Contact (Coupling Scores)",
                                                         "options": Array [
                                                           <Icon
                                                             as="i"
@@ -1225,7 +1217,7 @@ exports[`VisualizationPage Should match existing snapshot when hooked up to a Re
                                                             size="small"
                                                             style={
                                                               Object {
-                                                                "color": "rgb(12,50,102)",
+                                                                "color": "#0000ff",
                                                               }
                                                             }
                                                           />,
@@ -1235,7 +1227,7 @@ exports[`VisualizationPage Should match existing snapshot when hooked up to a Re
                                                             size="small"
                                                             style={
                                                               Object {
-                                                                "color": "rgb(12,50,102)",
+                                                                "color": "#0000ff",
                                                               }
                                                             }
                                                           />,
@@ -1246,7 +1238,7 @@ exports[`VisualizationPage Should match existing snapshot when hooked up to a Re
                                                             size="small"
                                                             style={
                                                               Object {
-                                                                "color": "rgb(12,50,102)",
+                                                                "color": "#0000ff",
                                                               }
                                                             }
                                                           />,
@@ -1258,7 +1250,7 @@ exports[`VisualizationPage Should match existing snapshot when hooked up to a Re
                                                       },
                                                       Object {
                                                         "id": "node-size-slider-1",
-                                                        "name": "Inferred Contact",
+                                                        "name": "Experimental Contact",
                                                         "options": Array [
                                                           <Icon
                                                             as="i"
@@ -1300,7 +1292,7 @@ exports[`VisualizationPage Should match existing snapshot when hooked up to a Re
                                                       },
                                                       Object {
                                                         "id": "node-size-slider-2",
-                                                        "name": "Inferred Contact Agrees with X-ray Contact",
+                                                        "name": "Inferred Contact Agrees with Experimental Contact",
                                                         "options": Array [
                                                           <Icon
                                                             as="i"
@@ -1767,52 +1759,16 @@ exports[`VisualizationPage Should match existing snapshot when hooked up to a Re
                                                   "colorscale": Array [
                                                     Array [
                                                       0,
-                                                      "rgb(12,50,102)",
-                                                    ],
-                                                    Array [
-                                                      0.1,
-                                                      "rgb(17,83,150)",
-                                                    ],
-                                                    Array [
-                                                      0.2,
-                                                      "rgb(40,114,175)",
-                                                    ],
-                                                    Array [
-                                                      0.3,
-                                                      "rgb(71,147,193)",
-                                                    ],
-                                                    Array [
-                                                      0.4,
-                                                      "rgb(111,175,209)",
-                                                    ],
-                                                    Array [
-                                                      0.5,
-                                                      "rgb(160,202,222)",
-                                                    ],
-                                                    Array [
-                                                      0.6,
-                                                      "rgb(200,219,237)",
-                                                    ],
-                                                    Array [
-                                                      0.7,
-                                                      "rgb(224,235,246)",
-                                                    ],
-                                                    Array [
-                                                      0.8,
-                                                      "rgb(247,251,255)",
-                                                    ],
-                                                    Array [
-                                                      0.9,
-                                                      "rgb(249,253,255)",
+                                                      "#0000ff",
                                                     ],
                                                     Array [
                                                       1,
-                                                      "rgb(255,255,255)",
+                                                      "rgb(247,251,255)",
                                                     ],
                                                   ],
                                                 },
                                                 "mode": "lines+markers",
-                                                "name": "Structure Contact (PDB)",
+                                                "name": "Structure Contact (Coupling Scores)",
                                                 "nodeSize": 4,
                                                 "points": Array [],
                                                 "subtitle": "Inferred Structure Contact",
@@ -1824,10 +1780,10 @@ exports[`VisualizationPage Should match existing snapshot when hooked up to a Re
                                                   "color": Array [],
                                                 },
                                                 "mode": "lines+markers",
-                                                "name": "Inferred Contact",
+                                                "name": "Experimental Contact",
                                                 "nodeSize": 4,
                                                 "points": Array [],
-                                                "subtitle": "(N=-14999, L=-29998)",
+                                                "subtitle": "(N=0, L=1)",
                                                 "text": Array [],
                                               },
                                               Object {
@@ -1836,7 +1792,7 @@ exports[`VisualizationPage Should match existing snapshot when hooked up to a Re
                                                   "color": Array [],
                                                 },
                                                 "mode": "lines+markers",
-                                                "name": "Inferred Contact Agrees with X-ray Contact",
+                                                "name": "Inferred Contact Agrees with Experimental Contact",
                                                 "nodeSize": 6,
                                                 "points": Array [],
                                                 "subtitle": "(N=0, NaN%)",
@@ -1878,7 +1834,7 @@ exports[`VisualizationPage Should match existing snapshot when hooked up to a Re
                                           onHoverCallback={[Function]}
                                           onSelectedCallback={[Function]}
                                           onUnHoverCallback={[Function]}
-                                          range={30001}
+                                          range={33000}
                                           secondaryStructures={Array []}
                                           selectedSecondaryStructures={
                                             Array [
@@ -1901,53 +1857,17 @@ exports[`VisualizationPage Should match existing snapshot when hooked up to a Re
                                                     "colorscale": Array [
                                                       Array [
                                                         0,
-                                                        "rgb(12,50,102)",
-                                                      ],
-                                                      Array [
-                                                        0.1,
-                                                        "rgb(17,83,150)",
-                                                      ],
-                                                      Array [
-                                                        0.2,
-                                                        "rgb(40,114,175)",
-                                                      ],
-                                                      Array [
-                                                        0.3,
-                                                        "rgb(71,147,193)",
-                                                      ],
-                                                      Array [
-                                                        0.4,
-                                                        "rgb(111,175,209)",
-                                                      ],
-                                                      Array [
-                                                        0.5,
-                                                        "rgb(160,202,222)",
-                                                      ],
-                                                      Array [
-                                                        0.6,
-                                                        "rgb(200,219,237)",
-                                                      ],
-                                                      Array [
-                                                        0.7,
-                                                        "rgb(224,235,246)",
-                                                      ],
-                                                      Array [
-                                                        0.8,
-                                                        "rgb(247,251,255)",
-                                                      ],
-                                                      Array [
-                                                        0.9,
-                                                        "rgb(249,253,255)",
+                                                        "#0000ff",
                                                       ],
                                                       Array [
                                                         1,
-                                                        "rgb(255,255,255)",
+                                                        "rgb(247,251,255)",
                                                       ],
                                                     ],
                                                     "size": 4,
                                                   },
                                                   "mode": "markers",
-                                                  "name": "Structure Contact (PDB) Inferred Structure Contact",
+                                                  "name": "Structure Contact (Coupling Scores) Inferred Structure Contact",
                                                   "text": Array [],
                                                   "type": "scattergl",
                                                   "x": Array [],
@@ -1961,7 +1881,7 @@ exports[`VisualizationPage Should match existing snapshot when hooked up to a Re
                                                     "size": 4,
                                                   },
                                                   "mode": "markers",
-                                                  "name": "Inferred Contact (N=-14999, L=-29998)",
+                                                  "name": "Experimental Contact (N=0, L=1)",
                                                   "text": Array [],
                                                   "type": "scattergl",
                                                   "x": Array [],
@@ -1975,7 +1895,7 @@ exports[`VisualizationPage Should match existing snapshot when hooked up to a Re
                                                     "size": 6,
                                                   },
                                                   "mode": "markers",
-                                                  "name": "Inferred Contact Agrees with X-ray Contact (N=0, NaN%)",
+                                                  "name": "Inferred Contact Agrees with Experimental Contact (N=0, NaN%)",
                                                   "text": Array [],
                                                   "type": "scattergl",
                                                   "x": Array [],
@@ -2022,7 +1942,7 @@ exports[`VisualizationPage Should match existing snapshot when hooked up to a Re
                                                   "nticks": 10,
                                                   "range": Array [
                                                     0,
-                                                    30001,
+                                                    33000,
                                                   ],
                                                   "rangemode": "nonnegative",
                                                   "showline": true,
@@ -2033,7 +1953,7 @@ exports[`VisualizationPage Should match existing snapshot when hooked up to a Re
                                                   "fixedrange": true,
                                                   "nticks": 10,
                                                   "range": Array [
-                                                    30001,
+                                                    33000,
                                                     0,
                                                   ],
                                                   "rangemode": "nonnegative",
@@ -3353,7 +3273,7 @@ exports[`VisualizationPage Should match existing snapshot when no props are prov
         "includes": [Function],
         "indexRange": Object {
           "max": 1,
-          "min": 30000,
+          "min": 1,
         },
         "rowCounter": 0,
         "scoreSource": "cn",
@@ -3475,7 +3395,7 @@ exports[`VisualizationPage Should match existing snapshot when no props are prov
                   "includes": [Function],
                   "indexRange": Object {
                     "max": 1,
-                    "min": 30000,
+                    "min": 1,
                   },
                   "rowCounter": 0,
                   "scoreSource": "cn",
@@ -3574,7 +3494,7 @@ exports[`VisualizationPage Should match existing snapshot when using c-alpha pro
         "includes": [Function],
         "indexRange": Object {
           "max": 1,
-          "min": 30000,
+          "min": 1,
         },
         "rowCounter": 0,
         "scoreSource": "cn",
@@ -3696,7 +3616,7 @@ exports[`VisualizationPage Should match existing snapshot when using c-alpha pro
                   "includes": [Function],
                   "indexRange": Object {
                     "max": 1,
-                    "min": 30000,
+                    "min": 1,
                   },
                   "rowCounter": 0,
                   "scoreSource": "cn",
@@ -3795,7 +3715,7 @@ exports[`VisualizationPage Should match existing snapshot when using closest pro
         "includes": [Function],
         "indexRange": Object {
           "max": 1,
-          "min": 30000,
+          "min": 1,
         },
         "rowCounter": 0,
         "scoreSource": "cn",
@@ -3917,7 +3837,7 @@ exports[`VisualizationPage Should match existing snapshot when using closest pro
                   "includes": [Function],
                   "indexRange": Object {
                     "max": 1,
-                    "min": 30000,
+                    "min": 1,
                   },
                   "rowCounter": 0,
                   "scoreSource": "cn",

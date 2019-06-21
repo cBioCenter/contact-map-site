@@ -2024,18 +2024,16 @@ binary-search-bounds@^2.0.3, binary-search-bounds@^2.0.4:
   resolved "https://registry.yarnpkg.com/binary-search-bounds/-/binary-search-bounds-2.0.4.tgz#eea0e4081da93baa851c7d851a7e636c3d51307f"
   integrity sha512-2hg5kgdKql5ClF2ErBcSx0U5bnl5hgS4v7wMnLFodyR47yMtj2w+UAZB+0CiqyHct2q543i7Bi4/aMIegorCCg==
 
-bioblocks-viz@^0.0.125:
-  version "0.0.125"
-  resolved "https://registry.yarnpkg.com/bioblocks-viz/-/bioblocks-viz-0.0.125.tgz#dee1a154985fac73d0e2c5810987795802402276"
-  integrity sha512-9hbS3A3x2ca0NXtAtA5O4vZuU8OW6+j22wabotA13kzU/FBDCAfH7+j7L0/P/dDvH5wBpNLSIFlV+rt/UfsvsQ==
+bioblocks-viz@^0.0.126:
+  version "0.0.126"
+  resolved "https://registry.yarnpkg.com/bioblocks-viz/-/bioblocks-viz-0.0.126.tgz#c7da095ee677427f0a69074b0f058ad8ae3c7dea"
+  integrity sha512-YsZIQKkCGGpOth1pd9df1y+E9BXrZq/Qk5TdokqECtRP4XHQo1/Vh3x1Jb6Tm4lKsVeJ+6ZlkxnG6JCfkjK7Gg==
   dependencies:
     "@tensorflow/tfjs" "^0.13.0"
     "@tensorflow/tfjs-core" "^0.13.0"
     "@tensorflow/tfjs-tsne" "^0.2.0"
     "@types/lodash" "^4.14.116"
     "@types/plotly.js" "^1.38.8"
-    "@types/react" "^16.4.7"
-    "@types/react-dom" "^16.0.5"
     anatomogram "^2.1.1"
     d3 "^5.9.2"
     immutable "^3.8.2"
