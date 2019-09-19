@@ -1,4 +1,4 @@
-import { BioblocksPDB, CONTACT_DISTANCE_PROXIMITY, Store, VIZ_TYPE } from 'bioblocks-viz';
+import { BioblocksPDB, CONTACT_DISTANCE_PROXIMITY, VIZ_TYPE } from 'bioblocks-viz';
 import { mount, shallow } from 'enzyme';
 import * as React from 'react';
 import { Provider } from 'react-redux';
@@ -20,8 +20,9 @@ describe('VisualizationPage', () => {
   });
 
   it('Should match existing snapshot when hooked up to a Redux store.', () => {
+    const store = configureStore();
     const wrapper = mount(
-      <Provider store={Store}>
+      <Provider store={store}>
         <VisualizationPage />
       </Provider>,
     );
@@ -96,28 +97,6 @@ describe('VisualizationPage', () => {
       await onDrop([pdbFile, residueMapFile, couplingFile], [], event);
       expect(instance.state.experimentalProteins).toEqual([]);
       expect(instance.state.predictedProteins).toHaveLength(1);
-    }
-  });
-
-  it('Should handle mismatches.', async () => {
-    const wrapper = shallow(<VisualizationPageClass />);
-    const instance = wrapper.instance() as VisualizationPageClass;
-    expect(instance.state.mismatches).toEqual([]);
-    const onDrop = wrapper.find(FolderUploadComponent).props().onDrop;
-    if (!onDrop) {
-      expect(onDrop).not.toBeUndefined();
-    } else {
-      const couplingScoresCsv =
-        '145,81,0.79312,7.5652,A,A,0.9,2.4,47,1.0,E,R\n\
-      179,66,0.78681,3.5872,A,A,0.9,1.3,37,1.0,T,M\n';
-
-      const event = new Event('drop');
-      const couplingFile = new File([couplingScoresCsv], 'CouplingScoresCompared_all.csv');
-      const pdbFile = new File([], 'sample.pdb');
-      const residueMapFile = new File([], 'residue_mapping.csv');
-
-      await onDrop([pdbFile, residueMapFile, couplingFile], [], event);
-      expect(instance.state.mismatches).not.toEqual([]);
     }
   });
 

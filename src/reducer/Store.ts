@@ -1,4 +1,4 @@
-import { BioblocksMiddleware, ReducerRegistry, Store } from 'bioblocks-viz';
+import { BBStore, BioblocksMiddleware, ReducerRegistry } from 'bioblocks-viz';
 import { connectRouter, routerMiddleware } from 'connected-react-router';
 import { createHashHistory } from 'history';
 import { Middleware } from 'redux';
@@ -16,5 +16,5 @@ middleWares.push(BioblocksMiddleware);
 ReducerRegistry.register('router', connectRouter(history) as any);
 
 export const configureStore = () => {
-  return Store;
+  return BBStore;
 };

@@ -92,10 +92,10 @@ export class VisualizationPageClass extends React.Component<IVisualizationPagePr
     if (
       pdbData &&
       (prevState.predictedProteins.length === 0 || prevState.predictedProteins[0] !== pdbData) &&
-      couplingScores !== prevState[VIZ_TYPE.CONTACT_MAP].couplingScores
+      (couplingScores !== prevState[VIZ_TYPE.CONTACT_MAP].couplingScores ||
+        pdbData !== prevState[VIZ_TYPE.CONTACT_MAP].pdbData)
     ) {
       newMismatches = getPDBAndCouplingMismatch(pdbData, couplingScores);
-
       if (newMismatches.length >= 1) {
         // tslint:disable: max-line-length
         errorMsg = `Error details: ${newMismatches.length} mismatch(es) detected between coupling scores and PDB!\
@@ -259,7 +259,7 @@ export class VisualizationPageClass extends React.Component<IVisualizationPagePr
   // tslint:disable-next-line: max-func-body-length
   protected onFolderUpload = async (files: IDropzoneFile[], rejectedFiles: IDropzoneFile[], event: DropEvent) => {
     this.onCloseUpload();
-    await this.onClearAll()();
+    // await this.onClearAll()();
 
     this.setState({
       experimentalProteins: [],
@@ -269,14 +269,17 @@ export class VisualizationPageClass extends React.Component<IVisualizationPagePr
     });
 
     let folderName: string = '';
-    let couplingFlag: boolean = false;
+    let couplingScores = this.state[VIZ_TYPE.CONTACT_MAP].couplingScores;
     let couplingScoresCSV: string = '';
+    let mismatches = this.state.mismatches;
     let pdbData: BioblocksPDB | undefined;
     let residueMapping: IResidueMapping[] = [];
     let secondaryStructures: SECONDARY_STRUCTURE_SECTION[] = [];
+    let couplingFlag: boolean = couplingScores.totalContacts >= 1 ? couplingScores.isDerivedFromCouplingScores : false;
 
     const experimentalProteins = new Array<BioblocksPDB>();
     const predictedProteins = new Array<BioblocksPDB>();
+    const couplingScoreFiles: Record<string, string> = {};
 
     for (const file of files) {
       if (file.name.endsWith('.pdb')) {
@@ -298,28 +301,11 @@ export class VisualizationPageClass extends React.Component<IVisualizationPagePr
           file.name.startsWith('residue_mapping')
         ) {
           residueMapping = generateResidueMapping(parsedFile);
-        } else if (file.name.includes('CouplingScoresCompared_all')) {
-          couplingScoresCSV = parsedFile;
+        } else if (file.name.endsWith('.csv') && file.name.includes('CouplingScores')) {
+          couplingScoreFiles[file.name] = parsedFile;
           couplingFlag = true;
         } else if (file.name.endsWith('distance_map_multimer.csv')) {
-          secondaryStructures = new Array<SECONDARY_STRUCTURE_SECTION>();
-          parsedFile
-            .split('\n')
-            .slice(1)
-            .filter(row => row.split(',').length >= 3)
-            .forEach(row => {
-              const items = row.split(',');
-              const resno = parseFloat(items[1]);
-              const structId = items[2] as keyof typeof SECONDARY_STRUCTURE_CODES;
-              if (
-                secondaryStructures[secondaryStructures.length - 1] &&
-                secondaryStructures[secondaryStructures.length - 1].label === structId
-              ) {
-                secondaryStructures[secondaryStructures.length - 1].updateEnd(resno);
-              } else {
-                secondaryStructures.push(new Bioblocks1DSection(structId, resno));
-              }
-            });
+          secondaryStructures = this.getSecondaryStructuresFromFile(parsedFile);
         }
         if (folderName.length === 0 && file.path) {
           const splitParts = file.path.split('/');
@@ -336,9 +322,9 @@ export class VisualizationPageClass extends React.Component<IVisualizationPagePr
       pdbData = experimentalProteins[0];
     }
 
-    let couplingScores = getCouplingScoresData(couplingScoresCSV, residueMapping);
-    let mismatches = new Array<IResidueMismatchResult>();
-
+    couplingScoresCSV = this.getCouplingsScoreFile(couplingScoreFiles);
+    couplingScores =
+      couplingScoresCSV.length >= 1 ? getCouplingScoresData(couplingScoresCSV, residueMapping) : couplingScores;
     if (pdbData) {
       if (couplingScores.rankedContacts.length === 0 || couplingScores.rankedContacts[0].dist === undefined) {
         couplingScores = pdbData.amendPDBWithCouplingScores(
@@ -347,6 +333,7 @@ export class VisualizationPageClass extends React.Component<IVisualizationPagePr
         );
       } else {
         mismatches = pdbData.getResidueNumberingMismatches(couplingScores);
+        console.log(mismatches);
       }
     }
     couplingScores.isDerivedFromCouplingScores = couplingFlag;
@@ -370,9 +357,54 @@ export class VisualizationPageClass extends React.Component<IVisualizationPagePr
     });
   };
 
+  protected getCouplingsScoreFile = (files: Record<string, string>) => {
+    const filenames = Object.keys(files);
+
+    const rankedFilenames = [
+      'CouplingScoresCompared_all',
+      'CouplingScores',
+      'CouplingScoresCompared_longrange',
+      'CouplingScores_longrange',
+      'CouplingScores_with_clashes',
+    ];
+
+    for (const name of rankedFilenames) {
+      for (const filename of filenames) {
+        if (filename.endsWith(`${name}.csv`)) {
+          return files[filename];
+        }
+      }
+    }
+
+    return filenames.length >= 1 ? files[filenames[0]] : '';
+  };
+
+  protected getSecondaryStructuresFromFile = (parsedFile: string) => {
+    const secondaryStructures = new Array<SECONDARY_STRUCTURE_SECTION>();
+    parsedFile
+      .split('\n')
+      .slice(1)
+      .filter(row => row.split(',').length >= 3)
+      .forEach(row => {
+        const items = row.split(',');
+        const resno = parseFloat(items[1]);
+        const structId = items[2] as keyof typeof SECONDARY_STRUCTURE_CODES;
+        if (
+          secondaryStructures[secondaryStructures.length - 1] &&
+          secondaryStructures[secondaryStructures.length - 1].label === structId
+        ) {
+          secondaryStructures[secondaryStructures.length - 1].updateEnd(resno);
+        } else {
+          secondaryStructures.push(new Bioblocks1DSection(structId, resno));
+        }
+      });
+
+    return secondaryStructures;
+  };
+
   protected onMeasuredProximityChange = () => (value: number) => {
     this.setState({
-      measuredProximity: Object.values(CONTACT_DISTANCE_PROXIMITY)[value] as CONTACT_DISTANCE_PROXIMITY,
+      measuredProximity: Object.values(CONTACT_DISTANCE_PROXIMITY)[value],
     });
   };
 }

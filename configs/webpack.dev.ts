@@ -1,11 +1,10 @@
-import { Config } from 'html-webpack-plugin';
 import * as webpack from 'webpack';
 import * as merge from 'webpack-merge';
 
 // tslint:disable-next-line:no-relative-imports
-import * as common from '../webpack.bioblocks-common';
+import * as generateCommonConfig from '../webpack.bioblocks-common';
 
-const devConfig: Config = {
+const devConfig = {
   devServer: {
     contentBase: './dist',
     hot: true,
@@ -23,4 +22,8 @@ const devConfig: Config = {
   ],
 };
 
-module.exports = merge(common, devConfig);
+module.exports = (env: webpack.Compiler.Handler, argv: webpack.Configuration) => {
+  // @ts-ignore
+  // tslint:disable-next-line: no-unsafe-any
+  return merge(generateCommonConfig(env, argv), devConfig);
+};
