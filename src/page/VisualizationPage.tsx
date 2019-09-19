@@ -92,10 +92,10 @@ export class VisualizationPageClass extends React.Component<IVisualizationPagePr
     if (
       pdbData &&
       (prevState.predictedProteins.length === 0 || prevState.predictedProteins[0] !== pdbData) &&
-      couplingScores !== prevState[VIZ_TYPE.CONTACT_MAP].couplingScores
+      (couplingScores !== prevState[VIZ_TYPE.CONTACT_MAP].couplingScores ||
+        pdbData !== prevState[VIZ_TYPE.CONTACT_MAP].pdbData)
     ) {
       newMismatches = getPDBAndCouplingMismatch(pdbData, couplingScores);
-
       if (newMismatches.length >= 1) {
         // tslint:disable: max-line-length
         errorMsg = `Error details: ${newMismatches.length} mismatch(es) detected between coupling scores and PDB!\
@@ -259,7 +259,7 @@ export class VisualizationPageClass extends React.Component<IVisualizationPagePr
   // tslint:disable-next-line: max-func-body-length
   protected onFolderUpload = async (files: IDropzoneFile[], rejectedFiles: IDropzoneFile[], event: DropEvent) => {
     this.onCloseUpload();
-    await this.onClearAll()();
+    // await this.onClearAll()();
 
     this.setState({
       experimentalProteins: [],
@@ -277,6 +277,7 @@ export class VisualizationPageClass extends React.Component<IVisualizationPagePr
 
     const experimentalProteins = new Array<BioblocksPDB>();
     const predictedProteins = new Array<BioblocksPDB>();
+    const couplingScoreFiles: Record<string, string> = {};
 
     for (const file of files) {
       if (file.name.endsWith('.pdb')) {
@@ -298,8 +299,9 @@ export class VisualizationPageClass extends React.Component<IVisualizationPagePr
           file.name.startsWith('residue_mapping')
         ) {
           residueMapping = generateResidueMapping(parsedFile);
-        } else if (file.name.includes('CouplingScoresCompared_all')) {
-          couplingScoresCSV = parsedFile;
+        } else if (file.name.endsWith('.csv') && file.name.includes('CouplingScores')) {
+          console.log(file.name);
+          couplingScoreFiles[file.name] = parsedFile;
           couplingFlag = true;
         } else if (file.name.endsWith('distance_map_multimer.csv')) {
           secondaryStructures = new Array<SECONDARY_STRUCTURE_SECTION>();
@@ -335,6 +337,8 @@ export class VisualizationPageClass extends React.Component<IVisualizationPagePr
     } else {
       pdbData = experimentalProteins[0];
     }
+
+    couplingScoresCSV = this.getCouplingsScoreFile(couplingScoreFiles);
 
     let couplingScores = getCouplingScoresData(couplingScoresCSV, residueMapping);
     let mismatches = new Array<IResidueMismatchResult>();
@@ -372,8 +376,32 @@ export class VisualizationPageClass extends React.Component<IVisualizationPagePr
 
   protected onMeasuredProximityChange = () => (value: number) => {
     this.setState({
-      measuredProximity: Object.values(CONTACT_DISTANCE_PROXIMITY)[value] as CONTACT_DISTANCE_PROXIMITY,
+      measuredProximity: Object.values(CONTACT_DISTANCE_PROXIMITY)[value],
     });
+  };
+
+  protected getCouplingsScoreFile = (files: Record<string, string>) => {
+    const filenames = Object.keys(files);
+
+    const rankedFilenames = [
+      'CouplingScoresCompared_all',
+      'CouplingScores',
+      'CouplingScoresCompared_longrange',
+      'CouplingScores_longrange',
+      'CouplingScores_with_clashes',
+    ];
+
+    console.log(files);
+
+    for (const name of rankedFilenames) {
+      for (const filename of filenames) {
+        if (filename.endsWith(`${name}.csv`)) {
+          return files[filename];
+        }
+      }
+    }
+
+    return '';
   };
 }
 

@@ -9,8 +9,11 @@ import * as webpack from 'webpack';
 // const TypedocWebpackPlugin = require('typedoc-webpack-plugin'); //
 
 import * as path from 'path';
-
-module.exports = {
+// tslint:disable-next-line: export-name  max-func-body-length
+export const generateCommonConfig = (
+  env: webpack.Compiler.Handler,
+  argv: webpack.Configuration,
+): webpack.Configuration => ({
   entry: {
     index: './index.tsx',
   },
@@ -36,6 +39,7 @@ module.exports = {
         },
       },
       {
+        include: [path.resolve(__dirname, 'node_modules/plotly.js')],
         // Needed for Plotly.js: https://github.com/plotly/plotly.js#building-plotlyjs-with-webpack
         loader: 'ify-loader',
         test: /\.js$/,
@@ -137,11 +141,17 @@ module.exports = {
   resolve: {
     alias: {
       ngl: path.resolve(__dirname, './node_modules/ngl/dist/ngl.esm.js'),
+      'plotly.js/lib/index': path.resolve(__dirname, './node_modules/plotly.js/dist/plotly.min.js'),
       'plotly.js/lib/index-gl2d': path.resolve(__dirname, './node_modules/plotly.js/dist/plotly-gl2d.min.js'),
+      'plotly.js/lib/index-gl3d': path.resolve(__dirname, './node_modules/plotly.js/dist/plotly-gl3d.min.js'),
       '~contact-map-site~': path.resolve(__dirname, './src'),
       '~contact-map-site~/component': path.resolve(__dirname, './src/component'),
     },
     extensions: ['.js', '.json', '.ts', '.tsx'],
     modules: [path.join(__dirname, 'src'), path.join(__dirname, 'types'), path.resolve('node_modules'), 'node_modules'],
   },
+});
+
+module.exports = (env: webpack.Compiler.Handler, argv: webpack.Configuration) => {
+  return generateCommonConfig(env, argv);
 };

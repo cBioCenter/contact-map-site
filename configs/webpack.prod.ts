@@ -1,30 +1,23 @@
-import * as TerserPlugin from 'terser-webpack-plugin';
 import * as webpack from 'webpack';
 import * as merge from 'webpack-merge';
 
 // tslint:disable-next-line:no-relative-imports
-import * as common from '../webpack.bioblocks-common';
+import * as generateCommonConfig from '../webpack.bioblocks-common';
 
-module.exports = merge(common, {
+const prodConfig = {
   mode: 'production',
   optimization: {
-    minimizer: [
-      new TerserPlugin({
-        minify: file => {
-          // Webpack recently switched to using terser for its minimizer.
-          // This introduced a weird bug with the contact map drawing faded points - needs further investigation.
-          // For now, we're using uglify-js which previously worked just fine.
-          // tslint:disable-next-line: no-require-imports no-unsafe-any
-          return require('uglify-js').minify(file);
-        },
-      }),
-    ],
+    minimize: true,
   },
   plugins: [
     new webpack.DefinePlugin({
-      'process.env': {
-        NODE_ENV: JSON.stringify('production'),
-      },
+      'process.env.NODE_ENV': JSON.stringify('production'),
     }),
   ],
-});
+};
+
+module.exports = (env: webpack.Compiler.Handler, argv: webpack.Configuration) => {
+  // @ts-ignore
+  // tslint:disable-next-line: no-unsafe-any
+  return merge(generateCommonConfig(env, argv), prodConfig);
+};
