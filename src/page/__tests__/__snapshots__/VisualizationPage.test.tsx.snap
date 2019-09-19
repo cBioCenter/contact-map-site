@@ -63,8 +63,14 @@ exports[`VisualizationPage Should match existing snapshot when given a PDB. 1`] 
     <Popup
       content="A file that ends as 'CouplingScores.csv'"
       disabled={false}
+      eventsEnabled={true}
       offset={0}
-      on="hover"
+      on={
+        Array [
+          "click",
+          "hover",
+        ]
+      }
       pinned={false}
       position="top left"
       trigger={
@@ -77,8 +83,14 @@ exports[`VisualizationPage Should match existing snapshot when given a PDB. 1`] 
     <Popup
       content="A .csv file that starts with 'residue_mapping' - or - A file that ends in .indextable / .indextableplus"
       disabled={false}
+      eventsEnabled={true}
       offset={0}
-      on="hover"
+      on={
+        Array [
+          "click",
+          "hover",
+        ]
+      }
       pinned={false}
       position="top left"
       trigger={
@@ -327,8 +339,14 @@ exports[`VisualizationPage Should match existing snapshot when hooked up to a Re
             <Popup
               content="A file that ends as 'CouplingScores.csv'"
               disabled={false}
+              eventsEnabled={true}
               offset={0}
-              on="hover"
+              on={
+                Array [
+                  "click",
+                  "hover",
+                ]
+              }
               pinned={false}
               position="top left"
               trigger={
@@ -340,6 +358,7 @@ exports[`VisualizationPage Should match existing snapshot when hooked up to a Re
               <Portal
                 closeOnDocumentClick={true}
                 closeOnEscape={true}
+                closeOnTriggerClick={true}
                 closeOnTriggerMouseLeave={true}
                 eventPool="default"
                 mouseEnterDelay={50}
@@ -386,8 +405,14 @@ exports[`VisualizationPage Should match existing snapshot when hooked up to a Re
             <Popup
               content="A .csv file that starts with 'residue_mapping' - or - A file that ends in .indextable / .indextableplus"
               disabled={false}
+              eventsEnabled={true}
               offset={0}
-              on="hover"
+              on={
+                Array [
+                  "click",
+                  "hover",
+                ]
+              }
               pinned={false}
               position="top left"
               trigger={
@@ -399,6 +424,7 @@ exports[`VisualizationPage Should match existing snapshot when hooked up to a Re
               <Portal
                 closeOnDocumentClick={true}
                 closeOnEscape={true}
+                closeOnTriggerClick={true}
                 closeOnTriggerMouseLeave={true}
                 eventPool="default"
                 mouseEnterDelay={50}
@@ -3415,8 +3441,14 @@ exports[`VisualizationPage Should match existing snapshot when no props are prov
     <Popup
       content="A file that ends as 'CouplingScores.csv'"
       disabled={false}
+      eventsEnabled={true}
       offset={0}
-      on="hover"
+      on={
+        Array [
+          "click",
+          "hover",
+        ]
+      }
       pinned={false}
       position="top left"
       trigger={
@@ -3429,8 +3461,14 @@ exports[`VisualizationPage Should match existing snapshot when no props are prov
     <Popup
       content="A .csv file that starts with 'residue_mapping' - or - A file that ends in .indextable / .indextableplus"
       disabled={false}
+      eventsEnabled={true}
       offset={0}
-      on="hover"
+      on={
+        Array [
+          "click",
+          "hover",
+        ]
+      }
       pinned={false}
       position="top left"
       trigger={
@@ -3638,8 +3676,14 @@ exports[`VisualizationPage Should match existing snapshot when using c-alpha pro
     <Popup
       content="A file that ends as 'CouplingScores.csv'"
       disabled={false}
+      eventsEnabled={true}
       offset={0}
-      on="hover"
+      on={
+        Array [
+          "click",
+          "hover",
+        ]
+      }
       pinned={false}
       position="top left"
       trigger={
@@ -3652,8 +3696,14 @@ exports[`VisualizationPage Should match existing snapshot when using c-alpha pro
     <Popup
       content="A .csv file that starts with 'residue_mapping' - or - A file that ends in .indextable / .indextableplus"
       disabled={false}
+      eventsEnabled={true}
       offset={0}
-      on="hover"
+      on={
+        Array [
+          "click",
+          "hover",
+        ]
+      }
       pinned={false}
       position="top left"
       trigger={
@@ -3861,8 +3911,14 @@ exports[`VisualizationPage Should match existing snapshot when using closest pro
     <Popup
       content="A file that ends as 'CouplingScores.csv'"
       disabled={false}
+      eventsEnabled={true}
       offset={0}
-      on="hover"
+      on={
+        Array [
+          "click",
+          "hover",
+        ]
+      }
       pinned={false}
       position="top left"
       trigger={
@@ -3875,8 +3931,14 @@ exports[`VisualizationPage Should match existing snapshot when using closest pro
     <Popup
       content="A .csv file that starts with 'residue_mapping' - or - A file that ends in .indextable / .indextableplus"
       disabled={false}
+      eventsEnabled={true}
       offset={0}
-      on="hover"
+      on={
+        Array [
+          "click",
+          "hover",
+        ]
+      }
       pinned={false}
       position="top left"
       trigger={

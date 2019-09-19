@@ -1,6 +1,5 @@
 import { BioblocksPDB, CONTACT_DISTANCE_PROXIMITY, VIZ_TYPE } from 'bioblocks-viz';
 import { mount, shallow } from 'enzyme';
-import * as path from 'path';
 import * as React from 'react';
 import { Provider } from 'react-redux';
 import { Button } from 'semantic-ui-react';
