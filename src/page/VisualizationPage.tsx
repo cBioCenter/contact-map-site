@@ -300,7 +300,6 @@ export class VisualizationPageClass extends React.Component<IVisualizationPagePr
         ) {
           residueMapping = generateResidueMapping(parsedFile);
         } else if (file.name.endsWith('.csv') && file.name.includes('CouplingScores')) {
-          console.log(file.name);
           couplingScoreFiles[file.name] = parsedFile;
           couplingFlag = true;
         } else if (file.name.endsWith('distance_map_multimer.csv')) {
@@ -391,8 +390,6 @@ export class VisualizationPageClass extends React.Component<IVisualizationPagePr
       'CouplingScores_with_clashes',
     ];
 
-    console.log(files);
-
     for (const name of rankedFilenames) {
       for (const filename of filenames) {
         if (filename.endsWith(`${name}.csv`)) {
@@ -401,7 +398,7 @@ export class VisualizationPageClass extends React.Component<IVisualizationPagePr
       }
     }
 
-    return '';
+    return filenames.length >= 1 ? files[filenames[0]] : '';
   };
 }
 
