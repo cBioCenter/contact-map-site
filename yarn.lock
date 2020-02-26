@@ -1137,6 +1137,11 @@
   resolved "https://registry.yarnpkg.com/@types/seedrandom/-/seedrandom-2.4.27.tgz#9db563937dd86915f69092bc43259d2f48578e41"
   integrity sha1-nbVjk33YaRX2kJK8QyWdL0hXjkE=
 
+"@types/signals@^1.0.1":
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/@types/signals/-/signals-1.0.1.tgz#03bef9a51a7e07b05984d9f44803ac99c1c7ceab"
+  integrity sha512-t6qsSE/nUiDN4MO5pZIR7XdhCNt0No0oJL1y1JSYovQL7+GvWzdBI0eD0ADZ2gW4Lg+CB4/d0j1nXe9lMpEHow==
+
 "@types/source-list-map@*":
   version "0.1.2"
   resolved "https://registry.yarnpkg.com/@types/source-list-map/-/source-list-map-0.1.2.tgz#0078836063ffaf17412349bba364087e0ac02ec9"
@@ -12267,6 +12272,11 @@ signal-exit@^3.0.0, signal-exit@^3.0.2:
   version "3.0.2"
   resolved "https://registry.yarnpkg.com/signal-exit/-/signal-exit-3.0.2.tgz#b5fdc08f1287ea1178628e415e25132b73646c6d"
   integrity sha1-tf3AjxKH6hF4Yo5BXiUTK3NkbG0=
+
+signals@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/signals/-/signals-1.0.0.tgz#65f0c1599352b35372ecaae5a250e6107376ed69"
+  integrity sha1-ZfDBWZNSs1Ny7KrlolDmEHN27Wk=
 
 signum@^0.0.0:
   version "0.0.0"

@@ -1,3 +1,5 @@
+import { StructureView, ViewerControls } from 'ngl';
+
 // tslint:disable:max-classes-per-file no-reserved-keywords
 declare module 'ngl' {
   import { Signal } from 'signals';
@@ -13,6 +15,7 @@ declare module 'ngl' {
     | 'base'
     | 'cartoon'
     | 'contact'
+    | 'default'
     | 'dihedral'
     | 'distance'
     | 'helixorient'
@@ -109,12 +112,15 @@ declare module 'ngl' {
     public annotationList: Annotation[];
     public controls: ComponentControls;
     public matrix: Matrix4;
-    public object: any;
+    public object: Record<string, any>;
     public parameters: IComponentParameters;
     public position: Vector3;
     public quaternion: Quaternion;
     public reprList: RepresentationElement[];
     public scale: Vector3;
+    public structure: Structure;
+    public structureView: StructureView;
+    public viewerControls: ViewerControls;
 
     /** Events emitted by the component. */
     public readonly signals: {
@@ -150,7 +156,7 @@ declare module 'ngl' {
     public addAnnotation(position: Vector3, content: string | HTMLElement, params: IAnnotationParams): Annotation;
 
     public addBufferRepresentation(buffer: any, params: any): any;
-    public addRepresentation(type: any, params: any): any;
+    public addRepresentation(type: any, params?: any): any;
 
     /**
      * Automatically center and zoom the component.
