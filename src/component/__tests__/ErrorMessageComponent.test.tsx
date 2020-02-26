@@ -1,5 +1,6 @@
 import { AminoAcid, BioblocksPDB, CouplingContainer, IResidueMismatchResult } from 'bioblocks-viz';
 import { shallow } from 'enzyme';
+import * as NGL from 'ngl';
 import * as React from 'react';
 
 import { ErrorMessageComponent } from '~contact-map-site~/component';
@@ -16,19 +17,19 @@ describe('ErrorMessageComponent', () => {
   });
 
   it('Should be empty when pdb is available but no mismatches present.', async () => {
-    const pdbData = await BioblocksPDB.createPDB('sample.pdb');
+    const pdbData = BioblocksPDB.createPDBFromNGLData((await NGL.autoLoad('sample.pdb')) as NGL.Structure);
     const wrapper = shallow(<ErrorMessageComponent pdbData={pdbData} />);
     expect(wrapper).toMatchSnapshot();
   });
 
   it('Should print error message when pdb is available but no mismatches present.', async () => {
-    const pdbData = await BioblocksPDB.createPDB('sample.pdb');
+    const pdbData = BioblocksPDB.createPDBFromNGLData((await NGL.autoLoad('sample.pdb')) as NGL.Structure);
     const wrapper = shallow(<ErrorMessageComponent errorMsg={"Where'd You Go"} pdbData={pdbData} />);
     expect(wrapper).toMatchSnapshot();
   });
 
   it('Should print mismatches when they and PDB are present.', async () => {
-    const pdbData = await BioblocksPDB.createPDB('sample.pdb');
+    const pdbData = BioblocksPDB.createPDBFromNGLData((await NGL.autoLoad('sample.pdb')) as NGL.Structure);
     const couplingScores: CouplingContainer = new CouplingContainer([
       { A_i: 'A', A_j: 'D', i: 1, j: 2 },
       { A_i: 'C', A_j: 'F', i: 2, j: 1 },
