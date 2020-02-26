@@ -1,8 +1,15 @@
+// ~contact-map-site~
+// Visualization Page
+// The page where the Contact Map visualizations are displayed and new data can be uploaded.
+// ~contact-map-site~
+
 import {
   Bioblocks1DSection,
   BioblocksPDB,
+  connectWithBBStore,
   CONTACT_DISTANCE_PROXIMITY,
   CONTACT_MAP_DATA_TYPE,
+  ContactMapContainer,
   CouplingContainer,
   createContainerActions,
   createResiduePairActions,
@@ -13,14 +20,12 @@ import {
   IResidueMapping,
   IResidueMismatchResult,
   NGLContainer,
-  PredictedContactMap,
   readFileAsText,
   SECONDARY_STRUCTURE_CODES,
   SECONDARY_STRUCTURE_SECTION,
   VIZ_TYPE,
 } from 'bioblocks-viz';
 import * as React from 'react';
-import { connect } from 'react-redux';
 import { bindActionCreators, Dispatch } from 'redux';
 import { Button, Grid, GridColumn, GridRow, Message, Modal, Popup, Segment } from 'semantic-ui-react';
 
@@ -204,7 +209,7 @@ export class VisualizationPageClass extends React.Component<IVisualizationPagePr
     const { isLoading, 'Contact Map': contactMapState } = this.state;
 
     return (
-      <PredictedContactMap
+      <ContactMapContainer
         data={{
           couplingScores: contactMapState.couplingScores,
           pdbData: { experimental: contactMapState.pdbData ? contactMapState.pdbData.experimental : undefined },
@@ -425,7 +430,4 @@ const mapDispatchToProps = (dispatch: Dispatch) =>
     dispatch,
   );
 
-export const VisualizationPage = connect(
-  null,
-  mapDispatchToProps,
-)(VisualizationPageClass);
+export const VisualizationPage = connectWithBBStore(EMPTY_FUNCTION, mapDispatchToProps, VisualizationPageClass);

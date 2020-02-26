@@ -1,12 +1,11 @@
-import { BioblocksPDB, CONTACT_DISTANCE_PROXIMITY, VIZ_TYPE } from 'bioblocks-viz';
-import { mount, shallow } from 'enzyme';
+import { CONTACT_DISTANCE_PROXIMITY, VIZ_TYPE } from 'bioblocks-viz';
+import { shallow } from 'enzyme';
+import * as NGL from 'ngl';
 import * as React from 'react';
-import { Provider } from 'react-redux';
 import { Button } from 'semantic-ui-react';
 
 import { FolderUploadComponent } from '~contact-map-site~/component';
 import { VisualizationPage, VisualizationPageClass } from '~contact-map-site~/page';
-import { configureStore } from '~contact-map-site~/reducer';
 
 describe('VisualizationPage', () => {
   beforeEach(() => {
@@ -20,17 +19,12 @@ describe('VisualizationPage', () => {
   });
 
   it('Should match existing snapshot when hooked up to a Redux store.', () => {
-    const store = configureStore();
-    const wrapper = mount(
-      <Provider store={store}>
-        <VisualizationPage />
-      </Provider>,
-    );
+    const wrapper = shallow(<VisualizationPage />);
     expect(wrapper).toMatchSnapshot();
   });
 
   it('Should match existing snapshot when given a PDB.', async () => {
-    const pdbData = await BioblocksPDB.createPDB('sample.pdb');
+    const pdbData = await NGL.autoLoad('sample.pdb');
     const wrapper = shallow(<VisualizationPageClass />);
     wrapper.setState({
       pdbData,
@@ -39,7 +33,7 @@ describe('VisualizationPage', () => {
   });
 
   it('Should match existing snapshot when using closest proximity.', async () => {
-    const pdbData = await BioblocksPDB.createPDB('sample.pdb');
+    const pdbData = await NGL.autoLoad('sample.pdb');
     const wrapper = shallow(<VisualizationPageClass />);
     wrapper.setState({
       measuredProximity: CONTACT_DISTANCE_PROXIMITY.CLOSEST,
@@ -49,7 +43,7 @@ describe('VisualizationPage', () => {
   });
 
   it('Should match existing snapshot when using c-alpha proximity.', async () => {
-    const pdbData = await BioblocksPDB.createPDB('sample.pdb');
+    const pdbData = await NGL.autoLoad('sample.pdb');
     const wrapper = shallow(<VisualizationPageClass />);
     wrapper.setState({
       measuredProximity: CONTACT_DISTANCE_PROXIMITY.C_ALPHA,
@@ -123,23 +117,14 @@ describe('VisualizationPage', () => {
   });
 
   it('Should call the right functions when clearing data.', () => {
-    const store = configureStore();
-    store.dispatch = jest.fn();
-
-    const wrapper = mount(
-      <Provider store={store}>
-        <VisualizationPage />
-      </Provider>,
-    );
+    const clearSpy = jest.fn();
+    const wrapper = shallow(<VisualizationPageClass clearAllSecondaryStructures={clearSpy} />);
 
     wrapper
       .find(Button)
       .at(0)
       .simulate('click');
 
-    expect((store.dispatch as jest.Mock).mock.calls).toEqual([
-      [{ meta: undefined, payload: undefined, type: 'BIOBLOCKS/RESIDUEPAIR/LOCKED_CLEAR' }],
-      [{ meta: undefined, payload: undefined, type: 'BIOBLOCKS/SECONDARYSTRUCTURE/SELECTED_CLEAR' }],
-    ]);
+    expect(clearSpy).toHaveBeenCalled();
   });
 });

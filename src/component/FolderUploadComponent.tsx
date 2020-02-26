@@ -1,3 +1,8 @@
+// ~contact-map-site~
+// Folder Upload Component
+// This component appears when you drag a file/directory onto the site, handling that interaction.
+// ~contact-map-site~
+
 import * as React from 'react';
 // tslint:disable-next-line: import-name
 import Dropzone, { DropEvent } from 'react-dropzone';
