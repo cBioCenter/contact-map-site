@@ -1,3 +1,8 @@
+// ~contact-map-site~
+// Error Message Component
+// Renders an error message with details, if available.
+// ~contact-map-site~
+
 import { BioblocksPDB, CouplingContainer, IResidueMismatchResult } from 'bioblocks-viz';
 import * as React from 'react';
 import { Accordion, Message } from 'semantic-ui-react';

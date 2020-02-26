@@ -1,3 +1,8 @@
+// ~contact-map-site~
+// Visualization Page
+// The page where the Contact Map visualizations are displayed and new data can be uploaded.
+// ~contact-map-site~
+
 import {
   Bioblocks1DSection,
   BioblocksPDB,

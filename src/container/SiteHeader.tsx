@@ -1,3 +1,8 @@
+// ~contact-map-site~
+// Site Header
+// Nice little component to hold the header for the site.
+// ~contact-map-site~
+
 import * as React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
@@ -27,7 +32,7 @@ export class UnconnectedSiteHeader extends React.Component<ISiteHeaderProps, ISi
     });
   }
 
-  public componentDidUpdate(prevProps: ISiteHeaderProps) {
+  public componentDidUpdate() {
     if (this.props.pathname && this.props.pathname !== this.state.currentPageName) {
       this.setState({
         currentPageName: this.props.pathname,
