@@ -205,7 +205,7 @@
     "jest-enzyme": "^7.1.1",
     "jest-fetch-mock": "^2.1.2",
     "jest-junit": "^8.0.0",
-    "jsdom": "^15.1.1",
+    "jsdom": "^16.5.0",
     "lint-staged": "^8.0.3",
     "markdownlint-cli": "^0.18.0",
     "mini-css-extract-plugin": "^0.8.0",
